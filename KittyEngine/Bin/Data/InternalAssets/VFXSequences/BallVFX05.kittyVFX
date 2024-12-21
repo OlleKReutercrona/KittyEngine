@@ -1,0 +1,680 @@
+{
+    "duration": 120,
+    "meshes": [
+        {
+            "albedo": "Data\\Assets\\Godman\\Textures\\TGA\\godmanbodyscan_c.dds",
+            "effects": "Data/Assets/Materials/DEFAULT_fx.dds",
+            "material": "Data/Assets/Materials/DEFAULT_m.dds",
+            "name": "Data/Assets/Models/1x1Plane.fbx",
+            "normal": "Data/Assets/Materials/DEFAULT_n.dds",
+            "pixelShader": "ScriptPS_ballVFX",
+            "vertexShader": "Shaders/Model_VFX_VS.cso"
+        },
+        {
+            "albedo": "Data\\Assets\\UI\\05 Score board\\UI_scorboard_dot_tga.dds",
+            "effects": "Data/EngineAssets/KEDefault_fx.dds",
+            "material": "Data/EngineAssets/KEDefault_m.dds",
+            "name": "Data/ProjectAssets/vfxPlane.fbx",
+            "normal": "Data/EngineAssets/KEDefault_n.dds",
+            "pixelShader": "Shaders/Model_VFX_PS.cso",
+            "vertexShader": "Shaders/Model_VFX_VS.cso"
+        }
+    ],
+    "name": "BallVFX05",
+    "particleEmitters": [
+        {
+            "particleCapacity": 1024,
+            "particleMode": 1,
+            "particleTexture": "Data\\Assets\\UI\\05 Score board\\UI_scorboard_God.dds",
+            "sharedParticleAttributes": {
+                "accelerationDegradation": 0.0,
+                "accelerationMax": 1.0,
+                "accelerationMin": 0.0,
+                "angleMax": 360.0,
+                "angleMin": 0.0,
+                "burstCountMax": 1,
+                "burstCountMin": 1,
+                "burstTimeMax": 0.20000000298023224,
+                "burstTimeMin": 0.10000000149011612,
+                "endColor": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "endSize": 0.0,
+                "horizontalVelocityFactor": 0.0,
+                "lifeTimeMax": 1.0,
+                "lifeTimeMidPoint": 0.5,
+                "lifeTimeMin": 0.5,
+                "midColor": [
+                    0.15657436847686768,
+                    1.0,
+                    0.044117629528045654,
+                    1.0
+                ],
+                "midSize": 1.0,
+                "startColor": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "startSize": 1.0,
+                "velocityDegradation": 0.0,
+                "velocityMax": 1.0,
+                "velocityMin": 1.0,
+                "verticalVelocityFactor": 0.0
+            }
+        },
+        {
+            "particleCapacity": 1024,
+            "particleMode": 1,
+            "particleTexture": "Data\\InternalAssets\\circle.dds",
+            "sharedParticleAttributes": {
+                "accelerationDegradation": 0.0,
+                "accelerationMax": 0.0,
+                "accelerationMin": 0.0,
+                "angleMax": 0.0,
+                "angleMin": 0.0,
+                "burstCountMax": 1,
+                "burstCountMin": 1,
+                "burstTimeMax": 0.0010000000474974513,
+                "burstTimeMin": 0.0010000000474974513,
+                "endColor": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "endSize": 0.0,
+                "horizontalVelocityFactor": 0.0,
+                "lifeTimeMax": 0.10000000149011612,
+                "lifeTimeMidPoint": 0.5,
+                "lifeTimeMin": 0.10000000149011612,
+                "midColor": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "midSize": 1.0,
+                "startColor": [
+                    0.11555223912000656,
+                    0.09611686319112778,
+                    0.12254899740219116,
+                    1.0
+                ],
+                "startSize": 1.0,
+                "velocityDegradation": 0.0,
+                "velocityMax": 0.0,
+                "velocityMin": 0.0,
+                "verticalVelocityFactor": 0.0
+            }
+        }
+    ],
+    "timestamps": [
+        {
+            "curves": [
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 11,
+                    "curveProfile": 3,
+                    "maxValue": 1.0,
+                    "minValue": 0.0,
+                    "points": [
+                        {
+                            "x": 0.0,
+                            "y": 0.2265625
+                        },
+                        {
+                            "x": 1.0,
+                            "y": 0.2265625
+                        }
+                    ]
+                },
+                {
+                    "curveAttribute": 12,
+                    "curveProfile": 3,
+                    "maxValue": 1.0,
+                    "minValue": 0.0,
+                    "points": [
+                        {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        {
+                            "x": 1.0,
+                            "y": 0.0
+                        }
+                    ]
+                },
+                {
+                    "curveAttribute": 13,
+                    "curveProfile": 3,
+                    "maxValue": 1.0,
+                    "minValue": 0.0,
+                    "points": [
+                        {
+                            "x": 0.0,
+                            "y": 0.625
+                        },
+                        {
+                            "x": 1.0,
+                            "y": 0.625
+                        }
+                    ]
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                }
+            ],
+            "effectIndex": 0,
+            "end": 120,
+            "start": 0,
+            "type": 1
+        },
+        {
+            "curves": [
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 6,
+                    "curveProfile": 2,
+                    "maxValue": 720.0,
+                    "minValue": 0.0,
+                    "points": [
+                        {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        {
+                            "x": 1.0,
+                            "y": 1.0
+                        }
+                    ]
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 8,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 2.0,
+                    "points": [
+                        {
+                            "x": 0.0,
+                            "y": 0.5
+                        },
+                        {
+                            "x": 1.0,
+                            "y": 0.5
+                        }
+                    ]
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 10,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 2.0,
+                    "points": [
+                        {
+                            "x": 0.0,
+                            "y": 0.5
+                        },
+                        {
+                            "x": 1.0,
+                            "y": 0.5
+                        }
+                    ]
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                }
+            ],
+            "effectIndex": 1,
+            "end": 120,
+            "start": 0,
+            "type": 1
+        },
+        {
+            "curves": [
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                }
+            ],
+            "effectIndex": 0,
+            "end": 120,
+            "start": 0,
+            "type": 0
+        },
+        {
+            "curves": [
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                }
+            ],
+            "effectIndex": 1,
+            "end": 120,
+            "start": 0,
+            "type": 0
+        }
+    ]
+}

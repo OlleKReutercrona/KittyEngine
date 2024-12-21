@@ -1,0 +1,103 @@
+{
+  "Scenes": [
+    {
+      "name": "AAAA_MainMenu.json",
+      "build_id": 0,
+      "cubemap": "t_spaceSkybox.dds",
+      "ambientIndex" : -1,
+      "musicIndex" : 3
+    },
+    {
+      "name": "Select.json",
+      "build_id": 1,
+      "cubemap": "",
+      "ambientIndex" : -1,
+      "musicIndex" : -1
+    },
+    {
+      "name": "Tutorial.json",
+      "build_id": 2,
+      "cubemap": "t_spaceSkybox.dds",
+      "ambientIndex" : 1,
+      "musicIndex" : 1
+    },
+    {
+      "name": "Victory.json",
+      "build_id": 3,
+      "cubemap": "",
+      "ambientIndex" : -1,
+      "musicIndex" : 4
+    },
+    {
+      "name": "Little Planet.json",
+      "build_id": 4,
+      "cubemap": "t_spaceSkybox.dds",
+      "ambientIndex" : 0,
+      "musicIndex" : 0
+    },
+    {
+      "name": "The Crater.json",
+      "build_id": 5,
+      "cubemap": "t_spaceSkybox.dds",
+      "ambientIndex" : 0,
+      "musicIndex" : 0
+    },
+    {
+      "name": "Purple Planes.json",
+      "build_id": 6,
+      "cubemap": "t_spaceSkybox.dds",
+      "ambientIndex" : 0,
+      "musicIndex" : 0
+    },
+    {
+      "name": "Grasslands.json",
+      "build_id": 7,
+      "cubemap": "t_spaceSkybox.dds",
+      "ambientIndex" : 0,
+      "musicIndex" : 0
+    },
+    {
+      "name": "The Bridge.json",
+      "build_id": 8,
+      "cubemap": "t_spaceSkybox.dds",
+      "ambientIndex" : 0,
+      "musicIndex" : 0
+    },
+    {
+      "name": "Lily Lake.json",
+      "build_id": 9,
+      "cubemap": "t_spaceSkybox.dds",
+      "ambientIndex" : 1,
+      "musicIndex" : 1
+    },
+    {
+      "name": "Green Grove.json",
+      "build_id": 10,
+      "cubemap": "t_spaceSkybox.dds",
+      "ambientIndex" : 1,
+      "musicIndex" : 1
+    },
+    {
+      "name": "Wishing Well.json",
+      "build_id": 11,
+      "cubemap": "t_spaceSkybox.dds",
+      "ambientIndex" : 1,
+      "musicIndex" : 1
+    },
+    {
+      "name": "Messy Mansion.json",
+      "build_id": 12,
+      "cubemap": "t_spoopySkybox.dds",
+      "ambientIndex" : 2,
+      "musicIndex" : 2
+    },
+    {
+      "name": "Courtyard.json",
+      "build_id": 13,
+      "cubemap": "t_spoopySkybox.dds",
+      "ambientIndex" : 2,
+      "musicIndex" : 2
+    }
+    
+  ]
+}

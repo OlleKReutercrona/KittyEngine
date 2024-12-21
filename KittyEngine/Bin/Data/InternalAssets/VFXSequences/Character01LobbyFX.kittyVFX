@@ -1,0 +1,407 @@
+{
+    "duration": 12,
+    "meshes": [
+        {
+            "albedo": "Data\\EngineAssets\\KEDefault_c.dds",
+            "effects": "Data/Assets/Materials/DEFAULT_fx.dds",
+            "material": "Data/Assets/Materials/DEFAULT_m.dds",
+            "name": "Data\\ProjectAssets\\vfxSphere.fbx",
+            "normal": "Data/Assets/Materials/DEFAULT_n.dds",
+            "pixelShader": "Shaders/Model_VFX_PS.cso",
+            "vertexShader": "Shaders/Model_VFX_VS.cso"
+        },
+        {
+            "albedo": "Data\\Assets\\Materials\\Lobby\\Char01BG.dds",
+            "effects": "Data/EngineAssets/KEDefault_fx.dds",
+            "material": "Data/EngineAssets/KEDefault_m.dds",
+            "name": "Data/Assets/Models/1x1Plane.fbx",
+            "normal": "Data/EngineAssets/KEDefault_n.dds",
+            "pixelShader": "Shaders/Model_VFX_PS.cso",
+            "vertexShader": "Shaders/Model_VFX_VS.cso"
+        }
+    ],
+    "name": "Character01LobbyFX",
+    "particleEmitters": [],
+    "timestamps": [
+        {
+            "curves": [
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 3,
+                    "curveProfile": 3,
+                    "maxValue": 1.0,
+                    "minValue": -1.0,
+                    "points": [
+                        {
+                            "x": 0.0,
+                            "y": 0.5
+                        },
+                        {
+                            "x": 1.0,
+                            "y": 0.5
+                        }
+                    ]
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 5,
+                    "curveProfile": 3,
+                    "maxValue": 360.0,
+                    "minValue": 0.0,
+                    "points": [
+                        {
+                            "x": 0.0,
+                            "y": 0.53125
+                        },
+                        {
+                            "x": 1.0,
+                            "y": 0.53125
+                        }
+                    ]
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 8,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": [
+                        {
+                            "x": 0.0,
+                            "y": 0.3385416567325592
+                        },
+                        {
+                            "x": 1.0,
+                            "y": 0.3385416567325592
+                        }
+                    ]
+                },
+                {
+                    "curveAttribute": 9,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": [
+                        {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        {
+                            "x": 1.0,
+                            "y": 0.0
+                        }
+                    ]
+                },
+                {
+                    "curveAttribute": 10,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": [
+                        {
+                            "x": 0.0,
+                            "y": 0.4548611044883728
+                        },
+                        {
+                            "x": 1.0,
+                            "y": 0.4548611044883728
+                        }
+                    ]
+                },
+                {
+                    "curveAttribute": 11,
+                    "curveProfile": 3,
+                    "maxValue": 1.0,
+                    "minValue": 0.0,
+                    "points": [
+                        {
+                            "x": 0.0,
+                            "y": 0.078125
+                        },
+                        {
+                            "x": 1.0,
+                            "y": 0.078125
+                        }
+                    ]
+                },
+                {
+                    "curveAttribute": 12,
+                    "curveProfile": 3,
+                    "maxValue": 1.0,
+                    "minValue": 0.0,
+                    "points": [
+                        {
+                            "x": 0.0,
+                            "y": 0.078125
+                        },
+                        {
+                            "x": 1.0,
+                            "y": 0.078125
+                        }
+                    ]
+                },
+                {
+                    "curveAttribute": 13,
+                    "curveProfile": 3,
+                    "maxValue": 1.0,
+                    "minValue": 0.0,
+                    "points": [
+                        {
+                            "x": 0.0,
+                            "y": 0.0625
+                        },
+                        {
+                            "x": 1.0,
+                            "y": 0.0625
+                        }
+                    ]
+                },
+                {
+                    "curveAttribute": 14,
+                    "curveProfile": 3,
+                    "maxValue": 1.0,
+                    "minValue": 0.0,
+                    "points": [
+                        {
+                            "x": 0.0,
+                            "y": 0.4583333134651184
+                        },
+                        {
+                            "x": 1.0,
+                            "y": 0.4583333134651184
+                        }
+                    ]
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                }
+            ],
+            "effectIndex": 0,
+            "end": 12,
+            "start": 0,
+            "type": 1
+        },
+        {
+            "curves": [
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 3,
+                    "curveProfile": 3,
+                    "maxValue": 1.0,
+                    "minValue": -1.0,
+                    "points": [
+                        {
+                            "x": 0.0,
+                            "y": 0.6484375
+                        },
+                        {
+                            "x": 1.0,
+                            "y": 0.6484375
+                        }
+                    ]
+                },
+                {
+                    "curveAttribute": 4,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": -2.0,
+                    "points": [
+                        {
+                            "x": 0.0,
+                            "y": 0.359375
+                        },
+                        {
+                            "x": 1.0,
+                            "y": 0.359375
+                        }
+                    ]
+                },
+                {
+                    "curveAttribute": 5,
+                    "curveProfile": 3,
+                    "maxValue": 90.0,
+                    "minValue": 90.0,
+                    "points": [
+                        {
+                            "x": 0.0,
+                            "y": 0.6640625
+                        },
+                        {
+                            "x": 1.0,
+                            "y": 0.6640625
+                        }
+                    ]
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 8,
+                    "curveProfile": 3,
+                    "maxValue": 2.049999952316284,
+                    "minValue": 0.0,
+                    "points": [
+                        {
+                            "x": 0.0,
+                            "y": 0.5
+                        },
+                        {
+                            "x": 1.0,
+                            "y": 0.5
+                        }
+                    ]
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 10,
+                    "curveProfile": 3,
+                    "maxValue": 2.049999952316284,
+                    "minValue": 0.0,
+                    "points": [
+                        {
+                            "x": 0.0,
+                            "y": 0.5
+                        },
+                        {
+                            "x": 1.0,
+                            "y": 0.5
+                        }
+                    ]
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                }
+            ],
+            "effectIndex": 1,
+            "end": 12,
+            "start": 0,
+            "type": 1
+        }
+    ]
+}

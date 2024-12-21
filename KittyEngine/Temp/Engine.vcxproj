@@ -1,0 +1,753 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug - Moggie|x64">
+      <Configuration>Debug - Moggie</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release - Hybrid|x64">
+      <Configuration>Release - Hybrid</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Ship - Purebreed|x64">
+      <Configuration>Ship - Purebreed</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{DBC7D3B0-C769-FE86-B024-12DB9C6585D7}</ProjectGuid>
+    <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Engine</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug - Moggie|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release - Hybrid|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Ship - Purebreed|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug - Moggie|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release - Hybrid|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Ship - Purebreed|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug - Moggie|x64'">
+    <OutDir>IntermediateLib\</OutDir>
+    <IntDir>Engine\Debug - Moggie\</IntDir>
+    <TargetName>KittyEngine_Debug - Moggie</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release - Hybrid|x64'">
+    <OutDir>IntermediateLib\</OutDir>
+    <IntDir>Engine\Release - Hybrid\</IntDir>
+    <TargetName>KittyEngine_Release - Hybrid</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Ship - Purebreed|x64'">
+    <OutDir>IntermediateLib\</OutDir>
+    <IntDir>Engine\Ship - Purebreed\</IntDir>
+    <TargetName>KittyEngine_Ship - Purebreed</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug - Moggie|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <DisableSpecificWarnings>4100;4505;4514;4189;26819;26800;5056;26495;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <PreprocessorDefinitions>KE_MAX_LIGHTS=16;KE_MAX_BONES=128;GAME_NAME=L"Intergalactic Ball Throwing Championship With Friends ツ";KITTYENGINE_DEBUG;K_FBXSDK;FBXSDK_SHARED;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\External\Include;..\Engine\Source;..;..\Engine\Source\pch;..\External\Include\physx;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <MinimalRebuild>false</MinimalRebuild>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <FxCompile>
+      <PreprocessorDefinitions>KE_MAX_LIGHTS=16;KE_MAX_BONES=128;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\Engine\Source\Graphics\Shaders;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ShaderModel>5.0</ShaderModel>
+    </FxCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>DXGI.lib;XAudio2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalOptions>/ignore:4006 /ignore:4099 %(AdditionalOptions)</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release - Hybrid|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <DisableSpecificWarnings>4100;4505;4514;4189;26819;26800;5056;26495;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <PreprocessorDefinitions>KE_MAX_LIGHTS=16;KE_MAX_BONES=128;GAME_NAME=L"Intergalactic Ball Throwing Championship With Friends ツ";KITTYENGINE_RELEASE;K_FBXSDK;FBXSDK_SHARED;NDEBUG;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\External\Include;..\Engine\Source;..;..\Engine\Source\pch;..\External\Include\physx;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <FxCompile>
+      <PreprocessorDefinitions>KE_MAX_LIGHTS=16;KE_MAX_BONES=128;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\Engine\Source\Graphics\Shaders;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ShaderModel>5.0</ShaderModel>
+    </FxCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>DXGI.lib;XAudio2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalOptions>/ignore:4006 /ignore:4099 %(AdditionalOptions)</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Ship - Purebreed|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <DisableSpecificWarnings>4100;4505;4514;4189;26819;26800;5056;26495;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <PreprocessorDefinitions>KE_MAX_LIGHTS=16;KE_MAX_BONES=128;GAME_NAME=L"Intergalactic Ball Throwing Championship With Friends ツ";KITTYENGINE_SHIP;KITTYENGINE_NO_EDITOR;LOLKITTYENGINE_STANDALONE_EDITOR;K_FBXSDK;FBXSDK_SHARED;NDEBUG;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\External\Include;..\Engine\Source;..;..\Engine\Source\pch;..\External\Include\physx;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <FxCompile>
+      <PreprocessorDefinitions>KE_MAX_LIGHTS=16;KE_MAX_BONES=128;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\Engine\Source\Graphics\Shaders;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ShaderModel>5.0</ShaderModel>
+    </FxCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>DXGI.lib;XAudio2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalOptions>/ignore:4006 /ignore:4099 %(AdditionalOptions)</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Engine\Source\AI\BehaviourTree\BehaviourTree.h" />
+    <ClInclude Include="..\Engine\Source\AI\BehaviourTree\BehaviourTreeBuilder.h" />
+    <ClInclude Include="..\Engine\Source\AI\BehaviourTree\Blackboard.h" />
+    <ClInclude Include="..\Engine\Source\AI\BehaviourTree\TreeNode.h" />
+    <ClInclude Include="..\Engine\Source\AI\Pathfinding\NavGrid.h" />
+    <ClInclude Include="..\Engine\Source\AI\Pathfinding\NavNode.h" />
+    <ClInclude Include="..\Engine\Source\AI\Pathfinding\Navmesh.h" />
+    <ClInclude Include="..\Engine\Source\AI\Pathfinding\Pathfinder.h" />
+    <ClInclude Include="..\Engine\Source\AI\SteeringController\Align.h" />
+    <ClInclude Include="..\Engine\Source\AI\SteeringController\Arrive.h" />
+    <ClInclude Include="..\Engine\Source\AI\SteeringController\Face.h" />
+    <ClInclude Include="..\Engine\Source\AI\SteeringController\Kinematic.h" />
+    <ClInclude Include="..\Engine\Source\AI\SteeringController\Seek.h" />
+    <ClInclude Include="..\Engine\Source\AI\SteeringController\Separation.h" />
+    <ClInclude Include="..\Engine\Source\AI\SteeringController\SharedKinematic.h" />
+    <ClInclude Include="..\Engine\Source\AI\SteeringController\SteeringController.h" />
+    <ClInclude Include="..\Engine\Source\AI\SteeringController\SteeringOutput.h" />
+    <ClInclude Include="..\Engine\Source\Audio\AudioInstance.h" />
+    <ClInclude Include="..\Engine\Source\Audio\AudioPlayer.h" />
+    <ClInclude Include="..\Engine\Source\Audio\AudioWrapper.h" />
+    <ClInclude Include="..\Engine\Source\Audio\GlobalAudio.h" />
+    <ClInclude Include="..\Engine\Source\Audio\XAudio2Helpers.h" />
+    <ClInclude Include="..\Engine\Source\Build\BuildManager.h" />
+    <ClInclude Include="..\Engine\Source\Collision\Collider.h" />
+    <ClInclude Include="..\Engine\Source\Collision\CollisionData.h" />
+    <ClInclude Include="..\Engine\Source\Collision\CollisionHandler.h" />
+    <ClInclude Include="..\Engine\Source\Collision\Intersection.h" />
+    <ClInclude Include="..\Engine\Source\Collision\Layers.h" />
+    <ClInclude Include="..\Engine\Source\Collision\PhysicsCharacterController.h" />
+    <ClInclude Include="..\Engine\Source\Collision\PhysicsObject.h" />
+    <ClInclude Include="..\Engine\Source\Collision\RaycastHandler.h" />
+    <ClInclude Include="..\Engine\Source\Collision\Shape.h" />
+    <ClInclude Include="..\Engine\Source\ComponentSystem\Components\AttachComponent.h" />
+    <ClInclude Include="..\Engine\Source\ComponentSystem\Components\Collider\BoxColliderComponent.h" />
+    <ClInclude Include="..\Engine\Source\ComponentSystem\Components\Collider\CapsuleColliderComponent.h" />
+    <ClInclude Include="..\Engine\Source\ComponentSystem\Components\Collider\SphereColliderComponent.h" />
+    <ClInclude Include="..\Engine\Source\ComponentSystem\Components\Component.h" />
+    <ClInclude Include="..\Engine\Source\ComponentSystem\Components\Graphics\CameraComponent.h" />
+    <ClInclude Include="..\Engine\Source\ComponentSystem\Components\Graphics\DecalComponent.h" />
+    <ClInclude Include="..\Engine\Source\ComponentSystem\Components\Graphics\ModelComponent.h" />
+    <ClInclude Include="..\Engine\Source\ComponentSystem\Components\Graphics\PostProcessingComponent.h" />
+    <ClInclude Include="..\Engine\Source\ComponentSystem\Components\Graphics\ShellTexturingComponent.h" />
+    <ClInclude Include="..\Engine\Source\ComponentSystem\Components\Graphics\SkeletalModelComponent.h" />
+    <ClInclude Include="..\Engine\Source\ComponentSystem\Components\Graphics\VFXComponent.h" />
+    <ClInclude Include="..\Engine\Source\ComponentSystem\Components\LightComponent.h" />
+    <ClInclude Include="..\Engine\Source\ComponentSystem\Components\SceneTransitionComponent.h" />
+    <ClInclude Include="..\Engine\Source\ComponentSystem\Components\ScriptComponent.h" />
+    <ClInclude Include="..\Engine\Source\ComponentSystem\Components\TestComponent.h" />
+    <ClInclude Include="..\Engine\Source\ComponentSystem\Components\TransformComponent.h" />
+    <ClInclude Include="..\Engine\Source\ComponentSystem\GameObject.h" />
+    <ClInclude Include="..\Engine\Source\ComponentSystem\GameObjectManager.h" />
+    <ClInclude Include="..\Engine\Source\Files\GUIFile.h" />
+    <ClInclude Include="..\Engine\Source\Files\KittyMesh.h" />
+    <ClInclude Include="..\Engine\Source\Files\LeMeowFile.h" />
+    <ClInclude Include="..\Engine\Source\Files\PawFile.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\Animation\AnimationData.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\Animation\AnimationPlayer.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\AssetLoader\AssetLoader.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\CBuffer.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\Camera.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\CameraManager.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\DebugLine.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\DebugRenderer.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\Decals\DecalManager.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\DeferredRenderTarget.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\DepthBuffer.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\DistanceFog.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\FX\VFX.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\FullscreenAsset.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\GBuffer.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\Graphics.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\GraphicsConstants.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\Lighting\DeferredLightManager.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\Lighting\DeferredPointLight.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\Lighting\LightManager.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\Lighting\Lighting.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\ModelData.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\ModelLoader.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\Particle\ParticleEmitter.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\PostProcessAttributes.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\PostProcessing.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\Primitives\CapsulePrimitive.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\Primitives\CubePrimitive.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\Primitives\SpherePrimitive.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\RenderLayer.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\RenderTarget.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\Renderers\BasicRenderer.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\Renderers\DecalRenderer.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\Renderers\InstancedRenderer.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\Renderers\Renderer.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\Renderers\ShellTexturedRenderer.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\Renderers\SkeletalRenderer.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\Renderers\VFXRenderer.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\SSAO.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\Shader.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\ShaderLoader.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\Skybox\Skybox.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\SplashScreen.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\Sprite\Sprite.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\Sprite\SpriteManager.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\Text\Text.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\Text\TextStyling.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\Texture\Texture.h" />
+    <ClInclude Include="..\Engine\Source\Graphics\Texture\TextureLoader.h" />
+    <ClInclude Include="..\Engine\Source\Input\Gamepad.h" />
+    <ClInclude Include="..\Engine\Source\Input\Input.h" />
+    <ClInclude Include="..\Engine\Source\Input\InputEvents.h" />
+    <ClInclude Include="..\Engine\Source\Input\InputHandler.h" />
+    <ClInclude Include="..\Engine\Source\Input\InputWrapper.h" />
+    <ClInclude Include="..\Engine\Source\Input\UserInput.h" />
+    <ClInclude Include="..\Engine\Source\LevelImporter\LevelImporter.h" />
+    <ClInclude Include="..\Engine\Source\LevelImporter\NavmeshBuilder.h" />
+    <ClInclude Include="..\Engine\Source\LevelImporter\PrefabHandler.h" />
+    <ClInclude Include="..\Engine\Source\Math\AABB2D.h" />
+    <ClInclude Include="..\Engine\Source\Math\AABB3D.h" />
+    <ClInclude Include="..\Engine\Source\Math\Circle.h" />
+    <ClInclude Include="..\Engine\Source\Math\KittyMath.h" />
+    <ClInclude Include="..\Engine\Source\Math\Line.h" />
+    <ClInclude Include="..\Engine\Source\Math\Matrix3x3.h" />
+    <ClInclude Include="..\Engine\Source\Math\Matrix4x4.h" />
+    <ClInclude Include="..\Engine\Source\Math\Plane.h" />
+    <ClInclude Include="..\Engine\Source\Math\Ray.h" />
+    <ClInclude Include="..\Engine\Source\Math\Sphere.h" />
+    <ClInclude Include="..\Engine\Source\Math\Transform.h" />
+    <ClInclude Include="..\Engine\Source\Math\Vector.h" />
+    <ClInclude Include="..\Engine\Source\Math\Vector2.h" />
+    <ClInclude Include="..\Engine\Source\Math\Vector3.h" />
+    <ClInclude Include="..\Engine\Source\Math\Vector4.h" />
+    <ClInclude Include="..\Engine\Source\Reflection\Reflection.h" />
+    <ClInclude Include="..\Engine\Source\SceneManagement\Scene.h" />
+    <ClInclude Include="..\Engine\Source\SceneManagement\SceneManager.h" />
+    <ClInclude Include="..\Engine\Source\Script\CodeNode.h" />
+    <ClInclude Include="..\Engine\Source\Script\CodeScriptParser.h" />
+    <ClInclude Include="..\Engine\Source\Script\HLSLDefiner.h" />
+    <ClInclude Include="..\Engine\Source\Script\LanguageData.h" />
+    <ClInclude Include="..\Engine\Source\Script\Node.h" />
+    <ClInclude Include="..\Engine\Source\Script\NodeDatabase.h" />
+    <ClInclude Include="..\Engine\Source\Script\Script.h" />
+    <ClInclude Include="..\Engine\Source\Script\ScriptExecution.h" />
+    <ClInclude Include="..\Engine\Source\Script\ScriptManager.h" />
+    <ClInclude Include="..\Engine\Source\UI\GUIBox.h" />
+    <ClInclude Include="..\Engine\Source\UI\GUIElement.h" />
+    <ClInclude Include="..\Engine\Source\UI\GUIEvents.h" />
+    <ClInclude Include="..\Engine\Source\UI\GUIHandler.h" />
+    <ClInclude Include="..\Engine\Source\UI\GUIScene.h" />
+    <ClInclude Include="..\Engine\Source\UI\GUITooltip.h" />
+    <ClInclude Include="..\Engine\Source\UI\Minimap.h" />
+    <ClInclude Include="..\Engine\Source\Utility\BinaryIO.h" />
+    <ClInclude Include="..\Engine\Source\Utility\DebugTimeLogger.h" />
+    <ClInclude Include="..\Engine\Source\Utility\Event.h" />
+    <ClInclude Include="..\Engine\Source\Utility\EventSystem.h" />
+    <ClInclude Include="..\Engine\Source\Utility\FileWatcher.h" />
+    <ClInclude Include="..\Engine\Source\Utility\Global.h" />
+    <ClInclude Include="..\Engine\Source\Utility\KittyArray.h" />
+    <ClInclude Include="..\Engine\Source\Utility\Logging.h" />
+    <ClInclude Include="..\Engine\Source\Utility\Randomizer.h" />
+    <ClInclude Include="..\Engine\Source\Utility\StringUtils.h" />
+    <ClInclude Include="..\Engine\Source\Utility\Tags.h" />
+    <ClInclude Include="..\Engine\Source\Utility\Timer.h" />
+    <ClInclude Include="..\Engine\Source\Windows\KittyEngineWin.h" />
+    <ClInclude Include="..\Engine\Source\Windows\Window.h" />
+    <ClInclude Include="..\Engine\Source\pch\stdafx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Engine\Source\AI\BehaviourTree\BehaviourTree.cpp" />
+    <ClCompile Include="..\Engine\Source\AI\BehaviourTree\BehaviourTreeBuilder.cpp" />
+    <ClCompile Include="..\Engine\Source\AI\Pathfinding\NavGrid.cpp" />
+    <ClCompile Include="..\Engine\Source\AI\Pathfinding\Navmesh.cpp" />
+    <ClCompile Include="..\Engine\Source\AI\Pathfinding\Pathfinder.cpp" />
+    <ClCompile Include="..\Engine\Source\Audio\AudioInstance.cpp" />
+    <ClCompile Include="..\Engine\Source\Audio\AudioPlayer.cpp" />
+    <ClCompile Include="..\Engine\Source\Audio\AudioWrapper.cpp" />
+    <ClCompile Include="..\Engine\Source\Audio\GlobalAudio.cpp" />
+    <ClCompile Include="..\Engine\Source\Audio\XAudio2Helpers.cpp" />
+    <ClCompile Include="..\Engine\Source\Build\BuildManager.cpp" />
+    <ClCompile Include="..\Engine\Source\Collision\Collider.cpp" />
+    <ClCompile Include="..\Engine\Source\Collision\CollisionHandler.cpp" />
+    <ClCompile Include="..\Engine\Source\Collision\PhysicsCharacterController.cpp" />
+    <ClCompile Include="..\Engine\Source\Collision\RaycastHandler.cpp" />
+    <ClCompile Include="..\Engine\Source\ComponentSystem\Components\AttachComponent.cpp" />
+    <ClCompile Include="..\Engine\Source\ComponentSystem\Components\Collider\BoxColliderComponent.cpp" />
+    <ClCompile Include="..\Engine\Source\ComponentSystem\Components\Collider\CapsuleColliderComponent.cpp" />
+    <ClCompile Include="..\Engine\Source\ComponentSystem\Components\Collider\SphereColliderComponent.cpp" />
+    <ClCompile Include="..\Engine\Source\ComponentSystem\Components\Component.cpp" />
+    <ClCompile Include="..\Engine\Source\ComponentSystem\Components\Graphics\CameraComponent.cpp" />
+    <ClCompile Include="..\Engine\Source\ComponentSystem\Components\Graphics\DecalComponent.cpp" />
+    <ClCompile Include="..\Engine\Source\ComponentSystem\Components\Graphics\ModelComponent.cpp" />
+    <ClCompile Include="..\Engine\Source\ComponentSystem\Components\Graphics\PostProcessingComponent.cpp" />
+    <ClCompile Include="..\Engine\Source\ComponentSystem\Components\Graphics\ShellTexturingComponent.cpp" />
+    <ClCompile Include="..\Engine\Source\ComponentSystem\Components\Graphics\SkeletalModelComponent.cpp" />
+    <ClCompile Include="..\Engine\Source\ComponentSystem\Components\Graphics\VFXComponent.cpp" />
+    <ClCompile Include="..\Engine\Source\ComponentSystem\Components\LightComponent.cpp" />
+    <ClCompile Include="..\Engine\Source\ComponentSystem\Components\SceneTransitionComponent.cpp" />
+    <ClCompile Include="..\Engine\Source\ComponentSystem\Components\ScriptComponent.cpp" />
+    <ClCompile Include="..\Engine\Source\ComponentSystem\Components\TestComponent.cpp" />
+    <ClCompile Include="..\Engine\Source\ComponentSystem\GameObject.cpp" />
+    <ClCompile Include="..\Engine\Source\ComponentSystem\GameObjectManager.cpp" />
+    <ClCompile Include="..\Engine\Source\Files\GUIFile.cpp" />
+    <ClCompile Include="..\Engine\Source\Files\KittyMesh.cpp" />
+    <ClCompile Include="..\Engine\Source\Files\LeMeowFile.cpp" />
+    <ClCompile Include="..\Engine\Source\Files\PawFile.cpp" />
+    <ClCompile Include="..\Engine\Source\Graphics\Animation\AnimationPlayer.cpp" />
+    <ClCompile Include="..\Engine\Source\Graphics\AssetLoader\AssetLoader.cpp" />
+    <ClCompile Include="..\Engine\Source\Graphics\CBuffer.cpp" />
+    <ClCompile Include="..\Engine\Source\Graphics\Camera.cpp" />
+    <ClCompile Include="..\Engine\Source\Graphics\CameraManager.cpp" />
+    <ClCompile Include="..\Engine\Source\Graphics\DebugLine.cpp" />
+    <ClCompile Include="..\Engine\Source\Graphics\DebugRenderer.cpp" />
+    <ClCompile Include="..\Engine\Source\Graphics\Decals\DecalManager.cpp" />
+    <ClCompile Include="..\Engine\Source\Graphics\DeferredRenderTarget.cpp" />
+    <ClCompile Include="..\Engine\Source\Graphics\DepthBuffer.cpp" />
+    <ClCompile Include="..\Engine\Source\Graphics\DistanceFog.cpp" />
+    <ClCompile Include="..\Engine\Source\Graphics\FX\VFX.cpp" />
+    <ClCompile Include="..\Engine\Source\Graphics\FullscreenAsset.cpp" />
+    <ClCompile Include="..\Engine\Source\Graphics\GBuffer.cpp" />
+    <ClCompile Include="..\Engine\Source\Graphics\Graphics.cpp" />
+    <ClCompile Include="..\Engine\Source\Graphics\Lighting\DeferredLightManager.cpp" />
+    <ClCompile Include="..\Engine\Source\Graphics\Lighting\DeferredPointLight.cpp" />
+    <ClCompile Include="..\Engine\Source\Graphics\Lighting\LightManager.cpp" />
+    <ClCompile Include="..\Engine\Source\Graphics\ModelLoader.cpp" />
+    <ClCompile Include="..\Engine\Source\Graphics\Particle\ParticleEmitter.cpp" />
+    <ClCompile Include="..\Engine\Source\Graphics\PostProcessing.cpp" />
+    <ClCompile Include="..\Engine\Source\Graphics\Primitives\CapsulePrimitive.cpp" />
+    <ClCompile Include="..\Engine\Source\Graphics\Primitives\CubePrimitive.cpp" />
+    <ClCompile Include="..\Engine\Source\Graphics\Primitives\SpherePrimitive.cpp" />
+    <ClCompile Include="..\Engine\Source\Graphics\RenderLayer.cpp" />
+    <ClCompile Include="..\Engine\Source\Graphics\RenderTarget.cpp" />
+    <ClCompile Include="..\Engine\Source\Graphics\Renderers\BasicRenderer.cpp" />
+    <ClCompile Include="..\Engine\Source\Graphics\Renderers\DecalRenderer.cpp" />
+    <ClCompile Include="..\Engine\Source\Graphics\Renderers\InstancedRenderer.cpp" />
+    <ClCompile Include="..\Engine\Source\Graphics\Renderers\ShellTexturedRenderer.cpp" />
+    <ClCompile Include="..\Engine\Source\Graphics\Renderers\SkeletalRenderer.cpp" />
+    <ClCompile Include="..\Engine\Source\Graphics\Renderers\VFXRenderer.cpp" />
+    <ClCompile Include="..\Engine\Source\Graphics\SSAO.cpp" />
+    <ClCompile Include="..\Engine\Source\Graphics\Shader.cpp" />
+    <ClCompile Include="..\Engine\Source\Graphics\ShaderLoader.cpp" />
+    <ClCompile Include="..\Engine\Source\Graphics\Skybox\Skybox.cpp" />
+    <ClCompile Include="..\Engine\Source\Graphics\SplashScreen.cpp" />
+    <ClCompile Include="..\Engine\Source\Graphics\Sprite\SpriteManager.cpp" />
+    <ClCompile Include="..\Engine\Source\Graphics\Text\Text.cpp" />
+    <ClCompile Include="..\Engine\Source\Graphics\Texture\Texture.cpp" />
+    <ClCompile Include="..\Engine\Source\Graphics\Texture\TextureLoader.cpp" />
+    <ClCompile Include="..\Engine\Source\Input\Gamepad.cpp" />
+    <ClCompile Include="..\Engine\Source\Input\InputHandler.cpp" />
+    <ClCompile Include="..\Engine\Source\Input\InputWrapper.cpp" />
+    <ClCompile Include="..\Engine\Source\Input\UserInput.cpp" />
+    <ClCompile Include="..\Engine\Source\LevelImporter\LevelImporter.cpp" />
+    <ClCompile Include="..\Engine\Source\LevelImporter\NavmeshBuilder.cpp" />
+    <ClCompile Include="..\Engine\Source\LevelImporter\PrefabHandler.cpp" />
+    <ClCompile Include="..\Engine\Source\Reflection\Reflection.cpp" />
+    <ClCompile Include="..\Engine\Source\SceneManagement\Scene.cpp" />
+    <ClCompile Include="..\Engine\Source\SceneManagement\SceneManager.cpp" />
+    <ClCompile Include="..\Engine\Source\Script\CodeNode.cpp" />
+    <ClCompile Include="..\Engine\Source\Script\CodeScriptParser.cpp" />
+    <ClCompile Include="..\Engine\Source\Script\HLSLDefiner.cpp" />
+    <ClCompile Include="..\Engine\Source\Script\LanguageData.cpp" />
+    <ClCompile Include="..\Engine\Source\Script\Node.cpp" />
+    <ClCompile Include="..\Engine\Source\Script\NodeDatabase.cpp" />
+    <ClCompile Include="..\Engine\Source\Script\Script.cpp" />
+    <ClCompile Include="..\Engine\Source\Script\ScriptExecution.cpp" />
+    <ClCompile Include="..\Engine\Source\Script\ScriptManager.cpp" />
+    <ClCompile Include="..\Engine\Source\UI\GUIBox.cpp" />
+    <ClCompile Include="..\Engine\Source\UI\GUIElement.cpp" />
+    <ClCompile Include="..\Engine\Source\UI\GUIHandler.cpp" />
+    <ClCompile Include="..\Engine\Source\UI\GUIScene.cpp" />
+    <ClCompile Include="..\Engine\Source\UI\GUITooltip.cpp" />
+    <ClCompile Include="..\Engine\Source\UI\Minimap.cpp" />
+    <ClCompile Include="..\Engine\Source\Utility\BinaryIO.cpp" />
+    <ClCompile Include="..\Engine\Source\Utility\DebugTimeLogger.cpp" />
+    <ClCompile Include="..\Engine\Source\Utility\FileWatcher.cpp" />
+    <ClCompile Include="..\Engine\Source\Utility\Randomizer.cpp" />
+    <ClCompile Include="..\Engine\Source\Utility\StringUtils.cpp" />
+    <ClCompile Include="..\Engine\Source\Utility\Timer.cpp" />
+    <ClCompile Include="..\Engine\Source\Windows\Window.cpp" />
+    <ClCompile Include="..\Engine\Source\pch\stdafx.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\ComputeShaders\SSAO_CS.hlsl">
+      <ShaderType>Compute</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Debug\DebugLine_Behind_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Debug\DebugLine_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Debug\DebugLine_VS.hlsl">
+      <ShaderType>Vertex</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Debug\FullscreenDebugLine_VS.hlsl">
+      <ShaderType>Vertex</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Debug\OutlineRenderer_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Debug\OutlineRenderer_VS.hlsl">
+      <ShaderType>Vertex</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Fullscreen\BloomPreProcess_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Fullscreen\BlurFullscreen_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Fullscreen\DownSample_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Fullscreen\FullscreenAsset_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Fullscreen\FullscreenAsset_VS.hlsl">
+      <ShaderType>Vertex</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Fullscreen\Gaussian_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Fullscreen\PostProcessing_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Fullscreen\PostProcessing_VS.hlsl">
+      <ShaderType>Vertex</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Fullscreen\SSAO_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Fullscreen\SSAO_VS.hlsl">
+      <ShaderType>Vertex</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Fullscreen\SplashScreen_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Fullscreen\UpDownSample_VS.hlsl">
+      <ShaderType>Vertex</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Fullscreen\UpSample_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Lights\DeferredDirectionalLight_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Lights\DeferredLight_VS.hlsl">
+      <ShaderType>Vertex</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Lights\DeferredPointLight_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Lights\DeferredSpotLight_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Model\Explosion_VFX_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Model\Model_Deferred_Instanced_VS.hlsl">
+      <ShaderType>Vertex</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Model\Model_Deferred_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Model\Model_Deferred_Skeletal_VS.hlsl">
+      <ShaderType>Vertex</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Model\Model_Deferred_VS.hlsl">
+      <ShaderType>Vertex</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Model\Model_PBR_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Model\Model_PBR_VS.hlsl">
+      <ShaderType>Vertex</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Model\Model_Shadow_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Model\Model_Tooltip_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Model\Model_Tooltip_VS.hlsl">
+      <ShaderType>Vertex</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Model\Model_VFX_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Model\Model_VFX_VS.hlsl">
+      <ShaderType>Vertex</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Model\Model_Whiteout_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Model\Player_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Other\CubemapProjection_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Other\Decal_Deferred_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Other\Decal_Deferred_VS.hlsl">
+      <ShaderType>Vertex</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Other\DeferredShellTexturing_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Other\DisplacementFade_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Other\Displacement_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Other\DistanceFog_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Other\ModelViewer_Ground_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Other\PondWater_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Other\PondWater_VS.hlsl">
+      <ShaderType>Vertex</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Other\RenderLayerCompositor_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Other\SDFRendering_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Other\ShellTexturing_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Other\ShellTexturing_VS.hlsl">
+      <ShaderType>Vertex</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Other\Skybox_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Other\Skybox_Preview_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Other\Skybox_VS.hlsl">
+      <ShaderType>Vertex</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Other\Sprite_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Other\Sprite_VS.hlsl">
+      <ShaderType>Vertex</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Other\Trap_Preview_VFX_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Other\Water_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\Other\Water_VS.hlsl">
+      <ShaderType>Vertex</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\VFX\BattleArea_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\VFX\BloomPreProcess_VFX_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\VFX\DownSample_VFX_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\VFX\FullscreenAsset_VFX_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\VFX\FullscreenAsset_VFX_VS.hlsl">
+      <ShaderType>Vertex</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\VFX\Gaussian_VFX_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\VFX\Particle_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\VFX\PostProcessing_VFX_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\VFX\PostProcessing_VFX_VS.hlsl">
+      <ShaderType>Vertex</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\VFX\UpDownSample_VFX_VS.hlsl">
+      <ShaderType>Vertex</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="..\Engine\Source\Graphics\Shaders\VFX\UpSample_VFX_PS.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ObjectFileOutput>../Bin/Shaders//%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Engine\Source\Graphics\Shaders\Commons\DeferredCommons.hlsli" />
+    <None Include="..\Engine\Source\Graphics\Shaders\Commons\InputCommons.hlsli" />
+    <None Include="..\Engine\Source\Graphics\Shaders\Commons\Light.hlsli" />
+    <None Include="..\Engine\Source\Graphics\Shaders\Commons\PBRFunctions.hlsli" />
+    <None Include="..\Engine\Source\Graphics\Shaders\Commons\common.hlsli" />
+    <None Include="..\Engine\Source\Graphics\Shaders\Commons\spriteCommon.hlsli" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

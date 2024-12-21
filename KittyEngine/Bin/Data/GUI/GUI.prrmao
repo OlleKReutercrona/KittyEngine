@@ -1,0 +1,4118 @@
+[
+    {
+        "name": "Lobby",
+        "elements": [
+            {
+                "name": "BeginText2",
+                "texturePath": "Data/InternalAssets/motley.ktf_MSDF",
+                "secondaryTexturePath": "Data/InternalAssets/motley.ktf_MSDF",
+                "text": "PRESS",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "Begin",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": true,
+                "hideAtStart": true,
+                "offsetResolutionFactor": {
+                    "x": -0.109375,
+                    "y": 0.125
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "BeginText",
+                "texturePath": "Data/InternalAssets/Dirga.ktf_MSDF",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "TO PLAY",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "Begin",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": true,
+                "hideAtStart": true,
+                "offsetResolutionFactor": {
+                    "x": 0.1041666567325592,
+                    "y": 0.125
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "StartButton",
+                "texturePath": "Data\\Assets\\UI\\01 General\\UI_startButton.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\01 General\\UI_startButton.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "Start",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": true,
+                "offsetResolutionFactor": {
+                    "x": -0.0442708283662796,
+                    "y": -0.18518517911434174
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.0755208358168602,
+                    "y": 0.05277777835726738
+                }
+            },
+            {
+                "name": "P1ReadyText",
+                "texturePath": "Data/InternalAssets/Dirga.ktf_MSDF",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "READY?",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "P1Ready",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": true,
+                "hideAtStart": true,
+                "offsetResolutionFactor": {
+                    "x": -0.2708333432674408,
+                    "y": 0.1268518567085266
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.0208333358168602,
+                    "y": 0.03703703731298447
+                }
+            },
+            {
+                "name": "P1ReadyButton",
+                "texturePath": "Data\\Assets\\UI\\01 General\\UI_aButton.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\01 General\\UI_aButton.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "P1Ready",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": true,
+                "offsetResolutionFactor": {
+                    "x": -0.3489583730697632,
+                    "y": -0.17592592537403107
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P1JoinText",
+                "texturePath": "Data/InternalAssets/Dirga.ktf_MSDF",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "JOIN",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "P1Join",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": true,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.2848958373069763,
+                    "y": -0.1666666716337204
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.0208333358168602,
+                    "y": 0.03703703731298447
+                }
+            },
+            {
+                "name": "P1JoinButton",
+                "texturePath": "Data\\Assets\\UI\\01 General\\UI_aButton.dds",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "P1Join",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.3005208373069763,
+                    "y": 0.06481481343507767
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P1Text",
+                "texturePath": "Data/InternalAssets/Dirga.ktf_MSDF",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "P1",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": true,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.3541666269302368,
+                    "y": -0.32407405972480774
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.0208333358168602,
+                    "y": 0.03703703731298447
+                }
+            },
+            {
+                "name": "P2ReadyText",
+                "texturePath": "Data/InternalAssets/Dirga.ktf_MSDF",
+                "secondaryTexturePath": "Data/InternalAssets/Dirga.ktf_MSDF",
+                "text": "READY?",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "P2Ready",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": true,
+                "hideAtStart": true,
+                "offsetResolutionFactor": {
+                    "x": -0.078125,
+                    "y": 0.1268518567085266
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.0208333358168602,
+                    "y": 0.03703703731298447
+                }
+            },
+            {
+                "name": "P2ReadyButton",
+                "texturePath": "Data\\Assets\\UI\\01 General\\UI_aButton.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\01 General\\UI_aButton.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "P2Ready",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": true,
+                "offsetResolutionFactor": {
+                    "x": -0.15625,
+                    "y": -0.17592592537403107
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P2JoinText",
+                "texturePath": "Data/InternalAssets/Dirga.ktf_MSDF",
+                "secondaryTexturePath": "Data/InternalAssets/Dirga.ktf_MSDF",
+                "text": "JOIN",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "P2Join",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": true,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.09739582985639572,
+                    "y": -0.1666666716337204
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.0208333358168602,
+                    "y": 0.03703703731298447
+                }
+            },
+            {
+                "name": "P2JoinButton",
+                "texturePath": "Data\\Assets\\UI\\01 General\\UI_aButton.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\01 General\\UI_aButton.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "P2Join",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.11145832389593124,
+                    "y": 0.06481481343507767
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P2Text",
+                "texturePath": "Data/InternalAssets/Dirga.ktf_MSDF",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "P2",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": true,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.1614583134651184,
+                    "y": -0.32407405972480774
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.0208333358168602,
+                    "y": 0.03703703731298447
+                }
+            },
+            {
+                "name": "P3ReadyText",
+                "texturePath": "Data/InternalAssets/Dirga.ktf_MSDF",
+                "secondaryTexturePath": "Data/InternalAssets/Dirga.ktf_MSDF",
+                "text": "READY?",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "P3Ready",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": true,
+                "hideAtStart": true,
+                "offsetResolutionFactor": {
+                    "x": 0.11197914928197861,
+                    "y": 0.1268518567085266
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.0208333358168602,
+                    "y": 0.03703703731298447
+                }
+            },
+            {
+                "name": "P3ReadyButton",
+                "texturePath": "Data\\Assets\\UI\\01 General\\UI_aButton.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\01 General\\UI_aButton.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "P3Ready",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": true,
+                "offsetResolutionFactor": {
+                    "x": 0.0338541679084301,
+                    "y": -0.17592592537403107
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P3JoinText",
+                "texturePath": "Data/InternalAssets/Dirga.ktf_MSDF",
+                "secondaryTexturePath": "Data/InternalAssets/Dirga.ktf_MSDF",
+                "text": "JOIN",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "P3Join",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": true,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.09531249850988388,
+                    "y": -0.1666666716337204
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.0208333358168602,
+                    "y": 0.03703703731298447
+                }
+            },
+            {
+                "name": "P3JoinButton",
+                "texturePath": "Data\\Assets\\UI\\01 General\\UI_aButton.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\01 General\\UI_aButton.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "P3Join",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.07968749850988388,
+                    "y": 0.06481481343507767
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P3Text",
+                "texturePath": "Data/InternalAssets/Dirga.ktf_MSDF",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "P3",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": true,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.026041662320494652,
+                    "y": -0.32407405972480774
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.0208333358168602,
+                    "y": 0.03703703731298447
+                }
+            },
+            {
+                "name": "P4ReadyText",
+                "texturePath": "Data/InternalAssets/Dirga.ktf_MSDF",
+                "secondaryTexturePath": "Data/InternalAssets/Dirga.ktf_MSDF",
+                "text": "READY?",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "P4Ready",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": true,
+                "hideAtStart": true,
+                "offsetResolutionFactor": {
+                    "x": 0.2994791567325592,
+                    "y": 0.1268518567085266
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.0208333358168602,
+                    "y": 0.03703703731298447
+                }
+            },
+            {
+                "name": "P4ReadyButton",
+                "texturePath": "Data\\Assets\\UI\\01 General\\UI_aButton.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\01 General\\UI_aButton.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "P4Ready",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": true,
+                "offsetResolutionFactor": {
+                    "x": 0.22135420143604279,
+                    "y": -0.17592592537403107
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P4JoinText",
+                "texturePath": "Data/InternalAssets/Dirga.ktf_MSDF",
+                "secondaryTexturePath": "Data/InternalAssets/Dirga.ktf_MSDF",
+                "text": "JOIN",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "P4Join",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": true,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.2828125059604645,
+                    "y": -0.1666666716337204
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.0208333358168602,
+                    "y": 0.03703703731298447
+                }
+            },
+            {
+                "name": "P4JoinButton",
+                "texturePath": "Data\\Assets\\UI\\01 General\\UI_aButton.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\01 General\\UI_aButton.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "P4Join",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.2666666805744171,
+                    "y": 0.06481481343507767
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P4Text",
+                "texturePath": "Data/InternalAssets/Dirga.ktf_MSDF",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "P4",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": true,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.21875,
+                    "y": -0.32407405972480774
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.0208333358168602,
+                    "y": 0.03703703731298447
+                }
+            },
+            {
+                "name": "Character1Player",
+                "texturePath": "Data/InternalAssets/Dirga.ktf_MSDF",
+                "secondaryTexturePath": "Data/InternalAssets/Dirga.ktf_MSDF",
+                "text": "P1",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "PickChar1",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": true,
+                "hideAtStart": true,
+                "offsetResolutionFactor": {
+                    "x": -0.20833329856395721,
+                    "y": 0.28703704476356506
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.0208333358168602,
+                    "y": 0.03703703731298447
+                }
+            },
+            {
+                "name": "Character2Player",
+                "texturePath": "Data/InternalAssets/Dirga.ktf_MSDF",
+                "secondaryTexturePath": "Data/InternalAssets/Dirga.ktf_MSDF",
+                "text": "P2",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "PickChar2",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": true,
+                "hideAtStart": true,
+                "offsetResolutionFactor": {
+                    "x": -0.09218750149011612,
+                    "y": 0.28703704476356506
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.0208333358168602,
+                    "y": 0.03703703731298447
+                }
+            },
+            {
+                "name": "Character3Player",
+                "texturePath": "Data/InternalAssets/Dirga.ktf_MSDF",
+                "secondaryTexturePath": "Data/InternalAssets/Dirga.ktf_MSDF",
+                "text": "P1",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "PickChar3",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": true,
+                "hideAtStart": true,
+                "offsetResolutionFactor": {
+                    "x": 0.02447916753590107,
+                    "y": 0.28703704476356506
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.0208333358168602,
+                    "y": 0.03703703731298447
+                }
+            },
+            {
+                "name": "Character4Player",
+                "texturePath": "Data/InternalAssets/Dirga.ktf_MSDF",
+                "secondaryTexturePath": "Data/InternalAssets/Dirga.ktf_MSDF",
+                "text": "P2",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "PickChar4",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": true,
+                "hideAtStart": true,
+                "offsetResolutionFactor": {
+                    "x": 0.140625,
+                    "y": 0.28703704476356506
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.0208333358168602,
+                    "y": 0.03703703731298447
+                }
+            },
+            {
+                "name": "P1TextBg",
+                "texturePath": "Data\\Assets\\UI\\05 Score board\\UI_scorboard_dot_yellow.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\05 Score board\\UI_scorboard_dot_yellow.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "Player1Bg",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": true,
+                "offsetResolutionFactor": {
+                    "x": -0.22916670143604279,
+                    "y": -0.3472222089767456
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.0416666716337204,
+                    "y": 0.07407407462596893
+                }
+            },
+            {
+                "name": "Portrait1",
+                "texturePath": "Data\\Assets\\UI\\05 Score board\\UI_scorboard_bunnyImage.dds",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.20703125,
+                    "y": -0.41527777910232544
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.0625,
+                    "y": 0.1111111119389534
+                }
+            },
+            {
+                "name": "P2TextBg",
+                "texturePath": "Data\\Assets\\UI\\05 Score board\\UI_scorboard_dot_green.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\05 Score board\\UI_scorboard_dot_green.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "Player2Bg",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": true,
+                "offsetResolutionFactor": {
+                    "x": -0.11354167759418488,
+                    "y": -0.3472222089767456
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.0416666716337204,
+                    "y": 0.07407407462596893
+                }
+            },
+            {
+                "name": "Portrait2",
+                "texturePath": "Data\\Assets\\UI\\05 Score board\\UI_scorboard_frogImage.dds",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.08984375,
+                    "y": -0.41527777910232544
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.0625,
+                    "y": 0.1111111119389534
+                }
+            },
+            {
+                "name": "P3TextBg",
+                "texturePath": "Data\\Assets\\UI\\05 Score board\\UI_scorboard_dot_pink.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\05 Score board\\UI_scorboard_dot_pink.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "Player3Bg",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": true,
+                "offsetResolutionFactor": {
+                    "x": 0.0036458331160247326,
+                    "y": -0.3472222089767456
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.0416666716337204,
+                    "y": 0.07407407462596893
+                }
+            },
+            {
+                "name": "Portrait3",
+                "texturePath": "Data\\Assets\\UI\\05 Score board\\UI_scorboard_clownImage .dds",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.02734375,
+                    "y": -0.41527777910232544
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.0625,
+                    "y": 0.1111111119389534
+                }
+            },
+            {
+                "name": "P4TextBg",
+                "texturePath": "Data\\Assets\\UI\\05 Score board\\UI_scorboard_dot_purple.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\05 Score board\\UI_scorboard_dot_purple.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "Player4Bg",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": true,
+                "offsetResolutionFactor": {
+                    "x": 0.12031249701976776,
+                    "y": -0.3472222089767456
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.0416666716337204,
+                    "y": 0.07407407462596893
+                }
+            },
+            {
+                "name": "Portrait4",
+                "texturePath": "Data\\Assets\\UI\\05 Score board\\UI_scorboard_vampireImage.dds",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.14453125,
+                    "y": -0.4143518805503845
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.0625,
+                    "y": 0.1111111119389534
+                }
+            },
+            {
+                "name": "Character1",
+                "texturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "Character1",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": true,
+                "offsetResolutionFactor": {
+                    "x": -0.20833329856395721,
+                    "y": -0.4166666567325592
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.0651041641831398,
+                    "y": 0.11574073135852814
+                }
+            },
+            {
+                "name": "Character2",
+                "texturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "Character2",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": true,
+                "offsetResolutionFactor": {
+                    "x": -0.0911458432674408,
+                    "y": -0.4166666567325592
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.0651041641831398,
+                    "y": 0.11574073135852814
+                }
+            },
+            {
+                "name": "Character3",
+                "texturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "Character3",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": true,
+                "offsetResolutionFactor": {
+                    "x": 0.026041662320494652,
+                    "y": -0.4166666567325592
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.0651041641831398,
+                    "y": 0.11574073135852814
+                }
+            },
+            {
+                "name": "Character4",
+                "texturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "Character4",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": true,
+                "offsetResolutionFactor": {
+                    "x": 0.1432291716337204,
+                    "y": -0.4166666567325592
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.0651041641831398,
+                    "y": 0.11574073135852814
+                }
+            }
+        ]
+    },
+    {
+        "name": "Tutorial",
+        "elements": [
+            {
+                "name": "Controls",
+                "texturePath": "Data\\Assets\\UI\\07 Controls\\UI_controls.dds",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 0,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.10729167610406876,
+                    "y": 0.10648148506879807
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.800000011920929,
+                    "y": 0.800000011920929
+                }
+            },
+            {
+                "name": "ContinueText",
+                "texturePath": "Data/InternalAssets/Dirga.ktf_MSDF",
+                "secondaryTexturePath": "Data/InternalAssets/motley.ktf_MSDF",
+                "text": "CONTINUE",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": true,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.40885409712791443,
+                    "y": 0.38425928354263306
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.026041662320494652,
+                    "y": 0.046296294778585434
+                }
+            },
+            {
+                "name": "ContinueA",
+                "texturePath": "Data\\Assets\\UI\\01 General\\UI_aButton.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\01 General\\UI_aButton.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.3020833432674408,
+                    "y": -0.43981483578681946
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            }
+        ]
+    },
+    {
+        "name": "MainMenu",
+        "elements": [
+            {
+                "name": "PlayButton",
+                "texturePath": "Data\\Assets\\UI\\02 Main menu\\UI_mainMenu_playButton_lighter.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\02 Main menu\\UI_mainMenu_playButton.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "Play",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": true,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.1796875,
+                    "y": -0.013888888992369175
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.2395833134651184,
+                    "y": 0.10648148506879807
+                }
+            },
+            {
+                "name": "LevelsButton",
+                "texturePath": "Data\\Assets\\UI\\02 Main menu\\UI_mainMenu_levelsButton_lighter.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\02 Main menu\\UI_mainMenu_levelsButton.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "Levels",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": true,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.1796875,
+                    "y": -0.07407407462596893
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.2395833134651184,
+                    "y": 0.10648148506879807
+                }
+            },
+            {
+                "name": "OptionsButton",
+                "texturePath": "Data\\Assets\\UI\\02 Main menu\\UI_mainMenu_optionsButton_light.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\02 Main menu\\UI_mainMenu_optionsButton.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "Options",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": true,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.1796875,
+                    "y": -0.13425925374031067
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.2395833134651184,
+                    "y": 0.10648148506879807
+                }
+            },
+            {
+                "name": "CreditsButton",
+                "texturePath": "Data\\Assets\\UI\\02 Main menu\\UI_mainMenu_creditsButton_lights.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\02 Main menu\\UI_mainMenu_creditsButton.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "Credits",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": true,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.1796875,
+                    "y": -0.1944444477558136
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.2395833134651184,
+                    "y": 0.10648148506879807
+                }
+            },
+            {
+                "name": "QuitButton",
+                "texturePath": "Data\\Assets\\UI\\02 Main menu\\UI_mainMenu_quitButton_lighter.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\02 Main menu\\UI_mainMenu_quitButton.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "Quit",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": true,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.1796875,
+                    "y": -0.25462964177131653
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.2395833134651184,
+                    "y": 0.10648148506879807
+                }
+            },
+            {
+                "name": "Title",
+                "texturePath": "Data\\InternalAssets\\GAMELOGO.dds",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 8,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.390625,
+                    "y": 0.37037035822868347
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.34322917461395264,
+                    "y": 0.27222222089767456
+                }
+            },
+            {
+                "name": "Background",
+                "texturePath": "Data\\Assets\\UI\\02 Main menu\\UI_mainMenu_background.dds",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 9,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "sizeResolutionFactor": {
+                    "x": 1.0,
+                    "y": 1.0
+                }
+            }
+        ]
+    },
+    {
+        "name": "Countdown",
+        "elements": [
+            {
+                "name": "Ready",
+                "texturePath": "Data/InternalAssets/Dirga.ktf_MSDF",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "READY",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": true,
+                "hideAtStart": true,
+                "offsetResolutionFactor": {
+                    "x": 0.0,
+                    "y": -0.06481481343507767
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.052083324640989304,
+                    "y": 0.09259258955717087
+                }
+            },
+            {
+                "name": "Go",
+                "texturePath": "Data/InternalAssets/Dirga.ktf_MSDF",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "GO!",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": true,
+                "hideAtStart": true,
+                "offsetResolutionFactor": {
+                    "x": 0.0,
+                    "y": -0.0972222238779068
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.078125,
+                    "y": 0.1388888955116272
+                }
+            }
+        ]
+    },
+    {
+        "name": "Pause",
+        "elements": [
+            {
+                "name": "ResumeButton",
+                "texturePath": "Data\\Assets\\UI\\06 Pause menu\\UI_pause_resumeButton_active.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\06 Pause menu\\UI_pause_resumeButton_inactive.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "Resume",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": true,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.13333334028720856,
+                    "y": 0.02777777798473835
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.2666666805744171,
+                    "y": 0.11851851642131805
+                }
+            },
+            {
+                "name": "OptionsButton",
+                "texturePath": "Data\\Assets\\UI\\06 Pause menu\\UI_pause_optionsButton_active.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\06 Pause menu\\UI_pause_optionsButton_inactive.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "Options",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": true,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.13333334028720856,
+                    "y": -0.046296294778585434
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.2666666805744171,
+                    "y": 0.11851851642131805
+                }
+            },
+            {
+                "name": "MenuButton",
+                "texturePath": "Data\\Assets\\UI\\06 Pause menu\\UI_pauseMenu_menuButton_active.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\06 Pause menu\\UI_pauseMenu_menuButton.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "Menu",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": true,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.13333334028720856,
+                    "y": -0.12037037312984467
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.2666666805744171,
+                    "y": 0.11851851642131805
+                }
+            },
+            {
+                "name": "TutorialButton",
+                "texturePath": "Data\\Assets\\UI\\06 Pause menu\\UI_pause_controlsButton_active.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\06 Pause menu\\UI_pause_controlsButton_inactive.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "Tutorial",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": true,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.13333334028720856,
+                    "y": -0.1944444477558136
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.2666666805744171,
+                    "y": 0.11851851642131805
+                }
+            },
+            {
+                "name": "QuitButton",
+                "texturePath": "Data\\Assets\\UI\\06 Pause menu\\UI_pause_quitButton_lighter.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\06 Pause menu\\UI_pause_quitButton.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "Quit",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": true,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.13333334028720856,
+                    "y": -0.26851850748062134
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.2666666805744171,
+                    "y": 0.11851851642131805
+                }
+            },
+            {
+                "name": "PauseBg",
+                "texturePath": "Data\\Assets\\UI\\06 Pause menu\\UI_pause_container.dds",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.22864584624767303,
+                    "y": -0.4319920837879181
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.46875,
+                    "y": 0.8919722437858582
+                }
+            }
+        ]
+    },
+    {
+        "name": "Score",
+        "elements": [
+            {
+                "name": "Portrait1",
+                "texturePath": "Data\\Assets\\UI\\05 Score board\\UI_scorboard_bunnyImage.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\05 Score board\\UI_scorboard_bunnyImage.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.2604166567325592,
+                    "y": 0.11574073135852814
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.052083324640989304,
+                    "y": 0.09259258955717087
+                }
+            },
+            {
+                "name": "Portrait2",
+                "texturePath": "Data\\Assets\\UI\\05 Score board\\UI_scorboard_frogImage.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\05 Score board\\UI_scorboard_frogImage.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.2604166567325592,
+                    "y": 0.0
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.052083324640989304,
+                    "y": 0.09259258955717087
+                }
+            },
+            {
+                "name": "Portrait3",
+                "texturePath": "Data\\Assets\\UI\\05 Score board\\UI_scorboard_clownImage .dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\05 Score board\\UI_scorboard_clownImage .dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.2604166567325592,
+                    "y": -0.11574073135852814
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.052083324640989304,
+                    "y": 0.09259258955717087
+                }
+            },
+            {
+                "name": "Portrait4",
+                "texturePath": "Data\\Assets\\UI\\05 Score board\\UI_scorboard_vampireImage.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\05 Score board\\UI_scorboard_vampireImage.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.2604166567325592,
+                    "y": -0.23148146271705627
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.052083324640989304,
+                    "y": 0.09259258955717087
+                }
+            },
+            {
+                "name": "P1ScoreMin",
+                "texturePath": "Data\\Assets\\UI\\05 Score board\\UI_scorboard_whiteDot.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\05 Score board\\UI_scorboard_dot_yellow.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.20052079856395721,
+                    "y": 0.13425925374031067
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P1ScoreMax",
+                "texturePath": "Data/Assets/UI/05 Score board/UI_scorboard_whiteDot.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\05 Score board\\UI_scorboard_dot_yellow.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.20833329856395721,
+                    "y": 0.13425925374031067
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P2ScoreMin",
+                "texturePath": "Data/Assets/UI/05 Score board/UI_scorboard_whiteDot.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\05 Score board\\UI_scorboard_dot_green.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.20052079856395721,
+                    "y": 0.018518518656492233
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P2ScoreMax",
+                "texturePath": "Data/Assets/UI/05 Score board/UI_scorboard_whiteDot.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\05 Score board\\UI_scorboard_dot_green.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.20833329856395721,
+                    "y": 0.018518518656492233
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P3ScoreMin",
+                "texturePath": "Data/Assets/UI/05 Score board/UI_scorboard_whiteDot.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\05 Score board\\UI_scorboard_dot_pink.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.20052079856395721,
+                    "y": -0.0972222238779068
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P3ScoreMax",
+                "texturePath": "Data/Assets/UI/05 Score board/UI_scorboard_whiteDot.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\05 Score board\\UI_scorboard_dot_pink.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.20833329856395721,
+                    "y": -0.0972222238779068
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P4ScoreMin",
+                "texturePath": "Data/Assets/UI/05 Score board/UI_scorboard_whiteDot.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\05 Score board\\UI_scorboard_dot_purple.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.20052079856395721,
+                    "y": -0.21296297013759613
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P4ScoreMax",
+                "texturePath": "Data/Assets/UI/05 Score board/UI_scorboard_whiteDot.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\05 Score board\\UI_scorboard_dot_purple.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.20833329856395721,
+                    "y": -0.21296297013759613
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P1Score1",
+                "texturePath": "Data/Assets/UI/05 Score board/UI_scorboard_whiteDot.dds",
+                "secondaryTexturePath": "Data/Assets/UI/05 Score board/UI_scorboard_coloredDot_02.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.15509258210659027,
+                    "y": 0.13425925374031067
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P2Score1",
+                "texturePath": "Data/Assets/UI/05 Score board/UI_scorboard_whiteDot.dds",
+                "secondaryTexturePath": "Data/Assets/UI/05 Score board/UI_scorboard_coloredDot_02.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.15509258210659027,
+                    "y": 0.018518518656492233
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P3Score1",
+                "texturePath": "Data/Assets/UI/05 Score board/UI_scorboard_whiteDot.dds",
+                "secondaryTexturePath": "Data/Assets/UI/05 Score board/UI_scorboard_coloredDot_02.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.15509258210659027,
+                    "y": -0.0972222238779068
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P4Score1",
+                "texturePath": "Data/Assets/UI/05 Score board/UI_scorboard_whiteDot.dds",
+                "secondaryTexturePath": "Data/Assets/UI/05 Score board/UI_scorboard_coloredDot_02.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.15509258210659027,
+                    "y": -0.21296297013759613
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P1Score2",
+                "texturePath": "Data/Assets/UI/05 Score board/UI_scorboard_whiteDot.dds",
+                "secondaryTexturePath": "Data/Assets/UI/05 Score board/UI_scorboard_coloredDot_02.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.10966434329748154,
+                    "y": 0.13425925374031067
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P2Score2",
+                "texturePath": "Data/Assets/UI/05 Score board/UI_scorboard_whiteDot.dds",
+                "secondaryTexturePath": "Data/Assets/UI/05 Score board/UI_scorboard_coloredDot_02.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.10966434329748154,
+                    "y": 0.018518518656492233
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P3Score2",
+                "texturePath": "Data/Assets/UI/05 Score board/UI_scorboard_whiteDot.dds",
+                "secondaryTexturePath": "Data/Assets/UI/05 Score board/UI_scorboard_coloredDot_02.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.10966434329748154,
+                    "y": -0.0972222238779068
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P4Score2",
+                "texturePath": "Data/Assets/UI/05 Score board/UI_scorboard_whiteDot.dds",
+                "secondaryTexturePath": "Data/Assets/UI/05 Score board/UI_scorboard_coloredDot_02.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.10966434329748154,
+                    "y": -0.21296297013759613
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P1Score3",
+                "texturePath": "Data/Assets/UI/05 Score board/UI_scorboard_whiteDot.dds",
+                "secondaryTexturePath": "Data/Assets/UI/05 Score board/UI_scorboard_coloredDot_02.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.0642361044883728,
+                    "y": 0.13425925374031067
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P2Score3",
+                "texturePath": "Data/Assets/UI/05 Score board/UI_scorboard_whiteDot.dds",
+                "secondaryTexturePath": "Data/Assets/UI/05 Score board/UI_scorboard_coloredDot_02.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.0642361044883728,
+                    "y": 0.018518518656492233
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P3Score3",
+                "texturePath": "Data/Assets/UI/05 Score board/UI_scorboard_whiteDot.dds",
+                "secondaryTexturePath": "Data/Assets/UI/05 Score board/UI_scorboard_coloredDot_02.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.0642361044883728,
+                    "y": -0.0972222238779068
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P4Score3",
+                "texturePath": "Data/Assets/UI/05 Score board/UI_scorboard_whiteDot.dds",
+                "secondaryTexturePath": "Data/Assets/UI/05 Score board/UI_scorboard_coloredDot_02.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.0642361044883728,
+                    "y": -0.21296297013759613
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P1Score4",
+                "texturePath": "Data/Assets/UI/05 Score board/UI_scorboard_whiteDot.dds",
+                "secondaryTexturePath": "Data/Assets/UI/05 Score board/UI_scorboard_coloredDot_02.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.018807869404554367,
+                    "y": 0.13425925374031067
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P2Score4",
+                "texturePath": "Data/Assets/UI/05 Score board/UI_scorboard_whiteDot.dds",
+                "secondaryTexturePath": "Data/Assets/UI/05 Score board/UI_scorboard_coloredDot_02.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.018807869404554367,
+                    "y": 0.018518518656492233
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P3Score4",
+                "texturePath": "Data/Assets/UI/05 Score board/UI_scorboard_whiteDot.dds",
+                "secondaryTexturePath": "Data/Assets/UI/05 Score board/UI_scorboard_coloredDot_02.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.018807869404554367,
+                    "y": -0.0972222238779068
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P4Score4",
+                "texturePath": "Data/Assets/UI/05 Score board/UI_scorboard_whiteDot.dds",
+                "secondaryTexturePath": "Data/Assets/UI/05 Score board/UI_scorboard_coloredDot_02.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.018807869404554367,
+                    "y": -0.21296297013759613
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P1Score5",
+                "texturePath": "Data/Assets/UI/05 Score board/UI_scorboard_whiteDot.dds",
+                "secondaryTexturePath": "Data/Assets/UI/05 Score board/UI_scorboard_coloredDot_02.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.026620369404554367,
+                    "y": 0.13425925374031067
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P2Score5",
+                "texturePath": "Data/Assets/UI/05 Score board/UI_scorboard_whiteDot.dds",
+                "secondaryTexturePath": "Data/Assets/UI/05 Score board/UI_scorboard_coloredDot_02.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.026620369404554367,
+                    "y": 0.018518518656492233
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P3Score5",
+                "texturePath": "Data/Assets/UI/05 Score board/UI_scorboard_whiteDot.dds",
+                "secondaryTexturePath": "Data/Assets/UI/05 Score board/UI_scorboard_coloredDot_02.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.026620369404554367,
+                    "y": -0.0972222238779068
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P4Score5",
+                "texturePath": "Data/Assets/UI/05 Score board/UI_scorboard_whiteDot.dds",
+                "secondaryTexturePath": "Data/Assets/UI/05 Score board/UI_scorboard_coloredDot_02.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.026620369404554367,
+                    "y": -0.21296297013759613
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P1Score6",
+                "texturePath": "Data/Assets/UI/05 Score board/UI_scorboard_whiteDot.dds",
+                "secondaryTexturePath": "Data/Assets/UI/05 Score board/UI_scorboard_coloredDot_02.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.0720485970377922,
+                    "y": 0.13425925374031067
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P2Score6",
+                "texturePath": "Data/Assets/UI/05 Score board/UI_scorboard_whiteDot.dds",
+                "secondaryTexturePath": "Data/Assets/UI/05 Score board/UI_scorboard_coloredDot_02.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.0720485970377922,
+                    "y": 0.018518518656492233
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P3Score6",
+                "texturePath": "Data/Assets/UI/05 Score board/UI_scorboard_whiteDot.dds",
+                "secondaryTexturePath": "Data/Assets/UI/05 Score board/UI_scorboard_coloredDot_02.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.0720485970377922,
+                    "y": -0.0972222238779068
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P4Score6",
+                "texturePath": "Data/Assets/UI/05 Score board/UI_scorboard_whiteDot.dds",
+                "secondaryTexturePath": "Data/Assets/UI/05 Score board/UI_scorboard_coloredDot_02.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.0720485970377922,
+                    "y": -0.21296297013759613
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P1Score7",
+                "texturePath": "Data/Assets/UI/05 Score board/UI_scorboard_whiteDot.dds",
+                "secondaryTexturePath": "Data/Assets/UI/05 Score board/UI_scorboard_coloredDot_02.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.11747684329748154,
+                    "y": 0.13425925374031067
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P2Score7",
+                "texturePath": "Data/Assets/UI/05 Score board/UI_scorboard_whiteDot.dds",
+                "secondaryTexturePath": "Data/Assets/UI/05 Score board/UI_scorboard_coloredDot_02.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.11747684329748154,
+                    "y": 0.018518518656492233
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P3Score7",
+                "texturePath": "Data/Assets/UI/05 Score board/UI_scorboard_whiteDot.dds",
+                "secondaryTexturePath": "Data/Assets/UI/05 Score board/UI_scorboard_coloredDot_02.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.11747684329748154,
+                    "y": -0.0972222238779068
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P4Score7",
+                "texturePath": "Data/Assets/UI/05 Score board/UI_scorboard_whiteDot.dds",
+                "secondaryTexturePath": "Data/Assets/UI/05 Score board/UI_scorboard_coloredDot_02.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.11747684329748154,
+                    "y": -0.21296297013759613
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P1Score8",
+                "texturePath": "Data/Assets/UI/05 Score board/UI_scorboard_whiteDot.dds",
+                "secondaryTexturePath": "Data/Assets/UI/05 Score board/UI_scorboard_coloredDot_02.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.16290508210659027,
+                    "y": 0.13425925374031067
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P2Score8",
+                "texturePath": "Data/Assets/UI/05 Score board/UI_scorboard_whiteDot.dds",
+                "secondaryTexturePath": "Data/Assets/UI/05 Score board/UI_scorboard_coloredDot_02.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.16290508210659027,
+                    "y": 0.018518518656492233
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P3Score8",
+                "texturePath": "Data/Assets/UI/05 Score board/UI_scorboard_whiteDot.dds",
+                "secondaryTexturePath": "Data/Assets/UI/05 Score board/UI_scorboard_coloredDot_02.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.16290508210659027,
+                    "y": -0.0972222238779068
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P4Score8",
+                "texturePath": "Data/Assets/UI/05 Score board/UI_scorboard_whiteDot.dds",
+                "secondaryTexturePath": "Data/Assets/UI/05 Score board/UI_scorboard_coloredDot_02.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.16290508210659027,
+                    "y": -0.21296297013759613
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "P1Text",
+                "texturePath": "Data/InternalAssets/motley.ktf_MSDF",
+                "secondaryTexturePath": "Data/InternalAssets/motley.ktf_MSDF",
+                "text": "P1",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": true,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.28125,
+                    "y": -0.1805555522441864
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.0208333358168602,
+                    "y": 0.03703703731298447
+                }
+            },
+            {
+                "name": "P2Text",
+                "texturePath": "Data/InternalAssets/motley.ktf_MSDF",
+                "secondaryTexturePath": "Data/InternalAssets/motley.ktf_MSDF",
+                "text": "P2",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": true,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.28125,
+                    "y": -0.0694444477558136
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.0208333358168602,
+                    "y": 0.03703703731298447
+                }
+            },
+            {
+                "name": "P3Text",
+                "texturePath": "Data/InternalAssets/motley.ktf_MSDF",
+                "secondaryTexturePath": "Data/InternalAssets/motley.ktf_MSDF",
+                "text": "P3",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": true,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.28125,
+                    "y": 0.0416666679084301
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.0208333358168602,
+                    "y": 0.03703703731298447
+                }
+            },
+            {
+                "name": "P4Text",
+                "texturePath": "Data/InternalAssets/motley.ktf_MSDF",
+                "secondaryTexturePath": "Data/InternalAssets/motley.ktf_MSDF",
+                "text": "P4",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": true,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.28125,
+                    "y": 0.16203702986240387
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.0208333358168602,
+                    "y": 0.03703703731298447
+                }
+            },
+            {
+                "name": "P1Bg",
+                "texturePath": "Data\\Assets\\UI\\05 Score board\\UI_scorboard_containerYellow.dds",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.3828125,
+                    "y": 0.07213280349969864
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.8177081942558289,
+                    "y": 0.1857542097568512
+                }
+            },
+            {
+                "name": "P2Bg",
+                "texturePath": "Data\\Assets\\UI\\05 Score board\\UI_scorboard_containerGreen.dds",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.3828125,
+                    "y": -0.041841425001621246
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.8177081942558289,
+                    "y": 0.1857542097568512
+                }
+            },
+            {
+                "name": "P3Bg",
+                "texturePath": "Data\\Assets\\UI\\05 Score board\\UI_scorboard_containerPink.dds",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.3828125,
+                    "y": -0.15383349359035492
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.8177081942558289,
+                    "y": 0.1857542097568512
+                }
+            },
+            {
+                "name": "P4Bg",
+                "texturePath": "Data\\Assets\\UI\\05 Score board\\UI_scorboard_containerPurple.dds",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.3828125,
+                    "y": -0.27276313304901123
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.8177081942558289,
+                    "y": 0.1857542097568512
+                }
+            },
+            {
+                "name": "ContinueText",
+                "texturePath": "Data/InternalAssets/Dirga.ktf_MSDF",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "CONTINUE",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": true,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.40885409712791443,
+                    "y": 0.38425928354263306
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.026041662320494652,
+                    "y": 0.046296294778585434
+                }
+            },
+            {
+                "name": "ContinueA",
+                "texturePath": "Data\\Assets\\UI\\01 General\\UI_aButton.dds",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.3020833432674408,
+                    "y": -0.43981483578681946
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "Background",
+                "texturePath": "Data\\Assets\\UI\\05 Score board\\UI_scorboard_darkeningLayer.dds",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 9,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "sizeResolutionFactor": {
+                    "x": 1.0,
+                    "y": 1.0
+                }
+            }
+        ]
+    },
+    {
+        "name": "Options",
+        "elements": [
+            {
+                "name": "OptionsTitle",
+                "texturePath": "Data\\Assets\\UI\\04 Options\\UI_options_title.dds",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.1666666865348816,
+                    "y": 0.004629629664123058
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.3333333730697632,
+                    "y": 0.35740742087364197
+                }
+            },
+            {
+                "name": "FullscreenText",
+                "texturePath": "Data/InternalAssets/Dirga.ktf_MSDF",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "FULLSCREEN",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": true,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.1119791567325592,
+                    "y": -0.050925929099321365
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.0208333358168602,
+                    "y": 0.046296294778585434
+                }
+            },
+            {
+                "name": "ResolutionText",
+                "texturePath": "Data/InternalAssets/Dirga.ktf_MSDF",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "RESOLUTION",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": true,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.10885416716337204,
+                    "y": 0.02222222276031971
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.0208333358168602,
+                    "y": 0.046296294778585434
+                }
+            },
+            {
+                "name": "VolumeText",
+                "texturePath": "Data/InternalAssets/Dirga.ktf_MSDF",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "VOLUME",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": true,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.13385416567325592,
+                    "y": 0.09259258955717087
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.0208333358168602,
+                    "y": 0.046296294778585434
+                }
+            },
+            {
+                "name": "FullscreenLeft",
+                "texturePath": "Data\\Assets\\UI\\03 Level select\\UI_levelSelect_arrowLeft_inActive.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\03 Level select\\UI_levelSelect_arrowLeft_inActive.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.0234375,
+                    "y": -0.018518518656492233
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.052083324640989304,
+                    "y": 0.09259258955717087
+                }
+            },
+            {
+                "name": "FullscreenRight",
+                "texturePath": "Data\\Assets\\UI\\03 Level select\\UI_levelSelect_arrowRight_inActive.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\03 Level select\\UI_levelSelect_arrowRight_inActive.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.1510416716337204,
+                    "y": -0.018518518656492233
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.052083324640989304,
+                    "y": 0.09259258955717087
+                }
+            },
+            {
+                "name": "FullscreenButton",
+                "texturePath": "Data\\Assets\\UI\\04 Options\\UI_options_onButton.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\04 Options\\UI_options_offButton.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.010937499813735485,
+                    "y": -0.01666666753590107
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.20000000298023224,
+                    "y": 0.08888889104127884
+                }
+            },
+            {
+                "name": "Resolution",
+                "texturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "1920x1080",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": true,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.0885416567325592,
+                    "y": 0.029629627242684364
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.015625,
+                    "y": 0.02777777798473835
+                }
+            },
+            {
+                "name": "ResolutionButton",
+                "texturePath": "Data\\Assets\\UI\\04 Options\\UI_options_1920x1080.dds",
+                "secondaryTexturePath": "Data\\Assets\\Materials\\Lobby\\Char02BG.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.010937499813735485,
+                    "y": -0.09166666865348816
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.20000000298023224,
+                    "y": 0.08888889104127884
+                }
+            },
+            {
+                "name": "VolumeSlider",
+                "texturePath": "Data\\Assets\\UI\\04 Options\\UI_options_volumeSlider.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\04 Options\\UI_options_volumeSlider.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.1666666865348816,
+                    "y": -0.1546296328306198
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.026041662320494652,
+                    "y": 0.0694444477558136
+                }
+            },
+            {
+                "name": "VolumeBackground",
+                "texturePath": "Data\\Assets\\UI\\04 Options\\UI_options_volumeLine.dds",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.015625,
+                    "y": -0.14351852238178253
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.20833329856395721,
+                    "y": 0.046296294778585434
+                }
+            },
+            {
+                "name": "ResolutionLeft",
+                "texturePath": "Data\\Assets\\UI\\03 Level select\\UI_levelSelect_arrowLeft_inActive.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\03 Level select\\UI_levelSelect_arrowLeft_active.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.0234375,
+                    "y": -0.09259258955717087
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.052083324640989304,
+                    "y": 0.09259258955717087
+                }
+            },
+            {
+                "name": "ResolutionRight",
+                "texturePath": "Data\\Assets\\UI\\03 Level select\\UI_levelSelect_arrowRight_inActive.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\03 Level select\\UI_levelSelect_arrowRight_active.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.1510416716337204,
+                    "y": -0.09259258955717087
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.052083324640989304,
+                    "y": 0.09259258955717087
+                }
+            },
+            {
+                "name": "BackButton",
+                "texturePath": "Data\\Assets\\UI\\01 General\\UI_bButton.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\01 General\\UI_bButton.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.484375,
+                    "y": -0.43981483578681946
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "BackText",
+                "texturePath": "Data/InternalAssets/Dirga.ktf_MSDF",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "BACK",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": true,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.41145840287208557,
+                    "y": 0.38425928354263306
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.026041662320494652,
+                    "y": 0.046296294778585434
+                }
+            },
+            {
+                "name": "FullscreenContainer",
+                "texturePath": "Data\\Assets\\UI\\04 Options\\UI_options_bigContainer_light.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\04 Options\\UI_options_bigContainer_dark.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": true,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.234375,
+                    "y": -0.02500000037252903
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.46875,
+                    "y": 0.10185185819864273
+                }
+            },
+            {
+                "name": "ResolutionContainer",
+                "texturePath": "Data\\Assets\\UI\\04 Options\\UI_options_bigContainer_light.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\04 Options\\UI_options_bigContainer_dark.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": true,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.234375,
+                    "y": -0.09814814478158951
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.46875,
+                    "y": 0.10185185819864273
+                }
+            },
+            {
+                "name": "VolumeContainer",
+                "texturePath": "Data\\Assets\\UI\\04 Options\\UI_options_bigContainer_light.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\04 Options\\UI_options_bigContainer_dark.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": true,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.234375,
+                    "y": -0.17037037014961243
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.46875,
+                    "y": 0.10185185819864273
+                }
+            },
+            {
+                "name": "Background",
+                "texturePath": "Data\\Assets\\UI\\01 General\\UI_generalBackground.dds",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 9,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "sizeResolutionFactor": {
+                    "x": 1.0,
+                    "y": 1.0
+                }
+            }
+        ]
+    },
+    {
+        "name": "Credits",
+        "elements": [
+            {
+                "name": "BackButton",
+                "texturePath": "Data\\Assets\\UI\\01 General\\UI_bButton.dds",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.484375,
+                    "y": -0.43981483578681946
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "BackText",
+                "texturePath": "Data/InternalAssets/Dirga.ktf_MSDF",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "BACK",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": true,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.41145840287208557,
+                    "y": 0.38425928354263306
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.026041662320494652,
+                    "y": 0.046296294778585434
+                }
+            },
+            {
+                "name": "Background",
+                "texturePath": "Data\\Assets\\UI\\08 Credits\\UI_credits.dds",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 9,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.052083324640989304,
+                    "y": 0.09259258955717087
+                }
+            }
+        ]
+    },
+    {
+        "name": "Levels",
+        "elements": [
+            {
+                "name": "PlayText",
+                "texturePath": "Data/InternalAssets/Dirga.ktf_MSDF",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "PLAY",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": true,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.41666659712791443,
+                    "y": 0.38425928354263306
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.026041662320494652,
+                    "y": 0.04629633575677872
+                }
+            },
+            {
+                "name": "StartButton",
+                "texturePath": "Data\\Assets\\UI\\01 General\\UI_startButton.dds",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.3151041567325592,
+                    "y": -0.4333333373069763
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.06666667014360428,
+                    "y": 0.0416666679084301
+                }
+            },
+            {
+                "name": "LevelName",
+                "texturePath": "Data/InternalAssets/Dirga.ktf_MSDF",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "GRASS1",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": true,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.0,
+                    "y": 0.24074074625968933
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "LevelImage",
+                "texturePath": "Data\\Assets\\UI\\03 Level select\\UI_levelSelect_lilypad1.dds",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.18541665375232697,
+                    "y": -0.182407408952713
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.36927083134651184,
+                    "y": 0.36241573095321655
+                }
+            },
+            {
+                "name": "LevelChange",
+                "texturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": true,
+                "hasText": false,
+                "hideAtStart": true,
+                "offsetResolutionFactor": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.052083324640989304,
+                    "y": 0.09259258955717087
+                }
+            },
+            {
+                "name": "LeftButton",
+                "texturePath": "Data\\Assets\\UI\\03 Level select\\UI_levelSelect_arrowLeft_inActive.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\03 Level select\\UI_levelSelect_arrowLeft_active.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.3083333373069763,
+                    "y": -0.099108025431633
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.10416664928197861,
+                    "y": 0.198216050863266
+                }
+            },
+            {
+                "name": "RightButton",
+                "texturePath": "Data\\Assets\\UI\\03 Level select\\UI_levelSelect_arrowRight_inActive.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\03 Level select\\UI_levelSelect_arrowRight_active.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.20364585518836975,
+                    "y": -0.099108025431633
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.10416664928197861,
+                    "y": 0.198216050863266
+                }
+            },
+            {
+                "name": "BackButton",
+                "texturePath": "Data\\Assets\\UI\\01 General\\UI_bButton.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\01 General\\UI_bButton.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.484375,
+                    "y": -0.43981483578681946
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "BackText",
+                "texturePath": "Data/InternalAssets/Dirga.ktf_MSDF",
+                "secondaryTexturePath": "Data/InternalAssets/Dirga.ktf_MSDF",
+                "text": "BACK",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": true,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.41145840287208557,
+                    "y": 0.38425928354263306
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.026041662320494652,
+                    "y": 0.046296294778585434
+                }
+            },
+            {
+                "name": "Background",
+                "texturePath": "Data\\Assets\\UI\\03 Level select\\UI_levelSelect_background.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\01 General\\UI_mainBackground.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 9,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "sizeResolutionFactor": {
+                    "x": 1.0,
+                    "y": 1.0
+                }
+            }
+        ]
+    },
+    {
+        "name": "WinScreen",
+        "elements": [
+            {
+                "name": "ContinueText",
+                "texturePath": "Data/InternalAssets/motley.ktf_MSDF",
+                "secondaryTexturePath": "Data/InternalAssets/motley.ktf_MSDF",
+                "text": "CONTINUE",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": true,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.40885409712791443,
+                    "y": 0.38425928354263306
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.026041662320494652,
+                    "y": 0.046296294778585434
+                }
+            },
+            {
+                "name": "ContinueA",
+                "texturePath": "Data\\Assets\\UI\\01 General\\UI_aButton.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\01 General\\UI_aButton.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.3020833432674408,
+                    "y": -0.43981483578681946
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            }
+        ]
+    },
+    {
+        "name": "QuitConfirm",
+        "elements": [
+            {
+                "name": "YesText",
+                "texturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "YES",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": true,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.05416666716337204,
+                    "y": 0.13240741193294525
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.0260416641831398,
+                    "y": 0.046296294778585434
+                }
+            },
+            {
+                "name": "YesButton",
+                "texturePath": "Data\\Assets\\UI\\01 General\\UI_aButton.dds",
+                "secondaryTexturePath": "Data\\EngineAssets\\KEDefault_c.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.11770833283662796,
+                    "y": -0.18611110746860504
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03125,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "NoText",
+                "texturePath": "Data/InternalAssets/motley.ktf_MSDF",
+                "secondaryTexturePath": "Data/InternalAssets/motley.ktf_MSDF",
+                "text": "NO",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": true,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.11145833134651184,
+                    "y": 0.13240741193294525
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.0260416641831398,
+                    "y": 0.046296294778585434
+                }
+            },
+            {
+                "name": "NoButton",
+                "texturePath": "Data\\Assets\\UI\\01 General\\UI_bButton.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\01 General\\UI_aButton.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.0520833320915699,
+                    "y": -0.18611110746860504
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03177083283662796,
+                    "y": 0.05648148059844971
+                }
+            },
+            {
+                "name": "ReallyQuit",
+                "texturePath": "Data\\Assets\\UI\\01 General\\UI_sureQuit.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\01 General\\UI_sureQuit.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.47994792461395264,
+                    "y": -0.4263888895511627
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.9598958492279053,
+                    "y": 0.8557223081588745
+                }
+            }
+        ]
+    },
+    {
+        "name": "MenuConfirm",
+        "elements": [
+            {
+                "name": "YesText",
+                "texturePath": "Data/InternalAssets/motley.ktf_MSDF",
+                "secondaryTexturePath": "Data/InternalAssets/motley.ktf_MSDF",
+                "text": "YES",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": true,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.01979166641831398,
+                    "y": 0.13240741193294525
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.0260416641831398,
+                    "y": 0.046296294778585434
+                }
+            },
+            {
+                "name": "YesButton",
+                "texturePath": "Data\\Assets\\UI\\01 General\\UI_aButton.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\01 General\\UI_aButton.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.08124999701976776,
+                    "y": -0.18611110746860504
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.0338541679084301,
+                    "y": 0.0555555559694767
+                }
+            },
+            {
+                "name": "NoText",
+                "texturePath": "Data/InternalAssets/motley.ktf_MSDF",
+                "secondaryTexturePath": "Data/InternalAssets/motley.ktf_MSDF",
+                "text": "NO",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": true,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.08802083134651184,
+                    "y": 0.13240741193294525
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.0260416641831398,
+                    "y": 0.04629633575677872
+                }
+            },
+            {
+                "name": "NoButton",
+                "texturePath": "Data\\Assets\\UI\\01 General\\UI_bButton.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\01 General\\UI_bButton.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": 0.03072916716337204,
+                    "y": -0.18611110746860504
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.03281249850988388,
+                    "y": 0.05449950695037842
+                }
+            },
+            {
+                "name": "ReallyMenu",
+                "texturePath": "Data\\Assets\\UI\\01 General\\UI_sureQuit_menu.dds",
+                "secondaryTexturePath": "Data\\Assets\\UI\\01 General\\UI_sureQuit_menu.dds",
+                "text": "Text",
+                "textColour": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "eventName": "",
+                "alignType": 3,
+                "progressionDirection": 0,
+                "button": false,
+                "hasText": false,
+                "hideAtStart": false,
+                "offsetResolutionFactor": {
+                    "x": -0.47994792461395264,
+                    "y": -0.4263888895511627
+                },
+                "sizeResolutionFactor": {
+                    "x": 0.9598958492279053,
+                    "y": 0.8527777791023254
+                }
+            }
+        ]
+    }
+]

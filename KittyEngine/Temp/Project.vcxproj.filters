@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{DBC7D3B0-C769-FE86-B024-12DB9C6585D7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Source">
+      <UniqueIdentifier>{7B11E759-E7D1-6290-B00C-AC0D1C8CA76C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Source\pch">
+      <UniqueIdentifier>{6506D531-D11C-D3C7-1A94-5EE986E9A34F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project">
+      <UniqueIdentifier>{5C2CF323-C80B-72BF-D123-FD953D82D820}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Source">
+      <UniqueIdentifier>{DC3A7AF8-C808-6EFE-B19C-DE249D094A63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Source\BattleArea">
+      <UniqueIdentifier>{601FDA48-CCE1-0DD3-1592-9C5F8193E6B0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Source\Boomerang">
+      <UniqueIdentifier>{45106E92-3135-BD12-5A80-A2A24604BC30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Source\Camera">
+      <UniqueIdentifier>{D47F5B23-40EC-161E-09E0-AE7B750B3986}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Source\Combat">
+      <UniqueIdentifier>{01C85824-6D34-141F-3628-AC7CA2533687}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Source\GameEvents">
+      <UniqueIdentifier>{3AB2E60A-A674-1A95-EF24-A9215B26F372}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Source\GameRules">
+      <UniqueIdentifier>{B0E34E3F-9C08-9EBF-C553-834FB1D79CDD}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Source\GameSystems">
+      <UniqueIdentifier>{1D276CA5-0937-1876-72F0-7C945E1F070F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Source\Managers">
+      <UniqueIdentifier>{39F4D3A4-A52B-1C3C-AE35-805F1AEC4235}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Source\MovingObject">
+      <UniqueIdentifier>{725B24E6-DE68-52CC-674F-4EB7D35B1E83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Source\Player">
+      <UniqueIdentifier>{785C6F42-E4C8-2A3D-ADBC-C29A19E84CA5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Source\Player\States">
+      <UniqueIdentifier>{3B3FE3A2-27FA-D24E-D0B1-4B99BC4B1DDF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Source\Portal">
+      <UniqueIdentifier>{9DE2AE42-094F-6A3D-D242-029B3E6E8CA5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Source\Powerups">
+      <UniqueIdentifier>{10E195B4-7C18-DE4B-8522-426FF1D80445}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Source\Water">
+      <UniqueIdentifier>{EEE4C938-DA73-5302-8392-67FD6F0064A8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="z_premake">
+      <UniqueIdentifier>{C32BA0E0-2F96-5457-78D4-05FDE47D32AC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="z_premake\Resources">
+      <UniqueIdentifier>{ED205134-5982-2E42-E2EF-74F44E506501}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Engine\Source\pch\stdafx.h">
+      <Filter>Engine\Source\pch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Project\Source\BattleArea\BattleArea.h">
+      <Filter>Project\Source\BattleArea</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Project\Source\Boomerang\BallThrowParams.h">
+      <Filter>Project\Source\Boomerang</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Project\Source\Boomerang\BoomerangComponent.h">
+      <Filter>Project\Source\Boomerang</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Project\Source\Boomerang\BoomerangPhysxController.h">
+      <Filter>Project\Source\Boomerang</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Project\Source\Camera\ActionCameraComponent.h">
+      <Filter>Project\Source\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Project\Source\Camera\CameraSettingsFile.h">
+      <Filter>Project\Source\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Project\Source\Combat\CombatHandler.h">
+      <Filter>Project\Source\Combat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Project\Source\Combat\Hitboxh.h">
+      <Filter>Project\Source\Combat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Project\Source\Combat\IDamageable.h">
+      <Filter>Project\Source\Combat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Project\Source\Game.h">
+      <Filter>Project\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Project\Source\GameEvents\GameEvents.h">
+      <Filter>Project\Source\GameEvents</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Project\Source\GameRules\GameRules.h">
+      <Filter>Project\Source\GameRules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Project\Source\GameSystems\LobbySystem.h">
+      <Filter>Project\Source\GameSystems</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Project\Source\Managers\BallManager.h">
+      <Filter>Project\Source\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Project\Source\Managers\GameManager.h">
+      <Filter>Project\Source\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Project\Source\Managers\TimeManager.h">
+      <Filter>Project\Source\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Project\Source\MovingObject\MovingObject.h">
+      <Filter>Project\Source\MovingObject</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Project\Source\MovingObject\MovingObjectTrigger.h">
+      <Filter>Project\Source\MovingObject</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Project\Source\Player\Player.h">
+      <Filter>Project\Source\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Project\Source\Player\PlayerAnimationController.h">
+      <Filter>Project\Source\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Project\Source\Player\SpawnPointComponent.h">
+      <Filter>Project\Source\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Project\Source\Player\States\PlayerStateBase.h">
+      <Filter>Project\Source\Player\States</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Project\Source\Portal\Portal.h">
+      <Filter>Project\Source\Portal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Project\Source\Powerups\DashThroughWallsPowerup.h">
+      <Filter>Project\Source\Powerups</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Project\Source\Powerups\DoubleBallPowerup.h">
+      <Filter>Project\Source\Powerups</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Project\Source\Powerups\ExplosionPowerup.h">
+      <Filter>Project\Source\Powerups</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Project\Source\Powerups\JuggernautPowerup.h">
+      <Filter>Project\Source\Powerups</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Project\Source\Powerups\Powerup.h">
+      <Filter>Project\Source\Powerups</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Project\Source\Powerups\PowerupAreaComponent.h">
+      <Filter>Project\Source\Powerups</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Project\Source\Powerups\PowerupPickupComponent.h">
+      <Filter>Project\Source\Powerups</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Project\Source\Powerups\ShieldPowerup.h">
+      <Filter>Project\Source\Powerups</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Project\Source\Powerups\SpeedPowerup.h">
+      <Filter>Project\Source\Powerups</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Project\Source\Powerups\SplitBoomerangPowerup.h">
+      <Filter>Project\Source\Powerups</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Project\Source\Powerups\TelekinesisPowerup.h">
+      <Filter>Project\Source\Powerups</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Project\Source\Powerups\TeleportPowerup.h">
+      <Filter>Project\Source\Powerups</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Project\Source\Water\WaterComponent.h">
+      <Filter>Project\Source\Water</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Engine\Source\pch\stdafx.cpp">
+      <Filter>Engine\Source\pch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Project\Source\BattleArea\BattleArea.cpp">
+      <Filter>Project\Source\BattleArea</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Project\Source\Boomerang\BoomerangComponent.cpp">
+      <Filter>Project\Source\Boomerang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Project\Source\Boomerang\BoomerangPhysxController.cpp">
+      <Filter>Project\Source\Boomerang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Project\Source\Camera\ActionCameraComponent.cpp">
+      <Filter>Project\Source\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Project\Source\Camera\CameraSettingsFile.cpp">
+      <Filter>Project\Source\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Project\Source\Combat\CombatHandler.cpp">
+      <Filter>Project\Source\Combat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Project\Source\Game.cpp">
+      <Filter>Project\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Project\Source\GameRules\GameRules.cpp">
+      <Filter>Project\Source\GameRules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Project\Source\GameSystems\LobbySystem.cpp">
+      <Filter>Project\Source\GameSystems</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Project\Source\Managers\BallManager.cpp">
+      <Filter>Project\Source\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Project\Source\Managers\GameManager.cpp">
+      <Filter>Project\Source\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Project\Source\Managers\TimeManager.cpp">
+      <Filter>Project\Source\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Project\Source\MovingObject\MovingObject.cpp">
+      <Filter>Project\Source\MovingObject</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Project\Source\MovingObject\MovingObjectTrigger.cpp">
+      <Filter>Project\Source\MovingObject</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Project\Source\Player\Player.cpp">
+      <Filter>Project\Source\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Project\Source\Player\PlayerAnimationController.cpp">
+      <Filter>Project\Source\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Project\Source\Player\SpawnPointComponent.cpp">
+      <Filter>Project\Source\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Project\Source\Player\States\PlayerStateBase.cpp">
+      <Filter>Project\Source\Player\States</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Project\Source\Portal\Portal.cpp">
+      <Filter>Project\Source\Portal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Project\Source\Powerups\DashThroughWallsPowerup.cpp">
+      <Filter>Project\Source\Powerups</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Project\Source\Powerups\DoubleBallPowerup.cpp">
+      <Filter>Project\Source\Powerups</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Project\Source\Powerups\ExplosionPowerup.cpp">
+      <Filter>Project\Source\Powerups</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Project\Source\Powerups\JuggernautPowerup.cpp">
+      <Filter>Project\Source\Powerups</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Project\Source\Powerups\Powerup.cpp">
+      <Filter>Project\Source\Powerups</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Project\Source\Powerups\PowerupAreaComponent.cpp">
+      <Filter>Project\Source\Powerups</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Project\Source\Powerups\PowerupPickupComponent.cpp">
+      <Filter>Project\Source\Powerups</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Project\Source\Powerups\ShieldPowerup.cpp">
+      <Filter>Project\Source\Powerups</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Project\Source\Powerups\SpeedPowerup.cpp">
+      <Filter>Project\Source\Powerups</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Project\Source\Powerups\SplitBoomerangPowerup.cpp">
+      <Filter>Project\Source\Powerups</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Project\Source\Powerups\TelekinesisPowerup.cpp">
+      <Filter>Project\Source\Powerups</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Project\Source\Powerups\TeleportPowerup.cpp">
+      <Filter>Project\Source\Powerups</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Project\Source\Water\WaterComponent.cpp">
+      <Filter>Project\Source\Water</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Project\Source\main.cpp">
+      <Filter>Project\Source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\z_premake\Resources\resources.rc">
+      <Filter>z_premake\Resources</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

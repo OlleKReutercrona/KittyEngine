@@ -1,0 +1,208 @@
+{
+    "duration": 120,
+    "meshes": [
+        {
+            "albedo": "Data\\Assets\\UI\\09 Winscreen\\UI_player04.dds",
+            "effects": "Data/Assets/Materials/DEFAULT_fx.dds",
+            "material": "Data/Assets/Materials/DEFAULT_m.dds",
+            "name": "Data\\ProjectAssets\\vfxPlane2.fbx",
+            "normal": "Data/Assets/Materials/DEFAULT_n.dds",
+            "pixelShader": "ScriptPS_noBloomVFX",
+            "vertexShader": "Shaders/Model_VFX_VS.cso"
+        }
+    ],
+    "name": "Player0WinTitle",
+    "particleEmitters": [],
+    "timestamps": [
+        {
+            "curves": [
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 2,
+                    "curveProfile": 3,
+                    "maxValue": 3.0,
+                    "minValue": -3.0,
+                    "points": [
+                        {
+                            "x": 0.0,
+                            "y": 0.15625
+                        },
+                        {
+                            "x": 1.0,
+                            "y": 0.15625
+                        }
+                    ]
+                },
+                {
+                    "curveAttribute": 3,
+                    "curveProfile": 3,
+                    "maxValue": 5.0,
+                    "minValue": -2.0,
+                    "points": [
+                        {
+                            "x": 0.0,
+                            "y": 0.5546875
+                        },
+                        {
+                            "x": 1.0,
+                            "y": 0.5546875
+                        }
+                    ]
+                },
+                {
+                    "curveAttribute": 4,
+                    "curveProfile": 3,
+                    "maxValue": 5.0,
+                    "minValue": -5.0,
+                    "points": [
+                        {
+                            "x": 0.0,
+                            "y": 0.390625
+                        },
+                        {
+                            "x": 1.0,
+                            "y": 0.390625
+                        }
+                    ]
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 6,
+                    "curveProfile": 3,
+                    "maxValue": 360.0,
+                    "minValue": 0.0,
+                    "points": [
+                        {
+                            "x": 0.0,
+                            "y": 0.5
+                        },
+                        {
+                            "x": 1.0,
+                            "y": 0.5
+                        }
+                    ]
+                },
+                {
+                    "curveAttribute": 7,
+                    "curveProfile": 3,
+                    "maxValue": 360.0,
+                    "minValue": 0.0,
+                    "points": [
+                        {
+                            "x": 0.0,
+                            "y": 0.5
+                        },
+                        {
+                            "x": 1.0,
+                            "y": 0.5
+                        }
+                    ]
+                },
+                {
+                    "curveAttribute": 8,
+                    "curveProfile": 3,
+                    "maxValue": 0.10000000149011612,
+                    "minValue": 0.019999999552965164,
+                    "points": [
+                        {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        {
+                            "x": 1.0,
+                            "y": 0.0
+                        }
+                    ]
+                },
+                {
+                    "curveAttribute": 9,
+                    "curveProfile": 3,
+                    "maxValue": 0.10000000149011612,
+                    "minValue": 0.019999999552965164,
+                    "points": [
+                        {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        {
+                            "x": 1.0,
+                            "y": 0.0
+                        }
+                    ]
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                },
+                {
+                    "curveAttribute": 17,
+                    "curveProfile": 3,
+                    "maxValue": 2.0,
+                    "minValue": 0.0,
+                    "points": []
+                }
+            ],
+            "effectIndex": 0,
+            "end": 120,
+            "start": 0,
+            "type": 1
+        }
+    ]
+}

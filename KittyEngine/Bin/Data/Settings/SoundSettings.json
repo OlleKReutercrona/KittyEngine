@@ -1,0 +1,43 @@
+{
+    "master": {
+        "music": 0.3095199763774872,
+        "ambient": 0.583329975605011
+    },
+    "sfx": {
+        "BallParry": 1.0,
+        "Ball Collision": 1.0,
+        "Ball Impact": 1.0,
+        "Ball Bounce": 0.8100000023841858,
+        "Portal Teleport": 1.0,
+        "Shield Activate": 1.0,
+        "Shield DeActivate": 1.0,
+        "Powerup Pickup": 1.0,
+        "Ball Teleport": 1.0,
+        "Split Ball": 1.0,
+        "Explosive Ball": 1.0,
+        "Telekinesis": 1.0,
+        "Player Throw": 0.7699999809265137,
+        "Player Dash": 0.3499999940395355,
+        "Player Falling": 1.0,
+        "Player Meele": 0.6699999570846558,
+        "PlayerTauntCandy": 1.0,
+        "PlayerTauntDew": 1.0,
+        "PlayerTauntCinder": 1.0,
+        "PlayerTauntMal": 1.0,
+        "PlayerDeathCandy": 1.0,
+        "PlayerDeathDew": 1.0,
+        "PlayerDeathCinder": 1.0,
+        "PlayerDeathMal": 1.0,
+        "PlayerSelectCandy": 1.0,
+        "PlayerSelectDew": 1.0,
+        "PlayerSelectCinder": 1.0,
+        "PlayerSelectMal": 1.0,
+        "AnnouncerGo": 1.0,
+        "AnnouncerReady": 1.0,
+        "AnnouncerWinner": 1.0,
+        "AnnouncerChampion": 1.0,
+        "Unknown": 1.0,
+        "Menu Toggle": 1.0,
+        "Menu Select": 1.0
+    }
+}

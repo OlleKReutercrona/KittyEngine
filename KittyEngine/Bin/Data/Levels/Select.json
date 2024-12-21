@@ -1,0 +1,557 @@
+{
+  "scene": "Select",
+  "game_objects": [
+    {
+      "id": 34750,
+      "name": "Main Camera",
+      "isStatic": false,
+      "parentID": 2147483647,
+      "transform": {
+        "m00": -1.0,
+        "m01": 0.0,
+        "m02": 0.0,
+        "m03": 0.0,
+        "m10": 0.0,
+        "m11": 1.0,
+        "m12": 0.0,
+        "m13": 0.0,
+        "m20": 0.0,
+        "m21": 0.0,
+        "m22": -1.0,
+        "m23": 0.0,
+        "m30": 0.0,
+        "m31": 0.1,
+        "m32": 15.0,
+        "m33": 1.0
+      },
+      "components": {
+        "main_camera": {
+          "fov": 31.4515
+        },
+        "cameraOverride": {
+          "aspectRatio": 0,
+          "projectionType": 1,
+          "FOV": 22.0,
+          "ortographicWidth": 5.8,
+          "nearPlane": 0.3,
+          "farPlane": 1000.0,
+          "disableActionCamera": true
+        }
+      }
+    },
+    {
+      "id": 34772,
+      "name": "Directional Light",
+      "isStatic": false,
+      "parentID": 2147483647,
+      "transform": {
+        "m00": 0.866025448,
+        "m01": 7.450581E-09,
+        "m02": 0.49999997,
+        "m03": 0.0,
+        "m10": -0.225438654,
+        "m11": -0.8925859,
+        "m12": 0.39047128,
+        "m13": 0.0,
+        "m20": 0.4462929,
+        "m21": -0.450877368,
+        "m22": -0.773002,
+        "m23": 0.0,
+        "m30": 0.0,
+        "m31": 3.0,
+        "m32": 2.0,
+        "m33": 1.0
+      },
+      "components": {
+        "directional_light": {
+          "range": 10.0,
+          "intensity": 0.5,
+          "color": {
+            "r": 1.0,
+            "g": 0.956862748,
+            "b": 0.8392157
+          }
+        }
+      }
+    },
+    {
+      "id": 34778,
+      "name": "Floor",
+      "isStatic": false,
+      "layer": 8,
+      "parentID": 2147483647,
+      "transform": {
+        "m00": 1.0,
+        "m01": 0.0,
+        "m02": 0.0,
+        "m03": 0.0,
+        "m10": 0.0,
+        "m11": 1.0,
+        "m12": 0.0,
+        "m13": 0.0,
+        "m20": 0.0,
+        "m21": 0.0,
+        "m22": 1.0,
+        "m23": 0.0,
+        "m30": 0.0,
+        "m31": -0.35,
+        "m32": 2.0,
+        "m33": 1.0
+      },
+      "components": {
+        "box_collider": {
+          "trigger": false,
+          "size": {
+            "x": 10.0,
+            "y": 1.0,
+            "z": 10.0
+          },
+          "offset": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "world_transform": {
+            "m00": 1.0,
+            "m01": 0.0,
+            "m02": 0.0,
+            "m03": 0.0,
+            "m10": 0.0,
+            "m11": 1.0,
+            "m12": 0.0,
+            "m13": 0.0,
+            "m20": 0.0,
+            "m21": 0.0,
+            "m22": 1.0,
+            "m23": 0.0,
+            "m30": 0.0,
+            "m31": -0.35,
+            "m32": 2.0,
+            "m33": 1.0
+          }
+        }
+      }
+    },
+    {
+      "id": -15716,
+      "name": "Wall",
+      "isStatic": false,
+      "parentID": 2147483647,
+      "transform": {
+        "m00": 5.8,
+        "m01": 0.0,
+        "m02": 0.0,
+        "m03": 0.0,
+        "m10": 0.0,
+        "m11": -1.1920929E-07,
+        "m12": 1.00000012,
+        "m13": 0.0,
+        "m20": 0.0,
+        "m21": -3.25000048,
+        "m22": -3.874302E-07,
+        "m23": 0.0,
+        "m30": 0.0,
+        "m31": 0.1,
+        "m32": 1.0,
+        "m33": 1.0
+      },
+      "components": {
+        "model": {
+          "path": "Models/1x1Plane.fbx"
+        },
+        "overrideMaterial": {
+          "materialName": "UI_generalBackground",
+          "albedo": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "metallic": 0.0,
+          "roughness": 0.5,
+          "emission": 1.0,
+          "albedoTex": "UI/01 General/UI_generalBackground.dds"
+        }
+      }
+    },
+    {
+      "id": 34814,
+      "name": "Char04",
+      "isStatic": false,
+      "parentID": 2147483647,
+      "transform": {
+        "m00": 1.0,
+        "m01": 0.0,
+        "m02": 0.0,
+        "m03": 0.0,
+        "m10": 0.0,
+        "m11": 1.0,
+        "m12": 0.0,
+        "m13": 0.0,
+        "m20": 0.0,
+        "m21": 0.0,
+        "m22": 1.0,
+        "m23": 0.0,
+        "m30": -1.65,
+        "m31": 0.0,
+        "m32": 2.0,
+        "m33": 1.0
+      },
+      "components": {}
+    },
+    {
+      "id": 34786,
+      "name": "Char04BG",
+      "isStatic": false,
+      "parentID": 34814,
+      "transform": {
+        "m00": 1.0,
+        "m01": 0.0,
+        "m02": 0.0,
+        "m03": 0.0,
+        "m10": 0.0,
+        "m11": 0.000187516212,
+        "m12": 1.0,
+        "m13": 0.0,
+        "m20": 0.0,
+        "m21": -1.0,
+        "m22": 0.000187516212,
+        "m23": 0.0,
+        "m30": 0.0,
+        "m31": 0.45,
+        "m32": -0.981,
+        "m33": 1.0
+      },
+      "components": {
+        "model": {
+          "path": "Models/1x1Plane.fbx"
+        },
+        "overrideMaterial": {
+          "materialName": "NoCharacterBG",
+          "albedo": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "metallic": 0.0,
+          "roughness": 0.5,
+          "emission": 0.0,
+          "albedoTex": "Materials/Lobby/NoCharacterBG.dds"
+        }
+      }
+    },
+    {
+      "id": 34798,
+      "name": "SpawnPoint (3)",
+      "isStatic": false,
+      "parentID": 34814,
+      "transform": {
+        "m00": -1.0,
+        "m01": 0.0,
+        "m02": 0.0,
+        "m03": 0.0,
+        "m10": 0.0,
+        "m11": 1.0,
+        "m12": 0.0,
+        "m13": 0.0,
+        "m20": 0.0,
+        "m21": 0.0,
+        "m22": -1.0,
+        "m23": 0.0,
+        "m30": 0.0,
+        "m31": -0.551,
+        "m32": 0.0,
+        "m33": 1.0
+      },
+      "components": {
+        "spawnPoint": {
+          "index": 3
+        }
+      }
+    },
+    {
+      "id": 34818,
+      "name": "Char03",
+      "isStatic": false,
+      "parentID": 2147483647,
+      "transform": {
+        "m00": 1.0,
+        "m01": 0.0,
+        "m02": 0.0,
+        "m03": 0.0,
+        "m10": 0.0,
+        "m11": 1.0,
+        "m12": 0.0,
+        "m13": 0.0,
+        "m20": 0.0,
+        "m21": 0.0,
+        "m22": 1.0,
+        "m23": 0.0,
+        "m30": -0.55,
+        "m31": 0.0,
+        "m32": 1.5,
+        "m33": 1.0
+      },
+      "components": {}
+    },
+    {
+      "id": 34810,
+      "name": "Char03BG",
+      "isStatic": false,
+      "parentID": 34818,
+      "transform": {
+        "m00": 1.0,
+        "m01": 0.0,
+        "m02": 0.0,
+        "m03": 0.0,
+        "m10": 0.0,
+        "m11": 0.000187516212,
+        "m12": 1.0,
+        "m13": 0.0,
+        "m20": 0.0,
+        "m21": -1.0,
+        "m22": 0.000187516212,
+        "m23": 0.0,
+        "m30": 0.0,
+        "m31": 0.45,
+        "m32": -0.481,
+        "m33": 1.0
+      },
+      "components": {
+        "model": {
+          "path": "Models/1x1Plane.fbx"
+        },
+        "overrideMaterial": {
+          "materialName": "NoCharacterBG",
+          "albedo": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "metallic": 0.0,
+          "roughness": 0.5,
+          "emission": 0.0,
+          "albedoTex": "Materials/Lobby/NoCharacterBG.dds"
+        }
+      }
+    },
+    {
+      "id": 34742,
+      "name": "SpawnPoint (2)",
+      "isStatic": false,
+      "parentID": 34818,
+      "transform": {
+        "m00": -1.0,
+        "m01": 0.0,
+        "m02": 0.0,
+        "m03": 0.0,
+        "m10": 0.0,
+        "m11": 1.0,
+        "m12": 0.0,
+        "m13": 0.0,
+        "m20": 0.0,
+        "m21": 0.0,
+        "m22": -1.0,
+        "m23": 0.0,
+        "m30": 0.0,
+        "m31": -0.551,
+        "m32": 0.5,
+        "m33": 1.0
+      },
+      "components": {
+        "spawnPoint": {
+          "index": 2
+        }
+      }
+    },
+    {
+      "id": 34802,
+      "name": "Char02",
+      "isStatic": false,
+      "parentID": 2147483647,
+      "transform": {
+        "m00": 1.0,
+        "m01": 0.0,
+        "m02": 0.0,
+        "m03": 0.0,
+        "m10": 0.0,
+        "m11": 1.0,
+        "m12": 0.0,
+        "m13": 0.0,
+        "m20": 0.0,
+        "m21": 0.0,
+        "m22": 1.0,
+        "m23": 0.0,
+        "m30": 0.55,
+        "m31": 0.0,
+        "m32": 1.5,
+        "m33": 1.0
+      },
+      "components": {}
+    },
+    {
+      "id": 34760,
+      "name": "Char02BG",
+      "isStatic": false,
+      "parentID": 34802,
+      "transform": {
+        "m00": 1.0,
+        "m01": 0.0,
+        "m02": 0.0,
+        "m03": 0.0,
+        "m10": 0.0,
+        "m11": 0.000187516212,
+        "m12": 1.0,
+        "m13": 0.0,
+        "m20": 0.0,
+        "m21": -1.0,
+        "m22": 0.000187516212,
+        "m23": 0.0,
+        "m30": 0.0,
+        "m31": 0.45,
+        "m32": -0.481,
+        "m33": 1.0
+      },
+      "components": {
+        "model": {
+          "path": "Models/1x1Plane.fbx"
+        },
+        "overrideMaterial": {
+          "materialName": "NoCharacterBG",
+          "albedo": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "metallic": 0.0,
+          "roughness": 0.5,
+          "emission": 0.0,
+          "albedoTex": "Materials/Lobby/NoCharacterBG.dds"
+        }
+      }
+    },
+    {
+      "id": 34830,
+      "name": "SpawnPoint (1)",
+      "isStatic": false,
+      "parentID": 34802,
+      "transform": {
+        "m00": -1.0,
+        "m01": 0.0,
+        "m02": 0.0,
+        "m03": 0.0,
+        "m10": 0.0,
+        "m11": 1.0,
+        "m12": 0.0,
+        "m13": 0.0,
+        "m20": 0.0,
+        "m21": 0.0,
+        "m22": -1.0,
+        "m23": 0.0,
+        "m30": 0.0,
+        "m31": -0.551,
+        "m32": 0.5,
+        "m33": 1.0
+      },
+      "components": {
+        "spawnPoint": {
+          "index": 1
+        }
+      }
+    },
+    {
+      "id": 34794,
+      "name": "Char01",
+      "isStatic": false,
+      "parentID": 2147483647,
+      "transform": {
+        "m00": 1.0,
+        "m01": 0.0,
+        "m02": 0.0,
+        "m03": 0.0,
+        "m10": 0.0,
+        "m11": 1.0,
+        "m12": 0.0,
+        "m13": 0.0,
+        "m20": 0.0,
+        "m21": 0.0,
+        "m22": 1.0,
+        "m23": 0.0,
+        "m30": 1.65,
+        "m31": 0.0,
+        "m32": 2.0,
+        "m33": 1.0
+      },
+      "components": {}
+    },
+    {
+      "id": 34826,
+      "name": "Char01BG",
+      "isStatic": false,
+      "parentID": 34794,
+      "transform": {
+        "m00": 1.0,
+        "m01": 0.0,
+        "m02": 0.0,
+        "m03": 0.0,
+        "m10": 0.0,
+        "m11": 0.000187516212,
+        "m12": 1.0,
+        "m13": 0.0,
+        "m20": 0.0,
+        "m21": -1.0,
+        "m22": 0.000187516212,
+        "m23": 0.0,
+        "m30": 0.0,
+        "m31": 0.45,
+        "m32": -0.981,
+        "m33": 1.0
+      },
+      "components": {
+        "model": {
+          "path": "Models/1x1Plane.fbx"
+        },
+        "overrideMaterial": {
+          "materialName": "NoCharacterBG",
+          "albedo": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "metallic": 0.0,
+          "roughness": 0.5,
+          "emission": 0.0,
+          "albedoTex": "Materials/Lobby/NoCharacterBG.dds"
+        }
+      }
+    },
+    {
+      "id": 34790,
+      "name": "SpawnPoint",
+      "isStatic": false,
+      "parentID": 34794,
+      "transform": {
+        "m00": -1.0,
+        "m01": 0.0,
+        "m02": 0.0,
+        "m03": 0.0,
+        "m10": 0.0,
+        "m11": 1.0,
+        "m12": 0.0,
+        "m13": 0.0,
+        "m20": 0.0,
+        "m21": 0.0,
+        "m22": -1.0,
+        "m23": 0.0,
+        "m30": 0.0,
+        "m31": -0.551,
+        "m32": 0.0,
+        "m33": 1.0
+      },
+      "components": {
+        "spawnPoint": {
+          "index": 0
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+
+{
+  "id": 26530,
+  "name": "PowerupPickup",
+  "isStatic": false,
+  "parentID": 2147483647,
+  "transform": {
+    "m00": 1.0,
+    "m01": 0.0,
+    "m02": 0.0,
+    "m03": 0.0,
+    "m10": 0.0,
+    "m11": 1.0,
+    "m12": 0.0,
+    "m13": 0.0,
+    "m20": 0.0,
+    "m21": 0.0,
+    "m22": 1.0,
+    "m23": 0.0,
+    "m30": 0.0,
+    "m31": 0.0,
+    "m32": 0.0,
+    "m33": 1.0
+  },
+  "components": {
+    "model": {
+      "path": "Enviroment/Space/sm_comet.fbx"
+    },
+    "vfx": {
+      "sequence_names": [
+        "PowerupPickupGround"
+      ],
+      "autoplay": false
+    },
+    "overrideMaterial": {
+      "materialName": "m_moon",
+      "albedo": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "metallic": 0.0,
+      "roughness": 0.5,
+      "emission": 0.0,
+      "albedoTex": "Materials/Materials/Moon_alb.png"
+    },
+    "powerupPickup": {}
+  }
+}

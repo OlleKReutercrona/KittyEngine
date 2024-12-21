@@ -1,0 +1,70 @@
+
+{
+  "id": 38654,
+  "name": "Player",
+  "isStatic": false,
+  "parentID": 2147483647,
+  "postponeInstantiation": true,
+  "transform": {
+    "m00": 1.0,
+    "m01": 0.0,
+    "m02": 0.0,
+    "m03": 0.0,
+    "m10": 0.0,
+    "m11": 1.0,
+    "m12": 0.0,
+    "m13": 0.0,
+    "m20": 0.0,
+    "m21": 0.0,
+    "m22": 1.0,
+    "m23": 0.0,
+    "m30": 0.0,
+    "m31": 1.0,
+    "m32": 0.0,
+    "m33": 1.0
+  },
+  "components": {
+    "skeletal_model": {
+      "path": "Players/Player1/sk_player01.fbx",
+      "animationPaths": [
+        "Players/Player1/anim_player01_dash.fbx",
+        "Players/Player1/anim_player01_death.fbx",
+        "Players/Player1/anim_player01_idle.fbx",
+        "Players/Player1/anim_player01_podium.fbx",
+        "Players/Player1/anim_player01_run.fbx",
+        "Players/Player1/anim_player01_select.fbx",
+        "Players/Player1/anim_player01_taunt.fbx",
+        "Players/Player1/anim_player01_throw.fbx",
+        "Players/Player1/anim_player01_victoryDance.fbx"
+      ]
+    },
+    "vfx": {
+      "sequence_names": [
+        "PlayerThrowArrow",
+        "PlayerRecall",
+        "PlayerDeath",
+        "PlayerAttack",
+        "default",
+        "PlayerFallAlert",
+        "Character01LobbyFX",
+        "Character02LobbyFX",
+        "Character03LobbyFX",
+        "Character04LobbyFX",
+        "Character05LobbyFX"
+      ],
+      "autoplay": false
+    },
+    "player": {
+      "maxSpeed": 5.0,
+      "movementSpeed": 150.0,
+      "maxRotation": 20.0,
+      "rotationSpeed": 20.0,
+      "spawnPosition": {
+        "x": 0.0,
+        "y": 1.0,
+        "z": 0.0
+      },
+      "characterIndex": 1
+    }
+  }
+}

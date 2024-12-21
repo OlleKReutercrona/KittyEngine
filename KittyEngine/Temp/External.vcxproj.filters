@@ -1,0 +1,2953 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="FileWatch">
+      <UniqueIdentifier>{5CE9AB1E-C853-6095-1192-113B7D3B3EEA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ImGuiColorTextEdit">
+      <UniqueIdentifier>{2ACE9000-16B2-5156-7F12-4CA96B153CD8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TGAFBXImporter">
+      <UniqueIdentifier>{738425AE-5F52-19B4-48E6-89DA3453F518}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TGAFBXImporter\FBXSDK">
+      <UniqueIdentifier>{44E5F18F-B051-AD8A-7945-45E8E570CFF2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TGAFBXImporter\FBXSDK\include">
+      <UniqueIdentifier>{B710A22D-2329-8957-ECD5-18F158AD1DF1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TGAFBXImporter\FBXSDK\include\fbxsdk">
+      <UniqueIdentifier>{C8B9CF5A-B4A0-9152-5DF1-F76F49B70AB9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TGAFBXImporter\FBXSDK\include\fbxsdk\core">
+      <UniqueIdentifier>{40C79DD4-ACE1-0076-F503-110A615D287D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TGAFBXImporter\FBXSDK\include\fbxsdk\core\arch">
+      <UniqueIdentifier>{CDF1250A-B96F-76A3-A267-343B8E84B8CB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TGAFBXImporter\FBXSDK\include\fbxsdk\core\base">
+      <UniqueIdentifier>{EA37260A-D6B5-76A3-BFAD-343BABCAB8CB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TGAFBXImporter\FBXSDK\include\fbxsdk\core\math">
+      <UniqueIdentifier>{39402C0A-25BE-7CA3-0EB6-3A3BFAD2BECB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TGAFBXImporter\FBXSDK\include\fbxsdk\core\sync">
+      <UniqueIdentifier>{CCEF2F0A-B86D-80A3-A165-3E3B8D82C2CB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TGAFBXImporter\FBXSDK\include\fbxsdk\fileio">
+      <UniqueIdentifier>{CF41BC79-3BA7-4F00-C47F-F1D830E4446F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\collada">
+      <UniqueIdentifier>{CE0BB46E-3A1D-5C15-C36E-EE542F7FE54E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\fbx">
+      <UniqueIdentifier>{1E16B29E-8A51-1262-9346-8FF1FF009792}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TGAFBXImporter\FBXSDK\include\fbxsdk\scene">
+      <UniqueIdentifier>{056D7169-F1D4-3737-5A40-4C4D46C74E23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TGAFBXImporter\FBXSDK\include\fbxsdk\scene\animation">
+      <UniqueIdentifier>{541010BC-404F-BA37-E9D1-9669D5EF6FA2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TGAFBXImporter\FBXSDK\include\fbxsdk\scene\constraint">
+      <UniqueIdentifier>{D999F351-45B6-E542-0E8E-52B07A694F04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry">
+      <UniqueIdentifier>{20AC7A07-8CBD-22AE-150F-B5ED811FACE7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TGAFBXImporter\FBXSDK\include\fbxsdk\scene\shading">
+      <UniqueIdentifier>{726F287B-5E03-1E23-C7C7-77D7B37A5815}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TGAFBXImporter\FBXSDK\include\fbxsdk\utils">
+      <UniqueIdentifier>{48019F69-3469-6537-9DD4-794D895B7C23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TGAFBXImporter\FBXSDK\include\libxml2">
+      <UniqueIdentifier>{20456D91-8C09-6C81-556F-9C4BC1F207B7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TGAFBXImporter\FBXSDK\include\libxml2\libxml">
+      <UniqueIdentifier>{7763EA80-6376-EAD9-0C60-C7C6F8518727}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TGAFBXImporter\source">
+      <UniqueIdentifier>{33C728FC-9F33-E4F6-6827-7C54D452065F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assimp">
+      <UniqueIdentifier>{724885F2-5EEA-AFC8-47A5-C31C33E63619}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assimp\Compiler">
+      <UniqueIdentifier>{1C28A7FC-88B3-14C1-91C4-97B5FDCE70C1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assimp\port">
+      <UniqueIdentifier>{2631904E-92E6-0844-1BDB-021B878FFF47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assimp\port\AndroidJNI">
+      <UniqueIdentifier>{B7177319-A311-9C6B-8C7E-327C781702D8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="dxtex">
+      <UniqueIdentifier>{F25A540F-5E6F-7CC0-27F1-1F2093C478F1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="freetype">
+      <UniqueIdentifier>{89895BD8-7556-B6E3-9E6F-A48B8A9BEB71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="freetype\config">
+      <UniqueIdentifier>{8EE4183F-FA6F-8603-0381-09F86F8BE203}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="imgui">
+      <UniqueIdentifier>{0098A80F-6CAC-D0C0-352E-7420A101CDF1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="imguizmo">
+      <UniqueIdentifier>{76AD0322-627A-5E2D-8B93-4CD577BF93BB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="imnodes">
+      <UniqueIdentifier>{74F1A99C-E0D0-2838-E9E8-B30E55478F99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libpng16">
+      <UniqueIdentifier>{8858DEA6-7425-39B2-9D3E-275A896A6E40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="msdf-atlas-gen">
+      <UniqueIdentifier>{38BD587B-248B-4C81-0D1F-BDA7F98B28E6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="msdf-atlas-gen\core">
+      <UniqueIdentifier>{B07082B7-1CD2-5FC5-A53F-A67711A09684}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="msdf-atlas-gen\ext">
+      <UniqueIdentifier>{981C80C7-8400-411D-ED60-3B70D9632B9F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="nlohmann">
+      <UniqueIdentifier>{E0661284-CC33-6D8F-F54C-5B37E178A21D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="physx">
+      <UniqueIdentifier>{01D22410-6DE6-4CC1-3668-F020A23B49F2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="physx\characterkinematic">
+      <UniqueIdentifier>{1203A86A-FE27-F7EA-2773-DC7A13F7F508}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="physx\collision">
+      <UniqueIdentifier>{7C5CF7D6-E8E7-649B-F1F8-E78F5D03C19B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="physx\common">
+      <UniqueIdentifier>{39887CFD-25EB-0BA2-CE70-4458BAB2D724}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="physx\common\windows">
+      <UniqueIdentifier>{93F38EEA-7F82-18B4-28A1-2CAF140F295A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="physx\cooking">
+      <UniqueIdentifier>{7A8E30AD-E64E-ACE3-AF89-F5601B09F1BF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="physx\cudamanager">
+      <UniqueIdentifier>{28F906CA-940F-0560-DD86-908149DCD5E7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="physx\extensions">
+      <UniqueIdentifier>{A0D03829-8CC9-577B-B5FB-3C00A1533787}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="physx\filebuf">
+      <UniqueIdentifier>{4DA0E685-B960-62BC-829B-AB39EE1AA798}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="physx\foundation">
+      <UniqueIdentifier>{C7FF5D9D-B3F8-7CEF-DC2A-6274C8825CFB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="physx\foundation\unix">
+      <UniqueIdentifier>{1A7EBC26-86EA-7721-4FDE-0F7FBB099A89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="physx\foundation\unix\neon">
+      <UniqueIdentifier>{19EC71E6-05FC-1DB7-6EB5-82D55AE40C50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="physx\foundation\unix\sse2">
+      <UniqueIdentifier>{06E474E6-F2F3-20B7-5BAD-85D547DC0F50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="physx\foundation\windows">
+      <UniqueIdentifier>{2119FE50-0D3E-4DD1-3689-3261220D4CEF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="physx\geometry">
+      <UniqueIdentifier>{9C6CA502-883A-9908-71CE-092F5D3B756D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="physx\geomutils">
+      <UniqueIdentifier>{A9607458-15EC-E11C-1EFD-64118A073E1D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="physx\gpu">
+      <UniqueIdentifier>{5C756B5A-C8DF-1FD1-111E-D1767DC7FD25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="physx\omnipvd">
+      <UniqueIdentifier>{CD032E44-39C4-A97A-02FF-F2F76E7EEE56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="physx\pvd">
+      <UniqueIdentifier>{5A9C6B5A-C606-20D1-0F45-D1767BEEFD25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="physx\solver">
+      <UniqueIdentifier>{EBAACE22-D70D-5EC7-8093-967D6CD5294A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="physx\task">
+      <UniqueIdentifier>{2302E1A7-0FBA-22F5-78C1-FB506498BDE5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="physx\vehicle">
+      <UniqueIdentifier>{709CEF4B-DC5C-6B82-A597-B4FF1117B05E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="physx\vehicle2">
+      <UniqueIdentifier>{A22AE3C9-8EF8-D6CF-778C-47F663F9B234}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="physx\vehicle2\braking">
+      <UniqueIdentifier>{2FDE1107-1BD8-3A59-0445-D169F0DDA0C5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="physx\vehicle2\commands">
+      <UniqueIdentifier>{4378BE0A-AFAF-06A2-B8B9-6AC524702D9B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="physx\vehicle2\drivetrain">
+      <UniqueIdentifier>{A9EC4A23-15AF-7EAD-5E5F-0D3ACA60578B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="physx\vehicle2\physxActor">
+      <UniqueIdentifier>{2622CBCC-92E4-FE56-DB94-8DE34796D734}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="physx\vehicle2\physxConstraints">
+      <UniqueIdentifier>{65DD8D7E-D1C0-9CBE-DAC3-CAFA4626630F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="physx\vehicle2\physxRoadGeometry">
+      <UniqueIdentifier>{5F2F5CD7-4B80-4719-74E4-35DB6094DA82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="physx\vehicle2\pvd">
+      <UniqueIdentifier>{7B5DF706-6741-B85C-D0A1-B2AFBCA4A2DE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="physx\vehicle2\rigidBody">
+      <UniqueIdentifier>{8E6939D5-7A8E-8855-A3D9-6DE58F5D8773}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="physx\vehicle2\roadGeometry">
+      <UniqueIdentifier>{035D54B5-6F6A-829B-F850-7E86645D4E52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="physx\vehicle2\steering">
+      <UniqueIdentifier>{722B8E3C-DE62-D6D3-E76C-3AF75323FDCC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="physx\vehicle2\suspension">
+      <UniqueIdentifier>{08C1A729-7483-DBB3-BD33-6A402935B491}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="physx\vehicle2\tire">
+      <UniqueIdentifier>{4509E5E5-B16A-C2F3-3AD8-08A6A638F9B2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="physx\vehicle2\wheel">
+      <UniqueIdentifier>{26B8BBA2-1247-456C-BB65-5967A7D35512}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\External\Include\FileWatch\FileWatch.hpp">
+      <Filter>FileWatch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\ImGuiColorTextEdit\TextEditor.h">
+      <Filter>ImGuiColorTextEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk.h">
+      <Filter>TGAFBXImporter\FBXSDK\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\arch\fbxalloc.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core\arch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\arch\fbxarch.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core\arch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\arch\fbxdebug.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core\arch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\arch\fbxnew.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core\arch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\arch\fbxstdcompliant.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core\arch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\arch\fbxtypes.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core\arch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\base\fbxarray.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\base\fbxbitset.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\base\fbxcharptrset.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\base\fbxcontainerallocators.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\base\fbxdynamicarray.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\base\fbxfile.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\base\fbxfolder.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\base\fbxhashmap.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\base\fbxintrusivelist.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\base\fbxmap.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\base\fbxmemorypool.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\base\fbxmultimap.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\base\fbxpair.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\base\fbxredblacktree.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\base\fbxset.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\base\fbxstatus.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\base\fbxstring.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\base\fbxstringlist.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\base\fbxtime.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\base\fbxtimecode.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\base\fbxutils.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\fbxclassid.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\fbxconnectionpoint.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\fbxdatatypes.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\fbxemitter.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\fbxevent.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\fbxeventhandler.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\fbxlistener.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\fbxloadingstrategy.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\fbxmanager.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\fbxmodule.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\fbxobject.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\fbxperipheral.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\fbxplugin.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\fbxplugincontainer.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\fbxproperty.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\fbxpropertydef.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\fbxpropertyhandle.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\fbxpropertypage.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\fbxpropertytypes.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\fbxquery.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\fbxqueryevent.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\fbxscopedloadingdirectory.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\fbxscopedloadingfilename.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\fbxstream.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\fbxsymbol.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\fbxsystemunit.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\fbxxref.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\math\fbxaffinematrix.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\math\fbxdualquaternion.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\math\fbxmath.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\math\fbxmatrix.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\math\fbxquaternion.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\math\fbxtransforms.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\math\fbxvector2.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\math\fbxvector4.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\sync\fbxatomic.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core\sync</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\sync\fbxclock.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core\sync</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\sync\fbxsync.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core\sync</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\core\sync\fbxthread.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\core\sync</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\fbxsdk_def.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\fbxsdk_nsbegin.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\fbxsdk_nsend.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\fbxsdk_version.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\collada\fbxcolladaanimationelement.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\collada</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\collada\fbxcolladaelement.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\collada</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\collada\fbxcolladaiostream.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\collada</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\collada\fbxcolladanamespace.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\collada</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\collada\fbxcolladatokens.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\collada</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\collada\fbxcolladautils.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\collada</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\collada\fbxreadercollada14.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\collada</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\collada\fbxwritercollada14.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\collada</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\fbx\fbxio.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\fbx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\fbx\fbxreaderfbx5.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\fbx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\fbx\fbxreaderfbx6.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\fbx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\fbx\fbxreaderfbx7.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\fbx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\fbx\fbxwriterfbx5.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\fbx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\fbx\fbxwriterfbx6.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\fbx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\fbx\fbxwriterfbx7.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\fbx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\fbxbase64coder.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\fileio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\fbxcallbacks.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\fileio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\fbxexporter.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\fileio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\fbxexternaldocreflistener.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\fileio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\fbxfiletokens.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\fileio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\fbxglobalcamerasettings.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\fileio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\fbxgloballightsettings.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\fileio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\fbxglobalsettings.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\fileio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\fbxgobo.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\fileio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\fbximporter.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\fileio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\fbxiobase.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\fileio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\fbxiopluginregistry.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\fileio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\fbxiosettings.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\fileio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\fbxiosettingspath.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\fileio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\fbxprogress.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\fileio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\fbxreader.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\fileio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\fbxstatistics.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\fileio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\fbxstatisticsfbx.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\fileio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\fileio\fbxwriter.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\fileio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\animation\fbxanimcurve.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\animation\fbxanimcurvebase.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\animation\fbxanimcurvefilters.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\animation\fbxanimcurvenode.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\animation\fbxanimevalclassic.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\animation\fbxanimevalstate.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\animation\fbxanimevaluator.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\animation\fbxanimlayer.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\animation\fbxanimstack.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\animation\fbxanimutilities.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\constraint\fbxcharacter.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\constraint</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\constraint\fbxcharacternodename.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\constraint</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\constraint\fbxcharacterpose.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\constraint</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\constraint\fbxconstraint.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\constraint</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\constraint\fbxconstraintaim.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\constraint</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\constraint\fbxconstraintcustom.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\constraint</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\constraint\fbxconstraintparent.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\constraint</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\constraint\fbxconstraintposition.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\constraint</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\constraint\fbxconstraintrotation.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\constraint</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\constraint\fbxconstraintscale.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\constraint</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\constraint\fbxconstraintsinglechainik.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\constraint</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\constraint\fbxconstraintutils.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\constraint</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\constraint\fbxcontrolset.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\constraint</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\constraint\fbxhik2fbxcharacter.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\constraint</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\fbxaudio.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\fbxaudiolayer.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\fbxaxissystem.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\fbxcollection.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\fbxcollectionexclusive.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\fbxcontainer.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\fbxcontainertemplate.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\fbxdisplaylayer.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\fbxdocument.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\fbxdocumentinfo.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\fbxenvironment.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\fbxgroupname.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\fbxlibrary.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\fbxmediaclip.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\fbxobjectfilter.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\fbxobjectmetadata.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\fbxobjectscontainer.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\fbxpose.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\fbxreference.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\fbxscene.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\fbxselectionnode.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\fbxselectionset.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\fbxtakeinfo.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\fbxthumbnail.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\fbxvideo.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry\fbxblendshape.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry\fbxblendshapechannel.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry\fbxcache.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry\fbxcachedeffect.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry\fbxcamera.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry\fbxcamerastereo.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry\fbxcameraswitcher.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry\fbxcluster.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry\fbxdeformer.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry\fbxgenericnode.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry\fbxgeometry.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry\fbxgeometrybase.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry\fbxgeometryweightedmap.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry\fbxlayer.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry\fbxlayercontainer.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry\fbxlight.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry\fbxlimitsutilities.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry\fbxline.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry\fbxlodgroup.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry\fbxmarker.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry\fbxmesh.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry\fbxnode.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry\fbxnodeattribute.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry\fbxnull.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry\fbxnurbs.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry\fbxnurbscurve.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry\fbxnurbssurface.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry\fbxopticalreference.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry\fbxpatch.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry\fbxproceduralgeometry.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry\fbxshape.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry\fbxskeleton.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry\fbxskin.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry\fbxsubdeformer.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry\fbxsubdiv.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry\fbxtrimnurbssurface.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry\fbxvertexcachedeformer.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry\fbxweightedmapping.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\shading\fbxbindingoperator.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\shading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\shading\fbxbindingsentryview.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\shading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\shading\fbxbindingtable.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\shading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\shading\fbxbindingtablebase.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\shading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\shading\fbxbindingtableentry.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\shading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\shading\fbxconstantentryview.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\shading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\shading\fbxentryview.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\shading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\shading\fbxfiletexture.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\shading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\shading\fbximplementation.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\shading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\shading\fbximplementationfilter.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\shading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\shading\fbximplementationutils.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\shading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\shading\fbxlayeredtexture.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\shading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\shading\fbxlayerentryview.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\shading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\shading\fbxoperatorentryview.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\shading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\shading\fbxproceduraltexture.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\shading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\shading\fbxpropertyentryview.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\shading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\shading\fbxsemanticentryview.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\shading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\shading\fbxshadingconventions.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\shading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\shading\fbxsurfacelambert.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\shading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\shading\fbxsurfacematerial.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\shading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\shading\fbxsurfacephong.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\shading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\scene\shading\fbxtexture.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\scene\shading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\utils\fbxclonemanager.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\utils\fbxdeformationsevaluator.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\utils\fbxembeddedfilesaccumulator.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\utils\fbxgeometryconverter.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\utils\fbxmanipulators.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\utils\fbxmaterialconverter.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\utils\fbxnamehandler.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\utils\fbxprocessor.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\utils\fbxprocessorshaderdependency.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\utils\fbxprocessorxref.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\utils\fbxprocessorxrefuserlib.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\utils\fbxrenamingstrategy.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\utils\fbxrenamingstrategybase.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\utils\fbxrenamingstrategyfbx5.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\utils\fbxrenamingstrategyfbx6.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\utils\fbxrenamingstrategyfbx7.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\utils\fbxrenamingstrategyutilities.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\utils\fbxrootnodeutility.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\utils\fbxscenecheckutility.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\fbxsdk\utils\fbxusernotification.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\fbxsdk\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\DOCBparser.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\HTMLparser.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\HTMLtree.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\SAX.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\SAX2.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\c14n.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\catalog.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\chvalid.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\debugXML.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\dict.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\encoding.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\entities.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\globals.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\hash.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\list.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\nanoftp.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\nanohttp.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\parser.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\parserInternals.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\pattern.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\relaxng.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\schemasInternals.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\schematron.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\threads.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\tree.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\uri.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\valid.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\xinclude.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\xlink.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\xmlIO.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\xmlautomata.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\xmlerror.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\xmlexports.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\xmlmemory.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\xmlmodule.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\xmlreader.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\xmlregexp.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\xmlsave.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\xmlschemas.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\xmlschemastypes.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\xmlstring.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\xmlunicode.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\xmlversion.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\xmlwin32version.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\xmlwriter.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\xpath.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\xpathInternals.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\FBXSDK\include\libxml2\libxml\xpointer.h">
+      <Filter>TGAFBXImporter\FBXSDK\include\libxml2\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\source\FBXImporter.h">
+      <Filter>TGAFBXImporter\source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\source\FBXImporterStructs.h">
+      <Filter>TGAFBXImporter\source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\source\TGAFBXImporter.pch.h">
+      <Filter>TGAFBXImporter\source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\TGAFBXImporter\source\framework.h">
+      <Filter>TGAFBXImporter\source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\Base64.hpp">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\BaseImporter.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\Bitmap.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\BlobIOSystem.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\ByteSwapper.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\ColladaMetaData.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\Compiler\poppack1.h">
+      <Filter>assimp\Compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\Compiler\pstdint.h">
+      <Filter>assimp\Compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\Compiler\pushpack1.h">
+      <Filter>assimp\Compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\CreateAnimMesh.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\DefaultIOStream.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\DefaultIOSystem.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\DefaultLogger.hpp">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\Exceptional.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\Exporter.hpp">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\GenericProperty.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\GltfMaterial.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\Hash.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\IOStream.hpp">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\IOStreamBuffer.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\IOSystem.hpp">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\Importer.hpp">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\LineSplitter.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\LogAux.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\LogStream.hpp">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\Logger.hpp">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\MathFunctions.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\MemoryIOWrapper.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\NullLogger.hpp">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\ObjMaterial.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\ParsingUtils.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\Profiler.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\ProgressHandler.hpp">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\RemoveComments.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\SGSpatialSort.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\SceneCombiner.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\SkeletonMeshBuilder.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\SmallVector.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\SmoothingGroups.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\SpatialSort.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\StandardShapes.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\StreamReader.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\StreamWriter.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\StringComparison.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\StringUtils.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\Subdivision.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\TinyFormatter.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\Vertex.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\XMLTools.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\XmlParser.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\ZipArchiveIOSystem.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\aabb.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\ai_assert.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\anim.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\camera.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\cexport.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\cfileio.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\cimport.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\color4.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\commonMetaData.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\config.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\defs.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\fast_atof.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\importerdesc.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\light.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\material.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\matrix3x3.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\matrix4x4.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\mesh.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\metadata.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\pbrmaterial.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\port\AndroidJNI\AndroidJNIIOSystem.h">
+      <Filter>assimp\port\AndroidJNI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\port\AndroidJNI\BundledAssetIOSystem.h">
+      <Filter>assimp\port\AndroidJNI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\postprocess.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\qnan.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\quaternion.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\scene.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\texture.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\types.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\vector2.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\vector3.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\assimp\version.h">
+      <Filter>assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\dxtex\BC.h">
+      <Filter>dxtex</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\dxtex\BCDirectCompute.h">
+      <Filter>dxtex</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\dxtex\DDS.h">
+      <Filter>dxtex</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\dxtex\DDSTextureLoader11.h">
+      <Filter>dxtex</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\dxtex\DirectXTex.h">
+      <Filter>dxtex</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\dxtex\DirectXTexP.h">
+      <Filter>dxtex</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\dxtex\d3dx12.h">
+      <Filter>dxtex</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\dxtex\filters.h">
+      <Filter>dxtex</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\dxtex\scoped.h">
+      <Filter>dxtex</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\config\ftconfig.h">
+      <Filter>freetype\config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\config\ftheader.h">
+      <Filter>freetype\config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\config\ftmodule.h">
+      <Filter>freetype\config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\config\ftoption.h">
+      <Filter>freetype\config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\config\ftstdlib.h">
+      <Filter>freetype\config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\config\integer-types.h">
+      <Filter>freetype\config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\config\mac-support.h">
+      <Filter>freetype\config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\config\public-macros.h">
+      <Filter>freetype\config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\freetype.h">
+      <Filter>freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\ftadvanc.h">
+      <Filter>freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\ftbbox.h">
+      <Filter>freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\ftbdf.h">
+      <Filter>freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\ftbitmap.h">
+      <Filter>freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\ftbzip2.h">
+      <Filter>freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\ftcache.h">
+      <Filter>freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\ftchapters.h">
+      <Filter>freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\ftcid.h">
+      <Filter>freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\ftcolor.h">
+      <Filter>freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\ftdriver.h">
+      <Filter>freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\fterrdef.h">
+      <Filter>freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\fterrors.h">
+      <Filter>freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\ftfntfmt.h">
+      <Filter>freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\ftgasp.h">
+      <Filter>freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\ftglyph.h">
+      <Filter>freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\ftgxval.h">
+      <Filter>freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\ftgzip.h">
+      <Filter>freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\ftimage.h">
+      <Filter>freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\ftincrem.h">
+      <Filter>freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\ftlcdfil.h">
+      <Filter>freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\ftlist.h">
+      <Filter>freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\ftlogging.h">
+      <Filter>freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\ftlzw.h">
+      <Filter>freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\ftmac.h">
+      <Filter>freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\ftmm.h">
+      <Filter>freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\ftmodapi.h">
+      <Filter>freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\ftmoderr.h">
+      <Filter>freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\ftotval.h">
+      <Filter>freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\ftoutln.h">
+      <Filter>freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\ftparams.h">
+      <Filter>freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\ftpfr.h">
+      <Filter>freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\ftrender.h">
+      <Filter>freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\ftsizes.h">
+      <Filter>freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\ftsnames.h">
+      <Filter>freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\ftstroke.h">
+      <Filter>freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\ftsynth.h">
+      <Filter>freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\ftsystem.h">
+      <Filter>freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\fttrigon.h">
+      <Filter>freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\fttypes.h">
+      <Filter>freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\ftwinfnt.h">
+      <Filter>freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\otsvg.h">
+      <Filter>freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\t1tables.h">
+      <Filter>freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\ttnameid.h">
+      <Filter>freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\tttables.h">
+      <Filter>freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\freetype\tttags.h">
+      <Filter>freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\ft2build.h" />
+    <ClInclude Include="..\External\Include\imgui\imconfig.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\imgui\imgui.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\imgui\imgui_impl_dx11.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\imgui\imgui_impl_win32.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\imgui\imgui_internal.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\imgui\imstb_rectpack.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\imgui\imstb_textedit.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\imgui\imstb_truetype.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\imguizmo\GraphEditor.h">
+      <Filter>imguizmo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\imguizmo\ImCurveEdit.h">
+      <Filter>imguizmo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\imguizmo\ImGradient.h">
+      <Filter>imguizmo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\imguizmo\ImGuizmo.h">
+      <Filter>imguizmo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\imguizmo\ImSequencer.h">
+      <Filter>imguizmo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\imguizmo\ImZoomSlider.h">
+      <Filter>imguizmo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\imnodes\imnodes.h">
+      <Filter>imnodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\imnodes\imnodes_internal.h">
+      <Filter>imnodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\libpng16\png.h">
+      <Filter>libpng16</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\libpng16\pngconf.h">
+      <Filter>libpng16</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\libpng16\pnglibconf.h">
+      <Filter>libpng16</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\AtlasGenerator.h">
+      <Filter>msdf-atlas-gen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\AtlasStorage.h">
+      <Filter>msdf-atlas-gen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\BitmapAtlasStorage.h">
+      <Filter>msdf-atlas-gen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\BitmapAtlasStorage.hpp">
+      <Filter>msdf-atlas-gen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\Charset.h">
+      <Filter>msdf-atlas-gen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\DynamicAtlas.h">
+      <Filter>msdf-atlas-gen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\DynamicAtlas.hpp">
+      <Filter>msdf-atlas-gen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\FontGeometry.h">
+      <Filter>msdf-atlas-gen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\GlyphBox.h">
+      <Filter>msdf-atlas-gen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\GlyphGeometry.h">
+      <Filter>msdf-atlas-gen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\GridAtlasPacker.h">
+      <Filter>msdf-atlas-gen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\ImmediateAtlasGenerator.h">
+      <Filter>msdf-atlas-gen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\ImmediateAtlasGenerator.hpp">
+      <Filter>msdf-atlas-gen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\Rectangle.h">
+      <Filter>msdf-atlas-gen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\RectanglePacker.h">
+      <Filter>msdf-atlas-gen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\Remap.h">
+      <Filter>msdf-atlas-gen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\TightAtlasPacker.h">
+      <Filter>msdf-atlas-gen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\Workload.h">
+      <Filter>msdf-atlas-gen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\artery-font-export.h">
+      <Filter>msdf-atlas-gen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\bitmap-blit.h">
+      <Filter>msdf-atlas-gen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\core\Bitmap.h">
+      <Filter>msdf-atlas-gen\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\core\Bitmap.hpp">
+      <Filter>msdf-atlas-gen\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\core\BitmapRef.hpp">
+      <Filter>msdf-atlas-gen\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\core\Contour.h">
+      <Filter>msdf-atlas-gen\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\core\EdgeColor.h">
+      <Filter>msdf-atlas-gen\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\core\EdgeHolder.h">
+      <Filter>msdf-atlas-gen\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\core\MSDFErrorCorrection.h">
+      <Filter>msdf-atlas-gen\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\core\Projection.h">
+      <Filter>msdf-atlas-gen\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\core\Scanline.h">
+      <Filter>msdf-atlas-gen\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\core\Shape.h">
+      <Filter>msdf-atlas-gen\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\core\ShapeDistanceFinder.h">
+      <Filter>msdf-atlas-gen\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\core\ShapeDistanceFinder.hpp">
+      <Filter>msdf-atlas-gen\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\core\SignedDistance.hpp">
+      <Filter>msdf-atlas-gen\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\core\Vector2.hpp">
+      <Filter>msdf-atlas-gen\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\core\arithmetics.hpp">
+      <Filter>msdf-atlas-gen\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\core\base.h">
+      <Filter>msdf-atlas-gen\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\core\bitmap-interpolation.hpp">
+      <Filter>msdf-atlas-gen\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\core\contour-combiners.h">
+      <Filter>msdf-atlas-gen\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\core\edge-coloring.h">
+      <Filter>msdf-atlas-gen\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\core\edge-segments.h">
+      <Filter>msdf-atlas-gen\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\core\edge-selectors.h">
+      <Filter>msdf-atlas-gen\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\core\equation-solver.h">
+      <Filter>msdf-atlas-gen\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\core\generator-config.h">
+      <Filter>msdf-atlas-gen\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\core\msdf-error-correction.h">
+      <Filter>msdf-atlas-gen\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\core\pixel-conversion.hpp">
+      <Filter>msdf-atlas-gen\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\core\rasterization.h">
+      <Filter>msdf-atlas-gen\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\core\render-sdf.h">
+      <Filter>msdf-atlas-gen\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\core\save-bmp.h">
+      <Filter>msdf-atlas-gen\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\core\save-tiff.h">
+      <Filter>msdf-atlas-gen\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\core\sdf-error-estimation.h">
+      <Filter>msdf-atlas-gen\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\core\shape-description.h">
+      <Filter>msdf-atlas-gen\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\csv-export.h">
+      <Filter>msdf-atlas-gen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\ext\import-font.h">
+      <Filter>msdf-atlas-gen\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\ext\import-svg.h">
+      <Filter>msdf-atlas-gen\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\ext\resolve-shape-geometry.h">
+      <Filter>msdf-atlas-gen\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\ext\save-png.h">
+      <Filter>msdf-atlas-gen\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\glyph-generators.h">
+      <Filter>msdf-atlas-gen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\image-encode.h">
+      <Filter>msdf-atlas-gen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\image-save.h">
+      <Filter>msdf-atlas-gen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\image-save.hpp">
+      <Filter>msdf-atlas-gen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\json-export.h">
+      <Filter>msdf-atlas-gen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\msdf-atlas-gen.h">
+      <Filter>msdf-atlas-gen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\msdfgen-ext.h">
+      <Filter>msdf-atlas-gen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\msdfgen.h">
+      <Filter>msdf-atlas-gen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\rectangle-packing.h">
+      <Filter>msdf-atlas-gen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\rectangle-packing.hpp">
+      <Filter>msdf-atlas-gen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\resource.h">
+      <Filter>msdf-atlas-gen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\shadron-preview-generator.h">
+      <Filter>msdf-atlas-gen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\size-selectors.h">
+      <Filter>msdf-atlas-gen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\types.h">
+      <Filter>msdf-atlas-gen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\msdf-atlas-gen\utf8.h">
+      <Filter>msdf-atlas-gen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\nlohmann\json.hpp">
+      <Filter>nlohmann</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxActor.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxActorData.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxAggregate.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxAnisotropy.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxArrayConverter.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxArticulationFlag.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxArticulationJointReducedCoordinate.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxArticulationLink.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxArticulationReducedCoordinate.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxArticulationTendon.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxArticulationTendonData.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxAttachment.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxBaseMaterial.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxBroadPhase.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxClient.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxConeLimitedConstraint.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxConfig.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxConstraint.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxConstraintDesc.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxContact.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxContactModifyCallback.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxDeletionListener.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxFEMClothFlags.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxFEMClothMaterial.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxFEMMaterial.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxFEMParameter.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxFEMSoftBodyMaterial.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxFLIPMaterial.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxFiltering.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxForceMode.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxHairSystemFlag.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxImmediateMode.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxIsosurfaceExtraction.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxLineStripSkinning.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxLockedData.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxMPMMaterial.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxMaterial.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxNodeIndex.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxPBDMaterial.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxPBDParticleSystem.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxParticleBuffer.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxParticleGpu.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxParticleMaterial.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxParticleNeighborhoodProvider.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxParticleSolverType.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxParticleSystem.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxParticleSystemFlag.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxPhysXConfig.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxPhysics.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxPhysicsAPI.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxPhysicsSerialization.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxPruningStructure.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxQueryFiltering.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxQueryReport.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxRigidActor.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxRigidBody.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxRigidDynamic.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxRigidStatic.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxSDFBuilder.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxScene.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxSceneDesc.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxSceneLock.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxSceneQueryDesc.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxSceneQuerySystem.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxShape.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxSimulationEventCallback.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxSimulationStatistics.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxSmoothing.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxSoftBody.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxSoftBodyFlag.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxSparseGridParams.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\PxVisualizationParameter.h">
+      <Filter>physx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\characterkinematic\PxBoxController.h">
+      <Filter>physx\characterkinematic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\characterkinematic\PxCapsuleController.h">
+      <Filter>physx\characterkinematic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\characterkinematic\PxController.h">
+      <Filter>physx\characterkinematic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\characterkinematic\PxControllerBehavior.h">
+      <Filter>physx\characterkinematic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\characterkinematic\PxControllerManager.h">
+      <Filter>physx\characterkinematic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\characterkinematic\PxControllerObstacles.h">
+      <Filter>physx\characterkinematic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\characterkinematic\PxExtended.h">
+      <Filter>physx\characterkinematic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\collision\PxCollisionDefs.h">
+      <Filter>physx\collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\common\PxBase.h">
+      <Filter>physx\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\common\PxCollection.h">
+      <Filter>physx\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\common\PxCoreUtilityTypes.h">
+      <Filter>physx\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\common\PxInsertionCallback.h">
+      <Filter>physx\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\common\PxMetaData.h">
+      <Filter>physx\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\common\PxMetaDataFlags.h">
+      <Filter>physx\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\common\PxPhysXCommonConfig.h">
+      <Filter>physx\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\common\PxProfileZone.h">
+      <Filter>physx\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\common\PxRenderBuffer.h">
+      <Filter>physx\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\common\PxRenderOutput.h">
+      <Filter>physx\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\common\PxSerialFramework.h">
+      <Filter>physx\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\common\PxSerializer.h">
+      <Filter>physx\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\common\PxStringTable.h">
+      <Filter>physx\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\common\PxTolerancesScale.h">
+      <Filter>physx\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\common\PxTypeInfo.h">
+      <Filter>physx\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\common\windows\PxWindowsDelayLoadHook.h">
+      <Filter>physx\common\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\cooking\PxBVH33MidphaseDesc.h">
+      <Filter>physx\cooking</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\cooking\PxBVH34MidphaseDesc.h">
+      <Filter>physx\cooking</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\cooking\PxBVHDesc.h">
+      <Filter>physx\cooking</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\cooking\PxConvexMeshDesc.h">
+      <Filter>physx\cooking</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\cooking\PxCooking.h">
+      <Filter>physx\cooking</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\cooking\PxCookingInternal.h">
+      <Filter>physx\cooking</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\cooking\PxMidphaseDesc.h">
+      <Filter>physx\cooking</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\cooking\PxSDFDesc.h">
+      <Filter>physx\cooking</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\cooking\PxTetrahedronMeshDesc.h">
+      <Filter>physx\cooking</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\cooking\PxTriangleMeshDesc.h">
+      <Filter>physx\cooking</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\cooking\Pxc.h">
+      <Filter>physx\cooking</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\cudamanager\PxCudaContext.h">
+      <Filter>physx\cudamanager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\cudamanager\PxCudaContextManager.h">
+      <Filter>physx\cudamanager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\cudamanager\PxCudaTypes.h">
+      <Filter>physx\cudamanager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxBinaryConverter.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxBroadPhaseExt.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxCollectionExt.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxConstraintExt.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxContactJoint.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxConvexMeshExt.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxCustomGeometryExt.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxCustomSceneQuerySystem.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxD6Joint.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxD6JointCreate.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxDefaultAllocator.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxDefaultCpuDispatcher.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxDefaultErrorCallback.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxDefaultSimulationFilterShader.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxDefaultStreams.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxDistanceJoint.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxExtensionsAPI.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxFixedJoint.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxGearJoint.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxGjkQueryExt.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxJoint.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxJointLimit.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxMassProperties.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxParticleClothCooker.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxParticleExt.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxPrismaticJoint.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxRackAndPinionJoint.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxRaycastCCD.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxRemeshingExt.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxRepXSerializer.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxRepXSimpleType.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxRevoluteJoint.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxRigidActorExt.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxRigidBodyExt.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxSamplingExt.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxSceneQueryExt.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxSceneQuerySystemExt.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxSerialization.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxShapeExt.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxSimpleFactory.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxSmoothNormals.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxSoftBodyExt.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxSphericalJoint.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxStringTableExt.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxTetMakerExt.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxTetrahedronMeshAnalysisResult.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxTetrahedronMeshExt.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxTriangleMeshAnalysisResult.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\extensions\PxTriangleMeshExt.h">
+      <Filter>physx\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\filebuf\PxFileBuf.h">
+      <Filter>physx\filebuf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\Px.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxAlignedMalloc.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxAlloca.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxAllocator.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxAllocatorCallback.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxAoS.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxArray.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxAssert.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxAtomic.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxBasicTemplates.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxBitAndData.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxBitMap.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxBitUtils.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxBounds3.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxBroadcast.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxErrorCallback.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxErrors.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxFPU.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxFlags.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxFoundation.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxFoundationConfig.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxHash.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxHashInternals.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxHashMap.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxHashSet.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxIO.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxInlineAllocator.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxInlineAoS.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxInlineArray.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxIntrinsics.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxMat33.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxMat34.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxMat44.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxMath.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxMathIntrinsics.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxMathUtils.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxMemory.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxMutex.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxPhysicsVersion.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxPinnedArray.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxPlane.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxPool.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxPreprocessor.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxProfiler.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxQuat.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxSIMDHelpers.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxSList.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxSimpleTypes.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxSocket.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxSort.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxSortInternals.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxStrideIterator.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxString.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxSync.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxTempAllocator.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxThread.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxTime.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxTransform.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxUnionCast.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxUserAllocated.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxUtilities.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxVec2.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxVec3.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxVec4.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxVecMath.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxVecMathAoSScalar.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxVecMathAoSScalarInline.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxVecMathSSE.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxVecQuat.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\PxVecTransform.h">
+      <Filter>physx\foundation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\unix\PxUnixAoS.h">
+      <Filter>physx\foundation\unix</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\unix\PxUnixFPU.h">
+      <Filter>physx\foundation\unix</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\unix\PxUnixInlineAoS.h">
+      <Filter>physx\foundation\unix</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\unix\PxUnixIntrinsics.h">
+      <Filter>physx\foundation\unix</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\unix\PxUnixMathIntrinsics.h">
+      <Filter>physx\foundation\unix</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\unix\PxUnixTrigConstants.h">
+      <Filter>physx\foundation\unix</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\unix\neon\PxUnixNeonAoS.h">
+      <Filter>physx\foundation\unix\neon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\unix\neon\PxUnixNeonInlineAoS.h">
+      <Filter>physx\foundation\unix\neon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\unix\sse2\PxUnixSse2AoS.h">
+      <Filter>physx\foundation\unix\sse2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\unix\sse2\PxUnixSse2InlineAoS.h">
+      <Filter>physx\foundation\unix\sse2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\windows\PxWindowsAoS.h">
+      <Filter>physx\foundation\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\windows\PxWindowsFPU.h">
+      <Filter>physx\foundation\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\windows\PxWindowsInclude.h">
+      <Filter>physx\foundation\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\windows\PxWindowsInlineAoS.h">
+      <Filter>physx\foundation\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\windows\PxWindowsIntrinsics.h">
+      <Filter>physx\foundation\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\windows\PxWindowsMathIntrinsics.h">
+      <Filter>physx\foundation\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\foundation\windows\PxWindowsTrigConstants.h">
+      <Filter>physx\foundation\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\geometry\PxBVH.h">
+      <Filter>physx\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\geometry\PxBVHBuildStrategy.h">
+      <Filter>physx\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\geometry\PxBoxGeometry.h">
+      <Filter>physx\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\geometry\PxCapsuleGeometry.h">
+      <Filter>physx\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\geometry\PxConvexMesh.h">
+      <Filter>physx\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\geometry\PxConvexMeshGeometry.h">
+      <Filter>physx\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\geometry\PxCustomGeometry.h">
+      <Filter>physx\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\geometry\PxGeometry.h">
+      <Filter>physx\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\geometry\PxGeometryHelpers.h">
+      <Filter>physx\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\geometry\PxGeometryHit.h">
+      <Filter>physx\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\geometry\PxGeometryInternal.h">
+      <Filter>physx\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\geometry\PxGeometryQuery.h">
+      <Filter>physx\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\geometry\PxGeometryQueryContext.h">
+      <Filter>physx\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\geometry\PxGeometryQueryFlags.h">
+      <Filter>physx\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\geometry\PxGjkQuery.h">
+      <Filter>physx\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\geometry\PxHairSystemDesc.h">
+      <Filter>physx\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\geometry\PxHairSystemGeometry.h">
+      <Filter>physx\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\geometry\PxHeightField.h">
+      <Filter>physx\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\geometry\PxHeightFieldDesc.h">
+      <Filter>physx\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\geometry\PxHeightFieldFlag.h">
+      <Filter>physx\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\geometry\PxHeightFieldGeometry.h">
+      <Filter>physx\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\geometry\PxHeightFieldSample.h">
+      <Filter>physx\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\geometry\PxMeshQuery.h">
+      <Filter>physx\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\geometry\PxMeshScale.h">
+      <Filter>physx\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\geometry\PxParticleSystemGeometry.h">
+      <Filter>physx\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\geometry\PxPlaneGeometry.h">
+      <Filter>physx\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\geometry\PxReportCallback.h">
+      <Filter>physx\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\geometry\PxSimpleTriangleMesh.h">
+      <Filter>physx\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\geometry\PxSphereGeometry.h">
+      <Filter>physx\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\geometry\PxTetrahedron.h">
+      <Filter>physx\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\geometry\PxTetrahedronMesh.h">
+      <Filter>physx\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\geometry\PxTetrahedronMeshGeometry.h">
+      <Filter>physx\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\geometry\PxTriangle.h">
+      <Filter>physx\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\geometry\PxTriangleMesh.h">
+      <Filter>physx\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\geometry\PxTriangleMeshGeometry.h">
+      <Filter>physx\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\geomutils\PxContactBuffer.h">
+      <Filter>physx\geomutils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\geomutils\PxContactPoint.h">
+      <Filter>physx\geomutils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\gpu\PxGpu.h">
+      <Filter>physx\gpu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\gpu\PxPhysicsGpu.h">
+      <Filter>physx\gpu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\omnipvd\PxOmniPvd.h">
+      <Filter>physx\omnipvd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\pvd\PxPvd.h">
+      <Filter>physx\pvd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\pvd\PxPvdSceneClient.h">
+      <Filter>physx\pvd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\pvd\PxPvdTransport.h">
+      <Filter>physx\pvd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\solver\PxSolverDefs.h">
+      <Filter>physx\solver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\task\PxCpuDispatcher.h">
+      <Filter>physx\task</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\task\PxTask.h">
+      <Filter>physx\task</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\task\PxTaskManager.h">
+      <Filter>physx\task</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle\PxVehicleComponents.h">
+      <Filter>physx\vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle\PxVehicleDrive.h">
+      <Filter>physx\vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle\PxVehicleDrive4W.h">
+      <Filter>physx\vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle\PxVehicleDriveNW.h">
+      <Filter>physx\vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle\PxVehicleDriveTank.h">
+      <Filter>physx\vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle\PxVehicleNoDrive.h">
+      <Filter>physx\vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle\PxVehicleSDK.h">
+      <Filter>physx\vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle\PxVehicleShaders.h">
+      <Filter>physx\vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle\PxVehicleTireFriction.h">
+      <Filter>physx\vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle\PxVehicleUpdate.h">
+      <Filter>physx\vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle\PxVehicleUtil.h">
+      <Filter>physx\vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle\PxVehicleUtilControl.h">
+      <Filter>physx\vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle\PxVehicleUtilSetup.h">
+      <Filter>physx\vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle\PxVehicleUtilTelemetry.h">
+      <Filter>physx\vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle\PxVehicleWheels.h">
+      <Filter>physx\vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\PxVehicleAPI.h">
+      <Filter>physx\vehicle2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\PxVehicleComponent.h">
+      <Filter>physx\vehicle2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\PxVehicleComponentSequence.h">
+      <Filter>physx\vehicle2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\PxVehicleFunctions.h">
+      <Filter>physx\vehicle2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\PxVehicleLimits.h">
+      <Filter>physx\vehicle2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\PxVehicleMaths.h">
+      <Filter>physx\vehicle2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\PxVehicleParams.h">
+      <Filter>physx\vehicle2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\braking\PxVehicleBrakingFunctions.h">
+      <Filter>physx\vehicle2\braking</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\braking\PxVehicleBrakingParams.h">
+      <Filter>physx\vehicle2\braking</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\commands\PxVehicleCommandHelpers.h">
+      <Filter>physx\vehicle2\commands</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\commands\PxVehicleCommandParams.h">
+      <Filter>physx\vehicle2\commands</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\commands\PxVehicleCommandStates.h">
+      <Filter>physx\vehicle2\commands</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\drivetrain\PxVehicleDrivetrainComponents.h">
+      <Filter>physx\vehicle2\drivetrain</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\drivetrain\PxVehicleDrivetrainFunctions.h">
+      <Filter>physx\vehicle2\drivetrain</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\drivetrain\PxVehicleDrivetrainHelpers.h">
+      <Filter>physx\vehicle2\drivetrain</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\drivetrain\PxVehicleDrivetrainParams.h">
+      <Filter>physx\vehicle2\drivetrain</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\drivetrain\PxVehicleDrivetrainStates.h">
+      <Filter>physx\vehicle2\drivetrain</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\physxActor\PxVehiclePhysXActorComponents.h">
+      <Filter>physx\vehicle2\physxActor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\physxActor\PxVehiclePhysXActorFunctions.h">
+      <Filter>physx\vehicle2\physxActor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\physxActor\PxVehiclePhysXActorHelpers.h">
+      <Filter>physx\vehicle2\physxActor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\physxActor\PxVehiclePhysXActorStates.h">
+      <Filter>physx\vehicle2\physxActor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\physxConstraints\PxVehiclePhysXConstraintComponents.h">
+      <Filter>physx\vehicle2\physxConstraints</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\physxConstraints\PxVehiclePhysXConstraintFunctions.h">
+      <Filter>physx\vehicle2\physxConstraints</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\physxConstraints\PxVehiclePhysXConstraintHelpers.h">
+      <Filter>physx\vehicle2\physxConstraints</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\physxConstraints\PxVehiclePhysXConstraintParams.h">
+      <Filter>physx\vehicle2\physxConstraints</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\physxConstraints\PxVehiclePhysXConstraintStates.h">
+      <Filter>physx\vehicle2\physxConstraints</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\physxRoadGeometry\PxVehiclePhysXRoadGeometryComponents.h">
+      <Filter>physx\vehicle2\physxRoadGeometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\physxRoadGeometry\PxVehiclePhysXRoadGeometryFunctions.h">
+      <Filter>physx\vehicle2\physxRoadGeometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\physxRoadGeometry\PxVehiclePhysXRoadGeometryHelpers.h">
+      <Filter>physx\vehicle2\physxRoadGeometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\physxRoadGeometry\PxVehiclePhysXRoadGeometryParams.h">
+      <Filter>physx\vehicle2\physxRoadGeometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\physxRoadGeometry\PxVehiclePhysXRoadGeometryState.h">
+      <Filter>physx\vehicle2\physxRoadGeometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\pvd\PxVehiclePvdComponents.h">
+      <Filter>physx\vehicle2\pvd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\pvd\PxVehiclePvdFunctions.h">
+      <Filter>physx\vehicle2\pvd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\pvd\PxVehiclePvdHelpers.h">
+      <Filter>physx\vehicle2\pvd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\rigidBody\PxVehicleRigidBodyComponents.h">
+      <Filter>physx\vehicle2\rigidBody</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\rigidBody\PxVehicleRigidBodyFunctions.h">
+      <Filter>physx\vehicle2\rigidBody</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\rigidBody\PxVehicleRigidBodyParams.h">
+      <Filter>physx\vehicle2\rigidBody</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\rigidBody\PxVehicleRigidBodyStates.h">
+      <Filter>physx\vehicle2\rigidBody</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\roadGeometry\PxVehicleRoadGeometryState.h">
+      <Filter>physx\vehicle2\roadGeometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\steering\PxVehicleSteeringFunctions.h">
+      <Filter>physx\vehicle2\steering</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\steering\PxVehicleSteeringParams.h">
+      <Filter>physx\vehicle2\steering</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\suspension\PxVehicleSuspensionComponents.h">
+      <Filter>physx\vehicle2\suspension</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\suspension\PxVehicleSuspensionFunctions.h">
+      <Filter>physx\vehicle2\suspension</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\suspension\PxVehicleSuspensionHelpers.h">
+      <Filter>physx\vehicle2\suspension</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\suspension\PxVehicleSuspensionParams.h">
+      <Filter>physx\vehicle2\suspension</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\suspension\PxVehicleSuspensionStates.h">
+      <Filter>physx\vehicle2\suspension</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\tire\PxVehicleTireComponents.h">
+      <Filter>physx\vehicle2\tire</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\tire\PxVehicleTireFunctions.h">
+      <Filter>physx\vehicle2\tire</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\tire\PxVehicleTireHelpers.h">
+      <Filter>physx\vehicle2\tire</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\tire\PxVehicleTireParams.h">
+      <Filter>physx\vehicle2\tire</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\tire\PxVehicleTireStates.h">
+      <Filter>physx\vehicle2\tire</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\wheel\PxVehicleWheelComponents.h">
+      <Filter>physx\vehicle2\wheel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\wheel\PxVehicleWheelFunctions.h">
+      <Filter>physx\vehicle2\wheel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\wheel\PxVehicleWheelHelpers.h">
+      <Filter>physx\vehicle2\wheel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\wheel\PxVehicleWheelParams.h">
+      <Filter>physx\vehicle2\wheel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\physx\vehicle2\wheel\PxVehicleWheelStates.h">
+      <Filter>physx\vehicle2\wheel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\Include\png.h" />
+    <ClInclude Include="..\External\Include\pngconf.h" />
+    <ClInclude Include="..\External\Include\pnglibconf.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\External\Include\ImGuiColorTextEdit\TextEditor.cpp">
+      <Filter>ImGuiColorTextEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\Include\TGAFBXImporter\source\FBXImporter.cpp">
+      <Filter>TGAFBXImporter\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\Include\TGAFBXImporter\source\TGAFBXImporter.pch.cpp">
+      <Filter>TGAFBXImporter\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\Include\dxtex\DDSTextureLoader11.cpp">
+      <Filter>dxtex</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\Include\imgui\imgui.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\Include\imgui\imgui_demo.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\Include\imgui\imgui_draw.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\Include\imgui\imgui_impl_dx11.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\Include\imgui\imgui_impl_win32.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\Include\imgui\imgui_tables.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\Include\imgui\imgui_widgets.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\Include\imguizmo\GraphEditor.cpp">
+      <Filter>imguizmo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\Include\imguizmo\ImCurveEdit.cpp">
+      <Filter>imguizmo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\Include\imguizmo\ImGradient.cpp">
+      <Filter>imguizmo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\Include\imguizmo\ImGuizmo.cpp">
+      <Filter>imguizmo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\Include\imguizmo\ImSequencer.cpp">
+      <Filter>imguizmo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\Include\imnodes\imnodes.cpp">
+      <Filter>imnodes</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

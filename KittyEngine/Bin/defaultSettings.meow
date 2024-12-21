@@ -1,0 +1,55 @@
+{
+    "console": {
+        "height": 519.0,
+        "isMaximized": false,
+        "width": 993.0,
+        "x": 26.0,
+        "y": 26.0
+    },
+    "debugRendering": {
+        "navmeshLevel": 0,
+        "skeletonLevel": 0
+    },
+    "editorWindows": [
+        {
+            "customData": {
+                "cameraIndex": 0,
+                "name": "Game Camera",
+                "renderTargetIndex": 1
+            },
+            "windowName": "Viewport"
+        },
+        {
+            "customData": {
+                "cameraIndex": 31,
+                "name": "Editor Camera",
+                "renderTargetIndex": 0
+            },
+            "windowName": "Viewport"
+        },
+        {
+            "customData": null,
+            "windowName": "EditorAssetBrowser"
+        },
+        {
+            "customData": null,
+            "windowName": "SelectedObject"
+        },
+        {
+            "customData": null,
+            "windowName": "GameObjectList"
+        },
+        {
+            "customData": null,
+            "windowName": "EditorConsole"
+        }
+    ],
+    "window": {
+        "height": 900.0,
+        "isFullscreen": false,
+        "isMaximized": false,
+        "width": 1600.0,
+        "x": 522.0,
+        "y": 313.0
+    }
+}

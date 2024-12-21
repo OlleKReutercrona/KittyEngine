@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Editor">
+      <UniqueIdentifier>{8C1A20B0-78BC-4A86-6177-5EDA4DB8D1D6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor\Source">
+      <UniqueIdentifier>{0C53671B-7813-E351-414E-2CCFADCD272E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor\Source\EditorWindows">
+      <UniqueIdentifier>{6DD11B1D-D9DE-4903-62C5-45EECED115BA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor\Source\ImGui">
+      <UniqueIdentifier>{36E11CFD-A242-FA0A-2BB0-40BD971031CA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor\Source\Inspector">
+      <UniqueIdentifier>{D2EA0032-3E22-49C9-472C-ADECB3E26FC2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor\Source\Nodes">
+      <UniqueIdentifier>{D4ED78FD-404F-560B-C9BC-9CBD351D8DCA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{DBC7D3B0-C769-FE86-B024-12DB9C6585D7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Source">
+      <UniqueIdentifier>{7B11E759-E7D1-6290-B00C-AC0D1C8CA76C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Source\pch">
+      <UniqueIdentifier>{6506D531-D11C-D3C7-1A94-5EE986E9A34F}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Editor\Source\Editor.h">
+      <Filter>Editor\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Editor\Source\EditorData.h">
+      <Filter>Editor\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Editor\Source\EditorFile.h">
+      <Filter>Editor\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Editor\Source\EditorGraphics.h">
+      <Filter>Editor\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Editor\Source\EditorInterface.h">
+      <Filter>Editor\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Editor\Source\EditorUtils.h">
+      <Filter>Editor\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Editor\Source\EditorWindows\AssetBrowser.h">
+      <Filter>Editor\Source\EditorWindows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Editor\Source\EditorWindows\Console.h">
+      <Filter>Editor\Source\EditorWindows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Editor\Source\EditorWindows\DataMaterialMaker.h">
+      <Filter>Editor\Source\EditorWindows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Editor\Source\EditorWindows\DeferredView.h">
+      <Filter>Editor\Source\EditorWindows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Editor\Source\EditorWindows\EditSounds.h">
+      <Filter>Editor\Source\EditorWindows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Editor\Source\EditorWindows\GUIEditor.h">
+      <Filter>Editor\Source\EditorWindows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Editor\Source\EditorWindows\GameObjectList.h">
+      <Filter>Editor\Source\EditorWindows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Editor\Source\EditorWindows\GameRuleEditor.h">
+      <Filter>Editor\Source\EditorWindows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Editor\Source\EditorWindows\LambdaWindow.h">
+      <Filter>Editor\Source\EditorWindows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Editor\Source\EditorWindows\ModelViewer.h">
+      <Filter>Editor\Source\EditorWindows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Editor\Source\EditorWindows\NodeEditor.h">
+      <Filter>Editor\Source\EditorWindows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Editor\Source\EditorWindows\SelectedObject.h">
+      <Filter>Editor\Source\EditorWindows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Editor\Source\EditorWindows\Viewport.h">
+      <Filter>Editor\Source\EditorWindows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Editor\Source\EditorWindows\Window.h">
+      <Filter>Editor\Source\EditorWindows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Editor\Source\ImGui\ImGuiHandler.h">
+      <Filter>Editor\Source\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Editor\Source\Inspector\ComponentInspector.h">
+      <Filter>Editor\Source\Inspector</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Editor\Source\Inspector\EditorInspection.h">
+      <Filter>Editor\Source\Inspector</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Editor\Source\MeowFile.h">
+      <Filter>Editor\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Editor\Source\Nodes\NodeEditorAction.h">
+      <Filter>Editor\Source\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Engine\Source\pch\stdafx.h">
+      <Filter>Engine\Source\pch</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Editor\Source\Editor.cpp">
+      <Filter>Editor\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Editor\Source\EditorFile.cpp">
+      <Filter>Editor\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Editor\Source\EditorGraphics.cpp">
+      <Filter>Editor\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Editor\Source\EditorWindows\AssetBrowser.cpp">
+      <Filter>Editor\Source\EditorWindows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Editor\Source\EditorWindows\Console.cpp">
+      <Filter>Editor\Source\EditorWindows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Editor\Source\EditorWindows\DataMaterialMaker.cpp">
+      <Filter>Editor\Source\EditorWindows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Editor\Source\EditorWindows\DeferredView.cpp">
+      <Filter>Editor\Source\EditorWindows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Editor\Source\EditorWindows\EditSounds.cpp">
+      <Filter>Editor\Source\EditorWindows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Editor\Source\EditorWindows\GUIEditor.cpp">
+      <Filter>Editor\Source\EditorWindows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Editor\Source\EditorWindows\GameObjectList.cpp">
+      <Filter>Editor\Source\EditorWindows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Editor\Source\EditorWindows\GameRuleEditor.cpp">
+      <Filter>Editor\Source\EditorWindows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Editor\Source\EditorWindows\LambdaWindow.cpp">
+      <Filter>Editor\Source\EditorWindows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Editor\Source\EditorWindows\ModelViewer.cpp">
+      <Filter>Editor\Source\EditorWindows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Editor\Source\EditorWindows\NodeEditor.cpp">
+      <Filter>Editor\Source\EditorWindows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Editor\Source\EditorWindows\SelectedObject.cpp">
+      <Filter>Editor\Source\EditorWindows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Editor\Source\EditorWindows\Viewport.cpp">
+      <Filter>Editor\Source\EditorWindows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Editor\Source\EditorWindows\Window.cpp">
+      <Filter>Editor\Source\EditorWindows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Editor\Source\ImGui\ImGuiHandler.cpp">
+      <Filter>Editor\Source\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Editor\Source\Inspector\ComponentInspector.cpp">
+      <Filter>Editor\Source\Inspector</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Editor\Source\Inspector\EditorInspection.cpp">
+      <Filter>Editor\Source\Inspector</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Editor\Source\MeowFile.cpp">
+      <Filter>Editor\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Editor\Source\Nodes\NodeEditorAction.cpp">
+      <Filter>Editor\Source\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Engine\Source\pch\stdafx.cpp">
+      <Filter>Engine\Source\pch</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
