@@ -34,12 +34,13 @@ namespace KE
 
 		// Shadow Stuff
 		//myDepthBuffer.Init(aDevice, aSize);
-		myDepthBuffer.Init(aDevice, {16384, 16384});
+		//myDepthBuffer.Init(aDevice, {16384, 16384});
+		myShadowAtlas.Init(aDevice, { 8192, 8192 });
 
-		InitShadowCamera(Vector2i( 425, 275), -1000.0f, 500.0f);
-		myDirectionalLightCamera.transform.SetPosition({0.0f, 0.0f, 0.0f});
+		InitShadowCamera(Vector2i( 30, 30), -1000.0f, 500.0f);
+		myDirectionalLightCamera.transform.SetPosition({-7.0f, 0.0f, -3.0f});
 		 
-		
+		mySpotLightCamera.SetPerspective((float)aSize.x, (float)aSize.y, 90.0f, 0.01f, 25.0f);
 
 
 		// Setup buffers
@@ -250,21 +251,34 @@ namespace KE
 	{
 		// Set Camera
 		// Maybe not needed
-		
-		myDepthBuffer.Clear(aGraphics->GetContext().Get());
-		float arr[4] = { 0.0f,0.0f,0.0f,0.0f };
-		aGraphics->GetRenderTarget(6)->Clear(arr);
+
+		myShadowAtlas.Clear(aGraphics->GetContext().Get());
+		//myDepthBuffer.Clear(aGraphics->GetContext().Get());
+		//float arr[4] = { 0.0f,0.0f,0.0f,0.0f };
+		//aGraphics->GetRenderTarget(6)->Clear(arr);
 
 		aGraphics->SetView(myDirectionalLightCamera.GetViewMatrix());
 		aGraphics->SetProjection(myDirectionalLightCamera.GetProjectionMatrix());
-		myDirectionalLightCamera.transform.SetDirection({ -myDirectionalLight.myDirection.x, -myDirectionalLight.myDirection.y, -myDirectionalLight.myDirection.z });
+		myDirectionalLightCamera.transform.SetDirection({ -myDirectionalLight.myData.myDirection.x, -myDirectionalLight.myData.myDirection.y, -myDirectionalLight.myData.myDirection.z });
 
 
 		ID3D11ShaderResourceView* const nullSRV[1] = { NULL };
 		aGraphics->GetContext()->PSSetShaderResources(14, 1, nullSRV);
 
-		myDepthBuffer.SetAsActiveTarget(aGraphics->GetContext().Get());
+		myShadowAtlas.SetAsActiveTarget(aGraphics->GetContext().Get(), myDirectionalLight.myShadowViewPort);
+		//myDepthBuffer.SetAsActiveTarget(aGraphics->GetContext().Get());
 		//myDepthBuffer.SetAsActiveTarget(aGraphics->GetContext().Get(), aGraphics->GetRenderTarget(6));
+	}
+
+	void DeferredLightManager::RenderSpotLightShadows(Graphics* aGraphics, const unsigned int aSpotlightIndex)
+	{
+		auto& spotLight = mySpotLights[aSpotlightIndex].myData;
+
+		mySpotLightCamera.SetPerspective(1024, 1024, 90.0f * KE::DegToRadImmediate, 0.01f, spotLight.myRange);
+		mySpotLightCamera.transform.SetPosition(spotLight.myPosition);
+		mySpotLightCamera.transform.SetDirection({ -spotLight.myDirection.x, -spotLight.myDirection.y, -spotLight.myDirection.z });
+
+		myShadowAtlas.SetAsActiveTarget(aGraphics->GetContext().Get(), mySpotLights[aSpotlightIndex].myShadowViewPort);
 	}
 
 	int DeferredLightManager::Render(Graphics* aGraphics)
@@ -273,8 +287,14 @@ namespace KE
 
 		ComPtr<ID3D11DeviceContext> context = aGraphics->GetContext();
 
+		// CUBEMAP
+		// This should probably be done somewhere else (yeah i agree)
+		context->PSSetShaderResources(15, 1, myCubemap->myShaderResourceView.GetAddressOf());
+
+
 		// Shadow Directional Light
-		myDepthBuffer.SetAsResourceOnSlot(14, aGraphics->GetContext().Get());
+		//myDepthBuffer.SetAsResourceOnSlot(14, aGraphics->GetContext().Get());
+		myShadowAtlas.SetAsResourceOnSlot(14, aGraphics->GetContext().Get());
 
 		// TODO Maybe won't be needed
 
@@ -304,7 +324,7 @@ namespace KE
 			myTransformBuffer.BindForVS(DEFERRED_LIGHT_BUFFER_SLOT, context.Get());
 
 			//myDirectionalLight.myDirectionalLightCamera = myDirectionalLightCamera.transform.GetMatrix();
-			myDirectionalLight.myDirectionalLightCamera = myDirectionalLightCamera.GetViewMatrix() * myDirectionalLightCamera.GetProjectionMatrix();
+			myDirectionalLight.myData.myDirectionalLightCamera = myDirectionalLightCamera.GetViewMatrix() * myDirectionalLightCamera.GetProjectionMatrix();
 			myDirectionalLightBuffer.MapBuffer(&myDirectionalLight, sizeof(DirectionalLightData), context.Get());
 			myDirectionalLightBuffer.BindForPS(DEFERRED_LIGHT_BUFFER_SLOT, context.Get());
 
@@ -325,15 +345,15 @@ namespace KE
 
 		context->PSSetShader(myPointLightPS->GetShader(), nullptr, 0u);
 
-		for (PointLightData lightData : myPointLights)
+		for (PointLightCPUData& lightData : myPointLights)
 		{
 			// Setup transform buffer
 			ConstantBuffer transformBuffer;
 
-			transformBuffer.positionAndRange[0] = lightData.myPosition.x;
-			transformBuffer.positionAndRange[1] = lightData.myPosition.y;
-			transformBuffer.positionAndRange[2] = lightData.myPosition.z;
-			transformBuffer.positionAndRange[3] = lightData.myRange;
+			transformBuffer.positionAndRange[0] = lightData.myData.myPosition.x;
+			transformBuffer.positionAndRange[1] = lightData.myData.myPosition.y;
+			transformBuffer.positionAndRange[2] = lightData.myData.myPosition.z;
+			transformBuffer.positionAndRange[3] = lightData.myData.myRange;
 			transformBuffer.isDirectional = FALSE;
 
 			// Update Buffer and bind
@@ -355,21 +375,26 @@ namespace KE
 
 		context->PSSetShader(mySpotLightPS->GetShader(), nullptr, 0u);
 
-		for (SpotLightData lightData : mySpotLights)
+		for (SpotLightCPUData& lightData : mySpotLights)
 		{
 			// Setup transform buffer
 			ConstantBuffer transformBuffer;
-			transformBuffer.positionAndRange[0] = lightData.myPosition.x;
-			transformBuffer.positionAndRange[1] = lightData.myPosition.y;
-			transformBuffer.positionAndRange[2] = lightData.myPosition.z;
-			transformBuffer.positionAndRange[3] = lightData.myRange;
+			transformBuffer.positionAndRange[0] = lightData.myData.myPosition.x;
+			transformBuffer.positionAndRange[1] = lightData.myData.myPosition.y;
+			transformBuffer.positionAndRange[2] = lightData.myData.myPosition.z;
+			transformBuffer.positionAndRange[3] = lightData.myData.myRange;
 			transformBuffer.isDirectional = FALSE;
 
 			// Update Buffer and bind
 			myTransformBuffer.MapBuffer(&transformBuffer, sizeof(ConstantBuffer), context.Get());
 			myTransformBuffer.BindForVS(DEFERRED_LIGHT_BUFFER_SLOT, context.Get());
 
-			mySpotLightbuffer.MapBuffer(&lightData, sizeof(SpotLightData), context.Get());
+			mySpotLightCamera.transform.SetPosition(lightData.myData.myPosition);
+			mySpotLightCamera.transform.SetDirection((Vector3f)lightData.myData.myDirection * -1.0f);
+
+			lightData.myData.myCamera = mySpotLightCamera.GetViewMatrix() * mySpotLightCamera.GetProjectionMatrix();
+
+			mySpotLightbuffer.MapBuffer(&lightData.myData, sizeof(SpotLightData), context.Get());
 			mySpotLightbuffer.BindForPS(LIGHT_BUFFER_PS_SLOT, context.Get());
 
 			// Draw Mesh
@@ -394,65 +419,34 @@ namespace KE
 	{
 		myPointLights.clear();
 		mySpotLights.clear();
-
-		myFreePointLights.clear();
-		myFreeSpotLights.clear();
 	}
 
 	// TODO Importer needs to recieve a LightData& instead of a LightComponentData&
-	LightData* DeferredLightManager::CreateLightData(const eLightType aLightType)
+	LightData* DeferredLightManager::CreateLightData(const eLightType aLightType, const bool aShouldCastShadow)
 	{
 		switch (aLightType)
 		{
 			case eLightType::Directional:
 			{
-				return &myDirectionalLight;
+				assert(myShadowAtlas.RegisterViewport(1024, &myDirectionalLight.myShadowViewPort, myDirectionalLight.myData.shadowMapInformation) && ("Shadowmap could not find a suitible slot for directional light with size %i", 1024));
+
+				return &myDirectionalLight.myData;
 			}
 			case eLightType::Point:
 			{
-				if (myFreePointLights.size() > 0)
-				{
-					auto* light = myFreePointLights.back();
-					myFreePointLights.pop_back();
-					return light;
-				}
-				return &myPointLights.emplace_back();
+				return &myPointLights.emplace_back().myData;
 			}
 			case eLightType::Spot:
 			{
-				if (myFreeSpotLights.size() > 0)
-				{
-					auto* light = myFreeSpotLights.back();
-					myFreeSpotLights.pop_back();
-					return light;
-				}
-				return &mySpotLights.emplace_back();
+				auto& lightData = mySpotLights.emplace_back();
+
+				assert(myShadowAtlas.RegisterViewport(256, &lightData.myShadowViewPort, lightData.myData.shadowMapInformation) && ("Shadowmap could not find a suitible slot for spot light with size %i", 256));
+
+				return &lightData.myData;
 			}
 		}
 
 		return nullptr;
-	}
-
-	void DeferredLightManager::RemoveLightData(eLightType aType, LightData* aLightData)
-	{
-		switch(aType)
-		{
-		case eLightType::Point:
-		{
-			auto* light = static_cast<PointLightData*>(aLightData);
-			light->isActive = false;
-			myFreePointLights.push_back(light);
-			break;
-		}
-		case eLightType::Spot:
-		{
-			auto* light = static_cast<SpotLightData*>(aLightData);
-			light->isActive = false;
-			myFreeSpotLights.push_back(light);
-			break;
-		}
-		default: break;
-		}
 	}
 
 	void DeferredLightManager::AssignCubemap(Cubemap* aCubemap)

@@ -6,6 +6,7 @@
 #include "Engine/Source/Graphics/ModelData.h"
 #include "Engine/Source/Graphics/DepthBuffer.h"
 #include "Engine/Source/Graphics/Camera.h"
+#include "Engine/Source/Graphics/Lighting/ShadowAtlas.h"
 
 namespace DirectX
 {
@@ -25,8 +26,11 @@ namespace KE
 	constexpr float unityLightIntensityMultiplier = 20.0f;
 	constexpr float unityLightRangeMultiplier = 2.0f;
 
+
+
 	class DeferredLightManager
 	{
+		friend class Graphics;
 	public:
 		DeferredLightManager();
 		~DeferredLightManager() = default;
@@ -35,19 +39,23 @@ namespace KE
 		HRESULT Init(ID3D11Device* aDevice, ShaderLoader* aShaderLoader, const Vector2i aSize);
 
 		void PrepareShadowPass(Graphics* aGraphics);
+		void RenderSpotLightShadows(Graphics* aGraphics, const unsigned int aSpotlightIndex);
+
 		int Render(Graphics* aGraphics);
 		void Reset();
 
 		// This is a dangerous function. If a Vector of LightData resizes will cause the pointers to break
-		LightData* CreateLightData(eLightType aLightType);
-		void RemoveLightData(eLightType aType, LightData* aLightData);
+		LightData* CreateLightData(eLightType aLightType, const bool aShouldCastShadow = true);
 
 		void AssignCubemap(Cubemap* aCubemap);
 
 		Camera myDirectionalLightCamera;
-		DepthBuffer myDepthBuffer;
+		ShadowAtlas myShadowAtlas;
 
-		Cubemap* GetCubemap() const { return myCubemap; }
+		//DepthBuffer myDepthBuffer;
+		Camera mySpotLightCamera;
+		std::vector<DepthBuffer> mySpotlightsDepthBuffers;
+
 	private:
 		struct ConstantBuffer
 		{
@@ -63,18 +71,15 @@ namespace KE
 		VertexShader* myLightVS = nullptr;
 
 		PixelShader* myPointLightPS = nullptr;
-		std::vector<PointLightData> myPointLights = {};
-		std::vector<PointLightData*> myFreePointLights = {};
+		std::vector<PointLightCPUData> myPointLights = {};
 		CBuffer myPointLightBuffer;
 
 		PixelShader* mySpotLightPS = nullptr;
-		std::vector<SpotLightData> mySpotLights = {};
-		std::vector<SpotLightData*> myFreeSpotLights = {};
-
+		std::vector<SpotLightCPUData> mySpotLights = {};
 		CBuffer mySpotLightbuffer;
 
 		PixelShader* myDirectionalLightPS = nullptr;
-		DirectionalLightData myDirectionalLight;
+		DirectionalLightCPUData myDirectionalLight;
 		CBuffer myDirectionalLightBuffer;
 		CBuffer myTransformBuffer;
 
