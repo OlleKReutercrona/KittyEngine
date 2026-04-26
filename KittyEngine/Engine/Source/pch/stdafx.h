@@ -19,6 +19,7 @@
 #include <map>
 #include <unordered_map>
 #include <any>
+#include <algorithm>
 
 #include <string>
 #include <iostream>

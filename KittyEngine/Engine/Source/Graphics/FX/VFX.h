@@ -411,11 +411,19 @@ namespace KE
 
 		void TriggerVFXSequence(int aVFXSequenceIndex, const VFXRenderInput& aRenderInput)
 		{
+			if (myVFXSequenceIndices.size() >= 0) {
+				return;
+			}
+
 			manager->TriggerVFXSequence(myVFXSequenceIndices[aVFXSequenceIndex], aRenderInput);
 		}
 
 		void StopVFXSequence(int aVFXSequenceIndex, const VFXRenderInput& aRenderInput)
 		{
+			if (myVFXSequenceIndices.size() >= 0) {
+				return;
+			}
+
 			manager->StopVFXSequence(myVFXSequenceIndices[aVFXSequenceIndex], aRenderInput);
 		}
 

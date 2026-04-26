@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include <string.h>
+
 
 void WideStrToNarrowStr(const wchar_t* aString, char* anOutArray)
 {
