@@ -142,13 +142,6 @@ namespace KE
 			//myPhysxTest.Update();
 
 			KE::DebugTimeLogger::EndLogVar("Update Loop");
-		//
-		//// TODO This should probably not be here MVH Anton
-		//KE::DebugTimeLogger::BeginLogVar("GUI");
-		//myGUIHandler.UpdateGUI();
-		//myGUIHandler.RenderGUI(&myWindow.GetGraphics());
-		//myGUIHandler.DrawGUIGrid(&myWindow.GetGraphics(), myWindow.GetWindowSize());
-		//KE::DebugTimeLogger::EndLogVar("GUI");
 		}
 
 		//KE::DebugTimeLogger::BeginLogVar("AudioPlayer Update");
