@@ -1,0 +1,69 @@
+name: Format Bot
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  format:
+    if: github.event.issue.pull_request != null && contains(github.event.comment.body, '/format')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+
+      - name: Install clang-format
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang-format
+
+      - name: Install Stylua
+        run: |
+          curl -L https://github.com/JohnnyMorganz/StyLua/releases/latest/download/stylua-linux-x86_64.zip -o stylua.zip
+          unzip stylua.zip
+          sudo mv stylua /usr/local/bin/
+
+      - name: Format C++ / HLSL
+        run: |
+          find . -type f \( -name "*.cpp" -o -name "*.hpp" -o -name "*.h" -o -name "*.hlsl" \) \
+            -exec clang-format -i {} +
+
+      - name: Format Lua
+        run: |
+          stylua .
+
+      - name: Check for changes
+        id: git-check
+        run: |
+          git diff --exit-code || echo "changes=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push changes
+        if: steps.git-check.outputs.changes == 'true'
+        run: |
+          git config user.name "format-bot"
+          git config user.email "format-bot@users.noreply.github.com"
+
+          git add .
+          git commit -m "chore: auto-format via /format bot"
+          git push
+
+      - name: Comment on PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: steps.git-check.outputs.changes === 'true'
+                ? "✅ Code formatted and pushed."
+                : "ℹ️ No formatting changes needed."
+            })
