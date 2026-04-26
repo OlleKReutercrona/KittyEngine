@@ -20,10 +20,7 @@
 #include <Engine/Source/Utility/Global.h>
 #include <Engine/Source/Graphics/SplashScreen.h>
 #include <Engine/Source/Utility/DebugTimeLogger.h>
-
-#include <Project/Source/GameRules/GameRules.h>
-
-#include "Engine/Source/Audio/GlobalAudio.h"
+#include <Engine/Source/Audio/GlobalAudio.h>
 
 
 #ifndef KITTYENGINE_SHIP
@@ -55,8 +52,6 @@ namespace KE
 		myUserInput.Init();
 		myScriptManager.Init();
 		GlobalAudio::Init();
-		P8::GameRules::CreateInstance();
-		P8::GameRules::GetInstance()->Init();
 
 		Camera* mainCamera = myWindow.GetGraphics().GetCameraManager().GetCamera(KE_MAIN_CAMERA_INDEX);
 		mainCamera->SetPerspective(WINDOW_WIDTH, WINDOW_HEIGHT, FOV * KE::DegToRadImmediate, 0.01f, 5000.0f);

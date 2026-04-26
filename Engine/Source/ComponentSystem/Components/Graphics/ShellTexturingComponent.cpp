@@ -8,10 +8,7 @@
 #include "ComponentSystem/GameObjectManager.h"
 #include "Graphics/DebugRenderer.h"
 #include "Graphics/Graphics.h"
-//#include "imgui/imgui.h"
-#include "Project/Source/Player/Player.h"
-#include "Project/Source/Boomerang/BoomerangComponent.h"
-#include "Project/Source/Managers/BallManager.h"
+
 #include "SceneManagement/Scene.h"
 
 KE::ShellTexturingComponent::ShellTexturingComponent(GameObject& aParentGameObject) : Component(aParentGameObject)
@@ -116,14 +113,8 @@ void KE::ShellTexturingComponent::CalculateBounds()
 
 void KE::ShellTexturingComponent::RenderDisplacement()
 {
-
 	static float baseDisplace = 0.6f;
 	static float heightDiv = 7.0f;
-
-	//ImGui::Begin("Displacement Settings");
-	//ImGui::DragFloat("Base Displacement", &baseDisplace, 0.01f, 0.0f, 1.0f);
-	//ImGui::DragFloat("Height Divisor", &heightDiv, 0.01f, 0.0f, 10.0f);
-	//ImGui::End();
 
 	std::vector<ShellTextureDisplacement> displacements;
 
@@ -133,51 +124,12 @@ void KE::ShellTexturingComponent::RenderDisplacement()
 		hasSetlevelDisplacement = true;
 	}
 
-	//for (const auto& displacement : myDisplacementObjects)
-	//{
-	//	displacements.push_back({ displacement.gameObject->myWorldSpaceTransform.GetPosition(), displacement.displacementScale });
-	//}
-
 	myGraphics->GetShellTexturedRenderer()->FadeDisplacement(shellModelData, 1.0f, 1.0f);
 
 	if (!liveUpdate) { return; }
 
-	auto& ballMGR = myGameObject.GetManager().GetGameObject(eGameSystemManager)->GetComponent<P8::BallManager>();
 	displacements.clear();
-	for (const auto& boomer : ballMGR.GetBalls())
-	{
-		if (!boomer->GetGameObject().IsActive()) { continue; }
-		Vector3f scl = boomer->GetGameObject().myWorldSpaceTransform.GetScale();
-		if (boomer->GetGameObject().myWorldSpaceTransform.GetPosition().LengthSqr() <= 0.001f) { continue; } 
 
-		displacements.push_back({ 
-			boomer->GetGameObject().myWorldSpaceTransform.GetPosition(),
-			Vector3f(
-				1.0f * scl.x,
-				baseDisplace + (shellModelData->attributes.totalHeight / heightDiv),
-				1.0f * scl.z
-			)
-		});
-	}
-
-	for (const auto& player : ballMGR.GetPlayers())
-	{
-		if (!player->GetGameObject().IsActive()) { continue; }
-
-		Vector3f scl = player->GetGameObject().myWorldSpaceTransform.GetScale();
-		if (player->GetGameObject().myWorldSpaceTransform.GetPosition().LengthSqr() <= 0.001f) { continue; }
-
-		displacements.push_back({ 
-			player->GetGameObject().myWorldSpaceTransform.GetPosition(),
-			Vector3f(
-				0.5f * scl.x,
-			baseDisplace + (shellModelData->attributes.totalHeight / heightDiv),
-				0.5f * scl.z
-			)
-		});
-	}
-
-	//if (displacements.empty()) { return;  }
 	CalculateBounds();
 	myGraphics->GetShellTexturedRenderer()->RenderDisplacement(
 		shellModelData,

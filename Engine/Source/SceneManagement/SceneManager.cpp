@@ -12,7 +12,6 @@
 
 #include <External\Include\nlohmann\json.hpp>
 
-#include "Project/Source/GameEvents/GameEvents.h"
 KE::SceneManager::SceneManager()
 {
 	myLevelImporter = std::make_unique<LevelImporter>();
@@ -100,16 +99,6 @@ void KE::SceneManager::Init(Window& aWindow)
 		myScenes.emplace_back(static_cast<int>(myScenes.size()), levelName, buildIndex);
 
 	}
-
-	P8::LevelSelectDataEvent levelSelectDataEvent;
-
-	for (auto& scene : myScenes)
-	{
-		if (scene.buildIndex > 3)
-		{
-			levelSelectDataEvent.myLevelData.push_back({ scene.sceneName, scene.buildIndex });
-		}
-	}
 	
 	for (auto& scene : myScenes)
 	{
@@ -127,16 +116,11 @@ void KE::SceneManager::Init(Window& aWindow)
 		}
 	}
 
-	ES::EventSystem::GetInstance().SendEvent(levelSelectDataEvent);
-
 	myCurrentScene->Init(myWindow, &myPrefabHandler);
-
 
 	if (LoadScene(myCurrentScene))
 	{
 		myCurrentScene->Activate();
-		//GlobalAudio::PlayMusic(sound::Music::Menu);
-		//myWindow->GetGraphics().CreateRenderingQueue(true);
 	}
 }
 
@@ -242,11 +226,6 @@ void KE::SceneManager::SwapScene(const int aSceneIndex)
 			myWindow->AddToWindowName(NarrowStringToWide(myCurrentScene->sceneName).c_str());
 #endif
 			myCurrentScene->Activate();
-
-			//myWindow->GetGraphics().CreateRenderingQueue(true);
-
-			P8::OnLevelLoadedEvent levelLoadedEvent(myCurrentScene->sceneName);
-			ES::EventSystem::GetInstance().SendEvent(levelLoadedEvent);
 
 #ifdef KITTYENGINE_NO_EDITOR
 			myWindow->GetGraphics().GetCameraManager().SetHighlightedCamera(KE_MAIN_CAMERA_INDEX);
@@ -412,72 +391,14 @@ void KE::SceneManager::OnReceiveEvent(ES::Event& aEvent)
 		}
 
 	}
-	else if (P8::ChangeSceneByBuildIndex* sceneChangeEvent = dynamic_cast<P8::ChangeSceneByBuildIndex*>(&aEvent))
-	{
-		static int buildSceneToChangeTo = -1;
-
-		if (sceneChangeEvent->buildIndex == 0)
-		{
-			// Change to main menu
-			myCurrentScene->levelChangeBuildIndex = 0;
-			buildSceneToChangeTo = -1;
-
-			return;
-		}
-		else if (sceneChangeEvent->buildIndex > 0 && sceneChangeEvent->buildIndex < myBuildSettingsData.size())
-		{
-			myCurrentScene->levelChangeBuildIndex = sceneChangeEvent->buildIndex;
-			return;
-		}
-
-		if (myCurrentScene->buildIndex == 0)
-		{
-			// if current scene is main menu, change scene to lobby
-			myCurrentScene->levelChangeBuildIndex = 1;
-			return;
-		}
-		else if (myCurrentScene->buildIndex == 1)
-		{
-			// if current scene is lobby, change scene to tutorial
-			myCurrentScene->levelChangeBuildIndex = 2;
-			return;
-		}
-
-		if (buildSceneToChangeTo < 0)
-		{
-			buildSceneToChangeTo = GetRandomUniformInt(4, (int)myBuildSettingsData.size() - 1);
-			// else, randomize the level -- THIS IS TEMP ONLY FOR P8 -- OLLE
-			myCurrentScene->levelChangeBuildIndex = buildSceneToChangeTo;
-			return;
-		}
-
-		buildSceneToChangeTo = buildSceneToChangeTo + 1 > myBuildSettingsData.size() - 1 ? 4 : buildSceneToChangeTo + 1;
-
-		myCurrentScene->levelChangeBuildIndex = buildSceneToChangeTo;
-	}
-
-	else if (P8::ChangeSceneEvent* changeSceneEvent = dynamic_cast<P8::ChangeSceneEvent*>(&aEvent))
-	{
-		int id = GetSceneIDByName(changeSceneEvent->sceneName);
-		if (id > -1)
-		{
-			myLevelChangeIndex = id;
-			std::cout << "\nHello from SceneManager!";
-		}
-	}
 }
 
 void KE::SceneManager::OnInit()
 {
 	ES::EventSystem::GetInstance().Attach<SceneEvent>(this);
-	ES::EventSystem::GetInstance().Attach<P8::ChangeSceneEvent>(this); // TEMP
-	ES::EventSystem::GetInstance().Attach<P8::ChangeSceneByBuildIndex>(this);
 }
 
 void KE::SceneManager::OnDestroy()
 {
 	ES::EventSystem::GetInstance().Detach<SceneEvent>(this);
-	ES::EventSystem::GetInstance().Detach<P8::ChangeSceneEvent>(this); // TEMP
-	ES::EventSystem::GetInstance().Detach<P8::ChangeSceneByBuildIndex>(this);
-
 }

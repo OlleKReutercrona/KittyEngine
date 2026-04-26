@@ -13,7 +13,6 @@
 #include "Engine/Source/Input/Input.h"
 #include "Engine/Source/Input/InputEvents.h"
 #include "Engine/Source/Files/GUIFile.h"
-#include "Project/Source/GameEvents/GameEvents.h"
 #include "Engine/Source/Audio/GlobalAudio.h"
 #include <External/Include/imgui/imgui.h>
 
@@ -1130,377 +1129,6 @@ namespace KE
 		}
 	}
 
-	void GUIHandler::SetScore(P8::PresentScoreDataEvent* aEvent)
-	{
-		GUIScene* scene = GetGUIScene("Score");
-
-		if (!scene)
-		{
-			KE_LOG("Score scene not found");
-			return;
-		}
-
-		for (int i = 0; i < 4; ++i)
-		{
-			int score = -1;
-			int modelID = -1;
-			if (aEvent == nullptr)
-			{
-				score = 0;
-			}
-			else
-			{
-				score = aEvent->scores[i];
-				modelID = aEvent->modelID[i];
-			}
-
-			bool playerExists = true;
-
-			if (score < 0 || score > myMaxScore)
-			{
-				if (aEvent != nullptr)
-				{
-					if (aEvent->modelID[i] == -1 && aEvent->playerID[i] == -1)
-					{
-						// Don't draw score for player that doesn't exist
-						std::cout << "\nPlayer " << i << " doesn't exist";
-						playerExists = false;
-					}
-				}
-
-				//continue;
-			}
-
-			switch (i)
-			{
-			case 0:
-			{
-				if (playerExists)
-				{
-					SetScoreForPlayer(&myP1Score, score, modelID);
-					SetPortraitForPlayer(&myP1Score, modelID);
-					myScore[0] = score;
-					//std::cout << "\nSetting score for player 1: " << score;
-				}
-				else
-				{
-					HideScoreForNonActivePlayer(0);
-				}
-				break;
-			}
-			case 1:
-			{
-				if (playerExists)
-				{
-					SetScoreForPlayer(&myP2Score, score, modelID);
-					SetPortraitForPlayer(&myP2Score, modelID);
-					myScore[1] = score;
-				}
-				else
-				{
-					HideScoreForNonActivePlayer(1);
-				}
-				//std::cout << "\nSetting score for player 2: " << score;
-				break;
-			}
-			case 2:
-			{
-				if (playerExists)
-				{
-					SetScoreForPlayer(&myP3Score, score, modelID);
-					SetPortraitForPlayer(&myP3Score, modelID);
-					myScore[2] = score;
-					//std::cout << "\nSetting score for player 3: " << score;
-				}
-				else
-				{
-					HideScoreForNonActivePlayer(2);
-				}
-				break;
-			}
-			case 3:
-			{
-				if (playerExists)
-				{
-					SetScoreForPlayer(&myP4Score, score, modelID);
-					SetPortraitForPlayer(&myP4Score, modelID);
-					myScore[3] = score;
-				}
-				else
-				{
-					HideScoreForNonActivePlayer(3);
-				}
-				//std::cout << "\nSetting score for player 4: " << score;
-				break;
-			}
-			}
-		}
-	}
-
-	void GUIHandler::SetScoreForPlayer(Score* aPScore, const int aScore, const int aModelID)
-	{
-		if (aPScore->myScore < 0 && aScore >= 0)
-		{
-			aPScore->myScore = 0;
-			aPScore->myScorePreviousRound = 0;
-		}
-
-		aPScore->myModelID = aModelID;
-		aPScore->myScore = aScore;
-	}
-
-	void GUIHandler::HideScoreForNonActivePlayer(const int aPlayerIndex)
-	{
-		GUIScene* scene = GetGUIScene("Score");
-
-		if (!scene)
-		{
-			return;
-		}
-
-		switch (aPlayerIndex)
-		{
-		case 0:
-		{
-			// Player 1 will never NOT exist but just in case :^)
-			for (auto& element : scene->GetGUIElements())
-			{
-				if (element.myName == "Portrait1")
-				{
-					element.shouldDraw = false;
-				}
-
-				if (element.myName == "P1Bg")
-				{
-					element.shouldDraw = false;
-				}
-
-				if (element.myName == "P1Text")
-				{
-					element.shouldDraw = false;
-				}
-			}
-
-			for (auto& element : myP1Score.myScoreElements)
-			{
-				element->shouldDraw = false;
-			}
-			break;
-		}
-		case 1:
-		{
-			for (auto& element : scene->GetGUIElements())
-			{
-				if (element.myName == "Portrait2")
-				{
-					element.shouldDraw = false;
-				}
-
-				if (element.myName == "P2Bg")
-				{
-					element.shouldDraw = false;
-				}
-
-				if (element.myName == "P2Text")
-				{
-					element.shouldDraw = false;
-				}
-			}
-
-			for (auto& element : myP2Score.myScoreElements)
-			{
-				element->shouldDraw = false;
-			}
-			break;
-		}
-		case 2:
-		{
-			for (auto& element : scene->GetGUIElements())
-			{
-				if (element.myName == "Portrait3")
-				{
-					element.shouldDraw = false;
-				}
-
-				if (element.myName == "P3Bg")
-				{
-					element.shouldDraw = false;
-				}
-
-				if (element.myName == "P3Text")
-				{
-					element.shouldDraw = false;
-				}
-			}
-
-			for (auto& element : myP3Score.myScoreElements)
-			{
-				element->shouldDraw = false;
-			}
-			break;
-		}
-		case 3:
-		{
-			for (auto& element : scene->GetGUIElements())
-			{
-				if (element.myName == "Portrait4")
-				{
-					element.shouldDraw = false;
-				}
-
-				if (element.myName == "P4Bg")
-				{
-					element.shouldDraw = false;
-				}
-
-				if (element.myName == "P4Text")
-				{
-					element.shouldDraw = false;
-				}
-			}
-
-			for (auto& element : myP4Score.myScoreElements)
-			{
-				element->shouldDraw = false;
-			}
-			break;
-		}
-		}
-	}
-
-	void GUIHandler::SetPortraitForPlayer(Score* aPSScore, const int aModelID)
-	{
-		if (aModelID < 1 || aModelID > 5)
-		{
-			return;
-		}
-		aPSScore->myPortrait->mySpriteBatch.myData.myTexture = myGraphics->GetTextureLoader().GetTextureFromPath(myPortraitPaths[aModelID - 1]);
-		aPSScore->myPlayerTextBg->mySpriteBatch.myData.myTexture = myGraphics->GetTextureLoader().GetTextureFromPath(myCharacterScoreboardPaths[aModelID - 1]);
-	}
-
-	void GUIHandler::ResetScores()
-	{
-		myScore[0] = 0;
-		myScore[1] = 0;
-		myScore[2] = 0;
-		myScore[3] = 0;
-
-		myP1Score.myScore = 0;
-		myP2Score.myScore = 0;
-		myP3Score.myScore = 0;
-		myP4Score.myScore = 0;
-
-		SetScore(nullptr);
-
-		GUIScene* scene = GetGUIScene("Score");
-
-		if (scene)
-		{
-			for (auto& element : scene->GetGUIElements())
-			{
-				// P1
-				if (element.myName == "Portrait1")
-				{
-					element.shouldDraw = true;
-				}
-
-				if (element.myName == "P1Bg")
-				{
-					element.shouldDraw = true;
-				}
-
-				if (element.myName == "P1Text")
-				{
-					element.shouldDraw = true;
-				}
-
-				// P2
-				if (element.myName == "Portrait2")
-				{
-					element.shouldDraw = true;
-				}
-
-				if (element.myName == "P2Bg")
-				{
-					element.shouldDraw = true;
-				}
-
-				if (element.myName == "P2Text")
-				{
-					element.shouldDraw = true;
-				}
-
-				// P3
-				if (element.myName == "Portrait3")
-				{
-					element.shouldDraw = true;
-				}
-
-				if (element.myName == "P3Bg")
-				{
-					element.shouldDraw = true;
-				}
-
-				if (element.myName == "P3Text")
-				{
-					element.shouldDraw = true;
-				}
-
-				// P4
-				if (element.myName == "Portrait4")
-				{
-					element.shouldDraw = true;
-				}
-
-				if (element.myName == "P4Bg")
-				{
-					element.shouldDraw = true;
-				}
-
-				if (element.myName == "P4Text")
-				{
-					element.shouldDraw = true;
-				}
-			}
-
-			for (auto& element : myP1Score.myScoreElements)
-			{
-				element->mySpriteBatch.myData.myTexture = element->myDisplayTexture;
-				element->shouldDraw = true;
-			}
-
-			for (auto& element : myP2Score.myScoreElements)
-			{
-				element->mySpriteBatch.myData.myTexture = element->myDisplayTexture;
-				element->shouldDraw = true;
-			}
-
-			for (auto& element : myP3Score.myScoreElements)
-			{
-				element->mySpriteBatch.myData.myTexture = element->myDisplayTexture;
-				element->shouldDraw = true;
-			}
-
-			for (auto& element : myP4Score.myScoreElements)
-			{
-				element->mySpriteBatch.myData.myTexture = element->myDisplayTexture;
-				element->shouldDraw = true;
-			}
-
-			myP1Score.myScore = 0;
-			myP1Score.myScorePreviousRound = 0;
-
-			myP2Score.myScore = 0;
-			myP2Score.myScorePreviousRound = 0;
-
-			myP3Score.myScore = 0;
-			myP3Score.myScorePreviousRound = 0;
-
-			myP4Score.myScore = 0;
-			myP4Score.myScorePreviousRound = 0;
-		}
-	}
-
 	void GUIHandler::SetGUIText(GUIElement* aElement, const std::string& aText)
 	{
 		if (aElement == nullptr)
@@ -1708,8 +1336,6 @@ namespace KE
 			{
 				myCountdownTimer = 0.0f;
 				shouldCountDown = false;
-				P8::ChangeGameState changeGameStateEvent(P8::eGameStates::ePlayLiveGame);
-				ES::EventSystem::GetInstance().SendEvent(changeGameStateEvent);
 			}
 		}
 	}
@@ -1919,8 +1545,6 @@ namespace KE
 					{
 						if (GetCurrentSceneName() == "Pause")
 						{
-							P8::ChangeGameState changeGameStateEvent(P8::eGameStates::ePlayLiveGame);
-							ES::EventSystem::GetInstance().SendEvent(changeGameStateEvent);
 							PopGUIScene();
 						}
 						else if (GetCurrentSceneName() == "Options" ||
@@ -1944,28 +1568,15 @@ namespace KE
 							if (interaction.myInputType == eInputType::XboxStart)
 							{
 								myActiveGUIScenes.clear();
-
-								P8::StartingLevelEvent startingLevelEvent;
-								startingLevelEvent.myLevelIndex = myLevelIndex;
-								ES::EventSystem::GetInstance().SendEvent(startingLevelEvent);
-
-								P8::ChangeGameState changeGameStateEvent(P8::eGameStates::eMenuLobby);
-								ES::EventSystem::GetInstance().SendEvent(changeGameStateEvent);
 							}
 							else
 							{
-								P8::StartingLevelEvent startingLevelEvent;
-								startingLevelEvent.myLevelIndex = -1;
-								ES::EventSystem::GetInstance().SendEvent(startingLevelEvent);
-
 								PopGUIScene();
 								SelectFirstMenuElement();
 							}
 						}
 						else if (myActiveGUIScenes.empty() && (interaction.myInputType == eInputType::Esc || interaction.myInputType == eInputType::XboxStart))
 						{
-							P8::ChangeGameState changeGameStateEvent(P8::eGameStates::eMenuPause);
-							ES::EventSystem::GetInstance().SendEvent(changeGameStateEvent);
 							PushGUIScene("Pause");
 							SelectFirstMenuElement();
 						}
@@ -1990,20 +1601,9 @@ namespace KE
 							if (interaction.myInputType == eInputType::Enter)
 							{
 								myActiveGUIScenes.clear();
-
-								P8::StartingLevelEvent startingLevelEvent;
-								startingLevelEvent.myLevelIndex = myLevelIndex;
-								ES::EventSystem::GetInstance().SendEvent(startingLevelEvent);
-
-								P8::ChangeGameState changeGameStateEvent(P8::eGameStates::eMenuLobby);
-								ES::EventSystem::GetInstance().SendEvent(changeGameStateEvent);
 							}
 							else
 							{
-								P8::StartingLevelEvent startingLevelEvent;
-								startingLevelEvent.myLevelIndex = -1;
-								ES::EventSystem::GetInstance().SendEvent(startingLevelEvent);
-
 								PopGUIScene();
 								SelectFirstMenuElement();
 							}
@@ -2016,8 +1616,6 @@ namespace KE
 						else if (GetCurrentSceneName() == "MenuConfirm")
 						{
 							PopGUIScene();
-							P8::ChangeGameState changeGameStateEvent(P8::eGameStates::eMenuMain);
-							ES::EventSystem::GetInstance().SendEvent(changeGameStateEvent);
 							return;
 						}
 
@@ -2041,15 +1639,11 @@ namespace KE
 								{
 									clickSelected = false;
 									PopGUIScene();
-									P8::ChangeGameState changeGameStateEvent(P8::eGameStates::eWinScreen);
-									ES::EventSystem::GetInstance().SendEvent(changeGameStateEvent);
 								}
 								else
 								{
 									clickSelected = false;
 									PopGUIScene();
-									P8::ChangeGameState changeGameStateEvent(P8::eGameStates::eLoading);
-									ES::EventSystem::GetInstance().SendEvent(changeGameStateEvent);
 								}
 							}
 							else if (GetCurrentSceneName() == "Tutorial")
@@ -2060,8 +1654,6 @@ namespace KE
 								{
 									clickSelected = false;
 									PopGUIScene();
-									P8::ChangeGameState changeGameStateEvent(P8::eGameStates::ePlayCountdown);
-									ES::EventSystem::GetInstance().SendEvent(changeGameStateEvent);
 								}
 								else
 								{
@@ -2078,8 +1670,6 @@ namespace KE
 
 								clickSelected = false;
 								PopGUIScene();
-								P8::ChangeGameState changeGameStateEvent(P8::eGameStates::eMenuMain);
-								ES::EventSystem::GetInstance().SendEvent(changeGameStateEvent);
 							}
 
 						}
@@ -2115,276 +1705,12 @@ namespace KE
 		}
 
 		/// -----------------------------------------------------------------------------------------------
-		/// GAME STATE EVENTS
-		if (P8::GameStateHasChanged* event = dynamic_cast<P8::GameStateHasChanged*>(&aEvent))
-		{
-			if (event->newGameState == P8::eGameStates::eMenuMain)
-			{
-				myActiveGUIScenes.clear();
-				PushGUIScene("MainMenu");
-				isBlockingInput = false;
-			}
-			else if (event->newGameState == P8::eGameStates::eMenuLobby)
-			{
-				PushGUIScene("Lobby");
-				isBlockingInputTimed = true;
-			}
-			else if (event->newGameState == P8::eGameStates::ePlayCountdown)
-			{
-				PushGUIScene("Countdown");
-
-				GUIScene& scene = myGUISceneMap["Countdown"];
-				for (GUIElement& element : scene.GetGUIElements())
-				{
-					if (element.myName == "Ready")
-					{
-						KE::GlobalAudio::PlaySFX(sound::SFX::AnnouncerReady);
-
-						myFadeInElement = &myReadyFadeElement;
-						SetTextAlpha(myFadeInElement->myElement, 0.0f);
-						myFadeInElement->myFadeState = eFadeState::FadeIn;
-						isCountdownActive = true;
-						shouldCountDown = true;
-					}
-				}
-			}
-			else if (event->newGameState == P8::eGameStates::ePlayLiveGame)
-			{
-				//myActiveGUIScenes.clear();
-			}
-			else if (event->newGameState == P8::eGameStates::eDebugTesting)
-			{
-				myActiveGUIScenes.clear();
-			}
-			else if (event->newGameState == P8::eGameStates::ePlayPresentScores)
-			{
-				PushGUIScene("Score");
-				isBlockingInputTimed = true;
-
-				GUIScene* scene = myActiveGUIScenes.front();
-
-				if (scene)
-				{
-					isScoreAnimating = true;
-
-					// Get the continue text and button elements
-					for (GUIElement& element : scene->GetGUIElements())
-					{
-						if (element.myName == "ContinueText")
-						{
-							element.shouldDraw = false;
-						}
-						if (element.myName == "ContinueA")
-						{
-							element.shouldDraw = false;
-						}
-					}
-				}
-			}
-			else if (event->newGameState == P8::eGameStates::ePlayTutorial)
-			{
-				PushGUIScene("Tutorial");
-				isBlockingInputTimed = true;
-			}
-			else if (event->newGameState == P8::eGameStates::eWinScreen)
-			{
-				PushGUIScene("WinScreen");
-				isBlockingInputTimed = true;
-			}
-			else if (event->newGameState == P8::eGameStates::ePlayMatchEnd)
-			{
-				isBlockingInput = true;
-			}
-
-		}
-
-
-		/// -----------------------------------------------------------------------------------------------
-		/// LOBBY EVENTS
-		if (P8::LobbyEvent* event = dynamic_cast<P8::LobbyEvent*>(&aEvent))
-		{
-			switch (event->myLobbyEvent)
-			{
-			case P8::eLobbyEvents::PlayerJoined:
-			{
-				std::string readyText = "P" + std::to_string(event->myPlayerIndex + 1) + "Ready";
-				std::string joinText = "P" + std::to_string(event->myPlayerIndex + 1) + "Join";
-				SetDrawElement(joinText, false);
-				SetDrawElement(readyText, true);
-				break;
-			}
-			case P8::eLobbyEvents::PlayerReady:
-			{
-				std::string readyText = "P" + std::to_string(event->myPlayerIndex + 1) + "Ready";
-				SetDrawElement(readyText, false);
-				break;
-			}
-			case P8::eLobbyEvents::PlayerNotReady:
-			{
-				std::string readyText = "P" + std::to_string(event->myPlayerIndex + 1) + "Ready";
-				SetDrawElement(readyText, true);
-				break;
-			}
-			case P8::eLobbyEvents::PlayerRemoved:
-			{
-				// Help here Anton!!!
-				std::string readyText = "P" + std::to_string(event->myPlayerIndex + 1) + "Ready";
-				std::string joinText = "P" + std::to_string(event->myPlayerIndex + 1) + "Join";
-				SetDrawElement(joinText, true);
-				SetDrawElement(readyText, false);
-
-				P8::LobbyEventData lobbyData = *(P8::LobbyEventData*)event->myData;
-
-				for (int i = 0; i < 4; ++i)
-				{
-					if (lobbyData.mySelectedCharactersPlayerIndices[i] == -1)
-					{
-						std::string characterText = "PickChar" + std::to_string(i + 1);
-						SetDrawTextElement(characterText, "", false);
-						characterText = "Character" + std::to_string(i + 1);
-						SetColourOfElement(characterText, { 1.0f, 1.0f, 1.0f, 1.0f });
-						SetDrawElement(characterText, false);
-
-						std::string playerBgText = "Player" + std::to_string(i + 1) + "Bg";
-						SetDrawElement(playerBgText, false);
-						continue;
-					}
-					std::string characterText = "PickChar" + std::to_string(i + 1);
-					std::string displayText = "P" + std::to_string(lobbyData.mySelectedCharactersPlayerIndices[i] + 1);
-					SetDrawTextElement(characterText, displayText, true);
-
-					characterText = "Character" + std::to_string(i + 1);
-					SetColourOfElement(characterText, myCharacterColours[i]);
-					SetDrawElement(characterText, true);
-
-					std::string playerBgText = "Player" + std::to_string(i + 1) + "Bg";
-					SetDrawElement(playerBgText, true);
-				}
-
-				break;
-			}
-			case P8::eLobbyEvents::CharacterSelection:
-			{
-				P8::LobbyEventData lobbyData = *(P8::LobbyEventData*)event->myData;
-
-				for (int i = 0; i < 4; ++i)
-				{
-					if (lobbyData.mySelectedCharactersPlayerIndices[i] == -1)
-					{
-						std::string characterText = "PickChar" + std::to_string(i + 1);
-						SetDrawTextElement(characterText, "", false);
-						characterText = "Character" + std::to_string(i + 1);
-						SetColourOfElement(characterText, { 1.0f, 1.0f, 1.0f, 1.0f });
-						SetDrawElement(characterText, false);
-
-						std::string playerBgText = "Player" + std::to_string(i + 1) + "Bg";
-						SetDrawElement(playerBgText, false);
-						continue;
-					}
-					std::string characterText = "PickChar" + std::to_string(i + 1);
-					std::string displayText = "P" + std::to_string(lobbyData.mySelectedCharactersPlayerIndices[i] + 1);
-					SetDrawTextElement(characterText, displayText, true);
-
-					characterText = "Character" + std::to_string(i + 1);
-					SetColourOfElement(characterText, myCharacterColours[i]);
-					SetDrawElement(characterText, true);
-
-					std::string playerBgText = "Player" + std::to_string(i + 1) + "Bg";
-					SetDrawElement(playerBgText, true);
-				}
-				break;
-			}
-			case P8::eLobbyEvents::AllReady:
-			{
-				std::string beginText = "Begin";
-				SetDrawTextElement(beginText, "", true);
-				SetDrawElement("Start", true);
-				//std::cout << "\nAll players are ready! -- GUIHandler";
-				break;
-			}
-			case P8::eLobbyEvents::AllNotReady:
-			{
-				std::string beginText = "Begin";
-				SetDrawTextElement(beginText, "", false);
-				SetDrawElement("Start", false);
-				break;
-			}
-			case P8::eLobbyEvents::GameStart:
-			{
-				for (int i = 0; i < 4; ++i)
-				{
-					// Reset join text and button, and begin text
-					std::string joinText = "P" + std::to_string(i + 1) + "Join";
-					SetDrawElement(joinText, true);
-					std::string beginText = "Begin";
-					SetDrawTextElement(beginText, "", false);
-					SetDrawElement("Start", false);
-
-					// Reset character portraits and text
-					std::string characterText = "PickChar" + std::to_string(i + 1);
-					SetDrawTextElement(characterText, "", false);
-					characterText = "Character" + std::to_string(i + 1);
-					SetColourOfElement(characterText, { 1.0f, 1.0f, 1.0f, 1.0f });
-					SetDrawElement(characterText, false);
-
-					std::string playerBgText = "Player" + std::to_string(i + 1) + "Bg";
-					SetDrawElement(playerBgText, false);
-				}
-
-				PopGUIScene("Lobby");
-				break;
-			}
-			}
-		}
-
-		/// -----------------------------------------------------------------------------------------------
-		/// SCORE EVENTS
-		if (P8::PresentScoreDataEvent* event = dynamic_cast<P8::PresentScoreDataEvent*>(&aEvent))
-		{
-			SetScore(event);
-		}
-
-		/// -----------------------------------------------------------------------------------------------
-		/// LEVEL SELECT EVENTS
-		//if (P8::LevelSelectDataEvent* event = dynamic_cast<P8::)
-		if (P8::LevelSelectDataEvent* event = dynamic_cast<P8::LevelSelectDataEvent*>(&aEvent))
-		{
-			for (P8::LevelSelectData& data : event->myLevelData)
-			{
-				std::string levelName = data.myLevelName.substr(0, data.myLevelName.size() - 5);
-				std::transform(levelName.begin(), levelName.end(), levelName.begin(), ::tolower);
-
-				myLevelSelectData.push_back({ levelName, data.myLevelIndex });
-			}
-
-			if (!myLevelSelectData.empty())
-			{
-				myCurrentLevelSelectIndex = 0;
-				myLevelIndex = myLevelSelectData[0].myLevelIndex;
-
-				myCurrentLevelImagePath = myLevelImageBasePath + myLevelSelectData[myCurrentLevelSelectIndex].myLevelName + ".dds";
-				myLevelIndex = myLevelSelectData[myCurrentLevelSelectIndex].myLevelIndex;
-				myLevelSelectImage->mySpriteBatch.myData.myTexture = myGraphics->GetTextureLoader().GetTextureFromPath(myCurrentLevelImagePath);
-
-				std::string uppercase = myLevelSelectData[0].myLevelName;
-				std::transform(uppercase.begin(), uppercase.end(), uppercase.begin(), ::toupper);
-				SetGUIText(myLevelSelectText, uppercase);
-			}
-		}
-
-		/// -----------------------------------------------------------------------------------------------
 		/// GUI ELEMENT EVENTS (GUI Buttons are clicked)		
 		if (GUIElementEvent* event = dynamic_cast<GUIElementEvent*>(&aEvent))
 		{
 			if (event->myEventName == "Play")
 			{
 				PopGUIScene("MainMenu");
-
-				// Reset scores when starting a new game
-				ResetScores();
-
-				P8::ChangeGameState changeGameStateEvent(P8::eGameStates::eMenuLobby);
-				ES::EventSystem::GetInstance().SendEvent(changeGameStateEvent);
 			}
 
 			if (event->myEventName == "Quit")
@@ -2419,8 +1745,6 @@ namespace KE
 			if (event->myEventName == "Resume")
 			{
 				PopGUIScene();
-				P8::ChangeGameState changeGameStateEvent(P8::eGameStates::ePlayLiveGame);
-				ES::EventSystem::GetInstance().SendEvent(changeGameStateEvent);
 			}
 
 			if (event->myEventName == "Menu")
@@ -2478,10 +1802,6 @@ namespace KE
 		ES::EventSystem::GetInstance().Attach<InputEvent>(this);
 		ES::EventSystem::GetInstance().Attach<GUIElementEvent>(this);
 		ES::EventSystem::GetInstance().Attach<MouseMoveEvent>(this);
-		ES::EventSystem::GetInstance().Attach<P8::GameStateHasChanged>(this);
-		ES::EventSystem::GetInstance().Attach<P8::LobbyEvent>(this);
-		ES::EventSystem::GetInstance().Attach<P8::PresentScoreDataEvent>(this);
-		ES::EventSystem::GetInstance().Attach<P8::LevelSelectDataEvent>(this);
 	}
 
 	void GUIHandler::OnDestroy()
@@ -2491,10 +1811,6 @@ namespace KE
 		ES::EventSystem::GetInstance().Detach<InputEvent>(this);
 		ES::EventSystem::GetInstance().Detach<GUIElementEvent>(this);
 		ES::EventSystem::GetInstance().Detach<MouseMoveEvent>(this);
-		ES::EventSystem::GetInstance().Detach<P8::GameStateHasChanged>(this);
-		ES::EventSystem::GetInstance().Detach<P8::LobbyEvent>(this);
-		ES::EventSystem::GetInstance().Detach<P8::PresentScoreDataEvent>(this);
-		ES::EventSystem::GetInstance().Detach<P8::LevelSelectDataEvent>(this);
 	}
 
 	void GUIHandler::SetTextColour(GUIElement* aElement, const Vector4f& aColour)
@@ -2512,6 +1828,7 @@ namespace KE
 			element->shouldDraw = aShouldDraw;
 		}
 	}
+
 	void GUIHandler::SetDrawTextElement(const std::string& aEventName, const std::string& aText, bool aShouldDraw)
 	{
 		for (GUIElement* element : myEventMap[aEventName])

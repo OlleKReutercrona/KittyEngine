@@ -9,17 +9,7 @@
 #include "Engine/Source/Math/KittyMath.h"
 #include "Layers.h"
 #include "ComponentSystem/GameObject.h"
-#include "Project/Source/Boomerang/BoomerangPhysxController.h"
-#include "Project/Source/GameEvents/GameEvents.h"
-
-#include "Project/Source/Player/Player.h"
-#include "Project/Source/Boomerang/BoomerangComponent.h"
-#include "Project/Source/MovingObject/MovingObject.h"
-
-namespace P8
-{
-	struct SlowMotionEvent;
-}
+#include <Graphics/Graphics.h>
 
 namespace KE
 {
@@ -66,12 +56,6 @@ namespace KE
 			
 			if (UD && UD->gameObject)
 			{
-				if (P8::MovingObject* movingObj; UD->gameObject->TryGetComponent(movingObj))
-				{
-					if (movingObj->IsMoving()) { return physx::PxQueryHitType::eBLOCK; }
-
-					/*return physx::PxQueryHitType::eTOUCH;*/
-				}
 			}
 		}
 
@@ -342,65 +326,6 @@ namespace KE
 			auto UD = (PhysxShapeUserData*)hit.block.shape->userData;
 
 			if (!UD || !UD->gameObject) { break; }
-
-			if (P8::MovingObject* movingObj; UD->gameObject->TryGetComponent(movingObj))
-			{
-				Vector3f velocity = movingObj->GetVelocity();
-
-				//if we are dashing, make sure we are not dashing into the moving object
-				if (myIsDashing)
-				{
-					float dot = velocity.Dot(myDashTarget - myTransform->GetPosition());
-					//if the dot product is negative, we are dashing into the moving object
-					if (dot < 0.0f) { return false; }
-				}
-
-				//remove all player velocity that is in the opposite direction of the moving object
-				myVelocity = myVelocity - (myVelocity.Dot(velocity) * velocity);
-
-
-				if (!movingObj->IsMoving()) { break; }
-
-				auto footPose = myController->getFootPosition();
-				globalPose.p.x += velocity.x; 
-				globalPose.p.y += velocity.y; 
-				globalPose.p.z += velocity.z; 
-
-
-				myPhysicsObject.myActor->setGlobalPose(globalPose);
-				myTransform->TranslateWorld(velocity);
-				myController->setFootPosition({
-					footPose.x + velocity.x,
-					footPose.y + velocity.y,
-					footPose.z + velocity.z
-				});
-
-				//
-				physx::PxQueryFilterData postCheckFilter;
-				postCheckFilter.data.word0 = filterData.word0;
-				postCheckFilter.data.word1 = static_cast<int>(KE::Collision::Layers::Wall);
-				postCheckFilter.flags = physx::PxQueryFlag::eSTATIC | physx::PxQueryFlag::ePOSTFILTER;
-
-				auto postCheckGlobalPose = myPhysicsObject.myActor->getGlobalPose();
-
-				physx::PxOverlapBuffer postHit;
-				bool postCheckOverlap = myPhysicsObject.myActor->getScene()->overlap(
-					shape->getGeometry(),
-					postCheckGlobalPose,
-					postHit,
-					postCheckFilter,
-					&myFilterCallback
-				);
-
-				if (postCheckOverlap)
-				{
-					return true;
-				}
-			}
-			else
-			{
-				break;
-			}
 
 			iter++;
 		}
@@ -742,33 +667,7 @@ namespace KE
 
 			Vector3f hitDirection = (hitPosition - myTransform->GetPosition()).GetNormalized();
 			float angle = acosf(hitDirection.Dot(myTransform->GetForward()));
-			//std::cout << angle << std::endl;
 			if (angle > maximumHitAngle) { continue; }
-
-
-
-			if (hitUserData.objType == CharacterControllerUserData::Type::Player)
-			{
-				PhysXCollisionData collisionData;
-				collisionData.objHit = hitUserData.gameObject;
-				auto& playerComp = collisionData.objHit->GetComponent<P8::Player>();
-
-				if (playerComp.GetTeam() == myUserData.team) { continue; }
-				
-				playerComp.TakeDamage(myUserData.gameObject->GetComponent<P8::Player>().GetIndex());
-			}
-			else if (hitUserData.objType == CharacterControllerUserData::Type::Boomerang)
-			{
-				PhysXCollisionData collisionData;
-				collisionData.objHit = hitUserData.gameObject;
-
-				Vector3f bounceNormal = myTransform->GetForward();
-
-				if (hitUserData.team == myUserData.team) { continue; }
-
-				hitUserData.gameObject->GetComponent<P8::BoomerangComponent>().Deflect(bounceNormal);
-
-			}
 		}
 	}
 }

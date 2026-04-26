@@ -57,19 +57,6 @@
 #include "Utility/DebugTimeLogger.h"
 #include "Utility/Logging.h"
 
-#include "Project/Source/Player/Player.h"
-#include "Project/Source/Boomerang/BoomerangComponent.h"
-#include "Project/Source/Boomerang/BoomerangPhysxController.h"
-#include "Project/Source/Camera/ActionCameraComponent.h"
-#include "Project/Source/Camera/CameraSettingsFile.h"
-#include "Project/Source/Managers/GameManager.h"
-#include "Project/Source/GameSystems/LobbySystem.h"
-#include "Project/Source/Powerups/DashThroughWallsPowerup.h"
-#include "Project/Source/Powerups/ShieldPowerup.h"
-#include "Project/Source/Powerups/SplitBoomerangPowerup.h"
-#include "Project/Source/Powerups/TeleportPowerup.h"
-#include "Project/Source/Water/WaterComponent.h"
-
 #define coutVec2(v) v.x << ", " << v.y
 #define coutVec3(v) v.x << ", " << v.y << ", " << v.z
 #define coutVec4(v) v.x << ", " << v.y << ", " << v.z << ", " << v.w
@@ -1172,22 +1159,6 @@ void KE_EDITOR::ImGuiHandler::ComponentDisplayDispatch(KE::Component* aComponent
 	{
 		DisplayDecalComponent((KE::DecalComponent*)aComponent, componentFlags);
 	}
-	else if (dynamic_cast<P8::Player*>(aComponent))
-	{
-		DisplayPlayerComponent((P8::Player*)aComponent, componentFlags);
-	}
-	else if (dynamic_cast<P8::ActionCameraComponent*>(aComponent))
-	{
-		DisplayActionCameraComponent((P8::ActionCameraComponent*)aComponent, componentFlags);
-	}
-	else if (dynamic_cast<P8::GameManager*>(aComponent))
-	{
-		DisplayGameManager((P8::GameManager*)aComponent, componentFlags);
-	}
-	else if (dynamic_cast<P8::LobbySystem*>(aComponent))
-	{
-		DisplayLobbySystem((P8::LobbySystem*)aComponent, componentFlags);
-	}
 	else if (auto* shellComp = dynamic_cast<KE::ShellTexturingComponent*>(aComponent))
 	{
 		DisplayShellTexturingComponent(shellComp, componentFlags);
@@ -1206,45 +1177,6 @@ void KE_EDITOR::ImGuiHandler::ComponentDisplayDispatch(KE::Component* aComponent
 
 		END_DISPLAY_COMPONENT();
 	}
-	else if (auto* boom = dynamic_cast<P8::BoomerangComponent*>(aComponent))
-	{
-		BEGIN_DISPLAY_COMPONENT(aComponent);
-
-		float size = boom->GetGameObject().myWorldSpaceTransform.GetScale().x;
-		if (ImGui::DragFloat("size", &size, 0.1f, 0.0f, 100.0f))
-		{
-			boom->SetSize(size);
-		}
-
-		END_DISPLAY_COMPONENT();
-	}
-	else if (auto* water = dynamic_cast<P8::WaterPlane*>(aComponent))
-	{
-		BEGIN_DISPLAY_COMPONENT(aComponent);
-
-		bool updated = false;
-		updated = ImGui::ColorEdit3("Water Fog Colour", &water->GetBufferData()->waterFogColour.x) ? true : updated;
-		updated = ImGui::DragFloat("Water Fog Density", &water->GetBufferData()->waterFogDensity) ? true : updated;
-		updated = ImGui::ColorEdit3("Caustic Colour", &water->GetBufferData()->causticColour.x) ? true : updated;
-		updated = ImGui::DragFloat("Caustic Strength", &water->GetBufferData()->causticStrength) ? true : updated;
-
-		if (updated)
-		{
-			water->UpdateBuffer();
-		}
-
-
-		END_DISPLAY_COMPONENT();
-	}
-	else
-	{
-		//ImGui::Text("Unknown Component");
-	}
-
-	//ImGui::EndChild();
-	//ImGui::PopStyleColor();
-	//ImGui::PopStyleVar(1);
-	//ImGui::PopID();
 }
 
 void KE_EDITOR::ImGuiHandler::DisplayDecalComponent(KE::DecalComponent* aDecalComponent, KittyFlags aFlags)
@@ -1571,100 +1503,6 @@ void KE_EDITOR::ImGuiHandler::DisplayVFXComponent(KE::VFXComponent* aVFXComponen
 
 }
 
-void KE_EDITOR::ImGuiHandler::DisplayPlayerComponent(P8::Player* aPlayer, KittyFlags aFlags)
-{
-	BEGIN_DISPLAY_COMPONENT(aPlayer);
-
-	if (ImGui::Button("Reset"))
-	{
-		aPlayer->SetPosition({0.0f, 1.0f, 0.0f});
-		aPlayer->SetPlayerState<P8::PlayerIdleState>();
-	}
-
-
-	P8::PowerupManager* powerupMGR = aPlayer->myPowerups.manager;
-
-	for (auto* identity : powerupMGR->GetPowerupIdentities())
-	{
-		P8::Powerup* matchingPowerup = nullptr;
-		for (auto* powerup : aPlayer->myPowerups.powerups)
-		{
-			if (identity->IsType(powerup))
-			{
-				matchingPowerup = powerup;
-				break;
-			}
-		}
-
-		bool hasPowerup = matchingPowerup != nullptr;
-		ImGui::PushID(identity->name.c_str());
-		if (ImGui::Checkbox("##box", &hasPowerup))
-		{
-			if (hasPowerup)
-			{
-				aPlayer->myPowerups.AddPowerup(identity->CreateInstance());
-			}
-			else
-			{
-				aPlayer->myPowerups.RemovePowerup(matchingPowerup);
-			}
-		}
-		ImGui::SameLine();
-		ImGui::Image(
-			editor->myGraphics->GetTextureLoader().GetTextureFromPath(identity->icon)->myShaderResourceView.Get(),
-			{32.0f, 32.0f}
-		);
-		ImGui::SameLine();
-		ImGui::Text(identity->name.c_str());
-
-		ImGui::PopID();
-	}
-
-	int powerupMask = aPlayer->myPowerups.GetPowerupMask();
-	if (ImGui::InputInt("Powerup Mask", &powerupMask))
-	{
-		aPlayer->myPowerups.SetPowerupsFromMask(powerupMask);
-	}
-
-	int idx = aPlayer->myPlayerIndex;
-	if (ImGui::SliderInt("Player Index", &idx, 0, 3))
-	{
-		aPlayer->myPlayerIndex = static_cast<unsigned int>(idx);
-	}
-
-	int charIdx = aPlayer->myCharacterIndex;
-	if (ImGui::SliderInt("Character Index", &charIdx, 1, 5))
-	{
-		aPlayer->SetCharacterIndex(charIdx);
-	}
-
-
-	auto& movementData = aPlayer->GetPhysxController().GetMovementData();
-
-	ImGui::Text("Tweak movement variables");
-	ImGui::SliderFloat("MaxSpeed", &movementData.maxSpeed, 0.0f, 50.f, "%.1f");
-	ImGui::SliderFloat("MoveSpeed", &movementData.linearAcceleration, 0.0f, 150.f, "%.1f");
-	ImGui::SliderFloat("RotateSpeed", &movementData.angularAcceleration, 0.0f, 50.f, "%.1f");
-	ImGui::SliderFloat("MaxRotation", &movementData.maxRotation, 0.0f, 50.f, "%.1f");
-	ImGui::SliderFloat("Drag", &movementData.decayMagnitude, 0.0f, 50.f, "%.1f");
-	ImGui::DragFloat("ThrowCharge", &aPlayer->myThrowCharge);
-	ImGui::DragFloat("ThrowStrength", &aPlayer->myThrowStrength);
-	ImGui::DragFloat("ThrowBuildup", &aPlayer->myThrowBuildupSpeed);
-
-	ImGui::SeparatorText("Boomerang");
-	auto& bp = aPlayer->myBallThrowParams;
-	ImGui::DragFloat("Return Delay", &bp.returnDelay, 0.1f, 0.1f, 2.0);
-	ImGui::DragFloat("Pickup Range", &bp.pickupRadius, 0.1f, 0.1f, 5.0f);
-	ImGui::DragFloat("Max Speed", &bp.maxSpeed, 0.1f, 20.0f, 200.0f);
-	ImGui::DragFloat("Slow Radius", &bp.slowRadius, 0.1f, 0.1f, 8.0f);
-	ImGui::DragFloat("Dying Threshold", &bp.dyingThreshold, 0.1f, 20.0f, 100.0f);
-	ImGui::DragFloat("Min Bounce value ", &bp.minBounceValue, 0.1f, 5.0f, 20.0f);
-	ImGui::DragFloat("Max Bounce value ", &bp.maxBounceValue, 0.1f, 5.0f, 50.0f);
-	ImGui::DragFloat("Dying DecayStrength", &bp.decayStrength, 0.1f, 1.0f, 20.0f);
-
-	END_DISPLAY_COMPONENT();
-}
-
 void KE_EDITOR::ImGuiHandler::DisplayShellTexturingComponent(KE::ShellTexturingComponent* aShellComponent, KittyFlags aFlags)
 {
 	BEGIN_DISPLAY_COMPONENT(aShellComponent);
@@ -1777,114 +1615,7 @@ void KE_EDITOR::ImGuiHandler::DisplayShellTexturingComponent(KE::ShellTexturingC
 
 	END_DISPLAY_COMPONENT();
 }
-void KE_EDITOR::ImGuiHandler::DisplayGameManager(P8::GameManager* aComponent, KittyFlags aFlags)
-{
-	BEGIN_DISPLAY_COMPONENT(aComponent);
 
-	ImGui::Text("Old Gamestate: %s", EnumToString(aComponent->myOldGameState).c_str());
-	ImGui::Text("Current Gamestate: %s", EnumToString(aComponent->myCurrentGameState).c_str());
-	ImGui::Spacing();
-
-	ImGui::SliderInt("Points Per Kill: ", &aComponent->myGameData.pointsPerKill,1, 10);
-
-	ImGui::Spacing();
-
-	for (int i = 0; i < aComponent->myGameData.numberOfPlayers; i++)
-	{
-		ImGui::Text("Player %i : %i points", i, aComponent->myGameData.scores[i]);
-	}
-
-	ImGui::Spacing();
-	ImGui::Text("Players Alive:");
-	for (int i = 0; i < 4; i++)
-	{
-		ImGui::Text("Player %i : %s", i, aComponent->myGameData.playersAlive[i] > 0 ? "true" : "false");
-	}
-
-	ImGui::Spacing();
-	static P8::eGameStates gameState = P8::eGameStates::eUnknown;
-	if (ImGui::BeginCombo("GameState to Change", EnumToString(gameState).c_str()))
-	{
-		for (unsigned int i = 0; i < (int)P8::eGameStates::Count; i++)
-		{
-			if (ImGui::Selectable(EnumToString((P8::eGameStates)i).c_str()))
-			{
-				gameState = (P8::eGameStates)i;
-				aComponent->ChangeGameState(gameState);
-			}
-		}
-
-		ImGui::EndCombo();
-	}
-
-	if (ImGui::Button("Increment Level"))
-	{
-		aComponent->DEBUGIncrementLevelTest();
-	}
-
-
-	END_DISPLAY_COMPONENT();
-}
-
-void KE_EDITOR::ImGuiHandler::DisplayLobbySystem(P8::LobbySystem* aComponent, KittyFlags aFlags)
-{
-	BEGIN_DISPLAY_COMPONENT(aComponent);
-
-	ImGui::Text("Cheat Lobby Active? %s", aComponent->isCheatLobbyActive ? "True" : "False");
-
-	END_DISPLAY_COMPONENT();
-}
-
-
-void KE_EDITOR::ImGuiHandler::DisplayActionCameraComponent(P8::ActionCameraComponent* aComponent, KittyFlags aFlags)
-{
-	BEGIN_DISPLAY_COMPONENT(aComponent);
-
-	ImGui::Checkbox("Is Debug Camera", &aComponent->isDebugCamera);
-	ImGui::Checkbox("Use target Pos", &aComponent->useTargetPosition);
-	ImGui::DragFloat3("Debug Target Pos", &aComponent->debugTargetPos.x, 0.01f);
-
-	ImGui::DragFloat("Shake Factor", &aComponent->myShakeFactor, 0.01f, 0.0f, 0.1f);
-
-
-	auto& data = aComponent->mySettings;
-
-	ImGui::DragFloat("Minimum Distance From Ground", &data.minDistanceFromGround, 0.1f, 0.0f, data.maxDistanceFromGround - 1.0f);
-	ImGui::DragFloat("Maximum Distance From Ground", &data.maxDistanceFromGround, 0.1f, data.minDistanceFromGround + 1.0f, 100.0f);
-	ImGui::DragFloat("Outer border Distance", &data.outerBorderDistancePercentage, 0.5f, 0.0f, 150.0f);
-	ImGui::DragFloat("Inner border padding", &data.innerBorderDistancePercentage, 0.5f, 0.0f, 150.0f);
-	ImGui::DragFloat("Horizontal movement Speed", &data.horizontalMovementSpeed, 0.1f, 0.0f, 50.0f);
-	ImGui::DragFloat("Vertical movement Speed", &data.verticalMovementSpeed, 0.1f, 0.0f, 50.0f);
-	if (ImGui::SliderFloat("Camera FOV", &data.cameraFOV, 30.0f, 145.0f))
-	{
-		aComponent->myCameraComponent->GetCamera()->SetFOV(KE::DegToRadImmediate * data.cameraFOV);
-	}
-	if (ImGui::DragFloat3("Camera Direction", &data.cameraDirection.x, 1.0f, -180.0f, 180.0f))
-	{
-		aComponent->myGameObject.myTransform.SetRotation(KE::DegToRadImmediate * data.cameraDirection);
-	}
-
-	if (ImGui::Button("Save Settings"))
-	{
-		P8::CameraSettingsFile::Save(data);
-	}
-	if (ImGui::Button("Load Settings"))
-	{
-		P8::CameraSettingsData tempData;
-		if (P8::CameraSettingsFile::Load(&tempData))
-		{
-			data = tempData;
-			aComponent->ApplyLoadedSettings();
-		}
-	}
-	if (ImGui::Button("Delete Settings"))
-	{
-		P8::CameraSettingsFile::Delete();
-	}
-
-	END_DISPLAY_COMPONENT();
-
-}
 
 //
 void KE_EDITOR::ImGuiHandler::DisplaySkeleton(KE::GameObject* aGameObject, KittyFlags aFlags)
