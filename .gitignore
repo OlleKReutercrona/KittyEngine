@@ -35,5 +35,6 @@
 *.pdb
 *.ilk
 .vs/
-KittyEngine/Temp/*
+Temp/*
 *.vcxproj
+*sln
