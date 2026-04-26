@@ -18,7 +18,6 @@ extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg
 #ifndef KE_NOEDITOR
 #include <Editor/Source/Editor.h>
 #endif
-#include <Project\Source\GameEvents\GameEvents.h>
 
 #define KE_FULLSCREENSTYLE WS_POPUP | WS_VISIBLE
 #define KE_WINDOWEDSTYLE WS_CAPTION | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_SYSMENU | WS_SIZEBOX | WS_VISIBLE
@@ -528,25 +527,15 @@ namespace KE
 			}
 #endif
 		}
-
-		if (P8::GamepadRumbleEvent* rumbleEvent = dynamic_cast<P8::GamepadRumbleEvent*>(&aEvent))
-		{
-			if (Gamepad* gamepad = myInputWrapper.GetGamepad(rumbleEvent->gamepadIndex))
-			{
-				gamepad->SetRumble(rumbleEvent->leftMotor, rumbleEvent->rightMotor, rumbleEvent->duration, rumbleEvent->rumbleType);
-			}
-		}
 	}
 
 	void Window::OnInit()
 	{
 		ES::EventSystem::GetInstance().Attach<GUIResolutionEvent>(this);
-		ES::EventSystem::GetInstance().Attach<P8::GamepadRumbleEvent>(this);
 	}
 
 	void Window::OnDestroy()
 	{
 		ES::EventSystem::GetInstance().Detach<GUIResolutionEvent>(this);
-		ES::EventSystem::GetInstance().Detach<P8::GamepadRumbleEvent>(this);
 	}
 }

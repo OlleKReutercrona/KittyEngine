@@ -23,8 +23,6 @@ namespace KE
 		static nlohmann::json GetJsonObj(std::string& aFilePath);
 
 	private:
-		void AddGameSystemComponents(KE::GameObject& aGameObject);
-
 		void LoadLevelSettings(const Scene& aScene);
 
 		std::string myLevelsDir = "Data/Levels/";

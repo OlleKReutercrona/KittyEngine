@@ -35,7 +35,6 @@
 #include <Engine/Source/Files/KittyMesh.h>
 #include <Engine/Source/Files/GUIFile.h>
 
-#include <Editor/Source/EditorWindows/GameRuleEditor.h>
 #include <Editor/Source/EditorWindows/AssetBrowser.h>
 #include <Editor/Source/EditorWindows/DeferredView.h>
 #include "Editor/Source/EditorWindows/EditSounds.h"
@@ -103,7 +102,6 @@ namespace KE_EDITOR
 		REGISTER_EDITOR_WINDOW(NodeEditor, false);
 		REGISTER_EDITOR_WINDOW(GUIEditor, false);
 		REGISTER_EDITOR_WINDOW(EditSounds, false);
-		REGISTER_EDITOR_WINDOW(GameRuleEditor, false);
 		REGISTER_EDITOR_WINDOW(MaterialEditor, false);
 
 		REGISTER_EDITOR_WINDOW(LambdaWindow, true);

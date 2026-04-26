@@ -1,9 +1,7 @@
 ﻿#include "stdafx.h"
 
-#include "Project/Source/Boomerang/BoomerangComponent.h"
 #include "ComponentSystem/Components/Collider/CapsuleColliderComponent.h"
 #include "ComponentSystem/Components/Collider/SphereColliderComponent.h"
-#include "Project/Source/Player/Player.h"
 #ifndef KITTYENGINE_NO_EDITOR
 #include "Viewport.h"
 
@@ -146,8 +144,6 @@ void KE_EDITOR::Viewport::Render()
 					KE::BoxColliderComponent* box;
 					KE::SphereColliderComponent* sphere;
 					KE::CapsuleColliderComponent* capsule;
-					P8::Player* player;
-					P8::BoomerangComponent* boomerang;
 
 					const auto& pos = gameObject->myTransform.GetPosition();
 
@@ -160,14 +156,6 @@ void KE_EDITOR::Viewport::Render()
 						
 					}
 					else if (gameObject->TryGetComponent(capsule))
-					{
-						
-					}
-					else if (gameObject->TryGetComponent(player))
-					{
-						
-					}
-					else if (gameObject->TryGetComponent(boomerang))
 					{
 						
 					}
@@ -212,12 +200,4 @@ void KE_EDITOR::Viewport::Deserialize(void* aWorkingData)
 	myCameraIndex = data["cameraIndex"];
 	strcpy_s(myName, data["name"].get<std::string>().c_str());
 }
-
-//void KE_EDITOR::Viewport::SetData(const int aRenderTargetIndex, const int aCameraIndex, const char* aName)
-//{
-//	myRenderTargetIndex = aRenderTargetIndex;
-//	myCameraIndex = aCameraIndex;
-//	myName = aName;
-//}
-
 #endif
