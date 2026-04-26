@@ -1,0 +1,52 @@
+
+{
+  "id": 44734,
+  "name": "Ball",
+  "isStatic": false,
+  "parentID": 2147483647,
+  "postponeInstantiation": true,
+  "transform": {
+    "m00": 0.25,
+    "m01": 0.0,
+    "m02": 0.0,
+    "m03": 0.0,
+    "m10": 0.0,
+    "m11": 0.25,
+    "m12": 0.0,
+    "m13": 0.0,
+    "m20": 0.0,
+    "m21": 0.0,
+    "m22": 0.25,
+    "m23": 0.0,
+    "m30": 0.0,
+    "m31": 0.5,
+    "m32": 0.0,
+    "m33": 1.0
+  },
+  "components": {
+    "model": {
+      "path": "Players/Ball.fbx"
+    },
+    "vfx": {
+      "sequence_names": [
+        "BallVFX01",
+        "BallVFX02",
+        "BallVFX03",
+        "BallVFX04",
+        "BallVFX05",
+        "BallRecall"
+      ],
+      "autoplay": false
+    },
+    "point_light": {
+      "range": 2.5,
+      "intensity": 0.5,
+      "color": {
+        "r": 0.0,
+        "g": 0.9329295,
+        "b": 1.0
+      }
+    },
+    "boomerang": {}
+  }
+}

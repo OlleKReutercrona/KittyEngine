@@ -444,7 +444,6 @@ project(PROJECT_NAME)
     kind(PROJECT_KIND)
     language "C++"
     cppdialect(cppVersion)
-    icon "../Bin/gameIconTESTTEST.ico"
 
     debugdir(directories.bin)
     targetdir(directories.bin)
@@ -515,8 +514,6 @@ project(PROJECT_NAME)
         systemversion "latest"
         warnings "Extra" -- move to only Release and Ship?
     
-        files { 'Resources/resources.rc', '**.ico' }
-        vpaths { ['Resources/*'] = { '*.rc', '**.ico' } }
 
         disablewarnings(IGNORED_WARNINGS)
         linkoptions(LINKER_OPTIONS)
