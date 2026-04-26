@@ -38,3 +38,4 @@
 Temp/*
 *.vcxproj
 *sln
+*.ini
