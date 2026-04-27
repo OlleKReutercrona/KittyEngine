@@ -44,22 +44,26 @@ jobs:
         run: |
           git fetch origin pull/${{ github.event.issue.number }}/head:pr
 
-          FILES=$(git diff --name-only pr...HEAD -- \
-            . ':!External/*' \
-            | grep -E '\.(cpp|hpp|h)$' || true)
+          git diff --name-only pr...HEAD -- \
+            . ':(exclude)External/**' \
+            | grep -E '\.(cpp|hpp|h)$' \
+            > changed_files.txt || true
 
-          echo "$FILES" > changed_files.txt
+          echo "Changed files:"
+          cat changed_files.txt || echo "empty"
 
       - name: Format files
         run: |
-          if [ ! -s changed_files.txt ]; then
-            echo "No files to format."
-            exit 0
-          fi
+          git fetch origin pull/${{ github.event.issue.number }}/head:pr
 
-          while read file; do
-            clang-format -i "$file"
-          done < changed_files.txt
+          git diff --name-only pr...HEAD -- \
+            . ':(exclude)External/**' \
+          | grep -E '\.(cpp|hpp|h)$' \
+          | while IFS= read -r file; do
+              [ -z "$file" ] && continue
+              echo "Formatting $file"
+              clang-format -i "$file"
+            done
 
       - name: Commit fixes
         run: |
