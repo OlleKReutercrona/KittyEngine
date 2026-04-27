@@ -22,6 +22,19 @@ jobs:
         with:
           ref: ${{ github.event.issue.pull_request.head.sha }}
 
+      - name: Create PR status comment (start)
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issue_number = context.issue.number;
+
+            github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number,
+              body: "🔧 `/format` started — running clang-format..."
+            });
+
       - name: Install clang-format
         run: |
           sudo apt-get update
@@ -31,9 +44,9 @@ jobs:
         run: |
           git fetch origin pull/${{ github.event.issue.number }}/head:pr
 
-          FILES=$(git diff --name-only pr...HEAD \
-            | grep -E '\.(cpp|hpp|h)$' \
-            | grep -v '^External/' || true)
+          FILES=$(git diff --name-only pr...HEAD -- \
+            . ':!External/*' \
+            | grep -E '\.(cpp|hpp|h)$' || true)
 
           echo "$FILES" > changed_files.txt
 
@@ -63,3 +76,16 @@ jobs:
           git commit -m "Apply clang-format fixes"
 
           git push origin HEAD:${{ github.event.issue.pull_request.head.ref }}
+
+      - name: Comment success
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issue_number = context.issue.number;
+
+            github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number,
+              body: "✅ clang-format complete — fixes pushed to PR."
+            });
