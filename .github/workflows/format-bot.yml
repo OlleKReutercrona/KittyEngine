@@ -4,6 +4,10 @@ on:
   issue_comment:
     types: [created]
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   format:
     if: |
@@ -13,12 +17,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout PR branch
+      - name: Checkout PR
         uses: actions/checkout@v4
         with:
-          repository: ${{ github.repository }}
-          ref: refs/pull/${{ github.event.issue.number }}/head
-          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: ${{ github.event.issue.pull_request.head.sha }}
 
       - name: Install clang-format
         run: |
@@ -27,9 +29,9 @@ jobs:
 
       - name: Get changed files
         run: |
-          git fetch origin main
+          git fetch origin pull/${{ github.event.issue.number }}/head:pr
 
-          FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD \
+          FILES=$(git diff --name-only pr...HEAD \
             | grep -E '\.(cpp|hpp|h)$' \
             | grep -v '^External/' || true)
 
@@ -59,4 +61,5 @@ jobs:
           fi
 
           git commit -m "Apply clang-format fixes"
-          git push
+
+          git push origin HEAD:${{ github.event.issue.pull_request.head.ref }}
