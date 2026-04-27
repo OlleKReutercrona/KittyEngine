@@ -31,7 +31,7 @@ jobs:
 
           FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD \
             | grep -E '\.(cpp|hpp|h)$' \
-            | grep -v 'External/' || true)
+            | grep -v '^External/' || true)
 
           echo "$FILES" > changed_files.txt
 
