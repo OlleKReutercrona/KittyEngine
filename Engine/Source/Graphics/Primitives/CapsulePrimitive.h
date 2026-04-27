@@ -1,12 +1,11 @@
 #pragma once
 #include <vector>
+
 #include "Engine\Source\Graphics\GraphicsConstants.h"
 #include "Engine\Source\Math\Vector4.h"
 
-namespace KE
-{
-	struct CapsuleMesh
-	{
+namespace KE {
+	struct CapsuleMesh {
 		std::vector<VertexPoint> myVertices = {};
 		std::vector<unsigned int> myIndices = {};
 
@@ -22,15 +21,16 @@ namespace KE
 		int halfWayIndex = -1;
 	};
 
-	class CapsulePrimitive
-	{
+	class CapsulePrimitive {
 	public:
 		CapsulePrimitive();
 		~CapsulePrimitive() {};
 
-		inline static const CapsuleMesh& GetMesh() { return myMesh; }
-	private:
+		inline static const CapsuleMesh& GetMesh() {
+			return myMesh;
+		}
 
+	private:
 		inline static int myHighPolyLatDiv = 35;
 		inline static int myHighPolyLongDiv = 35;
 
@@ -38,5 +38,4 @@ namespace KE
 
 		inline static bool hasInit = false;
 	};
-}
-
+}  // namespace KE

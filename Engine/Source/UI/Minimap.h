@@ -1,7 +1,7 @@
-//#pragma once
-//#include "Engine/Source/Utility/EventSystem.h"
+// #pragma once
+// #include "Engine/Source/Utility/EventSystem.h"
 //
-//namespace KE
+// namespace KE
 //{
 //	class GUIScene;
 //	struct GUIElement;
@@ -44,5 +44,5 @@
 //		Vector2f scale = {};
 //		Vector2f mapOffset = {};
 //	};
-//}
+// }
 //

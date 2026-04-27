@@ -1,16 +1,15 @@
 #pragma once
-#include "Engine/Source/ComponentSystem/Components/Component.h"
-#include "Engine/Source/Graphics/Lighting/Lighting.h"
 #include <string>
 
-namespace KE
-{
+#include "Engine/Source/ComponentSystem/Components/Component.h"
+#include "Engine/Source/Graphics/Lighting/Lighting.h"
+
+namespace KE {
 	class DeferredLightManager;
 	class LightManager;
 	class Light;
 
-	struct LightComponentData
-	{
+	struct LightComponentData {
 		LightData* myLightData;
 		eLightType myLightType;
 		std::string myLightTypeName;
@@ -19,8 +18,7 @@ namespace KE
 		DeferredLightManager* myLightManager;
 	};
 
-	class LightComponent : public Component
-	{
+	class LightComponent : public Component {
 		friend class LightManager;
 
 	public:
@@ -31,11 +29,14 @@ namespace KE
 		void SetData(void* aDataObject = nullptr) override;
 		void Update() override;
 
-		inline const LightComponentData* GetLightData() const { return &myLightComponentData; }
+		inline const LightComponentData* GetLightData() const {
+			return &myLightComponentData;
+		}
 
 		void ToggleDrawDebug();
 
 		void DrawDebug(KE::DebugRenderer& aDbg) override;
+
 	private:
 		void UpdateLightData() const;
 
@@ -49,4 +50,4 @@ namespace KE
 		LightComponentData myLightComponentData = {};
 		DeferredLightManager* myManager = nullptr;
 	};
-}
+}  // namespace KE

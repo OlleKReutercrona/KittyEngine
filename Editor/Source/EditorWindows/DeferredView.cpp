@@ -2,27 +2,26 @@
 #ifndef KITTYENGINE_NO_EDITOR
 
 #include "DeferredView.h"
-
 #include "Editor/Source/EditorUtils.h"
 #include "Editor/Source/ImGui/ImGuiHandler.h"
 #include "Graphics/Graphics.h"
 #include "imgui/imgui.h"
 
-void KE_EDITOR::DeferredView::Init()
-{
-	myBuffer = &KE_GLOBAL::blackboard.Get<KE::Graphics>("graphics")->GetGBuffer();
-	//myBuffer = &KE_GLOBAL::blackboard.Get<KE::Graphics>("graphics")->GetSecondaryGBuffer();
+void KE_EDITOR::DeferredView::Init() {
+	myBuffer =
+		&KE_GLOBAL::blackboard.Get<KE::Graphics>("graphics")->GetGBuffer();
+	// myBuffer =
+	// &KE_GLOBAL::blackboard.Get<KE::Graphics>("graphics")->GetSecondaryGBuffer();
 	mySSAO = &KE_GLOBAL::blackboard.Get<KE::Graphics>("graphics")->GetSSAO();
 }
 
-void KE_EDITOR::DeferredView::Update()
-{
-}
+void KE_EDITOR::DeferredView::Update() {}
 
-void KE_EDITOR::DeferredView::Render()
-{
-	ID3D11ShaderResourceView* const* shaderResourceViews = myBuffer->GetShaderResourceViews();
-	ID3D11ShaderResourceView* const* depthView = myBuffer->GetDepthShaderResourceView();
+void KE_EDITOR::DeferredView::Render() {
+	ID3D11ShaderResourceView* const* shaderResourceViews =
+		myBuffer->GetShaderResourceViews();
+	ID3D11ShaderResourceView* const* depthView =
+		myBuffer->GetDepthShaderResourceView();
 	ID3D11ShaderResourceView* SSAOView = mySSAO->GetSSAOSRV();
 	ID3D11ShaderResourceView* BlurView = mySSAO->GetBlurSRV();
 	ID3D11ShaderResourceView* noise = mySSAO->GetNoiseRSV();

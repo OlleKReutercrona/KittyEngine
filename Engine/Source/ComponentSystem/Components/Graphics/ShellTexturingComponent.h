@@ -2,35 +2,30 @@
 #include "Engine/Source/ComponentSystem/Components/Component.h"
 #include "Engine/Source/Utility/KittyArray.h"
 
-namespace KE
-{
+namespace KE {
 	struct ShellModelData;
 
-	struct ShellTexturingComponentData
-	{
+	struct ShellTexturingComponentData {
 		LaserPtr<ShellModelData> shellModelData;
 		bool liveUpdate = true;
 	};
 
-	struct DisplacementObject
-	{
+	struct DisplacementObject {
 		GameObject* gameObject;
 		Vector3f displacementScale;
 	};
 
-	class ShellTexturingComponent : public Component
-	{
+	class ShellTexturingComponent : public Component {
 		KE_EDITOR_FRIEND
 	private:
-		LaserPtr<ShellModelData> shellModelData = {nullptr,0};
+		LaserPtr<ShellModelData> shellModelData = {nullptr, 0};
 
 		std::vector<DisplacementObject> myDisplacementObjects;
 		std::vector<ShellTexturingComponent*> otherShellTexturingComponents;
 
-		Graphics* myGraphics = nullptr; //ew
+		Graphics* myGraphics = nullptr;	 // ew
 
-		struct Bounds
-		{
+		struct Bounds {
 			Vector3f min;
 			Vector3f max;
 		} sharedBounds;
@@ -65,4 +60,4 @@ namespace KE
 		void DrawDebug(KE::DebugRenderer& aDbg) override;
 	};
 
-}
+}  // namespace KE

@@ -1,15 +1,17 @@
 #include "stdafx.h"
-#include "PawFile.h"
 
 #include <filesystem>
 #include <fstream>
 
+#include "PawFile.h"
+
 #define PAW_PATH "Data/Levels/"
 
-void KE::LevelTransformFile::Save(const std::string& aFilePath)
-{
+void KE::LevelTransformFile::Save(const std::string& aFilePath) {
 	std::fstream file;
-	file.open(PAW_PATH + aFilePath, std::ios_base::trunc | std::ios_base::binary | std::ios_base::out);
+	file.open(PAW_PATH + aFilePath, std::ios_base::trunc |
+										std::ios_base::binary |
+										std::ios_base::out);
 
 	file.clear();
 
@@ -29,13 +31,11 @@ void KE::LevelTransformFile::Save(const std::string& aFilePath)
 	file.close();
 }
 
-bool KE::LevelTransformFile::Load(const std::string& aFilePath)
-{
+bool KE::LevelTransformFile::Load(const std::string& aFilePath) {
 	std::ifstream file;
 
 	file.open(PAW_PATH + aFilePath, std::ios::in | std::ios::binary);
-	if (file.good())
-	{
+	if (file.good()) {
 		// Determine size of file
 		const auto size = std::filesystem::file_size(PAW_PATH + aFilePath);
 

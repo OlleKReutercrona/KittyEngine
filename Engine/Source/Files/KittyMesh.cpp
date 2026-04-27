@@ -1,16 +1,17 @@
 #include "stdafx.h"
-#include "KittyMesh.h"
 
 #include <filesystem>
 #include <fstream>
 
+#include "KittyMesh.h"
 
 #define MEOWMESH_PATH "Data/Navmesh/"
 
-void KE::KittyMesh::Save(const std::string& aPath)
-{
+void KE::KittyMesh::Save(const std::string& aPath) {
 	std::fstream file;
-	file.open(MEOWMESH_PATH + aPath, std::ios_base::trunc | std::ios_base::binary | std::ios_base::out);
+	file.open(MEOWMESH_PATH + aPath, std::ios_base::trunc |
+										 std::ios_base::binary |
+										 std::ios_base::out);
 
 	file.clear();
 
@@ -29,15 +30,11 @@ void KE::KittyMesh::Save(const std::string& aPath)
 	file.close();
 }
 
-bool KE::KittyMesh::Load(const std::string& aPath)
-{
+bool KE::KittyMesh::Load(const std::string& aPath) {
 	std::ifstream file;
 
-
 	file.open(MEOWMESH_PATH + aPath, std::ios::in | std::ios::binary);
-	if (file.good())
-	{
-
+	if (file.good()) {
 		// Determine size of file
 		const auto size = std::filesystem::file_size(MEOWMESH_PATH + aPath);
 
@@ -49,7 +46,6 @@ bool KE::KittyMesh::Load(const std::string& aPath)
 
 		// Create a pointer to the read data
 		char* pointer = buffer;
-
 
 		size_t sizeofV = *(size_t*)pointer;
 		pointer += sizeof(size_t);
@@ -79,11 +75,10 @@ bool KE::KittyMesh::Load(const std::string& aPath)
 			pointer += indsize * sizeofI;
 		}
 
-
 		delete[] buffer;
 
 		file.close();
-		
+
 		return true;
 	}
 

@@ -1,15 +1,13 @@
 #pragma once
-#include <wrl/client.h>
 #include <string>
+#include <wrl/client.h>
 struct ID3D11ShaderResourceView;
 using Microsoft::WRL::ComPtr;
 
-namespace KE
-{
-	constexpr int PBR_TEXTURES = 4; //colour, normal, material, fx
+namespace KE {
+	constexpr int PBR_TEXTURES = 4;	 // colour, normal, material, fx
 
-	enum class TextureType
-	{
+	enum class TextureType {
 		Colour,
 		Normal,
 		Material,
@@ -18,8 +16,7 @@ namespace KE
 		Count
 	};
 
-	enum class TextureFormat
-	{
+	enum class TextureFormat {
 		Texture2D,
 		Texture3D,
 		TextureCube,
@@ -28,29 +25,24 @@ namespace KE
 	};
 
 	static const std::string TextureTypeStrings[(int)TextureType::Count + 1] = {
-		"Colour",
-		"Normal",
-		"Material",
-		"Effects",
-		"Unknown",
+		"Colour", "Normal", "Material", "Effects", "Unknown",
 	};
 
-	static const char* EnumToString(TextureFormat aFormat)
-	{
-		switch (aFormat)
-		{
-		case TextureFormat::Texture2D: return "Texture2D";
-		case TextureFormat::Texture3D: return "Texture3D";
-		case TextureFormat::TextureCube: return "TextureCube";
-		default: return "Unknown";
+	static const char* EnumToString(TextureFormat aFormat) {
+		switch (aFormat) {
+			case TextureFormat::Texture2D:
+				return "Texture2D";
+			case TextureFormat::Texture3D:
+				return "Texture3D";
+			case TextureFormat::TextureCube:
+				return "TextureCube";
+			default:
+				return "Unknown";
 		}
 	}
 
-
-	struct Texture
-	{
-		struct
-		{
+	struct Texture {
+		struct {
 			std::string myFilePath;
 			std::string myFileName;
 			TextureType myTextureType = TextureType::Count;
@@ -65,13 +57,11 @@ namespace KE
 
 		ComPtr<ID3D11ShaderResourceView> myShaderResourceView;
 
-		//todo: maybe ifdef these out when relevant
+		// todo: maybe ifdef these out when relevant
 	};
 
-	struct Cubemap
-	{
-		struct
-		{
+	struct Cubemap {
+		struct {
 			std::string myFileName;
 			int myWidth;
 			int myHeight;
@@ -82,16 +72,14 @@ namespace KE
 		ComPtr<ID3D11ShaderResourceView> myShaderResourceView;
 	};
 
-	struct Material
-	{
+	struct Material {
 		std::string myName;
 		bool myIsCustom = false;
 		bool myIsData = false;
-		Texture* myTextures[PBR_TEXTURES]; // :)
+		Texture* myTextures[PBR_TEXTURES];	// :)
 	};
 
-	struct DataMaterial : public Material
-	{
+	struct DataMaterial : public Material {
 		Vector3f albedo;
 		float metallic;
 		float roughness;
@@ -103,5 +91,4 @@ namespace KE
 		std::string effectsMap;
 	};
 
-
-}
+}  // namespace KE

@@ -1,12 +1,10 @@
 #pragma once
-#include "Script.h"
 #include "LanguageData.h"
+#include "Script.h"
 
 #define SCRIPT_LOAD_PATH "Data/InternalAssets/Scripts/"
-namespace KE
-{
-	class ScriptManager
-	{
+namespace KE {
+	class ScriptManager {
 	private:
 		std::unordered_map<std::string, Script*> myScripts;
 
@@ -23,4 +21,4 @@ namespace KE
 		void LoadScript(const std::string& aName, const std::string& aPath);
 		void SaveScript(const std::string& aName, const std::string& aPath);
 	};
-}
+}  // namespace KE

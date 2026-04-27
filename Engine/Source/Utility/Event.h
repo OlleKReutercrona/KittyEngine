@@ -1,10 +1,8 @@
 #pragma once
 
-namespace ES
-{
+namespace ES {
 	// Event base struct that all events should inherit from
-	struct Event
-	{
+	struct Event {
 		virtual ~Event() = default;
 	};
-}
+}  // namespace ES

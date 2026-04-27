@@ -1,11 +1,11 @@
 #include "stdafx.h"
+
 #include "DepthBuffer.h"
 #include "RenderTarget.h"
 
-void KE::DepthBuffer::Create(ID3D11Device* aDevice, const Vector2i aSize)
-{
+void KE::DepthBuffer::Create(ID3D11Device* aDevice, const Vector2i aSize) {
 	HRESULT result;
-	D3D11_TEXTURE2D_DESC desc = { 0 };
+	D3D11_TEXTURE2D_DESC desc = {0};
 	desc.Width = aSize.x;
 	desc.Height = aSize.y;
 	desc.MipLevels = 1;
@@ -46,69 +46,56 @@ void KE::DepthBuffer::Create(ID3D11Device* aDevice, const Vector2i aSize)
 	SRV->Release();
 
 	myViewport = {
-			0,
-			0,
-			static_cast<float>(aSize.x),
-			static_cast<float>(aSize.y),
-			0,
-			1
-	};
+		0, 0, static_cast<float>(aSize.x), static_cast<float>(aSize.y), 0, 1};
 }
 
-KE::DepthBuffer::DepthBuffer()
-{
-}
+KE::DepthBuffer::DepthBuffer() {}
 
-void KE::DepthBuffer::Init(ID3D11Device* aDevice, const Vector2i aSize)
-{
+void KE::DepthBuffer::Init(ID3D11Device* aDevice, const Vector2i aSize) {
 	Create(aDevice, aSize);
 }
 
-void KE::DepthBuffer::Resize(ID3D11Device* aDevice, const Vector2i aSize)
-{
+void KE::DepthBuffer::Resize(ID3D11Device* aDevice, const Vector2i aSize) {
 	myDepth.Reset();
 	mySRV.Reset();
 
 	Create(aDevice, aSize);
 }
 
-void KE::DepthBuffer::Clear(ID3D11DeviceContext* aContext, float aClearDepthValue, uint8_t aClearStencilValue)
-{
-	aContext->ClearDepthStencilView(myDepth.Get(), D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, aClearDepthValue, aClearStencilValue);
+void KE::DepthBuffer::Clear(ID3D11DeviceContext* aContext,
+							float aClearDepthValue,
+							uint8_t aClearStencilValue) {
+	aContext->ClearDepthStencilView(myDepth.Get(),
+									D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL,
+									aClearDepthValue, aClearStencilValue);
 }
 
-void KE::DepthBuffer::SetAsActiveTarget(ID3D11DeviceContext* aContext, KE::RenderTarget* aRT)
-{
-	if (aRT)
-	{
+void KE::DepthBuffer::SetAsActiveTarget(ID3D11DeviceContext* aContext,
+										KE::RenderTarget* aRT) {
+	if (aRT) {
 		aRT->MakeActive(true, GetDepthStencilView());
-	}
-	else
-	{
+	} else {
 		aContext->OMSetRenderTargets(0, nullptr, GetDepthStencilView());
 	}
-	
+
 	aContext->RSSetViewports(1, &myViewport);
 }
 
-void KE::DepthBuffer::SetAsResourceOnSlot(unsigned int aSlot, ID3D11DeviceContext* aContext) const
-{
+void KE::DepthBuffer::SetAsResourceOnSlot(unsigned int aSlot,
+										  ID3D11DeviceContext* aContext) const {
 	assert(mySRV.Get());
 
 	aContext->PSSetShaderResources(aSlot, 1, mySRV.GetAddressOf());
 }
 
-void KE::DepthBuffer::SetShaderResourceView(ID3D11ShaderResourceView* aSRV)
-{
-    mySRV = ComPtr<ID3D11ShaderResourceView>(aSRV);
+void KE::DepthBuffer::SetShaderResourceView(ID3D11ShaderResourceView* aSRV) {
+	mySRV = ComPtr<ID3D11ShaderResourceView>(aSRV);
 }
 
-Vector2i KE::DepthBuffer::CalculateTextureSize() const
-{
+Vector2i KE::DepthBuffer::CalculateTextureSize() const {
 	ID3D11Resource* resource = nullptr;
 	mySRV->GetResource(&resource);
-	if (!resource)
-	{
+	if (!resource) {
 		return Vector2i(0, 0);
 	}
 	ID3D11Texture2D* txt = reinterpret_cast<ID3D11Texture2D*>(resource);

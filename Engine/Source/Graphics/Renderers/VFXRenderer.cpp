@@ -1,14 +1,14 @@
 #include "stdafx.h"
-#include "Engine/Source/Graphics/ModelData.h"
-#include "Engine/Source/Graphics/CBuffer.h"
-#include "Engine/Source/Graphics/Renderers/VFXRenderer.h"
 
 #include <d3d11.h>
 
+#include "Engine/Source/Graphics/CBuffer.h"
 #include "Engine/Source/Graphics/Graphics.h"
+#include "Engine/Source/Graphics/ModelData.h"
+#include "Engine/Source/Graphics/Renderers/VFXRenderer.h"
 
-//namespace WRL = Microsoft::WRL;
-//void KE::VFXRenderer::Init(Graphics* aGraphics)
+// namespace WRL = Microsoft::WRL;
+// void KE::VFXRenderer::Init(Graphics* aGraphics)
 //{
 //	myGraphics = aGraphics;
 //	{
@@ -22,14 +22,15 @@
 //
 //		myRenderingBuffer.Init(aGraphics->GetDevice(), &bufferDesc);
 //	}
-//}
+// }
 //
-//void KE::VFXRenderer::RenderModel(const VFXRenderInput& aInput, const ModelData& aModelData)
+// void KE::VFXRenderer::RenderModel(const VFXRenderInput& aInput, const
+// ModelData& aModelData)
 //{
 //	namespace WRL = Microsoft::WRL;
 //
-//	const std::vector<RenderResources> renderResources = aModelData.myRenderResources;
-//	MeshList* meshList = aModelData.myMeshList;
+//	const std::vector<RenderResources> renderResources =
+//aModelData.myRenderResources; 	MeshList* meshList = aModelData.myMeshList;
 //	auto& shaderLoader = myGraphics->GetShaderLoader();
 //	const auto& graphicsContext = myGraphics->GetContext();
 //
@@ -57,17 +58,21 @@
 //		constexpr UINT stride = sizeof(Vertex);
 //		constexpr UINT offset = 0u;
 //
-//		const Material* material = renderResources[renderResourceIndex].myMaterial;
+//		const Material* material =
+//renderResources[renderResourceIndex].myMaterial;
 //
 //		myGraphics->BindMaterial(material, 0u);
 //
 //
-//		graphicsContext->IASetVertexBuffers(0u, 1u, mesh.myVertexBuffer.GetAddressOf(), &stride, &offset);
-//		graphicsContext->IASetIndexBuffer(mesh.myIndexBuffer.Get(), DXGI_FORMAT_R32_UINT, 0u);
+//		graphicsContext->IASetVertexBuffers(0u, 1u,
+//mesh.myVertexBuffer.GetAddressOf(), &stride, &offset);
+//		graphicsContext->IASetIndexBuffer(mesh.myIndexBuffer.Get(),
+//DXGI_FORMAT_R32_UINT, 0u);
 //
 //		ObjectBufferData data;
 //		data.objectToWorld = *aModelData.myTransform;
-//		data.objectToClip = *aModelData.myTransform * myGraphics->GetView() * myGraphics->GetProjection();
+//		data.objectToClip = *aModelData.myTransform * myGraphics->GetView() *
+//myGraphics->GetProjection();
 //
 //		myRenderingBuffer.MapBuffer(&data, sizeof(data), graphicsContext.Get());
 //		myRenderingBuffer.BindForVS(1, graphicsContext.Get());
@@ -80,18 +85,18 @@
 //
 //		myGraphics->DrawIndexed(mesh.GetIndexCount(), 0u, 0u);
 //	}
-//}
+// }
 //
-//void KE::VFXRenderer::Render(const BasicRenderInput& aInput)
+// void KE::VFXRenderer::Render(const BasicRenderInput& aInput)
 //{
 //	const auto& modelData = myGraphics->GetModelData();
 //	for (int i = 0; i < myModelDataIndices.size(); i++)
 //	{
 //		RenderModel(aInput, modelData[myModelDataIndices[i]]);
 //	}
-//}
+// }
 //
-//void KE::VFXRenderer::AddModelDataIndex(size_t aModelIndex)
+// void KE::VFXRenderer::AddModelDataIndex(size_t aModelIndex)
 //{
 //	myModelDataIndices.push_back(aModelIndex);
-//}
+// }

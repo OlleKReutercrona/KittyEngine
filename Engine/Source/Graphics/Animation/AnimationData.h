@@ -1,10 +1,8 @@
 #pragma once
 #include "Engine/Source/Utility/EventSystem.h"
 
-namespace KE
-{
-	struct AnimationEvent : ES::Event
-	{
+namespace KE {
+	struct AnimationEvent : ES::Event {
 		AnimationEvent() = default;
 		~AnimationEvent() = default;
 
@@ -13,14 +11,12 @@ namespace KE
 		unsigned int myFrameIndex = 0;
 	};
 
-	struct Keyframe
-	{
+	struct Keyframe {
 		float time = 0.0f;
 		std::vector<DirectX::XMMATRIX> boneTransforms{};
 	};
 
-	struct AnimationClip
-	{
+	struct AnimationClip {
 		std::string name = "None";
 		float length = 0.0f;
 		float fps = 0.0f;
@@ -30,8 +26,7 @@ namespace KE
 		std::vector<AnimationEvent*> myEvents = {};
 	};
 
-	struct SkeletonBuffer
-	{
+	struct SkeletonBuffer {
 		DirectX::XMMATRIX myBones[KE_MAX_BONES];
 	};
-}
+}  // namespace KE

@@ -1,4 +1,5 @@
 #include "stdafx.h"
+
 #include "Timer.h"
 
 /* Note: QueryPerformanceCounter is generally considered to be a better
@@ -9,11 +10,9 @@
  * the number of clock cycles that have elapsed since the system was started,
  * providing a highly precise and consistent measure of time.*/
 
-namespace KE
-{
+namespace KE {
 	// Constructor for the Timer class
-	Timer::Timer()
-	{
+	Timer::Timer() {
 		// Query the performance frequency of the system
 		QueryPerformanceFrequency(&frequency);
 
@@ -21,9 +20,9 @@ namespace KE
 	}
 
 	// Resets the timer
-	void Timer::Reset()
-	{
-		// Lock the mutex to ensure that only one thread is modifying the variables at a time
+	void Timer::Reset() {
+		// Lock the mutex to ensure that only one thread is modifying the
+		// variables at a time
 		std::lock_guard<std::mutex> lock(mutex);
 
 		// Query the performance counter for the current time
@@ -35,15 +34,16 @@ namespace KE
 		totalTime = 0.0f;
 	}
 
-	// Gets the delta time (time between frames) since the last time UpdateDeltaTime was called
-	float Timer::UpdateDeltaTime()
-	{
+	// Gets the delta time (time between frames) since the last time
+	// UpdateDeltaTime was called
+	float Timer::UpdateDeltaTime() {
 		// Query the performance counter for the current time
 		LARGE_INTEGER currentTime;
 		QueryPerformanceCounter(&currentTime);
 
 		// Calculate the time since the last frame in seconds
-		const float dt = static_cast<float>(currentTime.QuadPart - lastFrameTime.QuadPart) /
+		const float dt =
+			static_cast<float>(currentTime.QuadPart - lastFrameTime.QuadPart) /
 			static_cast<float>(frequency.QuadPart);
 
 		{
@@ -59,31 +59,27 @@ namespace KE
 		return deltaTime;
 	}
 
-	float Timer::GetDeltaTime() const
-	{
+	float Timer::GetDeltaTime() const {
 		return deltaTime;
 	}
 
 	// Gets the total time elapsed since the timer was created or reset
-	float Timer::GetTotalTime()
-	{
+	float Timer::GetTotalTime() {
 		std::lock_guard<std::mutex> lock(mutex);
 
 		return totalTime;
 	}
 
 	// Gets the current frames per second
-	float Timer::GetFPS()
-	{
+	float Timer::GetFPS() {
 		std::lock_guard<std::mutex> lock(mutex);
 
 		return fps;
 	}
 
-	size_t Timer::GetElapsedCycles() const
-	{
+	size_t Timer::GetElapsedCycles() const {
 		LARGE_INTEGER current;
 		QueryPerformanceCounter(&current);
 		return static_cast<size_t>(current.QuadPart - startTime.QuadPart);
 	}
-}
+}  // namespace KE

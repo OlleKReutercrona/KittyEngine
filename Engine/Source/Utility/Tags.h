@@ -2,10 +2,8 @@
 
 #define OUT
 
-namespace KE
-{
-	enum class Tags
-	{
+namespace KE {
+	enum class Tags {
 		Untagged,
 		Player,
 		Ground,

@@ -5,12 +5,12 @@
 
 #define DefinerMember typename DefinerClass
 
-namespace KE
-{
-	inline std::string GetFileContents(const char* aFilePath)
-	{
+namespace KE {
+	inline std::string GetFileContents(const char* aFilePath) {
 		std::ifstream file(aFilePath);
-		if (!file.is_open()) { return ""; }
+		if (!file.is_open()) {
+			return "";
+		}
 
 		std::stringstream buffer;
 		buffer << file.rdbuf();
@@ -18,92 +18,93 @@ namespace KE
 		return buffer.str();
 	}
 
-	inline std::string StripString(const std::string& aStringToStrip, const char aCharToStrip, bool aStripLeading = true, bool aStripTrailing = true)
-	{
-		const size_t startingPos = aStripLeading ? aStringToStrip.find_first_not_of(aCharToStrip) : 0;
-		const size_t endingPos = aStripTrailing ? aStringToStrip.find_last_not_of(aCharToStrip) : aStringToStrip.size();
+	inline std::string StripString(const std::string& aStringToStrip,
+								   const char aCharToStrip,
+								   bool aStripLeading = true,
+								   bool aStripTrailing = true) {
+		const size_t startingPos =
+			aStripLeading ? aStringToStrip.find_first_not_of(aCharToStrip) : 0;
+		const size_t endingPos =
+			aStripTrailing ? aStringToStrip.find_last_not_of(aCharToStrip)
+						   : aStringToStrip.size();
 
 		return aStringToStrip.substr(startingPos, endingPos - startingPos + 1);
 	}
 
-	inline void ReplaceInString(std::string& aString, const std::string& aToReplace, const std::string& aReplacement)
-	{
+	inline void ReplaceInString(std::string& aString,
+								const std::string& aToReplace,
+								const std::string& aReplacement) {
 		size_t pos = 0;
-		while ((pos = aString.find(aToReplace, pos)) != std::string::npos)
-		{
+		while ((pos = aString.find(aToReplace, pos)) != std::string::npos) {
 			aString.replace(pos, aToReplace.size(), aReplacement);
-			//pos += aReplacement.size();
+			// pos += aReplacement.size();
 		}
 	}
 
-	inline void SplitStringBy(const std::string& aString, const char aDelimiter, std::vector<std::string>& aOut)
-	{
-
+	inline void SplitStringBy(const std::string& aString, const char aDelimiter,
+							  std::vector<std::string>& aOut) {
 		const size_t findPos = aString.find_first_not_of(aDelimiter);
-		if (findPos == std::string::npos) { return; } //if the string is just delimiters, we don't want to do anything with it.
+		if (findPos == std::string::npos) {
+			return;
+		}  // if the string is just delimiters, we don't want to do anything
+		   // with it.
 
-		size_t startingPos = findPos + 1; //in case we have leading delimiters, for example leading whitespace.
+		size_t startingPos =
+			findPos + 1;  // in case we have leading delimiters, for example
+						  // leading whitespace.
 
 		std::string workingString = StripString(aString, aDelimiter);
 		size_t pos = 0;
-		while ((pos = workingString.find(aDelimiter)) != std::string::npos)
-		{
-
-			const std::string stripped = StripString(workingString.substr(0, pos), aDelimiter);
-			if (!stripped.empty())
-			{
+		while ((pos = workingString.find(aDelimiter)) != std::string::npos) {
+			const std::string stripped =
+				StripString(workingString.substr(0, pos), aDelimiter);
+			if (!stripped.empty()) {
 				aOut.push_back(stripped);
 			}
 			workingString.erase(0, pos + 1);
 		}
 		const std::string stripped = StripString(workingString, aDelimiter);
-		if (!stripped.empty())
-		{
+		if (!stripped.empty()) {
 			aOut.push_back(stripped);
 		}
 	}
 
-	inline Vector3f GetColour(const std::string& aColourString)
-	{
-		//we'll be inputting colours in this format: "#ff5100"
+	inline Vector3f GetColour(const std::string& aColourString) {
+		// we'll be inputting colours in this format: "#ff5100"
 		int r, g, b;
 		sscanf_s(aColourString.c_str(), "#%02x%02x%02x", &r, &g, &b);
 
-		return { (float)r / 255.0f,(float)g / 255.0f ,(float)b / 255.0f };
+		return {(float)r / 255.0f, (float)g / 255.0f, (float)b / 255.0f};
 	}
-}
+}  // namespace KE
 
-namespace KE
-{
+namespace KE {
 	struct StructDefinition;
-	//struct Token
+	// struct Token
 	//{
 	//	std::string value;
 	//	std::string type;
-	//};
+	// };
 
-	struct DataType
-	{
+	struct DataType {
 		std::string typeName;
-		Vector3f typeColour; //shouldnt live here but it can for now
+		Vector3f typeColour;  // shouldnt live here but it can for now
 		bool isStruct = false;
 
-		//gotta set up some translation to C++ types, not sure how I want to do that yet
+		// gotta set up some translation to C++ types, not sure how I want to do
+		// that yet
 	};
 
-	struct Parameter
-	{
+	struct Parameter {
 		DataType type;
 		std::string name;
 	};
 
-	struct FunctionDefinition
-	{
+	struct FunctionDefinition {
 		std::string name;
 		std::string operatorKey;
 
-		struct Variant
-		{
+		struct Variant {
 			DataType returnType;
 			std::vector<Parameter> parameters;
 		};
@@ -111,38 +112,32 @@ namespace KE
 		std::vector<Variant> variants;
 	};
 
-
-	struct StructDefinition
-	{
+	struct StructDefinition {
 		std::string name;
 		std::vector<Parameter> members;
-		//std::string code;
+		// std::string code;
 	};
 
-	struct BufferDefinition
-	{
+	struct BufferDefinition {
 		std::string name;
 		std::vector<Parameter> members;
 		unsigned int slot;
 	};
 
-	struct EntrypointDefinition
-	{
+	struct EntrypointDefinition {
 		std::string name;
 
 		std::vector<Parameter> inputParameters;
 		DataType returnType;
 	};
 
-	struct TextureDefinition
-	{
+	struct TextureDefinition {
 		DataType type;
 		std::string name;
 		unsigned int slot;
 	};
 
-	struct LanguageDefinition
-	{
+	struct LanguageDefinition {
 		std::string langdef;
 		std::string funcdef;
 
@@ -154,117 +149,116 @@ namespace KE
 		std::unordered_map<std::string, TextureDefinition> textures;
 	};
 
-	struct LanguageDefinitionNew
-	{
-
-	};
+	struct LanguageDefinitionNew {};
 
 	template <typename AnnotationType>
-	struct AnnotatedCode
-	{
+	struct AnnotatedCode {
 		AnnotationType annotation;
 		std::vector<std::string> annotationParameters;
 
 		std::vector<std::string> code;
 	};
 
-	class LanguageInspector
-	{
+	class LanguageInspector {
 	public:
-		static bool InspectType(const DataType& aType, void* aData, const char* aLabel);
+		static bool InspectType(const DataType& aType, void* aData,
+								const char* aLabel);
 	};
 
-	class LanguageDefiner
-	{
+	class LanguageDefiner {
 	private:
-		static bool IsType(const std::string& aWord, const LanguageDefinition& aLanguage);
+		static bool IsType(const std::string& aWord,
+						   const LanguageDefinition& aLanguage);
 		static bool IsFunctionDefinition(const std::string& aLine);
 
-		static void EvaluateStructDefinition(const std::string& aLine, StructDefinition* aStruct, const LanguageDefinition& aWorkingLanguage);
-		static void EvaluateFunctionDefinition(const std::string& aLine, FunctionDefinition* aFunction, const LanguageDefinition& aWorkingLanguage);
+		static void EvaluateStructDefinition(
+			const std::string& aLine, StructDefinition* aStruct,
+			const LanguageDefinition& aWorkingLanguage);
+		static void EvaluateFunctionDefinition(
+			const std::string& aLine, FunctionDefinition* aFunction,
+			const LanguageDefinition& aWorkingLanguage);
 
 	public:
-		static void InterpretStructs(const char* aStructsFile, LanguageDefinition& aWorkingLanguage);
-		static void InterpretBuffers(const char* aBuffersFile, LanguageDefinition& aWorkingLanguage);
-		static void InterpretFunctions(const char* aFunctionsFile, LanguageDefinition& aWorkingLanguage);
-		static void InterpretEntrypoints(const char* aEntrypointsFile, LanguageDefinition& aWorkingLanguage);
-		static void InterpretTextures(const char* aTexturesFile, LanguageDefinition& aWorkingLanguage);
+		static void InterpretStructs(const char* aStructsFile,
+									 LanguageDefinition& aWorkingLanguage);
+		static void InterpretBuffers(const char* aBuffersFile,
+									 LanguageDefinition& aWorkingLanguage);
+		static void InterpretFunctions(const char* aFunctionsFile,
+									   LanguageDefinition& aWorkingLanguage);
+		static void InterpretEntrypoints(const char* aEntrypointsFile,
+										 LanguageDefinition& aWorkingLanguage);
+		static void InterpretTextures(const char* aTexturesFile,
+									  LanguageDefinition& aWorkingLanguage);
 
-		static LanguageDefinition DefineLanguage(const char* aLanguageDefinitionFile);
+		static LanguageDefinition DefineLanguage(
+			const char* aLanguageDefinitionFile);
 	};
 
 	template <typename DefinerClass>
-	class LanguageDefinerNew
-	{
+	class LanguageDefinerNew {
 	private:
-
-
 	public:
-		static DefinerMember::LangDefinition Define(const char* aLanguageDefinitionFile);
-
+		static DefinerMember::LangDefinition Define(
+			const char* aLanguageDefinitionFile);
 	};
 
 	template <typename DefinerClass>
-	DefinerMember::LangDefinition LanguageDefinerNew<DefinerClass>::Define(const char* aLanguageDefinitionFile)
-	{
+	DefinerMember::LangDefinition LanguageDefinerNew<DefinerClass>::Define(
+		const char* aLanguageDefinitionFile) {
 		typename DefinerClass::LangDefinition out;
 
 		std::string contents = GetFileContents(aLanguageDefinitionFile);
 
-
 		nlohmann::json languageDefinition = nlohmann::json::parse(contents);
 
-		for (const auto& dataType : languageDefinition.at("dataTypes").items())
-		{
+		for (const auto& dataType :
+			 languageDefinition.at("dataTypes").items()) {
 			const std::string key = dataType.key();
-			const std::string colStr = languageDefinition["typeColours"][key].get<std::string>();
+			const std::string colStr =
+				languageDefinition["typeColours"][key].get<std::string>();
 
-			out.dataTypes[key] = {
-				key,
-				GetColour(colStr)
-			};
+			out.dataTypes[key] = {key, GetColour(colStr)};
 		}
 
-		const std::string annotationFormat = languageDefinition.at("annotationFormat").get<std::string>();
+		const std::string annotationFormat =
+			languageDefinition.at("annotationFormat").get<std::string>();
 
 		std::unordered_map<std::string, DefinerMember::Annotations> annotations;
 		DefinerClass::RegisterAnnotations(annotations);
 
-		for (const auto& functionFile : languageDefinition.at("functionDefinitionFiles"))
-		{
+		for (const auto& functionFile :
+			 languageDefinition.at("functionDefinitionFiles")) {
 			std::string funcFile = functionFile.get<std::string>();
 
 			std::string funcFileContents = GetFileContents(funcFile.c_str());
 			std::stringstream fileStream = std::stringstream(funcFileContents);
 
 			std::string line;
-						
+
 			std::string annotation = "";
 
 			AnnotatedCode<DefinerMember::Annotations> annotatedCode;
 
-			while (std::getline(fileStream, line))
-			{
-				if (line.find(annotationFormat) != std::string::npos)
-				{
-					if (!annotation.empty()) //we've hit an annotation, so we must send our current one to be interpreted first.
+			while (std::getline(fileStream, line)) {
+				if (line.find(annotationFormat) != std::string::npos) {
+					if (!annotation.empty())  // we've hit an annotation, so we
+											  // must send our current one to be
+											  // interpreted first.
 					{
 						DefinerClass::Interpret(out, annotatedCode);
 					}
 
 					annotatedCode = {};
 					annotation = line;
-					SplitStringBy(annotation, ' ', annotatedCode.annotationParameters);
-					annotatedCode.annotation = annotations[annotatedCode.annotationParameters[0]];
-				}
-				else
-				{
+					SplitStringBy(annotation, ' ',
+								  annotatedCode.annotationParameters);
+					annotatedCode.annotation =
+						annotations[annotatedCode.annotationParameters[0]];
+				} else {
 					annotatedCode.code.push_back(line);
 				}
 			}
-
 		}
 		return out;
-
 	}
-}
+}  // namespace KE

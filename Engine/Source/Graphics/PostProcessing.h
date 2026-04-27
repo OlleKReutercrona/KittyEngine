@@ -1,36 +1,30 @@
 #pragma once
+#include <Editor/Source/EditorInterface.h>
+#include <d3d11.h>
+
+#include "Engine\Source\Graphics\PostProcessAttributes.h"
 #include "FullscreenAsset.h"
 #include "RenderTarget.h"
 
-#include "Engine\Source\Graphics\PostProcessAttributes.h"
-
-#include <d3d11.h>
-
-#include <Editor/Source/EditorInterface.h>
-
-namespace KE
-{
+namespace KE {
 
 #define MAX_NUMBER_OF_DOWNSAMPLES 6
 
-	struct BloomBufferData
-	{
+	struct BloomBufferData {
 		float mySampleStage;
 		float myTreshold;
 		float myBlending;
 		float padding;
 	};
 
-	struct GuassianBufferData
-	{
+	struct GuassianBufferData {
 		float myGuassianDirection;
 		float myGuassianQuality;
 		float myGuassianSize;
 		float myGaussianTreshold;
 	};
 
-	struct PostProcessData
-	{
+	struct PostProcessData {
 		// 4
 		Vector2f CARedOffsets;
 		Vector2f CAGreenOffsets;
@@ -60,7 +54,7 @@ namespace KE
 		float vignetteIntensity;
 		int vignetteShowMask;
 
-		//4
+		// 4
 		float toneMapIntensity;
 		float padding[3];
 	};
@@ -70,8 +64,7 @@ namespace KE
 	class Graphics;
 	class RenderTarget;
 
-	class PostProcessing
-	{
+	class PostProcessing {
 		KE_EDITOR_FRIEND
 	public:
 		PostProcessing();
@@ -80,37 +73,42 @@ namespace KE
 		void SetPSShader(PixelShader* aPS);
 		void SetVSShader(VertexShader* aVS);
 		void AssignTexture(Texture* aTexture);
-		bool ConfigureDownSampleRTs(Graphics* aGraphics, const int aWidth, const int aHeight);
+		bool ConfigureDownSampleRTs(Graphics* aGraphics, const int aWidth,
+									const int aHeight);
 
 		void PreProcessBloom(Graphics* aGraphics, RenderTarget* aRenderTarget);
-		void MockPreProcessBloom(/*Graphics* aGraphics, */RenderTarget* aRenderTarget);
+		void MockPreProcessBloom(
+			/*Graphics* aGraphics, */ RenderTarget* aRenderTarget);
 
 		void EnableGaussianBlur(const bool aValue);
 		void SetAttributes(const KE::PostProcessAttributes& someAttributes);
 
-		inline KE::PostProcessAttributes& GetAttributes() { return myAttributes; };
+		inline KE::PostProcessAttributes& GetAttributes() {
+			return myAttributes;
+		};
 
-		bool Init(
-			ID3D11Device* aDevice, 
-			Graphics* aGraphics, 
-			VertexShader* aUDSVertexShader, 
-			PixelShader* aDSPS,
-			PixelShader* aUSPS,
-			PixelShader* aGuassianShader);
-		void Render(Graphics* aGraphics, RenderTarget* anActiveRenderTarget = nullptr);
+		bool Init(ID3D11Device* aDevice, Graphics* aGraphics,
+				  VertexShader* aUDSVertexShader, PixelShader* aDSPS,
+				  PixelShader* aUSPS, PixelShader* aGuassianShader);
+		void Render(Graphics* aGraphics,
+					RenderTarget* anActiveRenderTarget = nullptr);
 		void BindBuffer(ID3D11DeviceContext& aContext, const int aSlot);
-		
-		inline PixelShader** GetPreProcessPS() { return &myPreProcessPixelShader; };
+
+		inline PixelShader** GetPreProcessPS() {
+			return &myPreProcessPixelShader;
+		};
+
 	private:
 		FullscreenAsset myFullscreenAsset;
 		RenderTarget myRenderTarget;
 		RenderTarget myBlurTarget;
 
 		void SampleBloom(Graphics* aGraphics, RenderTarget* aFullscreenTexture);
-		void BindBloomBuffer(Graphics* aGraphics, const int aStage, const int aSlot = 8);
+		void BindBloomBuffer(Graphics* aGraphics, const int aStage,
+							 const int aSlot = 8);
 		void BindGuassianBuffer(Graphics* aGraphics, const int aSlot = 6);
 
-		// Buffer 
+		// Buffer
 		ComPtr<ID3D11Buffer> myBuffer;
 		ComPtr<ID3D11Buffer> myBloomBuffer;
 		ComPtr<ID3D11Buffer> myGuassianBuffer;
@@ -134,4 +132,4 @@ namespace KE
 
 		PostProcessAttributes myAttributes;
 	};
-}
+}  // namespace KE

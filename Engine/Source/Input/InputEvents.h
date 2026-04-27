@@ -1,13 +1,11 @@
 #pragma once
-#include "Input.h"
 #include "Engine/Source/Utility/Event.h"
+#include "Input.h"
 
-namespace KE
-{
+namespace KE {
 	enum class eInputType;
 
-	struct PlayerEvent : ES::Event
-	{
+	struct PlayerEvent : ES::Event {
 		PlayerEvent() = default;
 		~PlayerEvent() override = default;
 
@@ -20,8 +18,7 @@ namespace KE
 		std::string myTriggerKeyName = "Not set";
 	};
 
-	struct GUIEvent : ES::Event
-	{
+	struct GUIEvent : ES::Event {
 		GUIEvent() = default;
 		~GUIEvent() override = default;
 
@@ -33,4 +30,4 @@ namespace KE
 		POINT myMousePosition = {0, 0};
 		std::string myTriggerKeyName = "Not set";
 	};
-}
+}  // namespace KE

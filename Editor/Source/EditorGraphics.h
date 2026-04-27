@@ -1,27 +1,26 @@
 #pragma once
+#include <Engine/Source/Graphics/FX/VFX.h>
 #include <Engine/Source/Graphics/Graphics.h>
 #include <Engine/Source/Graphics/Texture/TextureLoader.h>
-#include <Engine/Source/Graphics/FX/VFX.h>
+#include <External/Include/imgui/imgui_internal.h>
 #include <External/Include/imguizmo/ImCurveEdit.h>
 #include <External/Include/imguizmo/ImSequencer.h>
-#include <External/Include/imgui/imgui_internal.h>
-
 #include <string>
 
 #include "EditorUtils.h"
 
-namespace KE_EDITOR
-{
+namespace KE_EDITOR {
 #pragma region ModelThumbnail
 
-	bool RenderModelThumbnail(KE::Graphics* aGraphics, const std::string& aFilePath, bool aSave, KE::RenderTarget** aOutRenderTarget = nullptr);
+	bool RenderModelThumbnail(KE::Graphics* aGraphics,
+							  const std::string& aFilePath, bool aSave,
+							  KE::RenderTarget** aOutRenderTarget = nullptr);
 
 #pragma endregion
 
 #pragma region EditorIcons
 
-	enum class EditorIconType
-	{
+	enum class EditorIconType {
 		eFolder,
 		eReturn,
 		eFile,
@@ -33,10 +32,9 @@ namespace KE_EDITOR
 
 		eCount
 	};
-	struct EditorIcon
-	{
+	struct EditorIcon {
 		KE::Texture* myTexture;
-		
+
 		EditorIcon() = default;
 		EditorIcon(KE::Graphics* aGraphics, const std::string& aPath);
 		EditorIcon(KE::Texture* aTexture) : myTexture(aTexture) {}
@@ -47,40 +45,31 @@ namespace KE_EDITOR
 
 #pragma region KittyVFX
 
+	inline static uint32_t CURVE_COLORS[] = {
+		ImColor(127, 255, 212, 255), ImColor(249, 66, 158, 255),
 
+		ImColor(0, 0, 0, 255),		 ImColor(0, 0, 0, 255),
+		ImColor(0, 0, 0, 255),
 
-	inline static uint32_t CURVE_COLORS[] = 
-	{
-		ImColor(127, 255, 212, 255),
-		ImColor(249, 66,  158, 255),
+		ImColor(0, 0, 0, 255),		 ImColor(0, 0, 0, 255),
+		ImColor(0, 0, 0, 255),
 
-		ImColor(0,0,0,255),
-		ImColor(0,0,0,255),
-		ImColor(0,0,0,255),
-		
-		ImColor(0,0,0,255),
-		ImColor(0,0,0,255),
-		ImColor(0,0,0,255),
-		
-		ImColor(0,0,0,255),
-		ImColor(0,0,0,255),
-		ImColor(0,0,0,255),
-		
-		ImColor(255,0,0,255),
-		ImColor(0,255,0,255),
-		ImColor(0,0,255,255),
-		ImColor(255,255,255,255),
+		ImColor(0, 0, 0, 255),		 ImColor(0, 0, 0, 255),
+		ImColor(0, 0, 0, 255),
 
-		ImColor(255,255,255,255),
-		ImColor(255,255,255,255),
+		ImColor(255, 0, 0, 255),	 ImColor(0, 255, 0, 255),
+		ImColor(0, 0, 255, 255),	 ImColor(255, 255, 255, 255),
 
-		ImColor(255,255,255,255),
+		ImColor(255, 255, 255, 255), ImColor(255, 255, 255, 255),
+
+		ImColor(255, 255, 255, 255),
 	};
 
-	struct VFXCurveEdit final : public ImCurveEdit::Delegate
-	{
-		explicit VFXCurveEdit(std::array<KE::VFXCurveDataSet, (size_t)KE::VFXAttributeTypes::Count>* aCurveData);
-		
+	struct VFXCurveEdit final : public ImCurveEdit::Delegate {
+		explicit VFXCurveEdit(
+			std::array<KE::VFXCurveDataSet,
+					   (size_t)KE::VFXAttributeTypes::Count>* aCurveData);
+
 		size_t GetCurveCount() override;
 		bool IsVisible(size_t curveIndex) override;
 		size_t GetPointCount(size_t curveIndex) override;
@@ -93,37 +82,48 @@ namespace KE_EDITOR
 		void RemoveCurve(KE::VFXAttributeTypes aType);
 		void AddPoint(size_t curveIndex, ImVec2 value) override;
 
-		virtual bool IsPointVisible(size_t aCurveIndex, size_t aPointIndex) override;
+		virtual bool IsPointVisible(size_t aCurveIndex,
+									size_t aPointIndex) override;
 
+		ImVec2& GetMax() override {
+			return mMax;
+		}
+		ImVec2& GetMin() override {
+			return mMin;
+		}
+		unsigned int GetBackgroundColor() override {
+			return 0;
+		}
 
-		ImVec2& GetMax() override { return mMax; }
-		ImVec2& GetMin() override { return mMin; }
-		unsigned int GetBackgroundColor() override { return 0; }
-		
-		std::array<KE::VFXCurveDataSet, (size_t)KE::VFXAttributeTypes::Count>* curveData;
+		std::array<KE::VFXCurveDataSet, (size_t)KE::VFXAttributeTypes::Count>*
+			curveData;
 		ImCurveEdit::EditData editData;
 
 		ImVec2 mMin;
 		ImVec2 mMax;
 
 	private:
-		
 		void SortValues(size_t curveIndex);
 	};
 
-	class VFXSequenceInterface final : public ImSequencer::SequenceInterface
-	{
+	class VFXSequenceInterface final : public ImSequencer::SequenceInterface {
 		KE_EDITOR_FRIEND;
+
 	private:
-		
 		KE::VFXSequence* mySequence = nullptr;
 		int myStart = 0;
 		int mySelectedIndex = -1;
 		std::vector<VFXCurveEdit> myCurveEdits;
 
-		void DisplayParticleEmitter(int anIndex, ImDrawList* aDrawList, const ImRect& rc, const ImRect& legendRect, const ImRect& clippingRect, const ImRect& legendClippingRect);
+		void DisplayParticleEmitter(int anIndex, ImDrawList* aDrawList,
+									const ImRect& rc, const ImRect& legendRect,
+									const ImRect& clippingRect,
+									const ImRect& legendClippingRect);
 		void DisplayCurveEditMenu(int anIndex, int& curveToEdit);
-		void DisplayVFXMeshInstance(int anIndex, ImDrawList* aDrawList, const ImRect& rc, const ImRect& legendRect, const ImRect& clippingRect, const ImRect& legendClippingRect);
+		void DisplayVFXMeshInstance(int anIndex, ImDrawList* aDrawList,
+									const ImRect& rc, const ImRect& legendRect,
+									const ImRect& clippingRect,
+									const ImRect& legendClippingRect);
 
 	public:
 		void Link(KE::VFXSequence* aSequence);
@@ -132,9 +132,12 @@ namespace KE_EDITOR
 		int GetFrameMax() const override;
 		int GetItemCount() const override;
 
-		int GetItemTypeCount() const override { return 2; }
+		int GetItemTypeCount() const override {
+			return 2;
+		}
 
-		void Get(int index, int** start, int** end, int* type, unsigned int* color) override;
+		void Get(int index, int** start, int** end, int* type,
+				 unsigned int* color) override;
 		void BeginEdit(int anIndex) override;
 		void EndEdit() override;
 
@@ -153,8 +156,10 @@ namespace KE_EDITOR
 
 		void DoubleClick(int anIndex) override;
 
-		void CustomDraw(int anIndex, ImDrawList* aDrawList, const ImRect& rc, const ImRect& legendRect, const ImRect& clippingRect, const ImRect& legendClippingRect) override;
+		void CustomDraw(int anIndex, ImDrawList* aDrawList, const ImRect& rc,
+						const ImRect& legendRect, const ImRect& clippingRect,
+						const ImRect& legendClippingRect) override;
 	};
 
 #pragma endregion
-}
+}  // namespace KE_EDITOR

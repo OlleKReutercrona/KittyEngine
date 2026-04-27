@@ -1,28 +1,24 @@
 #pragma once
 #include "KittyEngineWin.h"
-//#include "Engine/Source/Input/Keyboard.h"
-//#include "Engine/Source/Input/Mouse.h"
-#include "Engine/Source/Graphics/Graphics.h"
-#include "Engine/Source/Math/Vector2.h"
-
-#include <optional>
+// #include "Engine/Source/Input/Keyboard.h"
+// #include "Engine/Source/Input/Mouse.h"
 #include <memory>
+#include <optional>
 #include <vector>
 
+#include "Engine/Source/Graphics/Graphics.h"
 #include "Engine/Source/Input/InputWrapper.h"
+#include "Engine/Source/Math/Vector2.h"
 #include "Engine/Source/Utility/Event.h"
 
 #ifndef KE_NOEDITOR
-namespace KE_EDITOR
-{
+namespace KE_EDITOR {
 	class Editor;
 }
 #endif
 
-namespace KE
-{
-	struct ResolutionEvent : ES::Event
-	{
+namespace KE {
+	struct ResolutionEvent : ES::Event {
 		ResolutionEvent() = default;
 		~ResolutionEvent() override = default;
 
@@ -31,12 +27,10 @@ namespace KE
 		bool myFullscreen = false;
 	};
 
-	class Window : ES::IObserver
-	{
+	class Window : ES::IObserver {
 	private:
 		// Singleton manages registration/cleanup of Window class
-		class WindowClass
-		{
+		class WindowClass {
 		public:
 			static const wchar_t* GetName();
 			static HINSTANCE GetInstance();
@@ -65,13 +59,20 @@ namespace KE
 
 		void AddToWindowName(const wchar_t* aExtention);
 
-		inline Vector2i GetWindowSize() { return Vector2i(myWidth, myHeight); };
-		inline Vector2i GetWindowPosition() const { return myWindowPosition; }
+		inline Vector2i GetWindowSize() {
+			return Vector2i(myWidth, myHeight);
+		};
+		inline Vector2i GetWindowPosition() const {
+			return myWindowPosition;
+		}
 
-		void SetWindowDims(int aX, int aY, int aWidth, int aHeight, bool aFullscreen);
+		void SetWindowDims(int aX, int aY, int aWidth, int aHeight,
+						   bool aFullscreen);
 		void SetRenderResolution(int aWidth, int aHeight);
 		void SetFullscreen(bool aState, int aWidth = -1, int aHeight = -1);
-		inline bool GetFullscreen() const { return isFullscreen; }
+		inline bool GetFullscreen() const {
+			return isFullscreen;
+		}
 
 	private:
 		void ConfineCursor() const;
@@ -80,9 +81,12 @@ namespace KE
 		void ShowCursor();
 		void EnableImGuiMouse();
 		void DisableImGuiMouse();
-		static LRESULT WINAPI HandleMsgSetup(HWND aHWnd, UINT aUMsg, WPARAM aWParam, LPARAM aLParam);
-		static LRESULT WINAPI HandleMsgThunk(HWND aHWnd, UINT aUMsg, WPARAM aWParam, LPARAM aLParam);
-		LRESULT HandleMsg(HWND aHWnd, UINT aUMsg, WPARAM aWParam, LPARAM aLParam);
+		static LRESULT WINAPI HandleMsgSetup(HWND aHWnd, UINT aUMsg,
+											 WPARAM aWParam, LPARAM aLParam);
+		static LRESULT WINAPI HandleMsgThunk(HWND aHWnd, UINT aUMsg,
+											 WPARAM aWParam, LPARAM aLParam);
+		LRESULT HandleMsg(HWND aHWnd, UINT aUMsg, WPARAM aWParam,
+						  LPARAM aLParam);
 
 	public:
 		// IObserver
@@ -114,4 +118,4 @@ namespace KE
 
 		ResolutionEvent* myResolutionEvent = nullptr;
 	};
-}
+}  // namespace KE

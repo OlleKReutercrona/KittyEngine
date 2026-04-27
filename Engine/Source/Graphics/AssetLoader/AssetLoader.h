@@ -1,13 +1,11 @@
 #pragma once
-#include <thread>
 #include <mutex>
+#include <thread>
 
-namespace KE
-{
+namespace KE {
 	class Graphics;
 
-	class AssetLoader
-	{
+	class AssetLoader {
 	private:
 		std::thread myTextureThread;
 		std::thread myModelThread;
@@ -17,14 +15,11 @@ namespace KE
 
 		bool isInit = false;
 
-
-		
 		void Load();
 
 		void TextureLoad();
 		void ModelLoad();
 		void ShaderLoad();
-
 
 	public:
 		AssetLoader(Graphics* aGraphics);
@@ -35,6 +30,5 @@ namespace KE
 		void Init();
 
 		void Update();
-
 	};
-}
+}  // namespace KE

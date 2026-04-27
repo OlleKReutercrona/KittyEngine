@@ -1,67 +1,62 @@
 #include "stdafx.h"
-#include "LevelImporter.h"
 
-#include "Graphics/Graphics.h"
-#include "Graphics/ModelLoader.h"
-#include "Graphics/Texture/TextureLoader.h"
-#include "Graphics/ShaderLoader.h"
-#include "Graphics/Lighting/LightManager.h"
-
-#include "Engine/Source/ComponentSystem/GameObjectManager.h"
-#include "Engine/Source/ComponentSystem/GameObject.h"
-#include "Engine/Source/SceneManagement/SceneManager.h"
-#include "Engine/Source/SceneManagement/Scene.h"
-#include "Engine/Source/Math/KittyMath.h"
-#include "Engine/Source/Utility/Logging.h"
+#include "Audio/AudioInstance.h"
+#include "Engine/Source/AI/BehaviourTree/BehaviourTree.h"
+#include "Engine/Source/AI/BehaviourTree/BehaviourTreeBuilder.h"
+#include "Engine/Source/Audio/GlobalAudio.h"
 #include "Engine/Source/Collision/Collider.h"
 #include "Engine/Source/Collision/Layers.h"
-#include "Engine/Source/Utility/Timer.h"
+#include "Engine/Source/ComponentSystem/GameObject.h"
+#include "Engine/Source/ComponentSystem/GameObjectManager.h"
+#include "Engine/Source/Files/KittyMesh.h"
 #include "Engine/Source/Files/LeMeowFile.h"
 #include "Engine/Source/LevelImporter/NavmeshBuilder.h"
-#include "Engine/Source/AI/BehaviourTree/BehaviourTreeBuilder.h"
-#include "Engine/Source/AI/BehaviourTree/BehaviourTree.h"
-#include "Engine/Source/Files/KittyMesh.h"
-#include "Engine/Source/Audio/GlobalAudio.h"
+#include "Engine/Source/Math/KittyMath.h"
+#include "Engine/Source/SceneManagement/Scene.h"
+#include "Engine/Source/SceneManagement/SceneManager.h"
+#include "Engine/Source/Utility/Logging.h"
+#include "Engine/Source/Utility/Timer.h"
+#include "Graphics/Graphics.h"
+#include "Graphics/Lighting/LightManager.h"
+#include "Graphics/ModelLoader.h"
+#include "Graphics/ShaderLoader.h"
+#include "Graphics/Texture/TextureLoader.h"
+#include "LevelImporter.h"
 #include "Script/ScriptManager.h"
-#include "Audio/AudioInstance.h"
 
 // <[ENGINE COMPONENTS]> //
-#include "ComponentSystem/Components/LightComponent.h"
-#include "ComponentSystem/Components/Graphics/ModelComponent.h"
-#include "ComponentSystem/Components/Graphics/SkeletalModelComponent.h"
 #include "ComponentSystem/Components/Collider/BoxColliderComponent.h"
-#include "ComponentSystem/Components/Collider/SphereColliderComponent.h"
 #include "ComponentSystem/Components/Collider/CapsuleColliderComponent.h"
+#include "ComponentSystem/Components/Collider/SphereColliderComponent.h"
 #include "ComponentSystem/Components/Graphics/CameraComponent.h"
-#include "ComponentSystem/Components/Graphics/PostProcessingComponent.h"
-#include "ComponentSystem/Components/Graphics/VFXComponent.h"
-#include "ComponentSystem/Components/SceneTransitionComponent.h"
 #include "ComponentSystem/Components/Graphics/DecalComponent.h"
+#include "ComponentSystem/Components/Graphics/ModelComponent.h"
+#include "ComponentSystem/Components/Graphics/PostProcessingComponent.h"
+#include "ComponentSystem/Components/Graphics/ShellTexturingComponent.h"
+#include "ComponentSystem/Components/Graphics/SkeletalModelComponent.h"
+#include "ComponentSystem/Components/Graphics/VFXComponent.h"
+#include "ComponentSystem/Components/LightComponent.h"
+#include "ComponentSystem/Components/SceneTransitionComponent.h"
 #include "ComponentSystem/Components/ScriptComponent.h"
 #include "ComponentSystem/Components/TestComponent.h"
-#include "ComponentSystem/Components/Graphics/ShellTexturingComponent.h"
 
-namespace KE
-{
+namespace KE {
 	static char playerIndex = -1;
 
-
-	void LevelImporter::Init(Graphics* aGraphics, SceneManager* aSceneManager)
-	{
+	void LevelImporter::Init(Graphics* aGraphics, SceneManager* aSceneManager) {
 		myGraphics = aGraphics;
 		mySceneManager = aSceneManager;
 	}
 
-	bool LevelImporter::LoadLevel(Scene& aScene, std::string& aFileName)
-	{
+	bool LevelImporter::LoadLevel(Scene& aScene, std::string& aFileName) {
 		KE::Timer timer;
 
 		std::string levelPath = myLevelsDir + aFileName;
 		nlohmann::json level = GetJsonObj(levelPath);
 
-		if (!level.contains("game_objects"))
-		{
-			KE_ERROR("Level does not contain game_objects, file %s", aFileName.c_str());
+		if (!level.contains("game_objects")) {
+			KE_ERROR("Level does not contain game_objects, file %s",
+					 aFileName.c_str());
 			return false;
 		}
 
@@ -74,7 +69,7 @@ namespace KE
 		LoadLevelSettings(aScene);
 		aScene.gameObjectManager.ReserveSpace(level["game_objects"].size());
 
-		playerIndex = -1; //lol
+		playerIndex = -1;  // lol
 
 		// [Engine Components created by their own ] //
 		{
@@ -85,18 +80,20 @@ namespace KE
 				aScene.AddGameObject(KE::eMainCamera, name);
 
 				CameraComponentData cameraComponentData;
-				cameraComponentData.camera = myGraphics->GetCameraManager().GetMainCamera();
+				cameraComponentData.camera =
+					myGraphics->GetCameraManager().GetMainCamera();
 
 				float width = (float)myGraphics->GetRenderWidth();
 				float height = (float)myGraphics->GetRenderHeight();
 
-				cameraComponentData.camera->SetPerspective(width, height, KE::DegToRad(90.0f), 0.01f, 1000.0f);
+				cameraComponentData.camera->SetPerspective(
+					width, height, KE::DegToRad(90.0f), 0.01f, 1000.0f);
 				cameraComponentData.rotation.x = 0.0f;
 				cameraComponentData.rotation.y = 0.0f;
 				cameraComponentData.rotation.z = 0.0f;
-				aScene.AddComponentToLast<CameraComponent>(&cameraComponentData);
+				aScene.AddComponentToLast<CameraComponent>(
+					&cameraComponentData);
 			}
-
 
 			name = "Directional Light";
 			aScene.AddGameObject(KE::eDirectionalLight, name);
@@ -104,13 +101,15 @@ namespace KE
 			name = "Post Processing";
 			aScene.AddGameObject(KE::ePostProcessing, name);
 			PostProcessingComponentData postProcessingComponentData;
-			postProcessingComponentData.postProcessing = myGraphics->GetPostProcessing();
-			aScene.AddComponentToLast<PostProcessingComponent>(&postProcessingComponentData);
+			postProcessingComponentData.postProcessing =
+				myGraphics->GetPostProcessing();
+			aScene.AddComponentToLast<PostProcessingComponent>(
+				&postProcessingComponentData);
 
 			name = "Game System Manager";
 			// Check if GO already exists from earlier level
-			if (!aScene.GetGameObjectManager().GetGameObject(KE::eGameSystemManager))
-			{
+			if (!aScene.GetGameObjectManager().GetGameObject(
+					KE::eGameSystemManager)) {
 				aScene.AddGameObject(KE::eGameSystemManager, name);
 			}
 
@@ -119,55 +118,58 @@ namespace KE
 			auto go = aScene.GetGameObjectManager().GetLatestGameObject();
 
 			// todo: add a skybox component to handle this instead
-			ModelData& skybox = *myGraphics->CreateModelData("Data/EngineAssets/Cube.fbx");
+			ModelData& skybox =
+				*myGraphics->CreateModelData("Data/EngineAssets/Cube.fbx");
 			skybox.myTransform = &go->myTransform.GetMatrix();
 			skybox.myIsInstanced = false;
 			auto& rr = skybox.myRenderResources.back();
 
 			rr.myMaterial = myGraphics->GetTextureLoader().GetDefaultMaterial();
-			rr.myVertexShader = myGraphics->GetShaderLoader().GetVertexShader(SHADER_LOAD_PATH "Skybox_VS.cso");
-			rr.myPixelShader = myGraphics->GetShaderLoader().GetPixelShader(SHADER_LOAD_PATH "Skybox_PS.cso");
+			rr.myVertexShader = myGraphics->GetShaderLoader().GetVertexShader(
+				SHADER_LOAD_PATH "Skybox_VS.cso");
+			rr.myPixelShader = myGraphics->GetShaderLoader().GetPixelShader(
+				SHADER_LOAD_PATH "Skybox_PS.cso");
 
-			myGraphics->GetRenderLayer(eRenderLayers::Back)->AddModelDataIndex(myGraphics->GetModelData().size() - 1);
+			myGraphics->GetRenderLayer(eRenderLayers::Back)
+				->AddModelDataIndex(myGraphics->GetModelData().size() - 1);
 		}
 
 		// [Unity Navmesh] //
-		if (level.contains("navmesh"))
-		{
-			std::string navmeshObj = std::string("Data/Navmesh/") + level["navmesh"].get<std::string>();
+		if (level.contains("navmesh")) {
+			std::string navmeshObj = std::string("Data/Navmesh/") +
+									 level["navmesh"].get<std::string>();
 
 			aScene.RegisterNavmesh(navmeshObj);
 		}
 
 		// [GameSystemData] //
-		if (!LoadGameSystemData(aScene, aFileName))
-		{
+		if (!LoadGameSystemData(aScene, aFileName)) {
 			KE_LOG("One or more GameSystems failed to load data from json");
 		}
 
 		// [NEW LOAD GAMEOBJECTS] //
-		for (auto& obj : level["game_objects"])
-		{
+		for (auto& obj : level["game_objects"]) {
 			KE::GameObject& GO = AddGameObject(aScene, obj);
 
-			if (obj.contains("components"))
-			{
-				AddComponents(mySceneManager->GetCurrentScene(), GO, obj["components"]);
+			if (obj.contains("components")) {
+				AddComponents(mySceneManager->GetCurrentScene(), GO,
+							  obj["components"]);
 			}
 		}
 
-		// TODO This should be turned on when the rotations in transform is fixed
+		// TODO This should be turned on when the rotations in transform is
+		// fixed
 		aScene.AssignAdoptedChildren();
 
 		// [If no Unity DirLight -> Create one] //
 		auto go = aScene.gameObjectManager.GetGameObject(1);
-		if (go && !go->HasComponent<LightComponent>())
-		{
-			DirectionalLightData* data = static_cast<DirectionalLightData*>(myGraphics->GetDeferredLightManager().
-				CreateLightData(eLightType::Directional));
+		if (go && !go->HasComponent<LightComponent>()) {
+			DirectionalLightData* data = static_cast<DirectionalLightData*>(
+				myGraphics->GetDeferredLightManager().CreateLightData(
+					eLightType::Directional));
 
-			data->myColour = { 1.0f, 1.0f, 1.0f };
-			data->myDirection = { 0.0f, 0.0f, 0.0f };
+			data->myColour = {1.0f, 1.0f, 1.0f};
+			data->myDirection = {0.0f, 0.0f, 0.0f};
 			data->myDirectionalLightIntensity = 1.0f;
 			data->myAmbientLightIntensity = 1.0f;
 
@@ -180,7 +182,7 @@ namespace KE
 			go->GetComponent<LightComponent>().SetData(&lightComponentData);
 
 			Transform& t = go->myTransform;
-			t.SetDirection({ 0.0f, -0.815f, 0.579f });
+			t.SetDirection({0.0f, -0.815f, 0.579f});
 		}
 
 		// [Kitty GRID Navmesh] //
@@ -188,52 +190,52 @@ namespace KE
 		aScene.myNavmesh.LoadKittyMesh(mesh);
 		aScene.myPathfinder.Init(aScene.myNavmesh);
 
-		myGraphics->GetRenderLayer(eRenderLayers::Back)->GenerateInstancingData(myGraphics->GetModelData());
-		myGraphics->GetRenderLayer(eRenderLayers::Main)->GenerateInstancingData(myGraphics->GetModelData());
-		myGraphics->GetRenderLayer(eRenderLayers::Front)->GenerateInstancingData(myGraphics->GetModelData());
-		myGraphics->GetRenderLayer(eRenderLayers::UI)->GenerateInstancingData(myGraphics->GetModelData());
+		myGraphics->GetRenderLayer(eRenderLayers::Back)
+			->GenerateInstancingData(myGraphics->GetModelData());
+		myGraphics->GetRenderLayer(eRenderLayers::Main)
+			->GenerateInstancingData(myGraphics->GetModelData());
+		myGraphics->GetRenderLayer(eRenderLayers::Front)
+			->GenerateInstancingData(myGraphics->GetModelData());
+		myGraphics->GetRenderLayer(eRenderLayers::UI)
+			->GenerateInstancingData(myGraphics->GetModelData());
 
-		KE_LOG_CHANNEL("LevelImport", "Obj import took: %f", timer.UpdateDeltaTime());
+		KE_LOG_CHANNEL("LevelImport", "Obj import took: %f",
+					   timer.UpdateDeltaTime());
 
 		return true;
 	}
 
-	void KE::LevelImporter::LoadLevelSettings(const Scene& aScene)
-	{
+	void KE::LevelImporter::LoadLevelSettings(const Scene& aScene) {
 		KE::LevelSettingsMeowFile file;
 
 		std::string fileName(mySceneManager->GetCurrentScene()->sceneName);
-		fileName.erase(fileName.begin() + fileName.find_last_of("."), fileName.end());
+		fileName.erase(fileName.begin() + fileName.find_last_of("."),
+					   fileName.end());
 		fileName += ".LeMeow";
 
-		if (file.Load(fileName))
-		{
+		if (file.Load(fileName)) {
 			myGraphics->GetPostProcessing()->SetAttributes(file.myPPData);
 		}
 	}
 
-	KE::GameObject& LevelImporter::AddGameObject(Scene& aScene, nlohmann::json& aGameObject)
-	{
+	KE::GameObject& LevelImporter::AddGameObject(Scene& aScene,
+												 nlohmann::json& aGameObject) {
 		std::string name = aGameObject["name"];
 		int id = aGameObject["id"];
 		bool isStatic = false;
-		if (aGameObject.contains("isStatic"))
-		{
+		if (aGameObject.contains("isStatic")) {
 			isStatic = aGameObject["isStatic"];
 		}
 
-		if (aGameObject.contains("parentID"))
-		{
+		if (aGameObject.contains("parentID")) {
 			int parentID = aGameObject["parentID"];
-			if (parentID != INT_MAX)
-			{
+			if (parentID != INT_MAX) {
 				aScene.AddChildParentPair(parentID, id);
 			}
 		}
 
 		// Transform import WIP
-		if (aGameObject.contains("transform"))
-		{
+		if (aGameObject.contains("transform")) {
 			auto go = aGameObject["transform"];
 
 			Matrix4x4f mat;
@@ -255,36 +257,28 @@ namespace KE
 			mat(4, 4) = go["m33"];
 
 			transformData.SetMatrix(mat);
-		}
-		else
-		{
-			Vector3f pos = {
-				aGameObject["position"]["x"],
-				aGameObject["position"]["y"],
-				aGameObject["position"]["z"]
-			};
+		} else {
+			Vector3f pos = {aGameObject["position"]["x"],
+							aGameObject["position"]["y"],
+							aGameObject["position"]["z"]};
 			transformData.SetPosition(pos);
 
-			Vector3f rot = {
-				KE::DegToRad(aGameObject["rotation"]["x"]),
-				KE::DegToRad(aGameObject["rotation"]["y"]),
-				KE::DegToRad(aGameObject["rotation"]["z"])
-			};
+			Vector3f rot = {KE::DegToRad(aGameObject["rotation"]["x"]),
+							KE::DegToRad(aGameObject["rotation"]["y"]),
+							KE::DegToRad(aGameObject["rotation"]["z"])};
 
-			Vector3f scl = {
-				aGameObject["scale"]["x"],
-				aGameObject["scale"]["y"],
-				aGameObject["scale"]["z"]
-			};
+			Vector3f scl = {aGameObject["scale"]["x"],
+							aGameObject["scale"]["y"],
+							aGameObject["scale"]["z"]};
 
 			transformData.SetRotation(rot);
 			transformData.SetScale(scl);
 		}
 
-		KE::GameObject& gameObject = *aScene.AddGameObject(id, name, transformData, isStatic);
+		KE::GameObject& gameObject =
+			*aScene.AddGameObject(id, name, transformData, isStatic);
 
-		if (aGameObject.contains("layer"))
-		{
+		if (aGameObject.contains("layer")) {
 			int layer = aGameObject["layer"];
 			layer = 1 << (layer - 5);
 
@@ -294,13 +288,11 @@ namespace KE
 		return gameObject;
 	}
 
-	inline nlohmann::json LevelImporter::GetJsonObj(std::string& aFilePath)
-	{
+	inline nlohmann::json LevelImporter::GetJsonObj(std::string& aFilePath) {
 		std::ifstream ifs(aFilePath);
 
 		nlohmann::json obj;
-		if (ifs.good())
-		{
+		if (ifs.good()) {
 			obj = nlohmann::json::parse(ifs);
 		}
 
@@ -309,22 +301,24 @@ namespace KE
 		return obj;
 	}
 
-
 #pragma region OLD_COMPONENT_IMPORTER
-//	void LevelImporter::AddComponents(Scene& aScene, nlohmann::json& someComponents)
+//	void LevelImporter::AddComponents(Scene& aScene, nlohmann::json&
+//someComponents)
 //	{
 //
 //
-//		GameObject* gameObject = aScene.GetGameObjectManager().GetLatestGameObject();
+//		GameObject* gameObject =
+//aScene.GetGameObjectManager().GetLatestGameObject();
 //
 //		for (auto& component : someComponents.items())
 //		{
 //
-//#pragma region EngineComponents
+// #pragma region EngineComponents
 //			//---[CAMERA COMPONENT]--- //
 //			if (component.key() == "main_camera")
 //			{
-//				aScene.gameObjectManager.GetGameObject(0)->myTransform = gameObject->myTransform;
+//				aScene.gameObjectManager.GetGameObject(0)->myTransform =
+//gameObject->myTransform;
 //
 //				aScene.gameObjectManager.DestroyGameObject(gameObject->myID);
 //			}
@@ -332,19 +326,24 @@ namespace KE
 //			// ---[MODEL COMPONENT]--- //
 //			else if (component.key() == "model")
 //			{
-//				std::string modelPath = std::string("Data/Assets/") + std::string(component.value()["path"]);
+//				std::string modelPath = std::string("Data/Assets/") +
+//std::string(component.value()["path"]);
 //
 //				KE::ModelComponentData modelComponentData;
-//				modelComponentData.modelData = myGraphics->CreateModelData(modelPath);
-//				modelComponentData.modelData->myTransform = &aScene.gameObjectManager.GetLatestGameObject()->myWorldSpaceTransform.GetMatrix();
+//				modelComponentData.modelData =
+//myGraphics->CreateModelData(modelPath);
+//				modelComponentData.modelData->myTransform =
+//&aScene.gameObjectManager.GetLatestGameObject()->myWorldSpaceTransform.GetMatrix();
 //
 //				eRenderLayers layer = eRenderLayers::Main;
 //				if (someComponents.contains("renderLayer"))
 //				{
-//					layer = static_cast<eRenderLayers>(someComponents["renderLayer"]["layer"]);
+//					layer =
+//static_cast<eRenderLayers>(someComponents["renderLayer"]["layer"]);
 //				}
 //
-//				myGraphics->GetRenderLayer(layer)->AddModelDataIndex(myGraphics->GetModelData().size() - 1);
+//				myGraphics->GetRenderLayer(layer)->AddModelDataIndex(myGraphics->GetModelData().size()
+//- 1);
 //
 //				aScene.AddComponentToLast<ModelComponent>(&modelComponentData);
 //			}
@@ -352,41 +351,53 @@ namespace KE
 //			// ---[COOLER MODEL COMPONENT]--- //
 //			else if (component.key() == "skeletal_model")
 //			{
-//				std::string modelPath = std::string("Data/Assets/") + std::string(component.value()["path"]);
+//				std::string modelPath = std::string("Data/Assets/") +
+//std::string(component.value()["path"]);
 //
 //				KE::SkeletalModelComponentData skeletalModelComponentData;
-//				skeletalModelComponentData.skeletalModelData = myGraphics->CreateSkeletalModelData(modelPath);
-//				skeletalModelComponentData.skeletalModelData->myTransform = &gameObject->myWorldSpaceTransform.GetMatrix();
+//				skeletalModelComponentData.skeletalModelData =
+//myGraphics->CreateSkeletalModelData(modelPath);
+//				skeletalModelComponentData.skeletalModelData->myTransform =
+//&gameObject->myWorldSpaceTransform.GetMatrix();
 //
 //				// TODO This should be handled properly by FBX Importer vvvvvvv
 //				//DirectX::XMVECTOR translation, rotation, scale;
-//				//DirectX::XMMatrixDecompose(&scale, &rotation, &translation, *skeletalModelComponentData.skeletalModelData->myTransform);
+//				//DirectX::XMMatrixDecompose(&scale, &rotation, &translation,
+//*skeletalModelComponentData.skeletalModelData->myTransform);
 //				//scale = DirectX::XMVectorScale(scale, 0.01f);
-//				//*skeletalModelComponentData.skeletalModelData->myTransform = DirectX::XMMatrixAffineTransformation(scale, DirectX::XMVectorZero(), rotation, translation);
+//				//*skeletalModelComponentData.skeletalModelData->myTransform =
+//DirectX::XMMatrixAffineTransformation(scale, DirectX::XMVectorZero(),
+//rotation, translation);
 //				// TODO This should be handled properly by FBX Importer ^^^^^^^^
 //
 //				for (auto& animation : component.value()["animationPaths"])
 //				{
-//					std::string animationPath = std::string("Data/Assets/") + std::string(animation);
+//					std::string animationPath = std::string("Data/Assets/") +
+//std::string(animation);
 //
-//					myGraphics->GetModelLoader().LoadAnimation(*skeletalModelComponentData.skeletalModelData, animationPath);
-//					auto* animationClip = myGraphics->GetModelLoader().GetAnimationClip(animationPath);
+//					myGraphics->GetModelLoader().LoadAnimation(*skeletalModelComponentData.skeletalModelData,
+//animationPath); 					auto* animationClip =
+//myGraphics->GetModelLoader().GetAnimationClip(animationPath);
 //
 //					if (animationClip != nullptr)
 //					{
-//						skeletalModelComponentData.skeletalModelData->myAnimationClipMap[animationClip->name] = animationClip;
+//						skeletalModelComponentData.skeletalModelData->myAnimationClipMap[animationClip->name]
+//= animationClip;
 //					}
 //				}
 //
 //				eRenderLayers layer = eRenderLayers::Main;
 //				if (someComponents.contains("renderLayer"))
 //				{
-//					layer = static_cast<eRenderLayers>(someComponents["renderLayer"]["layer"]);
+//					layer =
+//static_cast<eRenderLayers>(someComponents["renderLayer"]["layer"]);
 //				}
-//				myGraphics->GetRenderLayer(layer)->AddSkeletalModelDataIndex(myGraphics->GetSkeletalModelData().size() - 1);
+//				myGraphics->GetRenderLayer(layer)->AddSkeletalModelDataIndex(myGraphics->GetSkeletalModelData().size()
+//- 1);
 //
 //				//aScene.AddComponentToLast<SkeletalModelComponent>(&skeletalModelComponentData);
-//				aScene.GetGameObjectManager().AddComponentToObject<SkeletalModelComponent>(gameObject, &skeletalModelComponentData);
+//				aScene.GetGameObjectManager().AddComponentToObject<SkeletalModelComponent>(gameObject,
+//&skeletalModelComponentData);
 //			}
 //
 //			// ---[BOXCOLLIDER COMPONENT]--- //
@@ -432,7 +443,9 @@ namespace KE
 //
 //				bool isStatic = gameObject->IsStatic();
 //
-//				KE::BoxColliderComponentData boxColliderData(*aScene.myCollisionHandler.CreateBox(tm, offset, size, gameObject->myLayer, isStatic));
+//				KE::BoxColliderComponentData
+//boxColliderData(*aScene.myCollisionHandler.CreateBox(tm, offset, size,
+//gameObject->myLayer, isStatic));
 //
 //				boxColliderData.offset = offset;
 //
@@ -465,7 +478,9 @@ namespace KE
 //
 //				bool isStatic = gameObject->IsStatic();
 //
-//				KE::SphereColliderComponentData sphereColliderData(*aScene.myCollisionHandler.CreateSphere(tm, offset, radius, gameObject->myLayer, isStatic));
+//				KE::SphereColliderComponentData
+//sphereColliderData(*aScene.myCollisionHandler.CreateSphere(tm, offset, radius,
+//gameObject->myLayer, isStatic));
 //
 //				sphereColliderData.offset = offset;
 //
@@ -500,7 +515,9 @@ namespace KE
 //
 //				bool isStatic = gameObject->IsStatic();
 //
-//				KE::CapsuleColliderData capsuleColData(*aScene.myCollisionHandler.CreateCapsule(tm, offset, radius, length / 2.0f, gameObject->myLayer, isStatic));
+//				KE::CapsuleColliderData
+//capsuleColData(*aScene.myCollisionHandler.CreateCapsule(tm, offset, radius,
+//length / 2.0f, gameObject->myLayer, isStatic));
 //
 //				capsuleColData.offset = offset;
 //
@@ -516,14 +533,15 @@ namespace KE
 //			// ---[MESH COLLIDER]---
 //			else if (component.key() == "mesh_collider")
 //			{
-//				std::string modelPath = std::string("Data/Assets/") + std::string(component.value()["mesh"]);
+//				std::string modelPath = std::string("Data/Assets/") +
+//std::string(component.value()["mesh"]);
 //
 //				KE::ModelData* data = myGraphics->CreateModelData(modelPath);
 //
 //				if (!data->myMeshList)
 //				{
-//					KE_ERROR("Mesh Collider failed to load, file %s", aScene.sceneName.c_str());
-//					continue;
+//					KE_ERROR("Mesh Collider failed to load, file %s",
+//aScene.sceneName.c_str()); 					continue;
 //				}
 //
 //				if (data->myMeshList->myMeshes.size() > 0)
@@ -548,7 +566,8 @@ namespace KE
 //
 //				data.fileName = component.value()["fileName"];
 //				data.shouldLoop = component.value()["shouldLoop"];
-//				data.shouldPerformSpatialPlayback = component.value()["shouldPerformSpatialPlayback"];
+//				data.shouldPerformSpatialPlayback =
+//component.value()["shouldPerformSpatialPlayback"];
 //
 //				aScene.AddComponentToLast<AudioComponent>(&data);
 //			}
@@ -563,7 +582,8 @@ namespace KE
 //					go->AddComponent<LightComponent>();
 //					go->myTransform = gameObject->myTransform;
 //
-//					DirectionalLightData* data = static_cast<DirectionalLightData*>(myGraphics->GetDeferredLightManager().
+//					DirectionalLightData* data =
+//static_cast<DirectionalLightData*>(myGraphics->GetDeferredLightManager().
 //						CreateLightData(eLightType::Directional));
 //
 //					data->myColour = {
@@ -572,7 +592,8 @@ namespace KE
 //						component.value()["color"]["b"]
 //					};
 //					data->myDirection = gameObject->myTransform.GetForward();
-//					data->myDirectionalLightIntensity = static_cast<float>(component.value()["intensity"]);
+//					data->myDirectionalLightIntensity =
+//static_cast<float>(component.value()["intensity"]);
 //					data->myAmbientLightIntensity = 1.0f;
 //
 //					LightComponentData lightComponentData;
@@ -584,7 +605,8 @@ namespace KE
 //				}
 //				else
 //				{
-//					KE_ERROR("Scene already has a directional light, file %s", aScene.sceneName.c_str());
+//					KE_ERROR("Scene already has a directional light, file %s",
+//aScene.sceneName.c_str());
 //				}
 //				aScene.gameObjectManager.DestroyGameObject(gameObject->myID);
 //			}
@@ -592,7 +614,8 @@ namespace KE
 //			// ---[POINTLIGHT COMPONENT]--- //
 //			else if (component.key() == "point_light")
 //			{
-//				PointLightData* data = static_cast<PointLightData*>(myGraphics->GetDeferredLightManager().
+//				PointLightData* data =
+//static_cast<PointLightData*>(myGraphics->GetDeferredLightManager().
 //					CreateLightData(eLightType::Point));
 //
 //				data->myColour = {
@@ -601,9 +624,9 @@ namespace KE
 //					component.value()["color"]["b"]
 //				};
 //				data->myRange = static_cast<float>(component.value()["range"]);
-//				data->myIntensity = static_cast<float>(component.value()["intensity"]);
-//				data->myPosition = { 0.0f, 0.0f, 0.0f };
-//				data->isActive = true;
+//				data->myIntensity =
+//static_cast<float>(component.value()["intensity"]); 				data->myPosition = { 0.0f,
+//0.0f, 0.0f }; 				data->isActive = true;
 //
 //				LightComponentData lightComponentData;
 //				lightComponentData.myLightData = data;
@@ -616,7 +639,8 @@ namespace KE
 //			// ---[SPOTLIGHT COMPONENT]--- //
 //			else if (component.key() == "spot_light")
 //			{
-//				SpotLightData* data = static_cast<SpotLightData*>(myGraphics->GetDeferredLightManager().CreateLightData(
+//				SpotLightData* data =
+//static_cast<SpotLightData*>(myGraphics->GetDeferredLightManager().CreateLightData(
 //					eLightType::Spot));
 //
 //				data->myColour = {
@@ -625,12 +649,12 @@ namespace KE
 //					component.value()["color"]["b"]
 //				};
 //				data->myRange = static_cast<float>(component.value()["range"]);
-//				data->myIntensity = static_cast<float>(component.value()["intensity"]);
-//				data->myPosition = { 0.0f, 0.0f, 0.0f };
-//				data->myDirection = { 0.0f, 0.0f, 0.0f };
-//				data->myOuterAngle = DegToRad(component.value()["outerAngle"]);
-//				data->myInnerAngle = DegToRad(data->myOuterAngle - static_cast<float>(component.value()["innerAngle"]));
-//				data->isActive = true;
+//				data->myIntensity =
+//static_cast<float>(component.value()["intensity"]); 				data->myPosition = { 0.0f,
+//0.0f, 0.0f }; 				data->myDirection = { 0.0f, 0.0f, 0.0f }; 				data->myOuterAngle =
+//DegToRad(component.value()["outerAngle"]); 				data->myInnerAngle =
+//DegToRad(data->myOuterAngle -
+//static_cast<float>(component.value()["innerAngle"])); 				data->isActive = true;
 //
 //				LightComponentData lightComponentData;
 //				lightComponentData.myLightData = data;
@@ -652,7 +676,8 @@ namespace KE
 //					data.myVFXNames.push_back(sqName);
 //				}
 //
-//				aScene.GetGameObjectManager().AddComponentToObject<VFXComponent>(gameObject, &data);
+//				aScene.GetGameObjectManager().AddComponentToObject<VFXComponent>(gameObject,
+//&data);
 //
 //			}
 //
@@ -671,9 +696,10 @@ namespace KE
 //			{
 //				ScriptComponentData data;
 //
-//				auto* scriptManager = KE_GLOBAL::blackboard.Get<ScriptManager>("scriptManager");
-//				const std::string path = component.value()["scriptName"];
-//				data.script = scriptManager->GetOrLoadScript(path);
+//				auto* scriptManager =
+//KE_GLOBAL::blackboard.Get<ScriptManager>("scriptManager"); 				const std::string
+//path = component.value()["scriptName"]; 				data.script =
+//scriptManager->GetOrLoadScript(path);
 //
 //
 //				aScene.AddComponentToLast<KE::ScriptComponent>(&data);
@@ -683,10 +709,11 @@ namespace KE
 //			{
 //				DecalComponentData data;
 //
-//				const std::string& decalAlbedo = component.value()["material"]["albedo"];
-//				const std::string& decalNormal = component.value()["material"]["normal"];
-//				const std::string& decalMaterial = component.value()["material"]["material"];
-//				const std::string& decalEffects = component.value()["material"]["effects"];
+//				const std::string& decalAlbedo =
+//component.value()["material"]["albedo"]; 				const std::string& decalNormal =
+//component.value()["material"]["normal"]; 				const std::string& decalMaterial =
+//component.value()["material"]["material"]; 				const std::string& decalEffects =
+//component.value()["material"]["effects"];
 //
 //				data.myDecalIndex = myGraphics->GetDecalManager().CreateDecal(
 //					myGraphics->GetTextureLoader().GetCustomMaterial(
@@ -702,7 +729,8 @@ namespace KE
 //				if (component.value().contains("renderLayer"))
 //				{
 //					int layer = component.value()["renderLayer"];
-//					if (layer < static_cast<int>(eRenderLayers::Count) && layer >= 0)
+//					if (layer < static_cast<int>(eRenderLayers::Count) && layer
+//>= 0)
 //					{
 //						renderLayerToUse = static_cast<eRenderLayers>(layer);
 //					}
@@ -724,43 +752,54 @@ namespace KE
 //				};
 //
 //				auto& val = component.value();
-//				const std::string modelPath = std::string("Data/Assets/") + std::string(val["mesh"]);
+//				const std::string modelPath = std::string("Data/Assets/") +
+//std::string(val["mesh"]);
 //
 //				auto& sAtr = data.shellModelData->attributes;
-//				sAtr.totalHeight = val.contains("totalHeight") ? (float)val["totalHeight"] : sAtr.totalHeight;
-//				sAtr.shellCount = val.contains("shellCount") ? (int)val["shellCount"] : sAtr.shellCount;
-//				sAtr.thickness = val.contains("thickness") ? (float)val["thickness"] : sAtr.thickness;
-//				sAtr.density = val.contains("density") ? (float)val["density"] : sAtr.density;
-//				sAtr.noiseMin = val.contains("noiseMin") ? (float)val["noiseMin"] : sAtr.noiseMin;
-//				sAtr.noiseMax = val.contains("noiseMax") ? (float)val["noiseMax"] : sAtr.noiseMax;
-//				sAtr.aoExp = val.contains("aoExp") ? (float)val["aoExp"] : sAtr.aoExp;
+//				sAtr.totalHeight = val.contains("totalHeight") ?
+//(float)val["totalHeight"] : sAtr.totalHeight; 				sAtr.shellCount =
+//val.contains("shellCount") ? (int)val["shellCount"] : sAtr.shellCount;
+//				sAtr.thickness = val.contains("thickness") ?
+//(float)val["thickness"] : sAtr.thickness; 				sAtr.density =
+//val.contains("density") ? (float)val["density"] : sAtr.density; 				sAtr.noiseMin
+//= val.contains("noiseMin") ? (float)val["noiseMin"] : sAtr.noiseMin;
+//				sAtr.noiseMax = val.contains("noiseMax") ?
+//(float)val["noiseMax"] : sAtr.noiseMax; 				sAtr.aoExp = val.contains("aoExp") ?
+//(float)val["aoExp"] : sAtr.aoExp;
 //
-//				sAtr.bottomColour[0] = val.contains("bottomColour") ? (float)val["bottomColour"]["r"] : sAtr.bottomColour[0];
-//				sAtr.bottomColour[1] = val.contains("bottomColour") ? (float)val["bottomColour"]["g"] : sAtr.bottomColour[1];
-//				sAtr.bottomColour[2] = val.contains("bottomColour") ? (float)val["bottomColour"]["b"] : sAtr.bottomColour[2];
+//				sAtr.bottomColour[0] = val.contains("bottomColour") ?
+//(float)val["bottomColour"]["r"] : sAtr.bottomColour[0]; 				sAtr.bottomColour[1] =
+//val.contains("bottomColour") ? (float)val["bottomColour"]["g"] :
+//sAtr.bottomColour[1]; 				sAtr.bottomColour[2] = val.contains("bottomColour") ?
+//(float)val["bottomColour"]["b"] : sAtr.bottomColour[2];
 //
-//				sAtr.topColour[0] = val.contains("topColour") ? (float)val["topColour"]["r"] : sAtr.topColour[0];
-//				sAtr.topColour[1] = val.contains("topColour") ? (float)val["topColour"]["g"] : sAtr.topColour[1];
-//				sAtr.topColour[2] = val.contains("topColour") ? (float)val["topColour"]["b"] : sAtr.topColour[2];
+//				sAtr.topColour[0] = val.contains("topColour") ?
+//(float)val["topColour"]["r"] : sAtr.topColour[0]; 				sAtr.topColour[1] =
+//val.contains("topColour") ? (float)val["topColour"]["g"] : sAtr.topColour[1];
+//				sAtr.topColour[2] = val.contains("topColour") ?
+//(float)val["topColour"]["b"] : sAtr.topColour[2];
 //
 //				auto& shellMD = data.shellModelData->modelData;
 //				shellMD.myTransform = &gameObject->myTransform.GetMatrix();
 //				auto& rrb = shellMD.myRenderResources.emplace_back();
 //
-//				rrb.myVertexShader = shaderLoader.GetVertexShader(SHADER_LOAD_PATH "ShellTexturing_VS.cso");
-//				rrb.myPixelShader = shaderLoader.GetPixelShader(SHADER_LOAD_PATH "ShellTexturing_PS.cso");
-//				rrb.myMaterial = textureLoader.GetDefaultMaterial();
+//				rrb.myVertexShader =
+//shaderLoader.GetVertexShader(SHADER_LOAD_PATH "ShellTexturing_VS.cso");
+//				rrb.myPixelShader = shaderLoader.GetPixelShader(SHADER_LOAD_PATH
+//"ShellTexturing_PS.cso"); 				rrb.myMaterial = textureLoader.GetDefaultMaterial();
 //
 //				shellMD.myMeshList = &modelLoader.Load(modelPath);
-//				data.shellModelData->effectsRT = myGraphics->GetRenderTarget(10);
+//				data.shellModelData->effectsRT =
+//myGraphics->GetRenderTarget(10);
 //
-//				aScene.GetGameObjectManager().AddComponentToObject<ShellTexturingComponent>(gameObject, &data);
+//				aScene.GetGameObjectManager().AddComponentToObject<ShellTexturingComponent>(gameObject,
+//&data);
 //			}
 //
-//#pragma endregion
+// #pragma endregion
 //
 //
-//#pragma region GameComponents
+// #pragma region GameComponents
 //
 //			else if (component.key() == "player")
 //			{
@@ -774,15 +813,16 @@ namespace KE
 //				// UserData //
 //				CharacterControllerUserData playerUserData = {};
 //				playerUserData.gameObject = gameObject;
-//				playerUserData.objType = CharacterControllerUserData::Type::Player;
-//				playerUserData.team = playerIndex;
+//				playerUserData.objType =
+//CharacterControllerUserData::Type::Player; 				playerUserData.team = playerIndex;
 //
 //				// PhysxController //
 //				PhysxControllerData controllerData;
 //				controllerData.stepOffset = 0.01f;
 //
 //
-//				data.controller = aScene.myCollisionHandler.CreateController(controllerData, playerUserData);
+//				data.controller =
+//aScene.myCollisionHandler.CreateController(controllerData, playerUserData);
 //
 //				auto& val = component.value();
 //
@@ -797,20 +837,24 @@ namespace KE
 //
 //				if (val.contains("characterIndex"))
 //				{
-//					data.characterIndex = static_cast<int>(val["characterIndex"]);
+//					data.characterIndex =
+//static_cast<int>(val["characterIndex"]);
 //				}
 //				int playerCharacterIndex = data.characterIndex;
 //
 //				aScene.AddComponentToLast<P8::Player>(&data);
-//				P8::Player& playerComponent = aScene.GetGameObjectManager().GetLatestGameObject()->GetComponent<P8::Player>();
+//				P8::Player& playerComponent =
+//aScene.GetGameObjectManager().GetLatestGameObject()->GetComponent<P8::Player>();
 //
 //				// ---Temporary way of adding a boomerang to the player--- //
 //				{
 //					const std::string objName = "Boomerang";
-//					aScene.GetGameObjectManager().CreateGameObject(boomerangID, &objName, Transform(), false);
+//					aScene.GetGameObjectManager().CreateGameObject(boomerangID,
+//&objName, Transform(), false);
 //
-//					auto* obj = aScene.GetGameObjectManager().GetGameObject(boomerangID);
-//					obj->myLayer = KE::Collision::Layers::Projectile;
+//					auto* obj =
+//aScene.GetGameObjectManager().GetGameObject(boomerangID); 					obj->myLayer =
+//KE::Collision::Layers::Projectile;
 //
 //
 //					obj->myTransform.SetScale({ 0.25f,0.25f,0.25f });
@@ -819,13 +863,14 @@ namespace KE
 //					controllerData.radius = radius;
 //
 //					P8::BoomerangComponentData boomerangData;
-//					P8::BoomerangPhysicsController* boomPhys = new P8::BoomerangPhysicsController();
+//					P8::BoomerangPhysicsController* boomPhys = new
+//P8::BoomerangPhysicsController();
 //
 //
 //					CharacterControllerUserData boomUserData = {};
 //					boomUserData.gameObject = obj;
-//					boomUserData.objType = CharacterControllerUserData::Type::Boomerang;
-//					boomUserData.team = playerIndex;
+//					boomUserData.objType =
+//CharacterControllerUserData::Type::Boomerang; 					boomUserData.team = playerIndex;
 //
 //					const auto& boomCtrl = boomPhys->Create(
 //						aScene.myCollisionHandler.GetPhysics(),
@@ -842,15 +887,19 @@ namespace KE
 //
 //					//also add a model
 //					{
-//						std::string modelPath = std::string("Data/EngineAssets/Sphere.fbx");
-//						KE::ModelComponentData modelComponentData;
-//						modelComponentData.modelData = myGraphics->CreateModelData(modelPath);
-//						modelComponentData.modelData->myTransform = &aScene.gameObjectManager.GetLatestGameObject()->myWorldSpaceTransform.GetMatrix();
-//						modelComponentData.modelData->myRenderResources.back().myMaterial = myGraphics->GetTextureLoader().GetMaterialFromPath(
+//						std::string modelPath =
+//std::string("Data/EngineAssets/Sphere.fbx"); 						KE::ModelComponentData
+//modelComponentData; 						modelComponentData.modelData =
+//myGraphics->CreateModelData(modelPath);
+//						modelComponentData.modelData->myTransform =
+//&aScene.gameObjectManager.GetLatestGameObject()->myWorldSpaceTransform.GetMatrix();
+//						modelComponentData.modelData->myRenderResources.back().myMaterial
+//= myGraphics->GetTextureLoader().GetMaterialFromPath(
 //							"../../EngineAssets/KittyEnginePattern"
 //						);
 //
-//						myGraphics->GetRenderLayer(eRenderLayers::Main)->AddModelDataIndex(myGraphics->GetModelData().size() - 1);
+//						myGraphics->GetRenderLayer(eRenderLayers::Main)->AddModelDataIndex(myGraphics->GetModelData().size()
+//- 1);
 //
 //						aScene.AddComponentToLast<ModelComponent>(&modelComponentData);
 //					}
@@ -858,7 +907,8 @@ namespace KE
 //					//and a vfx component
 //					{
 //						KE::VFXComponentData vfxData;
-//						vfxData.myVFXNames.push_back(std::format("BallVFX0{}", playerCharacterIndex));
+//						vfxData.myVFXNames.push_back(std::format("BallVFX0{}",
+//playerCharacterIndex));
 //
 //						vfxData.myVFXManager = &myGraphics->GetVFXManager();
 //						aScene.AddComponentToLast<VFXComponent>(&vfxData);
@@ -868,71 +918,69 @@ namespace KE
 //
 //
 //			}
-//#pragma endregion
+// #pragma endregion
 //		}
 //	}
 #pragma endregion
 
-	void LevelImporter::AddComponents(KE::Scene* aCurrentScene, KE::GameObject& aGameObject, nlohmann::json& someComponents)
-	{
+	void LevelImporter::AddComponents(KE::Scene* aCurrentScene,
+									  KE::GameObject& aGameObject,
+									  nlohmann::json& someComponents) {
 		auto& GOManager = aCurrentScene->GetGameObjectManager();
 
 		auto& collisionHandler = aCurrentScene->myCollisionHandler;
 
-		for (auto& component : someComponents.items())
-		{
+		for (auto& component : someComponents.items()) {
 #pragma region EngineComponents
 			//---[CAMERA COMPONENT]--- //
-			if (component.key() == "main_camera")
-			{
-
+			if (component.key() == "main_camera") {
 				auto* camObj = GOManager.GetGameObject(0);
 				camObj->myTransform = aGameObject.myTransform;
-
 
 				GOManager.DestroyGameObject(aGameObject.myID);
 			}
 
-
-
 			// ---[MODEL COMPONENT]--- //
-			else if (component.key() == "model")
-			{
-				std::string modelPath = std::string("Data/Assets/") + std::string(component.value()["path"]);
+			else if (component.key() == "model") {
+				std::string modelPath = std::string("Data/Assets/") +
+										std::string(component.value()["path"]);
 
 				KE::ModelComponentData modelComponentData;
-				modelComponentData.modelData = myGraphics->CreateModelData(modelPath);
-				modelComponentData.modelData->myTransform = &aGameObject.myWorldSpaceTransform.GetMatrix();
+				modelComponentData.modelData =
+					myGraphics->CreateModelData(modelPath);
+				modelComponentData.modelData->myTransform =
+					&aGameObject.myWorldSpaceTransform.GetMatrix();
 
 				eRenderLayers layer = eRenderLayers::Main;
-				if (someComponents.contains("renderLayer"))
-				{
-					layer = static_cast<eRenderLayers>(someComponents["renderLayer"]["layer"]);
+				if (someComponents.contains("renderLayer")) {
+					layer = static_cast<eRenderLayers>(
+						someComponents["renderLayer"]["layer"]);
 				}
 
-				myGraphics->GetRenderLayer(layer)->AddModelDataIndex(myGraphics->GetModelData().size() - 1);
+				myGraphics->GetRenderLayer(layer)->AddModelDataIndex(
+					myGraphics->GetModelData().size() - 1);
 
 				aGameObject.AddComponent<ModelComponent>(&modelComponentData);
 
-				if (modelPath.find("SM_WaterPlane") != std::string::npos)
-				{
-					for (auto& rr : modelComponentData.modelData->myRenderResources)
-					{
-						//std::cout << "\nSetting water shader!";
-						rr.myPixelShader = myGraphics->GetShaderLoader().GetPixelShader(SHADER_LOAD_PATH "Water_PS.cso");
-						rr.myVertexShader = myGraphics->GetShaderLoader().GetVertexShader(SHADER_LOAD_PATH "Water_VS.cso");
+				if (modelPath.find("SM_WaterPlane") != std::string::npos) {
+					for (auto& rr :
+						 modelComponentData.modelData->myRenderResources) {
+						// std::cout << "\nSetting water shader!";
+						rr.myPixelShader =
+							myGraphics->GetShaderLoader().GetPixelShader(
+								SHADER_LOAD_PATH "Water_PS.cso");
+						rr.myVertexShader =
+							myGraphics->GetShaderLoader().GetVertexShader(
+								SHADER_LOAD_PATH "Water_VS.cso");
 					}
 				}
 
-				if (someComponents.contains("overrideMaterial"))
-				{
+				if (someComponents.contains("overrideMaterial")) {
 					auto& material = someComponents["overrideMaterial"];
 					std::string materialName = material["materialName"];
-					Vector3f albedo = {
-						material["albedo"]["r"],
-						material["albedo"]["g"],
-						material["albedo"]["b"]
-					};
+					Vector3f albedo = {material["albedo"]["r"],
+									   material["albedo"]["g"],
+									   material["albedo"]["b"]};
 
 					float roughness = material["roughness"];
 					float metallic = material["metallic"];
@@ -947,71 +995,88 @@ namespace KE
 					mat.roughness = roughness;
 					mat.emission = emission;
 
-					if (!albedoTexName.empty())
-					{
-						mat.albedoMap = std::format("Data/Assets/{}", albedoTexName);
+					if (!albedoTexName.empty()) {
+						mat.albedoMap =
+							std::format("Data/Assets/{}", albedoTexName);
 
-						if (albedoTexName.ends_with("_c.dds"))
-						{
-							mat.albedoMap = std::format("Data/Assets/{}", albedoTexName);
-							mat.normalMap = std::format("Data/Assets/{}", albedoTexName.substr(0, albedoTexName.size() - 6) + "_n.dds");
-							mat.materialMap = std::format("Data/Assets/{}", albedoTexName.substr(0, albedoTexName.size() - 6) + "_m.dds");
-							mat.effectsMap = std::format("Data/Assets/{}", albedoTexName.substr(0, albedoTexName.size() - 6) + "_fx.dds");
+						if (albedoTexName.ends_with("_c.dds")) {
+							mat.albedoMap =
+								std::format("Data/Assets/{}", albedoTexName);
+							mat.normalMap =
+								std::format("Data/Assets/{}",
+											albedoTexName.substr(
+												0, albedoTexName.size() - 6) +
+												"_n.dds");
+							mat.materialMap =
+								std::format("Data/Assets/{}",
+											albedoTexName.substr(
+												0, albedoTexName.size() - 6) +
+												"_m.dds");
+							mat.effectsMap =
+								std::format("Data/Assets/{}",
+											albedoTexName.substr(
+												0, albedoTexName.size() - 6) +
+												"_fx.dds");
 						}
-
 					}
 
-					DataMaterial* matToUse = myGraphics->GetTextureLoader().GetDataMaterial(mat);
+					DataMaterial* matToUse =
+						myGraphics->GetTextureLoader().GetDataMaterial(mat);
 
-					for (auto& rr : modelComponentData.modelData->myRenderResources)
-					{
+					for (auto& rr :
+						 modelComponentData.modelData->myRenderResources) {
 						rr.myMaterial = matToUse;
 					}
-
-			
 				}
 			}
 
 			// ---[COOLER MODEL COMPONENT]--- //
-			else if (component.key() == "skeletal_model")
-			{
-				std::string modelPath = std::string("Data/Assets/") + std::string(component.value()["path"]);
+			else if (component.key() == "skeletal_model") {
+				std::string modelPath = std::string("Data/Assets/") +
+										std::string(component.value()["path"]);
 
 				KE::SkeletalModelComponentData skeletalModelComponentData;
-				skeletalModelComponentData.skeletalModelData = myGraphics->CreateSkeletalModelData(modelPath);
-				skeletalModelComponentData.skeletalModelData->myTransform = &aGameObject.myWorldSpaceTransform.GetMatrix();
+				skeletalModelComponentData.skeletalModelData =
+					myGraphics->CreateSkeletalModelData(modelPath);
+				skeletalModelComponentData.skeletalModelData->myTransform =
+					&aGameObject.myWorldSpaceTransform.GetMatrix();
 
 				// TODO This should be handled properly by FBX Importer vvvvvvv
-				//DirectX::XMVECTOR translation, rotation, scale;
-				//DirectX::XMMatrixDecompose(&scale, &rotation, &translation, *skeletalModelComponentData.skeletalModelData->myTransform);
-				//scale = DirectX::XMVectorScale(scale, 0.01f);
-				//*skeletalModelComponentData.skeletalModelData->myTransform = DirectX::XMMatrixAffineTransformation(scale, DirectX::XMVectorZero(), rotation, translation);
+				// DirectX::XMVECTOR translation, rotation, scale;
+				// DirectX::XMMatrixDecompose(&scale, &rotation, &translation,
+				// *skeletalModelComponentData.skeletalModelData->myTransform);
+				// scale = DirectX::XMVectorScale(scale, 0.01f);
+				//*skeletalModelComponentData.skeletalModelData->myTransform =
+				//DirectX::XMMatrixAffineTransformation(scale,
+				//DirectX::XMVectorZero(), rotation, translation);
 				// TODO This should be handled properly by FBX Importer ^^^^^^^^
 
 				std::vector<std::string> animations;
 				auto& modelLoader = myGraphics->GetModelLoader();
-				for (auto& animation : component.value()["animationPaths"])
-				{
-					std::string animationPath = std::string("Data/Assets/") + std::string(animation);
+				for (auto& animation : component.value()["animationPaths"]) {
+					std::string animationPath =
+						std::string("Data/Assets/") + std::string(animation);
 					animations.push_back(animationPath);
 				}
 
 				eRenderLayers layer = eRenderLayers::Main;
-				if (someComponents.contains("renderLayer"))
-				{
-					layer = static_cast<eRenderLayers>(someComponents["renderLayer"]["layer"]);
+				if (someComponents.contains("renderLayer")) {
+					layer = static_cast<eRenderLayers>(
+						someComponents["renderLayer"]["layer"]);
 				}
-				myGraphics->GetRenderLayer(layer)->AddSkeletalModelDataIndex(myGraphics->GetSkeletalModelData().size() - 1);
+				myGraphics->GetRenderLayer(layer)->AddSkeletalModelDataIndex(
+					myGraphics->GetSkeletalModelData().size() - 1);
 
-				SkeletalModelComponent* skModel = aGameObject.AddComponent<SkeletalModelComponent>(&skeletalModelComponentData);
-				skModel->GetAnimationPlayer().AssignAnimations(modelLoader, animations);
+				SkeletalModelComponent* skModel =
+					aGameObject.AddComponent<SkeletalModelComponent>(
+						&skeletalModelComponentData);
+				skModel->GetAnimationPlayer().AssignAnimations(modelLoader,
+															   animations);
 			}
 
 			// ---[BOXCOLLIDER COMPONENT]--- //
-			else if (component.key() == "box_collider")
-			{
+			else if (component.key() == "box_collider") {
 				auto worldMat = component.value()["world_transform"];
-
 
 				Matrix4x4f worldMatrix;
 				worldMatrix(1, 1) = worldMat["m00"];
@@ -1030,7 +1095,6 @@ namespace KE
 				worldMatrix(4, 2) = worldMat["m31"];
 				worldMatrix(4, 3) = worldMat["m32"];
 				worldMatrix(4, 4) = worldMat["m33"];
-
 
 				Vector3f offset;
 				offset.x = component.value()["offset"]["x"];
@@ -1051,8 +1115,8 @@ namespace KE
 				bool isStatic = aGameObject.IsStatic();
 
 				KE::BoxColliderComponentData boxColliderData(
-					*collisionHandler.CreateBox(tm, offset, size, aGameObject.myLayer, isStatic)
-				);
+					*collisionHandler.CreateBox(tm, offset, size,
+												aGameObject.myLayer, isStatic));
 
 				boxColliderData.offset = offset;
 
@@ -1062,12 +1126,12 @@ namespace KE
 
 				boxColliderData.graphics = myGraphics;
 
-				aGameObject.AddComponent<BoxColliderComponent>(&boxColliderData);
+				aGameObject.AddComponent<BoxColliderComponent>(
+					&boxColliderData);
 			}
 
 			// ---[SPHERECOLLIDER COMPONENT]--- //
-			else if (component.key() == "sphere_collider")
-			{
+			else if (component.key() == "sphere_collider") {
 				Vector3f offset;
 				offset.x = component.value()["offset"]["x"];
 				offset.y = component.value()["offset"]["y"];
@@ -1085,7 +1149,9 @@ namespace KE
 
 				bool isStatic = aGameObject.IsStatic();
 
-				KE::SphereColliderComponentData sphereColliderData(*collisionHandler.CreateSphere(tm, offset, radius, aGameObject.myLayer, isStatic));
+				KE::SphereColliderComponentData sphereColliderData(
+					*collisionHandler.CreateSphere(
+						tm, offset, radius, aGameObject.myLayer, isStatic));
 
 				sphereColliderData.offset = offset;
 
@@ -1095,12 +1161,12 @@ namespace KE
 
 				sphereColliderData.graphics = myGraphics;
 
-				aGameObject.AddComponent<SphereColliderComponent>(&sphereColliderData);
+				aGameObject.AddComponent<SphereColliderComponent>(
+					&sphereColliderData);
 			}
 
 			// ---[CAPSULE COLLIDER]---
-			else if (component.key() == "capsule_collider")
-			{
+			else if (component.key() == "capsule_collider") {
 				Vector3f offset;
 				offset.x = component.value()["offset"]["x"];
 				offset.y = component.value()["offset"]["y"];
@@ -1120,7 +1186,10 @@ namespace KE
 
 				bool isStatic = aGameObject.IsStatic();
 
-				KE::CapsuleColliderData capsuleColData(*collisionHandler.CreateCapsule(tm, offset, radius, length / 2.0f, aGameObject.myLayer, isStatic));
+				KE::CapsuleColliderData capsuleColData(
+					*collisionHandler.CreateCapsule(
+						tm, offset, radius, length / 2.0f, aGameObject.myLayer,
+						isStatic));
 
 				capsuleColData.offset = offset;
 
@@ -1130,97 +1199,89 @@ namespace KE
 
 				capsuleColData.isTrigger = trigger;
 
-				aGameObject.AddComponent<CapsuleColliderComponent>(&capsuleColData);
+				aGameObject.AddComponent<CapsuleColliderComponent>(
+					&capsuleColData);
 			}
 
 			// ---[MESH COLLIDER]---
-			else if (component.key() == "mesh_collider")
-			{
-				std::string modelPath = std::string("Data/Assets/") + std::string(component.value()["mesh"]);
+			else if (component.key() == "mesh_collider") {
+				std::string modelPath = std::string("Data/Assets/") +
+										std::string(component.value()["mesh"]);
 
 				KE::ModelData* data = myGraphics->CreateModelData(modelPath);
 
-				if (!data->myMeshList)
-				{
-					KE_ERROR("Mesh Collider failed to load, file %s", aCurrentScene->sceneName.c_str());
+				if (!data->myMeshList) {
+					KE_ERROR("Mesh Collider failed to load, file %s",
+							 aCurrentScene->sceneName.c_str());
 					continue;
 				}
 
-				if (data->myMeshList->myMeshes.size() > 0)
-				{
+				if (data->myMeshList->myMeshes.size() > 0) {
 					KE::Mesh& mesh = data->myMeshList->myMeshes[0];
 					bool isStatic = true;
 
 					*collisionHandler.CreateMeshCollider(
-						aGameObject.myWorldSpaceTransform,
-						mesh.myVertices,
-						mesh.myIndices,
-						aGameObject.myLayer,
-						isStatic
-					);
+						aGameObject.myWorldSpaceTransform, mesh.myVertices,
+						mesh.myIndices, aGameObject.myLayer, isStatic);
 				}
 			}
 
 			// ---[LIGHT COMPONENT]--- //
-			else if (component.key() == "directional_light")
-			{
+			else if (component.key() == "directional_light") {
 				auto go = GOManager.GetGameObject(1);
 
-				if (!go->HasComponent<LightComponent>())
-				{
+				if (!go->HasComponent<LightComponent>()) {
 					go->AddComponent<LightComponent>();
 					go->myTransform = aGameObject.myTransform;
 
-					DirectionalLightData* data = static_cast<DirectionalLightData*>(myGraphics->GetDeferredLightManager().
-						CreateLightData(eLightType::Directional));
+					DirectionalLightData* data =
+						static_cast<DirectionalLightData*>(
+							myGraphics->GetDeferredLightManager()
+								.CreateLightData(eLightType::Directional));
 
-					data->myColour = {
-						component.value()["color"]["r"],
-						component.value()["color"]["g"],
-						component.value()["color"]["b"]
-					};
+					data->myColour = {component.value()["color"]["r"],
+									  component.value()["color"]["g"],
+									  component.value()["color"]["b"]};
 
 					data->myDirection = aGameObject.myTransform.GetForward();
-					data->myDirectionalLightIntensity = static_cast<float>(component.value()["intensity"]);
+					data->myDirectionalLightIntensity =
+						static_cast<float>(component.value()["intensity"]);
 					data->myAmbientLightIntensity = 1.0f;
 
-
-					if (someComponents.contains("lightSettings"))
-					{
+					if (someComponents.contains("lightSettings")) {
 						auto& lightSettings = someComponents["lightSettings"];
-						data->myAmbientLightIntensity = lightSettings["ambientIntensity"];
+						data->myAmbientLightIntensity =
+							lightSettings["ambientIntensity"];
 					}
-
 
 					LightComponentData lightComponentData;
 					lightComponentData.myLightData = data;
 					lightComponentData.myLightType = eLightType::Directional;
 					lightComponentData.myLightTypeName = "Directional Light";
 
-					go->GetComponent<LightComponent>().SetData(&lightComponentData);
-				}
-				else
-				{
-					KE_ERROR("Scene already has a directional light, file %s", aCurrentScene->sceneName.c_str());
+					go->GetComponent<LightComponent>().SetData(
+						&lightComponentData);
+				} else {
+					KE_ERROR("Scene already has a directional light, file %s",
+							 aCurrentScene->sceneName.c_str());
 				}
 
 				GOManager.DestroyGameObject(aGameObject.myID);
 			}
 
 			// ---[POINTLIGHT COMPONENT]--- //
-			else if (component.key() == "point_light")
-			{
+			else if (component.key() == "point_light") {
 				auto* lightManager = &myGraphics->GetDeferredLightManager();
-				PointLightData* data = static_cast<PointLightData*>(lightManager->CreateLightData(eLightType::Point));
+				PointLightData* data = static_cast<PointLightData*>(
+					lightManager->CreateLightData(eLightType::Point));
 
-				data->myColour = {
-					component.value()["color"]["r"],
-					component.value()["color"]["g"],
-					component.value()["color"]["b"]
-				};
+				data->myColour = {component.value()["color"]["r"],
+								  component.value()["color"]["g"],
+								  component.value()["color"]["b"]};
 				data->myRange = static_cast<float>(component.value()["range"]);
-				data->myIntensity = static_cast<float>(component.value()["intensity"]);
-				data->myPosition = { 0.0f, 0.0f, 0.0f };
+				data->myIntensity =
+					static_cast<float>(component.value()["intensity"]);
+				data->myPosition = {0.0f, 0.0f, 0.0f};
 				data->isActive = true;
 
 				LightComponentData lightComponentData;
@@ -1233,22 +1294,23 @@ namespace KE
 			}
 
 			// ---[SPOTLIGHT COMPONENT]--- //
-			else if (component.key() == "spot_light")
-			{
+			else if (component.key() == "spot_light") {
 				auto* lightManager = &myGraphics->GetDeferredLightManager();
-				SpotLightData* data = static_cast<SpotLightData*>(lightManager->CreateLightData(eLightType::Spot));
+				SpotLightData* data = static_cast<SpotLightData*>(
+					lightManager->CreateLightData(eLightType::Spot));
 
-				data->myColour = {
-					component.value()["color"]["r"],
-					component.value()["color"]["g"],
-					component.value()["color"]["b"]
-				};
+				data->myColour = {component.value()["color"]["r"],
+								  component.value()["color"]["g"],
+								  component.value()["color"]["b"]};
 				data->myRange = static_cast<float>(component.value()["range"]);
-				data->myIntensity = static_cast<float>(component.value()["intensity"]);
-				data->myPosition = { 0.0f, 0.0f, 0.0f };
-				data->myDirection = { 0.0f, 0.0f, 0.0f };
+				data->myIntensity =
+					static_cast<float>(component.value()["intensity"]);
+				data->myPosition = {0.0f, 0.0f, 0.0f};
+				data->myDirection = {0.0f, 0.0f, 0.0f};
 				data->myOuterAngle = DegToRad(component.value()["outerAngle"]);
-				data->myInnerAngle = DegToRad(data->myOuterAngle - static_cast<float>(component.value()["innerAngle"]));
+				data->myInnerAngle = DegToRad(
+					data->myOuterAngle -
+					static_cast<float>(component.value()["innerAngle"]));
 				data->isActive = true;
 
 				LightComponentData lightComponentData;
@@ -1261,13 +1323,11 @@ namespace KE
 			}
 
 			// ---[VFX COMPONENT]--- //
-			else if (component.key() == "vfx")
-			{
+			else if (component.key() == "vfx") {
 				VFXComponentData data;
 				data.myVFXManager = &myGraphics->GetVFXManager();
 
-				for (auto& sqName : component.value()["sequence_names"])
-				{
+				for (auto& sqName : component.value()["sequence_names"]) {
 					data.myAutoPlay = component.value()["autoplay"];
 					data.myVFXNames.push_back(sqName);
 				}
@@ -1276,8 +1336,7 @@ namespace KE
 			}
 
 			// ---[SCENE TRANSITION TRIGGER]--- //
-			else if (component.key() == "scene_trigger")
-			{
+			else if (component.key() == "scene_trigger") {
 				SceneTransitionComponentData data;
 
 				data.sceneIndex = component.value()["sceneIndex"];
@@ -1286,93 +1345,116 @@ namespace KE
 			}
 
 			// ---[SCRIPT!!!!]
-			else if (component.key() == "script")
-			{
+			else if (component.key() == "script") {
 				ScriptComponentData data;
 
-				auto* scriptManager = KE_GLOBAL::blackboard.Get<ScriptManager>("scriptManager");
+				auto* scriptManager =
+					KE_GLOBAL::blackboard.Get<ScriptManager>("scriptManager");
 				const std::string path = component.value()["scriptName"];
 				data.script = scriptManager->GetOrLoadScript(path);
 
 				aGameObject.AddComponent<KE::ScriptComponent>(&data);
 			}
 
-			else if (component.key() == "decal")
-			{
+			else if (component.key() == "decal") {
 				DecalComponentData data;
 
-				const std::string& decalAlbedo = component.value()["material"]["albedo"];
-				const std::string& decalNormal = component.value()["material"]["normal"];
-				const std::string& decalMaterial = component.value()["material"]["material"];
-				const std::string& decalEffects = component.value()["material"]["effects"];
+				const std::string& decalAlbedo =
+					component.value()["material"]["albedo"];
+				const std::string& decalNormal =
+					component.value()["material"]["normal"];
+				const std::string& decalMaterial =
+					component.value()["material"]["material"];
+				const std::string& decalEffects =
+					component.value()["material"]["effects"];
 
 				data.myDecalIndex = myGraphics->GetDecalManager().CreateDecal(
 					myGraphics->GetTextureLoader().GetCustomMaterial(
-						decalAlbedo,
-						decalNormal,
-						decalMaterial,
-						decalEffects
-					),
-					aGameObject.myWorldSpaceTransform
-				);
+						decalAlbedo, decalNormal, decalMaterial, decalEffects),
+					aGameObject.myWorldSpaceTransform);
 
 				auto renderLayerToUse = eRenderLayers::Main;
-				if (component.value().contains("renderLayer"))
-				{
+				if (component.value().contains("renderLayer")) {
 					int layer = component.value()["renderLayer"];
-					if (layer < static_cast<int>(eRenderLayers::Count) && layer >= 0)
-					{
+					if (layer < static_cast<int>(eRenderLayers::Count) &&
+						layer >= 0) {
 						renderLayerToUse = static_cast<eRenderLayers>(layer);
 					}
 				}
-				myGraphics->GetRenderLayer(renderLayerToUse)->AddDecalIndex(data.myDecalIndex);
+				myGraphics->GetRenderLayer(renderLayerToUse)
+					->AddDecalIndex(data.myDecalIndex);
 
 				aGameObject.AddComponent<DecalComponent>(&data);
 			}
 
-			else if (component.key() == "shellTexturing")
-			{
+			else if (component.key() == "shellTexturing") {
 				auto& shaderLoader = myGraphics->GetShaderLoader();
 				auto& textureLoader = myGraphics->GetTextureLoader();
 				auto& modelLoader = myGraphics->GetModelLoader();
 
 				ShellModelData shellData;
 				ShellTexturingComponentData data = {
-					myGraphics->GetShellTexturedRenderer()->AddShellModel(shellData)
-				};
+					myGraphics->GetShellTexturedRenderer()->AddShellModel(
+						shellData)};
 
 				auto& val = component.value();
-				const std::string modelPath = std::string("Data/Assets/") + std::string(val["mesh"]);
+				const std::string modelPath =
+					std::string("Data/Assets/") + std::string(val["mesh"]);
 
 				auto& sAtr = data.shellModelData->attributes;
-				sAtr.totalHeight = val.contains("totalHeight") ? (float)val["totalHeight"] : sAtr.totalHeight;
-				sAtr.shellCount = val.contains("shellCount") ? (int)val["shellCount"] : sAtr.shellCount;
-				sAtr.thickness = val.contains("thickness") ? (float)val["thickness"] : sAtr.thickness;
-				sAtr.density = val.contains("density") ? (float)val["density"] : sAtr.density;
-				sAtr.noiseMin = val.contains("noiseMin") ? (float)val["noiseMin"] : sAtr.noiseMin;
-				sAtr.noiseMax = val.contains("noiseMax") ? (float)val["noiseMax"] : sAtr.noiseMax;
-				sAtr.aoExp = val.contains("aoExp") ? (float)val["aoExp"] : sAtr.aoExp;
+				sAtr.totalHeight = val.contains("totalHeight")
+									   ? (float)val["totalHeight"]
+									   : sAtr.totalHeight;
+				sAtr.shellCount = val.contains("shellCount")
+									  ? (int)val["shellCount"]
+									  : sAtr.shellCount;
+				sAtr.thickness = val.contains("thickness")
+									 ? (float)val["thickness"]
+									 : sAtr.thickness;
+				sAtr.density = val.contains("density") ? (float)val["density"]
+													   : sAtr.density;
+				sAtr.noiseMin = val.contains("noiseMin")
+									? (float)val["noiseMin"]
+									: sAtr.noiseMin;
+				sAtr.noiseMax = val.contains("noiseMax")
+									? (float)val["noiseMax"]
+									: sAtr.noiseMax;
+				sAtr.aoExp =
+					val.contains("aoExp") ? (float)val["aoExp"] : sAtr.aoExp;
 
-				sAtr.bottomColour[0] = val.contains("bottomColour") ? (float)val["bottomColour"]["r"] : sAtr.bottomColour[0];
-				sAtr.bottomColour[1] = val.contains("bottomColour") ? (float)val["bottomColour"]["g"] : sAtr.bottomColour[1];
-				sAtr.bottomColour[2] = val.contains("bottomColour") ? (float)val["bottomColour"]["b"] : sAtr.bottomColour[2];
+				sAtr.bottomColour[0] = val.contains("bottomColour")
+										   ? (float)val["bottomColour"]["r"]
+										   : sAtr.bottomColour[0];
+				sAtr.bottomColour[1] = val.contains("bottomColour")
+										   ? (float)val["bottomColour"]["g"]
+										   : sAtr.bottomColour[1];
+				sAtr.bottomColour[2] = val.contains("bottomColour")
+										   ? (float)val["bottomColour"]["b"]
+										   : sAtr.bottomColour[2];
 
-				sAtr.topColour[0] = val.contains("topColour") ? (float)val["topColour"]["r"] : sAtr.topColour[0];
-				sAtr.topColour[1] = val.contains("topColour") ? (float)val["topColour"]["g"] : sAtr.topColour[1];
-				sAtr.topColour[2] = val.contains("topColour") ? (float)val["topColour"]["b"] : sAtr.topColour[2];
-
-				
+				sAtr.topColour[0] = val.contains("topColour")
+										? (float)val["topColour"]["r"]
+										: sAtr.topColour[0];
+				sAtr.topColour[1] = val.contains("topColour")
+										? (float)val["topColour"]["g"]
+										: sAtr.topColour[1];
+				sAtr.topColour[2] = val.contains("topColour")
+										? (float)val["topColour"]["b"]
+										: sAtr.topColour[2];
 
 				auto& shellMD = data.shellModelData->modelData;
 				shellMD.myTransform = &aGameObject.myTransform.GetMatrix();
 				auto& rrb = shellMD.myRenderResources.emplace_back();
 
-				rrb.myVertexShader = shaderLoader.GetVertexShader(SHADER_LOAD_PATH "ShellTexturing_VS.cso");
-				rrb.myPixelShader = shaderLoader.GetPixelShader(SHADER_LOAD_PATH "ShellTexturing_PS.cso");
+				rrb.myVertexShader = shaderLoader.GetVertexShader(
+					SHADER_LOAD_PATH "ShellTexturing_VS.cso");
+				rrb.myPixelShader = shaderLoader.GetPixelShader(
+					SHADER_LOAD_PATH "ShellTexturing_PS.cso");
 				rrb.myMaterial = textureLoader.GetDefaultMaterial();
 
 				shellMD.myMeshList = &modelLoader.Load(modelPath);
-				data.shellModelData->effectsRT = myGraphics->GetRenderTarget(10);
+				data.shellModelData->effectsRT =
+					myGraphics->GetRenderTarget(10);
 
 				aGameObject.AddComponent<ShellTexturingComponent>(&data);
 			}
@@ -1381,13 +1463,13 @@ namespace KE
 		}
 	}
 
-	bool LevelImporter::LoadGameSystemData(Scene& aScene, std::string& aFileName)
-	{
-		if (auto* gameSystems = aScene.GetGameObjectManager().GetGameObject(eGameSystemManager))
-		{
+	bool LevelImporter::LoadGameSystemData(Scene& aScene,
+										   std::string& aFileName) {
+		if (auto* gameSystems = aScene.GetGameObjectManager().GetGameObject(
+				eGameSystemManager)) {
 			return true;
 		}
 
 		return false;
 	}
-}
+}  // namespace KE

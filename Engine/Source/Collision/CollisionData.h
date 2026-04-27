@@ -1,14 +1,13 @@
 #pragma once
 
-namespace KE
-{
+namespace KE {
 	struct CharacterControllerUserData;
 	class Collider;
 	class GameObject;
 
-	struct CollisionData
-	{
-		CollisionData(Collider& aCol, GameObject& aGO) : hitCollider(aCol), hitGameObject(aGO) {}
+	struct CollisionData {
+		CollisionData(Collider& aCol, GameObject& aGO)
+			: hitCollider(aCol), hitGameObject(aGO) {}
 
 		Collider& hitCollider;
 		GameObject& hitGameObject;
@@ -16,10 +15,7 @@ namespace KE
 		int state = 0;
 	};
 
-	struct PhysXCollisionData
-	{
+	struct PhysXCollisionData {
 		GameObject* objHit = nullptr;
-
-
 	};
-}
+}  // namespace KE

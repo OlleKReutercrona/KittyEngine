@@ -1,17 +1,14 @@
 #pragma once
 #include <string>
 
-namespace KE
-{
+namespace KE {
 	class TextureLoader;
 }
 
-namespace KE_EDITOR
-{
+namespace KE_EDITOR {
 	struct EditorIcon;
 
-	enum class EditorFileType
-	{
+	enum class EditorFileType {
 		eFolder,
 		eTexture,
 		eCubemap,
@@ -24,8 +21,7 @@ namespace KE_EDITOR
 		Count
 	};
 
-	enum class EditorFileInteraction
-	{
+	enum class EditorFileInteraction {
 		eHovered,
 		eLeftClick,
 		eLeftDoubleClick,
@@ -35,8 +31,7 @@ namespace KE_EDITOR
 		eNone
 	};
 
-	class EditorFile
-	{
+	class EditorFile {
 	private:
 		EditorFileType myType;
 		std::string myPath;
@@ -44,25 +39,41 @@ namespace KE_EDITOR
 		std::string myIconPath;
 
 	public:
-		EditorFile() :myType(EditorFileType::eUnknown), myPath(""), myName(""), myIconPath("") {};
+		EditorFile()
+			: myType(EditorFileType::eUnknown),
+			  myPath(""),
+			  myName(""),
+			  myIconPath("") {};
 
-		EditorFile(const EditorFileType& aType, const std::string& aPath, const std::string& aName, const std::string& anIconPath)
-		: myType(aType), myPath(aPath), myName(aName), myIconPath(anIconPath) { }
+		EditorFile(const EditorFileType& aType, const std::string& aPath,
+				   const std::string& aName, const std::string& anIconPath)
+			: myType(aType),
+			  myPath(aPath),
+			  myName(aName),
+			  myIconPath(anIconPath) {}
 
 		EditorFile(const EditorFile& aFile);
 
 		~EditorFile() = default;
 
 		EditorFileInteraction Display(KE::TextureLoader* aTextureLoader) const;
-		
-		EditorFileInteraction BeginDisplayBox(KE::TextureLoader* aTextureLoader) const;
-		EditorFileInteraction DisplayIcon(KE::TextureLoader* aTextureLoader) const;
-		
-		inline const std::string& GetPath() { return myPath; }
-		inline const std::string& GetName() { return myName; }
-		inline EditorFileType GetType() { return myType; }
+
+		EditorFileInteraction BeginDisplayBox(
+			KE::TextureLoader* aTextureLoader) const;
+		EditorFileInteraction DisplayIcon(
+			KE::TextureLoader* aTextureLoader) const;
+
+		inline const std::string& GetPath() {
+			return myPath;
+		}
+		inline const std::string& GetName() {
+			return myName;
+		}
+		inline EditorFileType GetType() {
+			return myType;
+		}
 
 		void DisplayName() const;
 	};
 
-}
+}  // namespace KE_EDITOR

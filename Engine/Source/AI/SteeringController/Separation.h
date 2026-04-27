@@ -1,17 +1,12 @@
 #pragma once
 
-class Separation
-{
+class Separation {
 public:
-	Separation(Kinematic& aCharacter) : character(aCharacter)
-	{
-
-	}
+	Separation(Kinematic& aCharacter) : character(aCharacter) {}
 	~Separation() {}
 
 	// [TODO] Needs to get hands on units to separate from.
-	SteeringOutput GetSteering(/* WorldInterface? */)
-	{
+	SteeringOutput GetSteering(/* WorldInterface? */) {
 		SteeringOutput result;
 
 		return result;

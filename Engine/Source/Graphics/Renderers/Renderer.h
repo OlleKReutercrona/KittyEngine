@@ -1,14 +1,15 @@
 #pragma once
 
-namespace KE
-{
+namespace KE {
 	class Graphics;
 
-	class Renderer
-	{
+	class Renderer {
 	protected:
 		Graphics* myGraphics;
+
 	public:
-		void Init(Graphics* aGraphics) { myGraphics = aGraphics; };
+		void Init(Graphics* aGraphics) {
+			myGraphics = aGraphics;
+		};
 	};
-}
+}  // namespace KE

@@ -1,17 +1,14 @@
 ﻿#pragma once
 #include "Engine/Source/ComponentSystem/Components/Component.h"
 
-namespace KE
-{
+namespace KE {
 	class DecalManager;
 
-	struct DecalComponentData
-	{
+	struct DecalComponentData {
 		int myDecalIndex;
 	};
 
-	class DecalComponent : public Component
-	{
+	class DecalComponent : public Component {
 		KE_EDITOR_FRIEND
 	private:
 		int myDecalIndex;
@@ -33,4 +30,4 @@ namespace KE
 		void DrawDebug(KE::DebugRenderer& aDbg) override;
 	};
 
-}
+}  // namespace KE

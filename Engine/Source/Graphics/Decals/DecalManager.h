@@ -1,34 +1,25 @@
 ﻿#pragma once
 #include "Engine/Source/Math/Transform.h"
 
-namespace KE
-{
+namespace KE {
 	class GBuffer;
 }
 
-namespace KE
-{
+namespace KE {
 	struct MeshList;
 	class Graphics;
 	struct Material;
 
-	enum class DecalActiveState: unsigned char
-	{
-		Active,
-		Inactive,
-		Destroyed
-	};
+	enum class DecalActiveState : unsigned char { Active, Inactive, Destroyed };
 
-	struct Decal
-	{
+	struct Decal {
 		Material* myMaterial;
 		Transform myTransform;
 		DecalActiveState myActiveState;
 		Vector4f myTextureIntensities;
 	};
 
-	class DecalManager
-	{
+	class DecalManager {
 	private:
 		std::vector<Decal> myDecals;
 		std::vector<unsigned int> myFreeDecalIndices;
@@ -43,9 +34,12 @@ namespace KE
 		int CreateDecal(Material* aMaterial, const Transform& aTransform);
 		void DestroyDecal(int aIndex);
 		Decal* GetDecal(int aIndex);
-		const std::vector<Decal>& GetDecals() { return myDecals; }
-		void PrepareDecalRendering(Graphics* aGraphics, GBuffer* aWorkingGBuffer, GBuffer* aCopyGBuffer);
-
+		const std::vector<Decal>& GetDecals() {
+			return myDecals;
+		}
+		void PrepareDecalRendering(Graphics* aGraphics,
+								   GBuffer* aWorkingGBuffer,
+								   GBuffer* aCopyGBuffer);
 	};
 
-}
+}  // namespace KE

@@ -1,28 +1,22 @@
 #pragma once
-#include "Engine/Source/Utility/Tags.h"
-#include "Engine/Source/ComponentSystem/Components/Component.h"
-#include "Engine/Source/Math/Transform.h"
-
-
-#include <vector>
+#include <Editor/Source/EditorInterface.h>
 #include <string>
-
-#include <type_traits> // inkludar denna 
+#include <type_traits>	// inkludar denna
 #include <typeinfo>
+#include <vector>
 
 #include "Engine/Source/Collision/Layers.h"
+#include "Engine/Source/ComponentSystem/Components/Component.h"
+#include "Engine/Source/Math/Transform.h"
+#include "Engine/Source/Utility/Tags.h"
 
-#include <Editor/Source/EditorInterface.h>
-
-namespace KE
-{
+namespace KE {
 	struct CollisionData;
 	struct PhysXCollisionData;
 	class GameObjectManager;
 	class DebugRenderer;
 
-	class GameObject
-	{
+	class GameObject {
 		friend class CollisionHandler;
 		friend class BoxColliderComponent;
 		friend class SphereColliderComponent;
@@ -35,49 +29,61 @@ namespace KE
 		Tags myTag = Tags::Untagged;
 		Collision::Layers myLayer = Collision::Layers::Default;
 
-		operator int() { return myID; }
-		operator std::string() { return name; }
+		operator int() {
+			return myID;
+		}
+		operator std::string() {
+			return name;
+		}
 
-		template<class ComponentType>
+		template <class ComponentType>
 		ComponentType& GetComponent();
 
-		template<class ComponentType>
+		template <class ComponentType>
 		inline std::vector<ComponentType*> GetComponents();
 
-		template<class ComponentType>
+		template <class ComponentType>
 		bool TryGetComponent(OUT ComponentType*& anOutComponent);
 
-		template<class Type>
+		template <class Type>
 		KE::Component* GetComponentOfType();
 
-		template<class ComponentType>
+		template <class ComponentType>
 		ComponentType* AddComponent();
 
-		template<class ComponentType>
+		template <class ComponentType>
 		ComponentType* AddComponent(void* someData);
 
-		template<class ComponentType>
+		template <class ComponentType>
 		bool RemoveComponent();
 
-		template<class ComponentType>
+		template <class ComponentType>
 		bool HasComponent();
 
-		inline bool IsStatic() { return isStatic; }
-		inline bool IsActive() { return isActive; };
+		inline bool IsStatic() {
+			return isStatic;
+		}
+		inline bool IsActive() {
+			return isActive;
+		};
 		void SetActive(const bool aValue);
-		inline void SetName(const std::string& aName)
-		{
+		inline void SetName(const std::string& aName) {
 			name = aName;
 		}
-		inline const std::string& GetName() const
-		{
+		inline const std::string& GetName() const {
 			return name;
 		}
 		GameObjectManager& GetManager();
 
-		inline const std::vector<Component*>& GetComponentsRaw() { return myComponents; }
-		inline const std::vector<GameObject*>& GetChildren() { return myChildren; }
-		inline GameObject* GetParent() const { return myParent; }
+		inline const std::vector<Component*>& GetComponentsRaw() {
+			return myComponents;
+		}
+		inline const std::vector<GameObject*>& GetChildren() {
+			return myChildren;
+		}
+		inline GameObject* GetParent() const {
+			return myParent;
+		}
 
 		~GameObject();
 
@@ -87,8 +93,8 @@ namespace KE
 		friend class GameObjectCollisionInterface;
 		KE_EDITOR_FRIEND
 
-
-		GameObject(const int anID, const bool aIsStatic, GameObjectManager& aManager);
+		GameObject(const int anID, const bool aIsStatic,
+				   GameObjectManager& aManager);
 
 		void CalculateWorldTransform();
 		void UpdateTransforms();
@@ -105,7 +111,7 @@ namespace KE
 		void OnCollisionEnter(const CollisionData& aCollisionData);
 		void OnCollisionStay(const CollisionData& aCollisionData);
 		void OnCollisionExit(const CollisionData& aCollisionData);
-		
+
 		void OnTriggerEnter(const CollisionData& aCollisionData);
 		void OnTriggerStay(const CollisionData& aCollisionData);
 		void OnTriggerExit(const CollisionData& aCollisionData);
@@ -129,54 +135,49 @@ namespace KE
 		std::vector<GameObject*> myChildren;
 	};
 
-	template<class ComponentType>
-	inline ComponentType& GameObject::GetComponent()
-	{
-		static_assert(std::is_base_of<Component, ComponentType>::value, "Type must inherit from Component");
+	template <class ComponentType>
+	inline ComponentType& GameObject::GetComponent() {
+		static_assert(std::is_base_of<Component, ComponentType>::value,
+					  "Type must inherit from Component");
 
 		ComponentType* t = nullptr;
 
-		for (size_t i = 0; i < myComponents.size(); i++)
-		{
+		for (size_t i = 0; i < myComponents.size(); i++) {
 			t = dynamic_cast<ComponentType*>(myComponents[i]);
-			if (t != nullptr)
-			{
+			if (t != nullptr) {
 				break;
 			}
 		}
 		return *t;
 	}
 
-	template<class ComponentType>
-	inline std::vector<ComponentType*> GameObject::GetComponents()
-	{
-		static_assert(std::is_base_of<Component, ComponentType>::value, "Type must inherit from Component");
+	template <class ComponentType>
+	inline std::vector<ComponentType*> GameObject::GetComponents() {
+		static_assert(std::is_base_of<Component, ComponentType>::value,
+					  "Type must inherit from Component");
 
 		std::vector<ComponentType*> myList;
 
-		for (size_t i = 0; i < myComponents.size(); i++)
-		{
+		for (size_t i = 0; i < myComponents.size(); i++) {
 			ComponentType* t = dynamic_cast<ComponentType*>(myComponents[i]);
-			if (t != nullptr)
-			{
+			if (t != nullptr) {
 				myList.push_back(t);
 			}
 		}
 		return myList;
 	}
 
-	template<class ComponentType>
-	inline bool GameObject::TryGetComponent(OUT ComponentType*& anOutComponent)
-	{
-		static_assert(std::is_base_of<Component, ComponentType>::value, "Type must inherit from Component");
+	template <class ComponentType>
+	inline bool GameObject::TryGetComponent(
+		OUT ComponentType*& anOutComponent) {
+		static_assert(std::is_base_of<Component, ComponentType>::value,
+					  "Type must inherit from Component");
 
 		ComponentType* t = nullptr;
 
-		for (size_t i = 0; i < myComponents.size(); i++)
-		{
+		for (size_t i = 0; i < myComponents.size(); i++) {
 			t = dynamic_cast<ComponentType*>(myComponents[i]);
-			if (t != nullptr)
-			{
+			if (t != nullptr) {
 				anOutComponent = (ComponentType*)&*myComponents[i];
 				return true;
 			}
@@ -185,14 +186,11 @@ namespace KE
 		return false;
 	}
 
-	template<class Type>
-	inline KE::Component* GameObject::GetComponentOfType()
-	{
-		for (int i = 0; i < myComponents.size(); i++)
-		{
+	template <class Type>
+	inline KE::Component* GameObject::GetComponentOfType() {
+		for (int i = 0; i < myComponents.size(); i++) {
 			Type* t = (Type*)myComponents[i];
-			if (t != nullptr)
-			{
+			if (t != nullptr) {
 				return myComponents[i];
 			}
 		}
@@ -200,21 +198,20 @@ namespace KE
 		return nullptr;
 	}
 
-	template<class ComponentType>
-	inline ComponentType* GameObject::AddComponent()
-	{
-		static_assert(std::is_base_of<Component, ComponentType>::value, "Type must inherit from Component");
+	template <class ComponentType>
+	inline ComponentType* GameObject::AddComponent() {
+		static_assert(std::is_base_of<Component, ComponentType>::value,
+					  "Type must inherit from Component");
 
 		myComponents.emplace_back(new ComponentType(*this));
 
 		return static_cast<ComponentType*>(myComponents.back());
 	}
 
-
-	template<class ComponentType>
-	inline ComponentType* GameObject::AddComponent(void* someData)
-	{
-		static_assert(std::is_base_of<Component, ComponentType>::value, "Type must inherit from Component");
+	template <class ComponentType>
+	inline ComponentType* GameObject::AddComponent(void* someData) {
+		static_assert(std::is_base_of<Component, ComponentType>::value,
+					  "Type must inherit from Component");
 
 		auto& component = myComponents.emplace_back(new ComponentType(*this));
 
@@ -223,19 +220,16 @@ namespace KE
 		return static_cast<ComponentType*>(myComponents.back());
 	}
 
-
-	template<class ComponentType>
-	inline bool GameObject::RemoveComponent()
-	{
-		static_assert(std::is_base_of<Component, ComponentType>::value, "Type must inherit from Component");
+	template <class ComponentType>
+	inline bool GameObject::RemoveComponent() {
+		static_assert(std::is_base_of<Component, ComponentType>::value,
+					  "Type must inherit from Component");
 
 		ComponentType* t = nullptr;
 
-		for (size_t i = 0; i < myComponents.size(); i++)
-		{
+		for (size_t i = 0; i < myComponents.size(); i++) {
 			t = dynamic_cast<ComponentType*>(myComponents[i]);
-			if (t != nullptr)
-			{
+			if (t != nullptr) {
 				myComponents[i]->OnDestroy();
 
 				delete myComponents[i];
@@ -249,20 +243,18 @@ namespace KE
 		return false;
 	}
 
-	template<class ComponentType>
-	inline bool GameObject::HasComponent()
-	{
-		static_assert(std::is_base_of<Component, ComponentType>::value, "Type must inherit from Component");
+	template <class ComponentType>
+	inline bool GameObject::HasComponent() {
+		static_assert(std::is_base_of<Component, ComponentType>::value,
+					  "Type must inherit from Component");
 
 		const std::type_info& type = typeid(ComponentType);
-		for (size_t i = 0; i < myComponents.size(); i++)
-		{
-			if (type == typeid(*myComponents[i]))
-			{
+		for (size_t i = 0; i < myComponents.size(); i++) {
+			if (type == typeid(*myComponents[i])) {
 				return true;
 			}
 		}
 
 		return false;
 	}
-}	 
+}  // namespace KE

@@ -1,18 +1,16 @@
 #pragma once
 #include <vector>
 
-#include "Lighting.h"
 #include "Engine/Source/ComponentSystem/Components/LightComponent.h"
+#include "Lighting.h"
 
-namespace KE
-{
+namespace KE {
 	enum class eLightType;
 
-	//constexpr float unityLightIntensityMultiplier = 2.0f;
-	//constexpr float unityLightRangeMultiplier = 2.0f;
+	// constexpr float unityLightIntensityMultiplier = 2.0f;
+	// constexpr float unityLightRangeMultiplier = 2.0f;
 
-	class LightManager
-	{
+	class LightManager {
 	public:
 		LightManager(ID3D11Device* aDevice, UINT aSlot = 0u);
 		~LightManager();
@@ -37,4 +35,4 @@ namespace KE
 		std::vector<LightData*> myLightData = {};
 		DirectionalLightData myDirectionalLightData;
 	};
-}
+}  // namespace KE

@@ -1,7 +1,6 @@
 #pragma once
 
-struct SharedKinematicData
-{
+struct SharedKinematicData {
 	float maxRotation = 5.0f;
 	float maxAcceleration = 15.0f;
 	float maxAngularForce = 25.0f;

@@ -1,13 +1,12 @@
 #pragma once
+#include <chrono>
 #include <string>
 #include <unordered_map>
-#include <chrono>
 
-namespace KE
-{
-	struct LoggedVar
-	{
-		LoggedVar(const std::string& aName, LoggedVar* aParent = nullptr) : myName(aName), myParent(aParent) {};
+namespace KE {
+	struct LoggedVar {
+		LoggedVar(const std::string& aName, LoggedVar* aParent = nullptr)
+			: myName(aName), myParent(aParent) {};
 
 		std::string myName = "";
 		std::chrono::high_resolution_clock::time_point myBeginTime;
@@ -15,11 +14,9 @@ namespace KE
 
 		LoggedVar* myParent = nullptr;
 		std::unordered_map<std::string, LoggedVar> myChildren = {};
-
 	};
 
-	class DebugTimeLogger
-	{
+	class DebugTimeLogger {
 	public:
 		static void BeginLogVar(const std::string& aString);
 		static void EndLogVar(const std::string& aString);
@@ -28,17 +25,15 @@ namespace KE
 		static int GetAvarageFPS();
 
 		static inline std::unordered_map<std::string, LoggedVar> myHeads;
+
 	private:
 		static inline LoggedVar* myCurrentParent;
 	};
 
-	inline void DebugTimeLogger::BeginLogVar(const std::string& aString)
-	{
-		if (myCurrentParent == nullptr)
-		{
+	inline void DebugTimeLogger::BeginLogVar(const std::string& aString) {
+		if (myCurrentParent == nullptr) {
 			// if new Var, create
-			if (myHeads.count(aString) == 0)
-			{
+			if (myHeads.count(aString) == 0) {
 				myHeads.insert(std::pair(aString, LoggedVar(aString)));
 			}
 
@@ -49,25 +44,27 @@ namespace KE
 			return;
 		}
 
-
-		if (myCurrentParent->myChildren.count(aString) == 0)
-		{
-			myCurrentParent->myChildren.insert(std::pair(aString, LoggedVar(aString, myCurrentParent)));
+		if (myCurrentParent->myChildren.count(aString) == 0) {
+			myCurrentParent->myChildren.insert(
+				std::pair(aString, LoggedVar(aString, myCurrentParent)));
 		}
 		LoggedVar* var = &myCurrentParent->myChildren.at(aString);
 
 		var->myBeginTime = std::chrono::high_resolution_clock::now();
-		
+
 		myCurrentParent = var;
 	}
 
-	inline void DebugTimeLogger::EndLogVar(const std::string& aString)
-	{
-		if (myCurrentParent != nullptr && myCurrentParent->myName == aString)
-		{
+	inline void DebugTimeLogger::EndLogVar(const std::string& aString) {
+		if (myCurrentParent != nullptr && myCurrentParent->myName == aString) {
 			// LogVar is parent node
 
-			myCurrentParent->myTime = std::chrono::duration_cast<std::chrono::duration<float>>(std::chrono::high_resolution_clock::now() - myCurrentParent->myBeginTime).count() * 1000.0f;
+			myCurrentParent->myTime =
+				std::chrono::duration_cast<std::chrono::duration<float>>(
+					std::chrono::high_resolution_clock::now() -
+					myCurrentParent->myBeginTime)
+					.count() *
+				1000.0f;
 
 			myCurrentParent = myCurrentParent->myParent;
 
@@ -77,7 +74,11 @@ namespace KE
 		// LogVar is not parent node
 
 		LoggedVar* var = &myCurrentParent->myChildren.at(aString);
-		var->myTime = std::chrono::duration_cast<std::chrono::duration<float>>(std::chrono::high_resolution_clock::now() - var->myBeginTime).count() * 1000.0f;
+		var->myTime =
+			std::chrono::duration_cast<std::chrono::duration<float>>(
+				std::chrono::high_resolution_clock::now() - var->myBeginTime)
+				.count() *
+			1000.0f;
 		myCurrentParent = myCurrentParent->myParent;
 	}
-}
+}  // namespace KE

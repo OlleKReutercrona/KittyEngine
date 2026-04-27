@@ -1,40 +1,36 @@
 #include "stdafx.h"
-#include "Gamepad.h"
+
 #include <cassert>
+
+#include "Gamepad.h"
 
 #pragma comment(lib, "Xinput.lib")
 
-namespace KE
-{
+namespace KE {
 
-	Gamepad::Gamepad()
-	{
-	}
+	Gamepad::Gamepad() {}
 
-	Gamepad::Gamepad(int aIndex)
-	{
+	Gamepad::Gamepad(int aIndex) {
 		myGamepadIndex = aIndex;
 
 		myCurrentButtonStates.reset();
 		myPreviousButtonStates.reset();
 	}
 
-	Gamepad::~Gamepad()
-	{
+	Gamepad::~Gamepad() {
 		// Stop vibration
 		Rumble(0.0f, 0.0f);
 	}
 
-	void Gamepad::SetRumble(float aLeftMotor, float aRightMotor, float aDuration, RumbleType aRumbleType)
-	{
+	void Gamepad::SetRumble(float aLeftMotor, float aRightMotor,
+							float aDuration, RumbleType aRumbleType) {
 		myRumbleType = aRumbleType;
 		myRumbleDuration = aDuration;
 		myRumbleLeftMotor = aLeftMotor;
 		myRumbleRightMotor = aRightMotor;
 	}
 
-	XINPUT_STATE Gamepad::GetState()
-	{
+	XINPUT_STATE Gamepad::GetState() {
 		XINPUT_STATE GamepadState;
 		ZeroMemory(&GamepadState, sizeof(XINPUT_STATE));
 
@@ -43,8 +39,7 @@ namespace KE
 		return GamepadState;
 	}
 
-	void Gamepad::Update()
-	{
+	void Gamepad::Update() {
 		myState = GetState();
 
 		// Update button states
@@ -54,39 +49,31 @@ namespace KE
 		myCurrentButtonStates = myLiveButtonStates;
 
 		// Update rumble
-		switch (myRumbleType)
-		{
-		case RumbleType::Stop:
-		{
-			Rumble(0.0f, 0.0f);
-			myRumbleType = RumbleType::None;
-			break;
-		}
-		case RumbleType::Timed:
-		{
-			myRumbleTimer += KE_GLOBAL::trueDeltaTime;
-
-			if (myRumbleTimer >= myRumbleDuration)
-			{
-				myRumbleType = RumbleType::Stop;
-				myRumbleTimer = 0.0f;
+		switch (myRumbleType) {
+			case RumbleType::Stop: {
 				Rumble(0.0f, 0.0f);
+				myRumbleType = RumbleType::None;
+				break;
 			}
-			else
-			{
-				Rumble(myRumbleLeftMotor, myRumbleRightMotor);
+			case RumbleType::Timed: {
+				myRumbleTimer += KE_GLOBAL::trueDeltaTime;
+
+				if (myRumbleTimer >= myRumbleDuration) {
+					myRumbleType = RumbleType::Stop;
+					myRumbleTimer = 0.0f;
+					Rumble(0.0f, 0.0f);
+				} else {
+					Rumble(myRumbleLeftMotor, myRumbleRightMotor);
+				}
+				break;
 			}
-			break;
-		}
-		default:
-			break;
+			default:
+				break;
 		}
 	}
 
-	void Gamepad::UpdateButtonStates()
-	{
-		for (int i = 0; i < MAX_BUTTONS; i++)
-		{
+	void Gamepad::UpdateButtonStates() {
+		for (int i = 0; i < MAX_BUTTONS; i++) {
 			myLiveButtonStates[i] = GetButtonState(i);
 		}
 
@@ -98,8 +85,7 @@ namespace KE
 		UpdateRightTrigger();
 	}
 
-	bool Gamepad::LStickInDeadzone()
-	{
+	bool Gamepad::LStickInDeadzone() {
 		// Obtain the X & Y axes of the stick
 		short sX = myState.Gamepad.sThumbLX;
 		short sY = myState.Gamepad.sThumbLY;
@@ -118,8 +104,7 @@ namespace KE
 		return true;
 	}
 
-	bool Gamepad::RStickInDeadzone()
-	{
+	bool Gamepad::RStickInDeadzone() {
 		// Obtain the X & Y axes of the stick
 		short sX = myState.Gamepad.sThumbRX;
 		short sY = myState.Gamepad.sThumbRY;
@@ -138,8 +123,7 @@ namespace KE
 		return true;
 	}
 
-	float Gamepad::UpdateLeftStickX()
-	{
+	float Gamepad::UpdateLeftStickX() {
 		myPrevThumbLX = myThumbLX;
 		myThumbLX = myState.Gamepad.sThumbLX;
 
@@ -147,8 +131,7 @@ namespace KE
 		return (static_cast<float>(myThumbLX) / 32768.0f);
 	}
 
-	float Gamepad::UpdateLeftStickY()
-	{
+	float Gamepad::UpdateLeftStickY() {
 		myPrevThumbLY = myThumbLY;
 		myThumbLY = myState.Gamepad.sThumbLY;
 
@@ -156,8 +139,7 @@ namespace KE
 		return (static_cast<float>(myThumbLY) / 32768.0f);
 	}
 
-	float Gamepad::UpdateRightStickX()
-	{
+	float Gamepad::UpdateRightStickX() {
 		myPrevThumbRX = myThumbRX;
 		myThumbRX = myState.Gamepad.sThumbRX;
 
@@ -165,8 +147,7 @@ namespace KE
 		return (static_cast<float>(myThumbRX) / 32768.0f);
 	}
 
-	float Gamepad::UpdateRightStickY()
-	{
+	float Gamepad::UpdateRightStickY() {
 		myPrevThumbRY = myThumbRY;
 		myThumbRY = myState.Gamepad.sThumbRY;
 
@@ -174,12 +155,10 @@ namespace KE
 		return (static_cast<float>(myThumbRY) / 32768.0f);
 	}
 
-	float Gamepad::UpdateLeftTrigger()
-	{
+	float Gamepad::UpdateLeftTrigger() {
 		BYTE trigger = myState.Gamepad.bLeftTrigger;
 
-		if (trigger > XINPUT_GAMEPAD_TRIGGER_THRESHOLD)
-		{
+		if (trigger > XINPUT_GAMEPAD_TRIGGER_THRESHOLD) {
 			myPrevTriggerL = myTriggerL;
 			myTriggerL = trigger;
 			return myTriggerL / 255.0f;
@@ -188,12 +167,10 @@ namespace KE
 		return 0.0f;
 	}
 
-	float Gamepad::UpdateRightTrigger()
-	{
+	float Gamepad::UpdateRightTrigger() {
 		BYTE trigger = myState.Gamepad.bRightTrigger;
 
-		if (trigger > XINPUT_GAMEPAD_TRIGGER_THRESHOLD)
-		{
+		if (trigger > XINPUT_GAMEPAD_TRIGGER_THRESHOLD) {
 			myPrevTriggerR = myTriggerR;
 			myTriggerR = trigger;
 			return myTriggerR / 255.0f;
@@ -202,58 +179,50 @@ namespace KE
 		return 0.0f;
 	}
 
-	bool Gamepad::GetButtonState(int aButton)
-	{
-		if (myState.Gamepad.wButtons & XINPUT_BUTTONS[aButton])
-		{
+	bool Gamepad::GetButtonState(int aButton) {
+		if (myState.Gamepad.wButtons & XINPUT_BUTTONS[aButton]) {
 			return true;
 		}
 
 		return false;
 	}
 
-	bool Gamepad::IsButtonPressed(int aButton)
-	{
-		if (aButton < 0 || aButton >= MAX_BUTTONS)
-		{
+	bool Gamepad::IsButtonPressed(int aButton) {
+		if (aButton < 0 || aButton >= MAX_BUTTONS) {
 			return false;
 		}
 
-		return !myPreviousButtonStates[aButton] && myCurrentButtonStates[aButton];
+		return !myPreviousButtonStates[aButton] &&
+			   myCurrentButtonStates[aButton];
 	}
 
-	bool Gamepad::IsButtonDown(int aButton)
-	{
-		if (aButton < 0 || aButton >= MAX_BUTTONS)
-		{
+	bool Gamepad::IsButtonDown(int aButton) {
+		if (aButton < 0 || aButton >= MAX_BUTTONS) {
 			return false;
 		}
 
 		return myCurrentButtonStates[aButton];
 	}
 
-	bool Gamepad::IsButtonHeld(int aButton)
-	{
-		if (aButton < 0 || aButton >= MAX_BUTTONS)
-		{
+	bool Gamepad::IsButtonHeld(int aButton) {
+		if (aButton < 0 || aButton >= MAX_BUTTONS) {
 			return false;
 		}
 
-		return myPreviousButtonStates[aButton] && myCurrentButtonStates[aButton];
+		return myPreviousButtonStates[aButton] &&
+			   myCurrentButtonStates[aButton];
 	}
 
-	bool Gamepad::IsButtonReleased(int aButton)
-	{
-		if (aButton < 0 || aButton >= MAX_BUTTONS)
-		{
+	bool Gamepad::IsButtonReleased(int aButton) {
+		if (aButton < 0 || aButton >= MAX_BUTTONS) {
 			return false;
 		}
 
-		return myPreviousButtonStates[aButton] && !myCurrentButtonStates[aButton];
+		return myPreviousButtonStates[aButton] &&
+			   !myCurrentButtonStates[aButton];
 	}
 
-	bool Gamepad::IsLeftStickToggled()
-	{
+	bool Gamepad::IsLeftStickToggled() {
 		myLeftStickToggledUp = false;
 		myLeftStickToggledDown = false;
 		myLeftStickToggledLeft = false;
@@ -265,39 +234,37 @@ namespace KE
 		float prevThumbLY = static_cast<float>(myPrevThumbLY) / 32768.0f;
 
 		// Up
-		if (prevThumbLY < myThumbToggleLimit && thumbLY > myThumbToggleLimit)
-		{
+		if (prevThumbLY < myThumbToggleLimit && thumbLY > myThumbToggleLimit) {
 			myLeftStickToggledUp = true;
-			//std::cout << "\nLeft stick toggled up";
+			// std::cout << "\nLeft stick toggled up";
 			return true;
 		}
 		// Down
-		else if (prevThumbLY > -myThumbToggleLimit && thumbLY < -myThumbToggleLimit)
-		{
+		else if (prevThumbLY > -myThumbToggleLimit &&
+				 thumbLY < -myThumbToggleLimit) {
 			myLeftStickToggledDown = true;
-			//std::cout << "\nLeft stick toggled down";
+			// std::cout << "\nLeft stick toggled down";
 			return true;
 		}
-		//Left
-		else if (prevThumbLX > -myThumbToggleLimit && thumbLX < -myThumbToggleLimit)
-		{
+		// Left
+		else if (prevThumbLX > -myThumbToggleLimit &&
+				 thumbLX < -myThumbToggleLimit) {
 			myLeftStickToggledLeft = true;
-			//std::cout << "\nLeft stick toggled left";
+			// std::cout << "\nLeft stick toggled left";
 			return true;
 		}
 		// Right
-		else if (prevThumbLX < myThumbToggleLimit && thumbLX > myThumbToggleLimit)
-		{
+		else if (prevThumbLX < myThumbToggleLimit &&
+				 thumbLX > myThumbToggleLimit) {
 			myLeftStickToggledRight = true;
-			//std::cout << "\nLeft stick toggled right";
+			// std::cout << "\nLeft stick toggled right";
 			return true;
 		}
 
 		return false;
 	}
 
-	void Gamepad::Rumble(float aLeftMotor, float aRightMotor)
-	{
+	void Gamepad::Rumble(float aLeftMotor, float aRightMotor) {
 		// Vibration state
 		XINPUT_VIBRATION VibrationState;
 
@@ -316,40 +283,34 @@ namespace KE
 		XInputSetState(myGamepadIndex, &VibrationState);
 	}
 
-	int Gamepad::GetIndex()
-	{
+	int Gamepad::GetIndex() {
 		return myGamepadIndex;
 	}
 
-	bool Gamepad::IsConnected()
-	{
+	bool Gamepad::IsConnected() {
 		ZeroMemory(&myState, sizeof(XINPUT_STATE));
 
 		DWORD result = XInputGetState(myGamepadIndex, &myState);
 
-		if (result == ERROR_SUCCESS)
-		{
+		if (result == ERROR_SUCCESS) {
 			UpdateConnectionStatus(true);
 			return true;
-		}
-		else
-		{
+		} else {
 			UpdateConnectionStatus(false);
 			return false;
 		}
 	}
 
-	void Gamepad::UpdateConnectionStatus(bool aConnected)
-	{
-		if (aConnected && myConnectionStatus != ConnectionStatus::Connected)
-		{
-			std::string text = "Controller " + std::to_string(myGamepadIndex) + " connected";
+	void Gamepad::UpdateConnectionStatus(bool aConnected) {
+		if (aConnected && myConnectionStatus != ConnectionStatus::Connected) {
+			std::string text =
+				"Controller " + std::to_string(myGamepadIndex) + " connected";
 			KE_LOG(text.c_str());
 			myConnectionStatus = ConnectionStatus::Connected;
-		}
-		else if (!aConnected && myConnectionStatus != ConnectionStatus::Disconnected)
-		{
-			std::string text = "Controller " + std::to_string(myGamepadIndex) + " disconnected";
+		} else if (!aConnected &&
+				   myConnectionStatus != ConnectionStatus::Disconnected) {
+			std::string text = "Controller " + std::to_string(myGamepadIndex) +
+							   " disconnected";
 			KE_LOG(text.c_str());
 			myConnectionStatus = ConnectionStatus::Disconnected;
 		}
@@ -357,8 +318,7 @@ namespace KE
 
 	XButtonIDs XButtons;
 
-	XButtonIDs::XButtonIDs()
-	{
+	XButtonIDs::XButtonIDs() {
 		// These values are used to index the XINPUT_Buttons array,
 		// accessing the matching XINPUT button value
 
@@ -386,4 +346,4 @@ namespace KE
 		LStick = 16;
 		RStick = 17;
 	}
-}
+}  // namespace KE

@@ -1,15 +1,15 @@
 #pragma once
-#include "Engine/Source/Graphics/Particle/ParticleEmitter.h"
-
 #include <Editor/Source/EditorInterface.h>
-#include "Engine/Source/Math/KittyMath.h"
+
+#include "Engine/Source/Graphics/Particle/ParticleEmitter.h"
 #include "Engine/Source/Graphics/PostProcessing.h"
 #include "Engine/Source/Graphics/Renderers/BasicRenderer.h"
+#include "Engine/Source/Math/KittyMath.h"
 
-namespace KE
-{
+namespace KE {
 	constexpr int VFX_SEQUENCE_FRAME_RATE = 120;
-	constexpr const char* VFX_SEQUENCE_FILE_LOCATION = "Data/InternalAssets/VFXSequences/";
+	constexpr const char* VFX_SEQUENCE_FILE_LOCATION =
+		"Data/InternalAssets/VFXSequences/";
 
 	class ParticleEmitter;
 	class SpriteManager;
@@ -18,8 +18,7 @@ namespace KE
 	class VFXMeshInstance;
 	class VFXManager;
 
-	struct fxBuffer
-	{
+	struct fxBuffer {
 		Vector4f colour;
 		Vector2f uvOffset;
 
@@ -27,27 +26,25 @@ namespace KE
 		Vector4f bloomAttributes;
 	};
 
-	enum class VFXType : int
-	{
+	enum class VFXType : int {
 		ParticleEmitter,
 		VFXMeshInstance,
 
 		Count
 	};
 
-	enum class VFXAttributeTypes
-	{
+	enum class VFXAttributeTypes {
 		UV_X_SCROLL,
 		UV_Y_SCROLL,
-		
+
 		TRANSLATION_X,
 		TRANSLATION_Y,
 		TRANSLATION_Z,
-		
+
 		ROTATION_X,
 		ROTATION_Y,
 		ROTATION_Z,
-		
+
 		SCALE_X,
 		SCALE_Y,
 		SCALE_Z,
@@ -64,74 +61,56 @@ namespace KE
 		Count
 	};
 
+	static const char* VFXAttributeTypeNames[(int)VFXAttributeTypes::Count] = {
+		"UV Offset: X",	  "UV Offset: Y",
 
+		"Translation: X", "Translation: Y", "Translation: Z",
 
-	static const char* VFXAttributeTypeNames[(int)VFXAttributeTypes::Count] =
-	{
-		"UV Offset: X",
-		"UV Offset: Y",
-		
-		"Translation: X",
-		"Translation: Y",
-		"Translation: Z",
+		"Rotation: X",	  "Rotation: Y",	"Rotation: Z",
 
-		"Rotation: X",
-		"Rotation: Y",
-		"Rotation: Z",
+		"Scale: X",		  "Scale: Y",		"Scale: Z",
 
-		"Scale: X",
-		"Scale: Y",
-		"Scale: Z",
+		"Colour: R",	  "Colour: G",		"Colour: B",	  "Colour: A",
 
-		"Colour: R",
-		"Colour: G",
-		"Colour: B",
-		"Colour: A",
+		"UV Scale: X",	  "UV Scale: Y"};
 
-		"UV Scale: X",
-		"UV Scale: Y"
-	};
+	static const Vector3f VFXCurveDefaults[(int)VFXAttributeTypes::Count] = {
+		{0.0f, 1.0f, 0.5f},	 // UV_X_SCROLL
+		{0.0f, 1.0f, 0.5f},	 // UV_Y_SCROLL
 
-	static const Vector3f VFXCurveDefaults[(int)VFXAttributeTypes::Count] =
-	{
-		{0.0f, 1.0f, 0.5f  }, //UV_X_SCROLL
-		{0.0f, 1.0f, 0.5f  }, //UV_Y_SCROLL
+		{-1.0f, 1.0f, 0.5f},  // TRANSLATION_X
+		{-1.0f, 1.0f, 0.5f},  // TRANSLATION_Y
+		{-1.0f, 1.0f, 0.5f},  // TRANSLATION_Z
 
-		{-1.0f, 1.0f, 0.5f }, //TRANSLATION_X
-		{-1.0f, 1.0f, 0.5f }, //TRANSLATION_Y
-		{-1.0f, 1.0f, 0.5f }, //TRANSLATION_Z
+		{0.0f, 360.0f, 0.5f},  // ROTATION_X
+		{0.0f, 360.0f, 0.5f},  // ROTATION_Y
+		{0.0f, 360.0f, 0.5f},  // ROTATION_Z
 
-		{0.0f, 360.0f, 0.5f }, //ROTATION_X
-		{0.0f, 360.0f, 0.5f }, //ROTATION_Y
-		{0.0f, 360.0f, 0.5f }, //ROTATION_Z
+		{-1.0f, 1.0f, 0.5f},  // SCALE_X
+		{-1.0f, 1.0f, 0.5f},  // SCALE_Y
+		{-1.0f, 1.0f, 0.5f},  // SCALE_Z
 
-		{-1.0f, 1.0f, 0.5f }, //SCALE_X
-		{-1.0f, 1.0f, 0.5f }, //SCALE_Y
-		{-1.0f, 1.0f, 0.5f }, //SCALE_Z
+		{0.0f, 1.0f, 0.5f},	 // COLOUR_R
+		{0.0f, 1.0f, 0.5f},	 // COLOUR_G
+		{0.0f, 1.0f, 0.5f},	 // COLOUR_B
+		{0.0f, 1.0f, 0.5f},	 // COLOUR_A
 
-		{0.0f, 1.0f, 0.5f  }, //COLOUR_R
-		{0.0f, 1.0f, 0.5f  }, //COLOUR_G
-		{0.0f, 1.0f, 0.5f  }, //COLOUR_B
-		{0.0f, 1.0f, 0.5f  }, //COLOUR_A
-
-		{0.0f, 1.0f, 0.5f  }, //UV_X_SCALE
-		{0.0f, 1.0f, 0.5f  }, //UV_Y_SCALE
+		{0.0f, 1.0f, 0.5f},	 // UV_X_SCALE
+		{0.0f, 1.0f, 0.5f},	 // UV_Y_SCALE
 
 	};
 
-	enum class VFXCurveProfiles
-	{
+	enum class VFXCurveProfiles {
 		None,
 		Discrete,
 		Linear,
 		Smooth,
-		//Bezier,
+		// Bezier,
 
 		Count
 	};
 
-	static const char* VFXCurveProfileNames[(int)VFXCurveProfiles::Count] =
-	{
+	static const char* VFXCurveProfileNames[(int)VFXCurveProfiles::Count] = {
 		"None",
 		"Discrete",
 		"Linear",
@@ -139,8 +118,7 @@ namespace KE
 		//"Bezier (Broken!)",
 	};
 
-	struct VFXCustomBufferInput
-	{
+	struct VFXCustomBufferInput {
 		CBuffer* constantBuffer = nullptr;
 		void* bufferData = nullptr;
 
@@ -148,88 +126,84 @@ namespace KE
 		int bufferSize = 0;
 	};
 
-	struct VFXCurveDataSet
-	{
+	struct VFXCurveDataSet {
 		VFXAttributeTypes myType = VFXAttributeTypes::Count;
 		VFXCurveProfiles myCurveProfile = VFXCurveProfiles::Smooth;
-		
+
 		float myMinValue = 0.0f;
 		float myMaxValue = 2.0f;
 
 		std::vector<Vector2f> myData;
 		bool visible = true;
 
-		const char* GetName() { return VFXAttributeTypeNames[(int)myType]; }
-		bool IsValid() { return myType != VFXAttributeTypes::Count; }
-		float GetEvaluatedValue(int aFrameIndex, int aFirstFrameIndex, int aLastFrameIndex)
-		{
+		const char* GetName() {
+			return VFXAttributeTypeNames[(int)myType];
+		}
+		bool IsValid() {
+			return myType != VFXAttributeTypes::Count;
+		}
+		float GetEvaluatedValue(int aFrameIndex, int aFirstFrameIndex,
+								int aLastFrameIndex) {
 			float leastTime = myData.front().x;
 			float mostTime = myData.back().x;
-			
-			//scale leastTime and mostTime to be 0->1
-			float frameProgressFraction = (float)(aFrameIndex - aFirstFrameIndex) / (float)(aLastFrameIndex - aFirstFrameIndex);
-			float time = leastTime + (mostTime - leastTime) * frameProgressFraction;
-			
-			//find the two closest points
+
+			// scale leastTime and mostTime to be 0->1
+			float frameProgressFraction =
+				(float)(aFrameIndex - aFirstFrameIndex) /
+				(float)(aLastFrameIndex - aFirstFrameIndex);
+			float time =
+				leastTime + (mostTime - leastTime) * frameProgressFraction;
+
+			// find the two closest points
 			int lowerClosestPoint = -1;
 			int upperClosestPoint = -1;
 
-			for (int i = 0; i < myData.size(); ++i)
-			{
-				if (myData[i].x <= time)
-				{
+			for (int i = 0; i < myData.size(); ++i) {
+				if (myData[i].x <= time) {
 					lowerClosestPoint = i;
-				}
-				else
-				{
+				} else {
 					upperClosestPoint = i;
 					break;
 				}
 			}
-			
-			if (lowerClosestPoint == -1)
-			{
+
+			if (lowerClosestPoint == -1) {
 				return myData[upperClosestPoint].y;
-			}
-			else if (upperClosestPoint == -1)
-			{
+			} else if (upperClosestPoint == -1) {
 				return myData[lowerClosestPoint].y;
-			}
-			else
-			{
+			} else {
 				float lowerTime = myData[lowerClosestPoint].x;
 				float upperTime = myData[upperClosestPoint].x;
 				float lowerValue = myData[lowerClosestPoint].y;
 				float upperValue = myData[upperClosestPoint].y;
-				float timeFraction = (time - lowerTime) / (upperTime - lowerTime);
+				float timeFraction =
+					(time - lowerTime) / (upperTime - lowerTime);
 				float value = 0.0f;
 
-				switch (myCurveProfile)
-				{
-				case VFXCurveProfiles::Linear:
-				{
-					value = lowerValue + (upperValue - lowerValue) * timeFraction;
-					break;
-				}
-				case VFXCurveProfiles::Smooth:
-				{
-					float smoothStep = Smoothstep(timeFraction);
-					value = lowerValue + (upperValue - lowerValue) * smoothStep;
-					break;
-				}
-				//case VFXCurveProfiles::Bezier:
-				//{
-				//	float bezierStep = CubicBezierStep(timeFraction);
-				//	value = lowerValue + (upperValue - lowerValue) * bezierStep;
-				//	break;
-				//}
-				case VFXCurveProfiles::Discrete:
-				{
-					value = lowerValue;
-					break;
-				}
-				default:
-					break;
+				switch (myCurveProfile) {
+					case VFXCurveProfiles::Linear: {
+						value = lowerValue +
+								(upperValue - lowerValue) * timeFraction;
+						break;
+					}
+					case VFXCurveProfiles::Smooth: {
+						float smoothStep = Smoothstep(timeFraction);
+						value =
+							lowerValue + (upperValue - lowerValue) * smoothStep;
+						break;
+					}
+					// case VFXCurveProfiles::Bezier:
+					//{
+					//	float bezierStep = CubicBezierStep(timeFraction);
+					//	value = lowerValue + (upperValue - lowerValue) *
+					//bezierStep; 	break;
+					// }
+					case VFXCurveProfiles::Discrete: {
+						value = lowerValue;
+						break;
+					}
+					default:
+						break;
 				}
 
 				return myMinValue + (myMaxValue - myMinValue) * value;
@@ -237,22 +211,20 @@ namespace KE
 		}
 	};
 
-	struct VFXTimeStamp
-	{
+	struct VFXTimeStamp {
 		int myStartpoint = 0;
 		int myEndpoint = 0;
-		
+
 		int myEffectIndex = 0;
 		VFXType myType = VFXType::Count;
 
 		bool myIsOpened = false;
-		std::array<KE::VFXCurveDataSet, (size_t)KE::VFXAttributeTypes::Count> myCurveDataSets;
+		std::array<KE::VFXCurveDataSet, (size_t)KE::VFXAttributeTypes::Count>
+			myCurveDataSets;
 	};
 
-	struct VFXRenderInput
-	{
-		union
-		{
+	struct VFXRenderInput {
+		union {
 			Transform* myTransform;
 			Transform myStationaryTransform;
 		};
@@ -262,35 +234,36 @@ namespace KE
 		bool looping = false;
 		bool isStationary = false;
 		bool bloom = true;
-		Vector3f scaleOverride = { -1.0f, -1.0f, -1.0f };
+		Vector3f scaleOverride = {-1.0f, -1.0f, -1.0f};
 
 		VFXCustomBufferInput customBufferInput;
 
-		Transform& GetTransform() { if (isStationary) { return myStationaryTransform; } return *myTransform; }
-
-		VFXRenderInput(Transform& aTransform, bool aIsLooping = false, bool aIsStationary = false)
-		{
-			looping = aIsLooping; isStationary = aIsStationary;
-			if (aIsStationary)
-			{
-				myStationaryTransform = aTransform;
+		Transform& GetTransform() {
+			if (isStationary) {
+				return myStationaryTransform;
 			}
-			else
-			{
+			return *myTransform;
+		}
+
+		VFXRenderInput(Transform& aTransform, bool aIsLooping = false,
+					   bool aIsStationary = false) {
+			looping = aIsLooping;
+			isStationary = aIsStationary;
+			if (aIsStationary) {
+				myStationaryTransform = aTransform;
+			} else {
 				myTransform = &aTransform;
 			}
 		}
 	};
 
-	struct VFXEmitter
-	{
+	struct VFXEmitter {
 		ParticleEmitter myEmitter;
 		int myStartFrame = 0;
 		int myEndFrame = 0;
 	};
 
-	struct VFXSequence
-	{
+	struct VFXSequence {
 		std::string myName = "New Sequence";
 		int myDuration = 1 * VFX_SEQUENCE_FRAME_RATE;
 		int myIndex = -1;
@@ -305,8 +278,7 @@ namespace KE
 		void AddParticleEmitter();
 	};
 
-	struct VFXSequencePlayerData
-	{
+	struct VFXSequencePlayerData {
 		VFXRenderInput myRenderInput;
 		eRenderLayers myLayer;
 
@@ -320,44 +292,48 @@ namespace KE
 		bool myIsWaitingOnParticles = false;
 	};
 
-	struct VFXSequenceRenderPackage
-	{
+	struct VFXSequenceRenderPackage {
 		ModelData* modelData;
 		Transform instanceTransform;
 		eRenderLayers layer;
 		VFXCustomBufferInput customBuffer;
 
-		struct
-		{
-			Vector2f uvOffset		= { 0.0f,0.0f			};
-			Vector3f translation	= { 0.0f,0.0f,0.0f		};
-			Vector3f rotation		= { 0.0f,0.0f,0.0f		};
-			Vector3f scale			= { 1.0f,1.0f,1.0f		};
-			Vector4f colour			= { 1.0f,1.0f,1.0f,1.0f };
-			Vector2f uvScale		= { 1.0f,1.0f };
+		struct {
+			Vector2f uvOffset = {0.0f, 0.0f};
+			Vector3f translation = {0.0f, 0.0f, 0.0f};
+			Vector3f rotation = {0.0f, 0.0f, 0.0f};
+			Vector3f scale = {1.0f, 1.0f, 1.0f};
+			Vector4f colour = {1.0f, 1.0f, 1.0f, 1.0f};
+			Vector2f uvScale = {1.0f, 1.0f};
 		} attributes;
 
 		bool bloom = true;
 	};
 
-	class VFXMeshInstance
-	{
-	friend class VFXManager;
+	class VFXMeshInstance {
+		friend class VFXManager;
+
 	private:
 		Transform myTransform;
 
 		ModelData myModelData;
+
 	public:
 		VFXMeshInstance() = default;
 		~VFXMeshInstance() = default;
 
-		inline void SetModelData(const ModelData& aModelData) { myModelData = aModelData; }
-		inline ModelData* GetModelData() { return &myModelData; }
-		inline Transform* GetTransform() { return &myTransform; }
+		inline void SetModelData(const ModelData& aModelData) {
+			myModelData = aModelData;
+		}
+		inline ModelData* GetModelData() {
+			return &myModelData;
+		}
+		inline Transform* GetTransform() {
+			return &myTransform;
+		}
 	};
 
-	class VFXManager
-	{
+	class VFXManager {
 		KE_EDITOR_FRIEND
 	private:
 		Graphics* myGraphics;
@@ -366,12 +342,14 @@ namespace KE
 		PostProcessing myVFXPostProcessing;
 		BasicRenderer myVFXRenderer;
 
-		//render data
+		// render data
 		std::vector<VFXSequencePlayerData> myRenderQueue;
 		std::vector<VFXSequenceRenderPackage> myRenderPackages;
 		std::vector<SpriteBatch*> mySpriteBatches;
 		//
-		void RenderInspectedVFX(int aVFXIndex, int aCurrentFrame, Transform* aTransform, eRenderLayers aLayer);
+		void RenderInspectedVFX(int aVFXIndex, int aCurrentFrame,
+								Transform* aTransform, eRenderLayers aLayer);
+
 	public:
 		void Init(Graphics* aGraphics);
 		void RenderVFX(fxBuffer& fxb, ModelData* modelData);
@@ -383,57 +361,61 @@ namespace KE
 
 		void PrepareRenderData(VFXSequencePlayerData& aPlayerData);
 
-
 		void InitializeVFXMesh(VFXMeshInstance& aMeshToInitialize) const;
-		void InitializeParticleEmitter(ParticleEmitter& anEmitterToInitialize) const;
-		
-		inline PostProcessing& GetPostProcessing() { return myVFXPostProcessing; }
+		void InitializeParticleEmitter(
+			ParticleEmitter& anEmitterToInitialize) const;
 
-		void TriggerVFXSequence(int aVFXSequenceIndex, const VFXRenderInput& aRenderInput);
-		void StopVFXSequence(int aVFXSequenceIndex, const VFXRenderInput& aRenderInput);
+		inline PostProcessing& GetPostProcessing() {
+			return myVFXPostProcessing;
+		}
+
+		void TriggerVFXSequence(int aVFXSequenceIndex,
+								const VFXRenderInput& aRenderInput);
+		void StopVFXSequence(int aVFXSequenceIndex,
+							 const VFXRenderInput& aRenderInput);
 
 		void SaveVFXSequence(VFXSequence* aSequence);
-		void LoadVFXSequence(int aVFXSequenceIndex, const std::string& aFilePath);
+		void LoadVFXSequence(int aVFXSequenceIndex,
+							 const std::string& aFilePath);
 
 		int CreateVFXSequence(const std::string& aName);
 
-		//try to avoid using this function, it's slow. Get the index once and store it.
+		// try to avoid using this function, it's slow. Get the index once and
+		// store it.
 		int GetVFXSequenceFromName(const std::string& aName);
 		VFXSequence* GetVFXSequence(int aVFXSequenceIndex);
 		void ClearVFX();
 	};
 
-	struct VFXPlayerInterface
-	{
+	struct VFXPlayerInterface {
 		VFXManager* manager;
 
 		std::vector<int> myVFXSequenceIndices;
 
-		void TriggerVFXSequence(int aVFXSequenceIndex, const VFXRenderInput& aRenderInput)
-		{
+		void TriggerVFXSequence(int aVFXSequenceIndex,
+								const VFXRenderInput& aRenderInput) {
 			if (myVFXSequenceIndices.size() >= 0) {
 				return;
 			}
 
-			manager->TriggerVFXSequence(myVFXSequenceIndices[aVFXSequenceIndex], aRenderInput);
+			manager->TriggerVFXSequence(myVFXSequenceIndices[aVFXSequenceIndex],
+										aRenderInput);
 		}
 
-		void StopVFXSequence(int aVFXSequenceIndex, const VFXRenderInput& aRenderInput)
-		{
+		void StopVFXSequence(int aVFXSequenceIndex,
+							 const VFXRenderInput& aRenderInput) {
 			if (myVFXSequenceIndices.size() >= 0) {
 				return;
 			}
 
-			manager->StopVFXSequence(myVFXSequenceIndices[aVFXSequenceIndex], aRenderInput);
+			manager->StopVFXSequence(myVFXSequenceIndices[aVFXSequenceIndex],
+									 aRenderInput);
 		}
 
-		void AddVFX(const std::string& aVFXName)
-		{
-			myVFXSequenceIndices.push_back(manager->GetVFXSequenceFromName(aVFXName));
+		void AddVFX(const std::string& aVFXName) {
+			myVFXSequenceIndices.push_back(
+				manager->GetVFXSequenceFromName(aVFXName));
 		}
 	};
 
-
-
-
-}
+}  // namespace KE
