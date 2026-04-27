@@ -46,9 +46,13 @@ jobs:
 
           FAILED=0
 
-          echo "${{ steps.changed-files.outputs.files }}" | while read -r file; do
+          printf "%s\n" "${{ steps.changed-files.outputs.files }}" > files.txt
+
+          while IFS= read -r file; do
+            [ -z "$file" ] && continue
+            echo "Checking $file"
             clang-format --dry-run --Werror "$file" || FAILED=1
-          done
+          done < files.txt
 
           if [ $FAILED -ne 0 ]; then
             echo "❌ Formatting issues found."
