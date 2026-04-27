@@ -1,8 +1,22 @@
-BasedOnStyle: LLVM
-IndentWidth: 4
-ColumnLimit: 100
-AllowShortFunctionsOnASingleLine: Empty
-SortIncludes: true
+BasedOnStyle: Google
 
-# Helps with HLSL-style constructs
 Language: Cpp
+BreakBeforeBraces: Attach
+AllowShortFunctionsOnASingleLine: Empty
+
+UseTab: Always
+IndentWidth: 4
+TabWidth: 4
+
+NamespaceIndentation: All
+
+#SortIncludes: true
+#IncludeBlocks: Regroup
+
+PointerAlignment: Left
+DerivePointerAlignment: false
+
+AccessModifierOffset: -4
+ContinuationIndentWidth: 4
+
+FixNamespaceComments: true
