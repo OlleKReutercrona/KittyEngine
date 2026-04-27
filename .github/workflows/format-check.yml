@@ -10,32 +10,48 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # Required to diff PR base
 
       - name: Install clang-format
         run: |
           sudo apt-get update
           sudo apt-get install -y clang-format
 
-      - name: Check C++ formatting
+      - name: Get changed C++ files
+        id: changed-files
+        run: |
+          echo "Getting changed files..."
+
+          BASE=origin/${{ github.base_ref }}
+
+          git fetch origin ${{ github.base_ref }}
+
+          FILES=$(git diff --name-only $BASE...HEAD \
+            | grep -E '\.(cpp|hpp|h)$' \
+            | grep -v 'External/' || true)
+
+          echo "Changed files:"
+          echo "$FILES"
+
+          echo "files<<EOF" >> $GITHUB_OUTPUT
+          echo "$FILES" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Check formatting
+        if: steps.changed-files.outputs.files != ''
         run: |
           echo "Checking C++ formatting..."
 
-          FILES=$(find . -type f \( -name "*.cpp" -o -name "*.hpp" -o -name "*.h" \))
-
-          if [ -z "$FILES" ]; then
-            echo "No C++ files found."
-            exit 0
-          fi
-
           FAILED=0
 
-          for file in $FILES; do
+          for file in ${{ steps.changed-files.outputs.files }}; do
             clang-format --dry-run --Werror "$file" || FAILED=1
           done
 
           if [ $FAILED -ne 0 ]; then
-            echo "❌ Formatting issues found. Run clang-format on your code."
+            echo "❌ Formatting issues found."
             exit 1
           fi
 
-          echo "✅ All C++ files are properly formatted."
+          echo "✅ All changed files are properly formatted."

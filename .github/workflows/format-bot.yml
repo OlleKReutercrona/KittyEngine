@@ -1,69 +1,62 @@
-name: Format Bot
+name: Format on Command
 
 on:
   issue_comment:
     types: [created]
 
-permissions:
-  contents: write
-  pull-requests: write
-
 jobs:
   format:
-    if: github.event.issue.pull_request != null && contains(github.event.comment.body, '/format')
+    if: |
+      github.event.issue.pull_request &&
+      contains(github.event.comment.body, '/format')
+
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout PR branch
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.pull_request.head.ref }}
-          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          repository: ${{ github.repository }}
+          ref: refs/pull/${{ github.event.issue.number }}/head
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install clang-format
         run: |
           sudo apt-get update
           sudo apt-get install -y clang-format
 
-      - name: Install Stylua
+      - name: Get changed files
         run: |
-          curl -L https://github.com/JohnnyMorganz/StyLua/releases/latest/download/stylua-linux-x86_64.zip -o stylua.zip
-          unzip stylua.zip
-          sudo mv stylua /usr/local/bin/
+          git fetch origin main
 
-      - name: Format C++ / HLSL
-        run: |
-          find . -type f \( -name "*.cpp" -o -name "*.hpp" -o -name "*.h" -o -name "*.hlsl" \) \
-            -exec clang-format -i {} +
+          FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD \
+            | grep -E '\.(cpp|hpp|h)$' \
+            | grep -v 'External/' || true)
 
-      - name: Format Lua
-        run: |
-          stylua .
+          echo "$FILES" > changed_files.txt
 
-      - name: Check for changes
-        id: git-check
+      - name: Format files
         run: |
-          git diff --exit-code || echo "changes=true" >> $GITHUB_OUTPUT
+          if [ ! -s changed_files.txt ]; then
+            echo "No files to format."
+            exit 0
+          fi
 
-      - name: Commit and push changes
-        if: steps.git-check.outputs.changes == 'true'
+          while read file; do
+            clang-format -i "$file"
+          done < changed_files.txt
+
+      - name: Commit fixes
         run: |
-          git config user.name "format-bot"
-          git config user.email "format-bot@users.noreply.github.com"
+          git config user.name "clang-format bot"
+          git config user.email "clang-format@users.noreply.github.com"
 
           git add .
-          git commit -m "chore: auto-format via /format bot"
-          git push
 
-      - name: Comment on PR
-        uses: actions/github-script@v7
-        with:
-          script: |
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: steps.git-check.outputs.changes === 'true'
-                ? "✅ Code formatted and pushed."
-                : "ℹ️ No formatting changes needed."
-            })
+          if git diff --cached --quiet; then
+            echo "No formatting changes needed."
+            exit 0
+          fi
+
+          git commit -m "Apply clang-format fixes"
+          git push
