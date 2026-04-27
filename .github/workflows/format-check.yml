@@ -17,7 +17,6 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y clang-format-16
-          sudo ln -s /usr/bin/clang-format-16 /usr/bin/clang-format
           clang-format --version
 
       - name: Get changed C++ files
