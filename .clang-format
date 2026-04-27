@@ -29,7 +29,3 @@ IncludeCategories:
 
   - Regex: '^".*"'
     Priority: 2
-
-  # Ignore external code
-Ignore:
-  - External/.*
