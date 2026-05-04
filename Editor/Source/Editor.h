@@ -1,8 +1,8 @@
 #pragma once
+#include <Editor/Source/EditorGraphics.h>
 #include <functional>
 
 #include "Inspector/EditorInspection.h"
-#include <Editor/Source/EditorGraphics.h>
 
 #ifndef KITTYENGINE_NO_EDITOR
 #include "Editor/Source/ImGui/ImGuiHandler.h"
@@ -34,13 +34,11 @@ namespace KE {
 		},                                                                   \
 		hidden}
 
-namespace KE_EDITOR 
-{
+namespace KE_EDITOR {
 	typedef std::function<EditorWindowBase*(const std::any& aStartupData)>
 		WindowCreationFunc;
 
 	struct WindowRegistryEntry {
-
 		WindowCreationFunc myCreationFunc;
 		bool hidden = false;
 	};

@@ -62,14 +62,14 @@ void KE::AudioInstance::SetData(AudioInstanceData& aData) {
 	//)))
 	//{
 	//	KE_ERROR("Failed to create a source voice to play sound %s.",
-	//mySoundFileName.c_str()); 	return;
+	// mySoundFileName.c_str()); 	return;
 	// }
 
 	//// Hook in our 3Dfx submix voice, if there should be one.
 	// if (myShouldPerformSpatialPlayback)
 	//{
 	//	if (FAILED(hr = IXAudioHandle->CreateSubmixVoice(&mySubmixVoice, 1,
-	//44100)))
+	// 44100)))
 	//	{
 	//		KE_ERROR("Failed to create a submix voice, HRESULT = %i", hr);
 	//		return;
@@ -110,7 +110,7 @@ void KE::AudioInstance::Update() {
 	//	if (myVoicePairs[i])
 	//	{
 	//		KE_GLOBAL::audioWrapper.ApplyAcoustics(myVoicePairs[i].mySourceVoice,
-	//emitterTransform, listenerTransform);
+	// emitterTransform, listenerTransform);
 	//	}
 	//}
 }

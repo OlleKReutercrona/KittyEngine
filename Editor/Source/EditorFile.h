@@ -43,7 +43,7 @@ namespace KE_EDITOR {
 			: myType(EditorFileType::eUnknown),
 			  myPath(""),
 			  myName(""),
-			  myIconPath("") {};
+			  myIconPath(""){};
 
 		EditorFile(const EditorFileType& aType, const std::string& aPath,
 				   const std::string& aName, const std::string& anIconPath)

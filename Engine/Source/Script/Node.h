@@ -172,7 +172,7 @@ namespace KE {
 	public:
 		ScriptMemberID ID;
 
-		ScriptNode() {};
+		ScriptNode(){};
 		virtual ~ScriptNode() {}
 
 		void SetID(ScriptMemberID anID);

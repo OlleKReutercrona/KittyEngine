@@ -841,12 +841,12 @@ void KE_EDITOR::NodeEditor::DisplayScriptAttributes() {
 			// entryPoint.combinedID)))
 			//{
 			//	auto* sceneManager =
-			//KE_GLOBAL::blackboard.Get<KE::SceneManager>("sceneManager"); 	auto&
-			//gameObjectManager =
-			//sceneManager->GetCurrentScene()->GetGameObjectManager();
+			// KE_GLOBAL::blackboard.Get<KE::SceneManager>("sceneManager");
+			// auto& gameObjectManager =
+			// sceneManager->GetCurrentScene()->GetGameObjectManager();
 			//
 			//	KE::ScriptRuntime runner(myScript,
-			//gameObjectManager.GetGameObject(-100)); //temp!
+			// gameObjectManager.GetGameObject(-100)); //temp!
 			//	runner.Execute(entryPoint);
 			// }
 		}
@@ -1011,11 +1011,11 @@ void KE_EDITOR::NodeEditor::Render() {
 	// if (myCodeEditorData.parsed)
 	//{
 	//	for (int i = 0; i <
-	//myCodeEditorData.parsed->parsingData.parsingOrder.size(); i++)
+	// myCodeEditorData.parsed->parsingData.parsingOrder.size(); i++)
 	//	{
 	//		KE::ScriptMemberID nodeID;
 	//		nodeID.idParts.nodeID =
-	//myCodeEditorData.parsed->parsingData.parsingOrder[i];
+	// myCodeEditorData.parsed->parsingData.parsingOrder[i];
 	//
 	//		std::string iStr = std::to_string(i);
 	//		ImGui::GetForegroundDrawList()->AddText(

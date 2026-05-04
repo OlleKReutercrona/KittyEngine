@@ -55,7 +55,7 @@ namespace KE {
 				// Interaction& interaction : inputActionEvent->interactions)
 				//{
 				//	std::cout << "\nTrigger name: " <<
-				//interaction.myTriggerKeyName;
+				// interaction.myTriggerKeyName;
 				// }
 
 				if (playerEvent.myInputType == eInputType::LeftClick ||

@@ -108,7 +108,7 @@ void KE::BoxColliderComponent::Update() {
 	// for (int i = 0; i < myCollider->myCollisionData.size(); i++)
 	//{
 	//	if (myCollisions.count(&myCollider->myCollisionData[i].hitCollider) ==
-	//0)
+	// 0)
 	//	{
 	//		myIsHit = true;
 	//

@@ -603,7 +603,7 @@ void KE_EDITOR::ImGuiHandler::DisplayMainMenuBar() {
 			// if (logs.count("Frame") > 0)
 			//{
 			//	ImGui::Text("FPS: %i", (int)(1.0f / (logs.at("Frame").myTime /
-			//1000.0f)));
+			// 1000.0f)));
 			// }
 
 			for (auto& log : logs) {
@@ -697,7 +697,7 @@ void KE_EDITOR::ImGuiHandler::DisplayNavmesh(KE::Navmesh* aNavmesh,
 	//	}
 
 	//	std::cout << "Merging " << indicesToMerge.size() << " vertices" <<
-	//std::endl;
+	// std::endl;
 	//
 	//	int resolveIndex = indicesToMerge[0];
 	//	for (KE::Node& node : aNavmesh->myNodes)
@@ -736,7 +736,7 @@ void KE_EDITOR::ImGuiHandler::DisplayNavmesh(KE::Navmesh* aNavmesh,
 	//			for (KE::Node* deadNode : nodesToRemove)
 	//			{
 	//				if (node.myNeighbours.size() > i && node.myNeighbours[i] ==
-	//deadNode)
+	// deadNode)
 	//				{
 	//					node.myNeighbours.erase(node.myNeighbours.begin() + i);
 	//				}
@@ -2197,7 +2197,7 @@ void KE_EDITOR::ImGuiHandler::DisplayMaterial(KE::Material* aMaterial,
 			// if (ImGui::BeginDragDropTarget())
 			//{
 			//	if (const ImGuiPayload* payload =
-			//ImGui::AcceptDragDropPayload("Texture"))
+			// ImGui::AcceptDragDropPayload("Texture"))
 			//	{
 			//		KE::Texture* texture = *(KE::Texture**)payload->Data;
 			//		aMaterial->myTextures[i] = texture;

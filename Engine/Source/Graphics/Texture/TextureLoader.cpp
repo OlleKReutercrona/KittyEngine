@@ -318,7 +318,7 @@ namespace KE {
 		// if (FAILED(hr))
 		//{
 		//	//KE_ERROR("Failed to load texture %s", aFilePath.c_str()); // TODO:
-		//Add more info to this error message.
+		// Add more info to this error message.
 
 		//	return false;//return GetDefaultTexture();
 		//}
@@ -334,7 +334,7 @@ namespace KE {
 		// if (FAILED(hr))
 		//{
 		//	//KE_ERROR("Failed to create shader resource view."); // TODO: Add
-		//more info to this error message.
+		// more info to this error message.
 		//	//return GetDefaultTexture();
 		//	return false;
 		// }
@@ -345,7 +345,7 @@ namespace KE {
 		// if (metadata.arraySize > 1)
 		//{
 		//	KE_ERROR("Texture array size is greater than 1. Load as a cubemap
-		//instead?."); 	return false;
+		// instead?."); 	return false;
 		// }
 
 		return true;

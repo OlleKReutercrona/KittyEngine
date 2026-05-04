@@ -73,8 +73,8 @@ namespace KE_EDITOR {
 	//	std::unordered_map<std::string, WindowInstanceData> myWindowData = {};
 
 	//	bool IsOpen(const std::string& aWindowName) { return
-	//myWindowData[aWindowName].IsOpen(); } 	void RegisterWindow(const
-	//std::string& aWindowName) { myWindowData[aWindowName] = {}; }
+	// myWindowData[aWindowName].IsOpen(); } 	void RegisterWindow(const
+	// std::string& aWindowName) { myWindowData[aWindowName] = {}; }
 	//};
 
 	struct ArbitraryGizmo {
@@ -350,10 +350,11 @@ namespace KE_EDITOR {
 	//{
 	//	bool opened = false;
 	//	ComponentInspectionHelper(const std::string& aComponentName,
-	//KE::Component* aComponent)
+	// KE::Component* aComponent)
 	//	{
 	//		opened = ImGuiHandler::BeginDisplayComponent(aComponentName,
-	//aComponent); 		if (!opened) { ImGuiHandler::EndDisplayComponent(); }
+	// aComponent); 		if (!opened) { ImGuiHandler::EndDisplayComponent();
+	// }
 	//	}
 
 	//	~ComponentInspectionHelper()

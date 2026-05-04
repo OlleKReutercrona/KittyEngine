@@ -6,7 +6,7 @@
 namespace KE {
 	struct LoggedVar {
 		LoggedVar(const std::string& aName, LoggedVar* aParent = nullptr)
-			: myName(aName), myParent(aParent) {};
+			: myName(aName), myParent(aParent){};
 
 		std::string myName = "";
 		std::chrono::high_resolution_clock::time_point myBeginTime;

@@ -146,7 +146,7 @@ namespace KE_EDITOR {
 		// if (myFileWatcher.Update())
 		//{
 		//	//KE_LOG("file changed: %s",
-		//myFileWatcher.GetLastChangedFile().c_str());
+		// myFileWatcher.GetLastChangedFile().c_str());
 		//
 		//	std::string file = myFileWatcher.GetLastChangedFile();
 		//
@@ -352,9 +352,9 @@ namespace KE_EDITOR {
 		//			rect.bottom = (LONG)wd.aBottomRightY;
 
 		//			rect.left = static_cast<LONG>(rect.left + (rect.right -
-		//rect.left) / 2.0f); 			rect.right = rect.left; 			rect.top =
-		//static_cast<LONG>(rect.top + (rect.bottom - rect.top) / 2.0f);
-		//			rect.bottom = rect.top;
+		// rect.left) / 2.0f); 			rect.right = rect.left;
+		// rect.top = static_cast<LONG>(rect.top + (rect.bottom - rect.top)
+		// / 2.0f); 			rect.bottom = rect.top;
 
 		//			KE::InputWrapper& input = myWindow->GetInputWrapper();
 		//			myWindow->DisableCursor();
@@ -605,11 +605,12 @@ namespace KE_EDITOR {
 			//		[castRay](const SelectionHitData& hit)
 			//		{
 			//			if (hit.meshList)		  { return
-			//!RayIntersectsModel(hit.meshList, castRay,
-			//hit.object->myWorldSpaceTransform); } 			if (hit.skeletalMeshList) {
-			//return !RayIntersectsModel(hit.skeletalMeshList, castRay,
-			//hit.object->myWorldSpaceTransform); } 			return true; //default to
-			//removing :)
+			//! RayIntersectsModel(hit.meshList, castRay,
+			// hit.object->myWorldSpaceTransform); } 			if
+			// (hit.skeletalMeshList) { return
+			// !RayIntersectsModel(hit.skeletalMeshList, castRay,
+			// hit.object->myWorldSpaceTransform); } 			return true;
+			// //default to removing :)
 			//		}
 			//	), hitData.end()
 			//);

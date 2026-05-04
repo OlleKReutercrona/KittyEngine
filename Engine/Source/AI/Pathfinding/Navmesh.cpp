@@ -107,8 +107,8 @@ namespace KE {
 				//{
 				//	v1.position = { line.myPoint.x, 2.0f, line.myPoint.y, 1.0f
 				//}; 	v2.position = { line.myPoint.x + line.myDirection.x *
-				//line.debugLength , 2.0f, line.myPoint.y + line.myDirection.y *
-				//line.debugLength , 1.0f }; 	aGraphics->AddLine(v1, v2);
+				// line.debugLength , 2.0f, line.myPoint.y + line.myDirection.y
+				// * line.debugLength , 1.0f }; 	aGraphics->AddLine(v1, v2);
 				//
 				//	Vector4f middle = {
 				//		line.myPoint.x - line.myDebugPoint.x / 2.0f,
@@ -118,7 +118,7 @@ namespace KE {
 				//	};
 				//	v1.position = { line.myPoint.x + line.myDirection.x *
 				//(line.debugLength / 2.0f) , 2.0f, line.myPoint.y +
-				//line.myDirection.y * (line.debugLength / 2.0f), 1.0f };
+				// line.myDirection.y * (line.debugLength / 2.0f), 1.0f };
 				//	v2.position = v1.position;
 				//	v2.position.x += line.myNormal.x * 1.0f;
 				//	v2.position.z += line.myNormal.y * 1.0f;
@@ -139,8 +139,8 @@ namespace KE {
 			//	v1.position.z = myNavGrid.myMin.y + y * myNavGrid.myCellSize;
 			//
 			//	v2.position.x = myNavGrid.myMin.x + (myNavGrid.myGridSize.x) *
-			//myNavGrid.myCellSize; 	v2.position.z = myNavGrid.myMin.y + y *
-			//myNavGrid.myCellSize;
+			// myNavGrid.myCellSize; 	v2.position.z = myNavGrid.myMin.y + y *
+			// myNavGrid.myCellSize;
 			//
 			//	aGraphics->AddLine(v1, v2);
 			// }
@@ -151,7 +151,7 @@ namespace KE {
 			//
 			//	v2.position.x = myNavGrid.myMin.x + x * myNavGrid.myCellSize;
 			//	v2.position.z = myNavGrid.myMin.y + (myNavGrid.myGridSize.y) *
-			//myNavGrid.myCellSize;
+			// myNavGrid.myCellSize;
 			//
 			//	aGraphics->AddLine(v1, v2);
 			// }

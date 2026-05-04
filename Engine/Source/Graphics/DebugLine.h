@@ -20,7 +20,8 @@ namespace KE {
 	class PixelShader;
 	class VertexShader;
 
-#define DL_DEFAULT_COLOUR {1.0f, 0.0f, 0.0f, 1.0f}
+#define DL_DEFAULT_COLOUR \
+	{ 1.0f, 0.0f, 0.0f, 1.0f }
 
 	struct LineVertex {
 		LineVertex() = default;

@@ -63,7 +63,7 @@ namespace KE_EDITOR {
 	public:
 		ModelViewer(EditorWindowInput aStartupData = {})
 			: EditorWindowBase(aStartupData) {}
-		~ModelViewer() override {};
+		~ModelViewer() override{};
 
 		const char* GetWindowName() const override {
 			return "Model Viewer";

@@ -240,16 +240,16 @@ void KE::ShellTexturedRenderer::ResetDisplacement(
 //					dt.SetScale({sclx,scly,sclx});
 //
 //					auto mp =
-//KE_GLOBAL::blackboard.Get<InputHandler>("inputHandler")->GetMousePosition();
+// KE_GLOBAL::blackboard.Get<InputHandler>("inputHandler")->GetMousePosition();
 //
 //					Rayf painterRay = camera->GetRay({(float)mp.x,
 //(float)mp.y});
 //
 //					//calculate the point of intersection with the plane,
 //					//in this case we can just move along the direction until
-//its y is 0 					Vector3f planeHit = painterRay.GetOrigin() +
-//painterRay.GetDirection()* (-painterRay.GetOrigin().y /
-//painterRay.GetDirection().y);
+// its y is 0 					Vector3f planeHit = painterRay.GetOrigin() +
+// painterRay.GetDirection()* (-painterRay.GetOrigin().y /
+// painterRay.GetDirection().y);
 //
 //					if (autoclear) { myRenderTargets[10].Clear(colour); }
 //					myRenderTargets[11].CopyFrom(&myRenderTargets[10]);
@@ -264,7 +264,7 @@ void KE::ShellTexturedRenderer::ResetDisplacement(
 //
 //					//displacementCamera.transform.SetPosition(planeHit *
 //-1.0f); 					auto* ob =
-//KE_GLOBAL::blackboard.Get<GameObjectManager>("gameObjectManager")->GetGameObject(-9999);
+// KE_GLOBAL::blackboard.Get<GameObjectManager>("gameObjectManager")->GetGameObject(-9999);
 //					if(ob)
 //					{
 //						dt.SetPosition(
@@ -274,7 +274,7 @@ void KE::ShellTexturedRenderer::ResetDisplacement(
 //
 //
 //					displacementCamera.transform.RotateLocal({ 90.0f *
-//KE::DegToRadImmediate, 0.0f, 0.0f });
+// KE::DegToRadImmediate, 0.0f, 0.0f });
 //
 //					SetView(displacementCamera.GetViewMatrix());
 //					SetProjection(displacementCamera.GetProjectionMatrix());
@@ -283,11 +283,11 @@ void KE::ShellTexturedRenderer::ResetDisplacement(
 //					SetViewport(1024, 1024);
 //
 //					BasicRenderInput displacementRenderIn{ nullptr,
-//displacementCamera.GetViewMatrix(), displacementCamera.GetProjectionMatrix(),
-//nullptr,nullptr };
+// displacementCamera.GetViewMatrix(), displacementCamera.GetProjectionMatrix(),
+// nullptr,nullptr };
 //
 //					myDefaultRenderer.RenderModel(displacementRenderIn,
-//displacementMD);
+// displacementMD);
 //
 //					SetViewport(myWidth, myHeight);
 //					SetView(camera->GetViewMatrix());
@@ -312,7 +312,7 @@ void KE::ShellTexturedRenderer::ResetDisplacement(
 //				//{
 //				//	shellTexBuf.shellIndex = l;
 //				//	shellBuf.MapBuffer(&shellTexBuf, sizeof(shellTexBuf),
-//myContext.Get());
+// myContext.Get());
 //				//
 //				//	shellBuf.BindForPS(7, myContext.Get());
 //				//	shellBuf.BindForVS(7, myContext.Get());

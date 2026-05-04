@@ -42,7 +42,7 @@ namespace KE {
 	private:
 		ModelData*
 			myModelData;  // this works for now i guess but it is unsustainable
-		// Graphics* myGraphics = nullptr;
-		// int myModelDataIndex = -1;
+						  // Graphics* myGraphics = nullptr;
+						  // int myModelDataIndex = -1;
 	};
 }  // namespace KE

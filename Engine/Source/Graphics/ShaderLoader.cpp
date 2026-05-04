@@ -26,9 +26,9 @@
 namespace fs = std::filesystem;
 class RecompileHandler : public ID3DInclude {
 public:
-	STDMETHOD(Open)(D3D_INCLUDE_TYPE IncludeType, LPCSTR pFileName,
-					LPCVOID pParentData, LPCVOID* ppData,
-					UINT* pBytes) override {
+	STDMETHOD(Open)
+	(D3D_INCLUDE_TYPE IncludeType, LPCSTR pFileName, LPCVOID pParentData,
+	 LPCVOID* ppData, UINT* pBytes) override {
 		std::string shaderPath = HLSL_PATH;
 		std::string fileName(pFileName);
 
@@ -505,9 +505,10 @@ namespace KE {
 		//	aFilePath, // Path to the shader file
 		//	nullptr, // Macro definitions (can be nullptr)
 		//	D3D_COMPILE_STANDARD_FILE_INCLUDE, // Include handler (can be
-		//nullptr) 	"main", // Entry point function name 	"ps_5_0", // Pixel
-		//shader model 	0, // Compile flags (can be 0) 	0, // Additional compile
-		//flags (can be 0) 	&compiledShader, // Compiled shader blob 	&errorBlob
+		// nullptr) 	"main", // Entry point function name 	"ps_5_0", //
+		// Pixel shader model 	0, // Compile flags (can be 0) 	0, // Additional
+		// compile flags (can be 0) 	&compiledShader, // Compiled shader blob
+		// &errorBlob
 		//// Error blob (used for error messages)
 		//);
 

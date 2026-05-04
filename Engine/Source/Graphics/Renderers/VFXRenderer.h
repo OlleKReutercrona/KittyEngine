@@ -36,7 +36,7 @@ namespace KE {
 	// public:
 	//	void Init(Graphics* aGraphics);
 	//	void RenderModel(const VFXRenderInput& aInput, const ModelData&
-	//aModelData);
+	// aModelData);
 	//
 	//	void Render(const VFXRenderInput& aInput);
 	//	void AddVFXIndex(size_t aVFXIndex);

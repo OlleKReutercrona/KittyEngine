@@ -9,9 +9,9 @@ namespace KE {
 #pragma region InternalData
 	private:
 		struct FunnelLocation {
-			FunnelLocation() {};
+			FunnelLocation(){};
 			FunnelLocation(Vector3f aVertex, int aIndex)
-				: position(aVertex), index(aIndex) {};
+				: position(aVertex), index(aIndex){};
 			Vector3f position;
 			int index = INT_MIN;
 			int neighbourIndex = INT_MIN;

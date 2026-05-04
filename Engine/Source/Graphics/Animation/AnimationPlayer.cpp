@@ -210,24 +210,24 @@ namespace KE {
 
 			//{
 			//	const DirectX::XMMATRIX currentFramePose =
-			//aFromAnimation.combinedTransforms[i]; 	const DirectX::XMMATRIX
-			//blendFramePose = aToAnimation.combinedTransforms[i];
+			// aFromAnimation.combinedTransforms[i]; 	const DirectX::XMMATRIX
+			// blendFramePose = aToAnimation.combinedTransforms[i];
 			//
 			//	// Blended pose needs to be multiplication of decomposed
-			//matrices 	DirectX::XMVECTOR currentScale, currentRotation,
-			//currentTranslation; 	DirectX::XMVECTOR blendScale, blendRotation,
-			//blendTranslation; 	DirectX::XMMatrixDecompose(&currentScale,
+			// matrices 	DirectX::XMVECTOR currentScale, currentRotation,
+			// currentTranslation; 	DirectX::XMVECTOR blendScale, blendRotation,
+			// blendTranslation; 	DirectX::XMMatrixDecompose(&currentScale,
 			//&currentRotation, &currentTranslation, currentFramePose);
 			//	DirectX::XMMatrixDecompose(&blendScale, &blendRotation,
 			//&blendTranslation, blendFramePose);
 			//
 			//	DirectX::XMMATRIX blendedPose =
-			//DirectX::XMMatrixAffineTransformation(
+			// DirectX::XMMatrixAffineTransformation(
 			//		DirectX::XMVectorLerp(currentScale, blendScale,
-			//aBlendFactor), 		DirectX::XMVectorZero(),
+			// aBlendFactor), 		DirectX::XMVectorZero(),
 			//		DirectX::XMQuaternionSlerp(currentRotation, blendRotation,
-			//aBlendFactor), 		DirectX::XMVectorLerp(currentTranslation,
-			//blendTranslation, aBlendFactor)
+			// aBlendFactor), 		DirectX::XMVectorLerp(currentTranslation,
+			// blendTranslation, aBlendFactor)
 			//	);
 			//
 			//	modelData->myCombinedTransforms[i] = blendedPose;
@@ -412,7 +412,8 @@ namespace KE {
 	//		myModelData->myWorldSpaceJoints[i] = DirectX::XMMatrixInverse(
 	//			nullptr, myModelData->mySkeleton->myBones[i].myBindPose
 	//		) * myModelData->myFinalTransforms[i] *
-	//DirectX::XMMatrixScaling(0.01f, 0.01f, 0.01f) * *myModelData->myTransform;
+	// DirectX::XMMatrixScaling(0.01f, 0.01f, 0.01f) *
+	// *myModelData->myTransform;
 	//	}
 	// }
 
@@ -429,42 +430,42 @@ namespace KE {
 
 	//		// Calculate blend factor based on the timer and blend time
 	//		const float blendFactor = (std::min)(1.0f, myBlendTimer /
-	//myBlendTime);
+	// myBlendTime);
 
 	//		// Calculate the current frame and delta
 	//		const float currentFrameRate = 1.0f / myCurrentAnim.clip->myFps;
 	//		const float currentResult = myCurrentAnim.time / currentFrameRate;
 	//		const size_t currentFrame = (std::size_t)std::floor(currentResult) %
-	//myCurrentAnim.clip->myKeyframes.size(); // Current frame
+	// myCurrentAnim.clip->myKeyframes.size(); // Current frame
 
 	//		// Calculate the blend frame and delta
 	//		const float blendFrameRate = 1.0f / myBlendAnim.clip->myFps;
 	//		const float blendResult = myCurrentAnim.time / blendFrameRate;
 	//		const size_t blendFrame = (std::size_t)std::floor(blendResult) %
-	//myBlendAnim.clip->myKeyframes.size(); // Current frame
+	// myBlendAnim.clip->myKeyframes.size(); // Current frame
 
 	//		// Interpolate between the two animations using blend factor
 	//		for (size_t i = 0; i < skeleton->myBones.size(); i++)
 	//		{
 	//			const DirectX::XMMATRIX currentFramePose =
-	//myCurrentAnim.clip->myKeyframes[currentFrame].myBoneTransforms[i]; 			const
-	//DirectX::XMMATRIX nextFramePose =
-	//myBlendAnim.clip->myKeyframes[blendFrame].myBoneTransforms[i];
+	// myCurrentAnim.clip->myKeyframes[currentFrame].myBoneTransforms[i];
+	// const DirectX::XMMATRIX nextFramePose =
+	// myBlendAnim.clip->myKeyframes[blendFrame].myBoneTransforms[i];
 
 	//			// Blended pose needs to be multiplication of decomposed
-	//matrices 			DirectX::XMVECTOR currentScale, currentRotation,
-	//currentTranslation; 			DirectX::XMVECTOR nextScale, nextRotation,
-	//nextTranslation; 			DirectX::XMMatrixDecompose(&currentScale,
+	// matrices 			DirectX::XMVECTOR currentScale, currentRotation,
+	// currentTranslation; 			DirectX::XMVECTOR nextScale, nextRotation,
+	// nextTranslation; 			DirectX::XMMatrixDecompose(&currentScale,
 	//&currentRotation, &currentTranslation, currentFramePose);
 	//			DirectX::XMMatrixDecompose(&nextScale, &nextRotation,
 	//&nextTranslation, nextFramePose);
 
 	//			DirectX::XMMATRIX blendedPose =
-	//DirectX::XMMatrixAffineTransformation( 				DirectX::XMVectorLerp(currentScale,
-	//nextScale, blendFactor), 				DirectX::XMVectorZero(),
-	//				DirectX::XMQuaternionSlerp(currentRotation, nextRotation,
-	//blendFactor), 				DirectX::XMVectorLerp(currentTranslation, nextTranslation,
-	//blendFactor)
+	// DirectX::XMMatrixAffineTransformation(
+	// DirectX::XMVectorLerp(currentScale, nextScale, blendFactor),
+	// DirectX::XMVectorZero(), 				DirectX::XMQuaternionSlerp(currentRotation,
+	//nextRotation, blendFactor),
+	// DirectX::XMVectorLerp(currentTranslation, nextTranslation, blendFactor)
 	//			);
 
 	//			const int parentIndex = skeleton->myBones[i].myParentIndex;
@@ -473,7 +474,7 @@ namespace KE {
 	//			{
 	//				// Accumulate relative transformation
 	//				myModelData->myCombinedTransforms[i] = blendedPose *
-	//myModelData->myCombinedTransforms[parentIndex];
+	// myModelData->myCombinedTransforms[parentIndex];
 	//			}
 	//			else
 	//			{
@@ -482,7 +483,7 @@ namespace KE {
 	//			}
 
 	//			myModelData->myFinalTransforms[i] =
-	//skeleton->myBones[i].myBindPose * myModelData->myCombinedTransforms[i];
+	// skeleton->myBones[i].myBindPose * myModelData->myCombinedTransforms[i];
 	//		}
 
 	//		// If blending is complete, reset variables
@@ -502,12 +503,12 @@ namespace KE {
 	//			if (isAnimationPlaying)
 	//			{
 	//				myCurrentAnim.time += KE_GLOBAL::deltaTime *
-	//myCurrentAnim.speed;
+	// myCurrentAnim.speed;
 
 	//				if (myCurrentAnim.loop)
 	//				{
 	//					if (myCurrentAnim.time >=
-	//myCurrentAnim.clip->myDuration)
+	// myCurrentAnim.clip->myDuration)
 	//					{
 	//						myCurrentAnim.time = 0.0f;
 	//					}
@@ -515,7 +516,7 @@ namespace KE {
 	//				else
 	//				{
 	//					if (myCurrentAnim.time >=
-	//myCurrentAnim.clip->myDuration)
+	// myCurrentAnim.clip->myDuration)
 	//					{
 	//						myCurrentAnim.time = myCurrentAnim.clip->myDuration;
 	//						isAnimationPlaying = false;
@@ -528,30 +529,31 @@ namespace KE {
 	//				const float frameRate = 1.0f / myCurrentAnim.clip->myFps;
 	//				const float result = myCurrentAnim.time / frameRate;
 	//				const size_t frame = (std::size_t)std::floor(result); //
-	//Current frame 				const float delta = result - static_cast<float>(frame); //
-	//Progress to the next frame
+	// Current frame 				const float delta = result -
+	// static_cast<float>(frame); // Progress to the next frame
 
 	//				// Interpolate between current and next frame
 	//				for (size_t i = 0; i < skeleton->myBones.size(); i++)
 	//				{
 	//					DirectX::XMMATRIX currentFramePose =
-	//myCurrentAnim.clip->myKeyframes[frame].myBoneTransforms[i];
+	// myCurrentAnim.clip->myKeyframes[frame].myBoneTransforms[i];
 	//					DirectX::XMMATRIX nextFramePose =
-	//myCurrentAnim.clip->myKeyframes[(frame + 1) %
-	//myCurrentAnim.clip->myKeyframes.size()]. 						myBoneTransforms[i];
+	// myCurrentAnim.clip->myKeyframes[(frame + 1) %
+	// myCurrentAnim.clip->myKeyframes.size()].
+	// myBoneTransforms[i];
 
 	//					// Interpolate between current and next frame using
-	//delta 					DirectX::XMMATRIX blendedPose = currentFramePose + delta *
-	//(nextFramePose - currentFramePose);
+	// delta 					DirectX::XMMATRIX blendedPose = currentFramePose
+	// + delta * (nextFramePose - currentFramePose);
 
 	//					const int parentIndex =
-	//skeleton->myBones[i].myParentIndex;
+	// skeleton->myBones[i].myParentIndex;
 
 	//					if (parentIndex >= 0)
 	//					{
 	//						// Accumulate relative transformation
 	//						myModelData->myCombinedTransforms[i] = blendedPose *
-	//myModelData->myCombinedTransforms[parentIndex];
+	// myModelData->myCombinedTransforms[parentIndex];
 	//					}
 	//					else
 	//					{
@@ -560,7 +562,7 @@ namespace KE {
 	//					}
 
 	//					myModelData->myFinalTransforms[i] =
-	//skeleton->myBones[i].myBindPose * myModelData->myCombinedTransforms[i];
+	// skeleton->myBones[i].myBindPose * myModelData->myCombinedTransforms[i];
 	//				}
 	//			}
 	//			else
@@ -576,7 +578,8 @@ namespace KE {
 	//			for (size_t i = 0; i < skeleton->myBones.size(); i++)
 	//			{
 	//				// This works because the vertex is not moved in the vertex
-	//shader 				myModelData->myFinalTransforms[i] = DirectX::XMMatrixIdentity();
+	// shader 				myModelData->myFinalTransforms[i] =
+	// DirectX::XMMatrixIdentity();
 	//			}
 	//		}
 	//	}
@@ -594,7 +597,7 @@ namespace KE {
 	//	if (this == nullptr)
 	//	{
 	//		KE_ERROR("AnimationPlayer::PlayAnimation() > AnimationPlayer is
-	//nullptr!"); 		return;
+	// nullptr!"); 		return;
 	//	}
 	//	if (isBlending)
 	//	{
@@ -602,18 +605,18 @@ namespace KE {
 	//		isAnimationPlaying = true;
 
 	//		myCurrentAnim.clip =
-	//myModelData->myAnimationClipMap[aAnimationName]; 		myCurrentAnim.time =
-	//0.0f; 		myCurrentAnim.speed = aSpeed; 		myCurrentAnim.loop = aShouldLoop;
-	//		return;
+	// myModelData->myAnimationClipMap[aAnimationName]; myCurrentAnim.time =
+	// 0.0f; 		myCurrentAnim.speed = aSpeed; 		myCurrentAnim.loop =
+	// aShouldLoop; 		return;
 	//	}
 	//	if (myModelData->myAnimationClipMap.empty())
 	//	{
 	//		KE_ERROR("AnimationPlayer::PlayAnimation() > No animation clips
-	//found!"); 		return;
+	// found!"); 		return;
 	//	}
 
 	//	if (myCurrentAnim.clip != nullptr && myCurrentAnim.clip->myName ==
-	//aAnimationName)
+	// aAnimationName)
 	//	{
 	//		return;
 	//	}
@@ -641,12 +644,12 @@ namespace KE {
 	//	if (this == nullptr)
 	//	{
 	//		KE_ERROR("AnimationPlayer::PlayAnimation() > AnimationPlayer is
-	//nullptr!"); 		return;
+	// nullptr!"); 		return;
 	//	}
 	//	if (myModelData->myAnimationClipMap.empty())
 	//	{
 	//		KE_ERROR("AnimationPlayer::PlayAnimationBlend() > No animation clips
-	//found!"); 		return;
+	// found!"); 		return;
 	//	}
 
 	//	if (myCurrentAnim.clip == nullptr)

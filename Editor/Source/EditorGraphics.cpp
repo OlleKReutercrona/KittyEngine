@@ -282,10 +282,10 @@ namespace KE_EDITOR {
 		// KE::VFXAttributeTypes::PARTICLE_BURST)
 		//{
 		//	if (aPointIndex == 0 || aPointIndex ==
-		//curveData->at(aCurveIndex).myData.size() - 1)
+		// curveData->at(aCurveIndex).myData.size() - 1)
 		//	{
 		//		return false; // don't show the first and last point of the
-		//burst curve
+		// burst curve
 		//	}
 		// }
 
@@ -675,7 +675,7 @@ namespace KE_EDITOR {
 		// case KE::VFXType::VFXMeshInstance:
 		//{
 		//	mySequence->myVFXMeshes.erase(mySequence->myVFXMeshes.begin() +
-		//ts.myEffectIndex); 	break;
+		// ts.myEffectIndex); 	break;
 		// }
 		// default: break;
 		// }

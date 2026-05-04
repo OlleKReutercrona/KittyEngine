@@ -167,7 +167,7 @@ namespace AI {
 			// if (aData.connections[id].size() != 1)
 			//{
 			//	KE_WARNING("BT-Builder did not find a valid connection for
-			//Decorator."); 	return false;
+			// Decorator."); 	return false;
 			// }
 			auto nodeID = aData.connections[id][0].to.GetNodeID();
 

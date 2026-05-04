@@ -13,7 +13,7 @@ namespace KE {
 	class DeferredPointLight {
 	public:
 		DeferredPointLight();
-		~DeferredPointLight() {};
+		~DeferredPointLight(){};
 
 		inline const ModelData& GetModelData() const {
 			return myModelData;

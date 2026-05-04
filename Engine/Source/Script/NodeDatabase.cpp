@@ -2048,7 +2048,7 @@ KE::NodeTypeDatabase::NodeTypeDatabase() {
 	// private:
 	// public:
 	//	DefineNode("Entrypoint Scope", NodeCategory::CodeEntryPoint, "Creates a
-	//scope for code.");
+	// scope for code.");
 
 	//	virtual void Init() override
 	//	{
@@ -2066,18 +2066,18 @@ KE::NodeTypeDatabase::NodeTypeDatabase() {
 	//		CommandList commands;
 
 	//		//setup commands, this needs to be done here since our pin IDS are
-	//not yet set at Init. sucks!
+	// not yet set at Init. sucks!
 	//		{
 	//			CreateScopeCommand* command =
-	//commands.Add<CreateScopeCommand>(); 			command->scopeOwnerID =
-	//outputPins[0].ID; 			command->scopeStart = "void main() \n{\n";
+	// commands.Add<CreateScopeCommand>(); 			command->scopeOwnerID =
+	// outputPins[0].ID; 			command->scopeStart = "void main() \n{\n";
 	//			command->scopeEnd = "}\n";
 	//		}
 	//		{
 	//			CreateScopeCommand* command =
-	//commands.Add<CreateScopeCommand>(); 			command->scopeOwnerID =
-	//outputPins[1].ID; 			command->scopeStart = "void notMain() \n{\n";
-	//			command->scopeEnd = "}\n";
+	// commands.Add<CreateScopeCommand>(); 			command->scopeOwnerID =
+	// outputPins[1].ID; 			command->scopeStart = "void notMain()
+	// \n{\n"; 			command->scopeEnd = "}\n";
 	//		}
 
 	//		return commands;
@@ -2090,7 +2090,7 @@ KE::NodeTypeDatabase::NodeTypeDatabase() {
 	// private:
 	// public:
 	//	DefineNode("Scope Branch", NodeCategory::CodeLogic, "Creates a scope for
-	//code.");
+	// code.");
 
 	//	virtual void Init() override
 	//	{
@@ -2109,18 +2109,18 @@ KE::NodeTypeDatabase::NodeTypeDatabase() {
 	//		CommandList commands;
 
 	//		//setup commands, this needs to be done here since our pin IDS are
-	//not yet set at Init. sucks!
+	// not yet set at Init. sucks!
 	//		{
 	//			CreateScopeCommand* command =
-	//commands.Add<CreateScopeCommand>(); 			command->scopeOwnerID =
-	//outputPins[0].ID; 			command->scopeStart = "void branch0() \n{\n";
-	//			command->scopeEnd = "}\n";
+	// commands.Add<CreateScopeCommand>(); 			command->scopeOwnerID =
+	// outputPins[0].ID; 			command->scopeStart = "void branch0()
+	// \n{\n"; 			command->scopeEnd = "}\n";
 	//		}
 	//		{
 	//			CreateScopeCommand* command =
-	//commands.Add<CreateScopeCommand>(); 			command->scopeOwnerID =
-	//outputPins[1].ID; 			command->scopeStart = "void branch1() \n{\n";
-	//			command->scopeEnd = "}\n";
+	// commands.Add<CreateScopeCommand>(); 			command->scopeOwnerID =
+	// outputPins[1].ID; 			command->scopeStart = "void branch1()
+	// \n{\n"; 			command->scopeEnd = "}\n";
 	//		}
 
 	//		return commands;
@@ -2133,7 +2133,7 @@ KE::NodeTypeDatabase::NodeTypeDatabase() {
 	// private:
 	// public:
 	//	DefineNode("New float constant", NodeCategory::CodeMath, "Defines a
-	//float constant using new system.");
+	// float constant using new system.");
 
 	//	NewFloatConstantNodeTest() : CodeScriptNode() {}
 
@@ -2148,7 +2148,7 @@ KE::NodeTypeDatabase::NodeTypeDatabase() {
 	//		AddOutputPin(ValueType::CodeValue, PinType::OutputValue, "-> 0+1");
 	//		AddOutputPin(ValueType::CodeValue, PinType::OutputValue, "-> 0*1");
 	//		AddOutputPin(ValueType::CodeValue, PinType::OutputValue, "->
-	//0/1+2*3");
+	// 0/1+2*3");
 	//	}
 
 	//	const char* GetCode() const override
@@ -2161,55 +2161,57 @@ KE::NodeTypeDatabase::NodeTypeDatabase() {
 	//		CommandList commands;
 
 	//		//setup commands, this needs to be done here since our pin IDS are
-	//not yet set at Init. sucks!
+	// not yet set at Init. sucks!
 	//		{
 	//			//no assigment inputs
 	//			GenerateVariableCommand* command =
-	//commands.Add<GenerateVariableCommand>(); 			command->origin =
-	//outputPins[0].ID; 			command->type = aLanguage.dataTypes.at("float");// =
-	//CodeVariableType::Float; 			command->mutability =
-	//CodeVariableMutability::Constant;
+	// commands.Add<GenerateVariableCommand>(); 			command->origin =
+	// outputPins[0].ID; 			command->type =
+	// aLanguage.dataTypes.at("float");// = CodeVariableType::Float;
+	// command->mutability = CodeVariableMutability::Constant;
 	//			command->data.assignmentInputs.push_back({ inputPins[0].ID,
-	//CodeOperation::None });
+	// CodeOperation::None });
 	//		}
 
 	//		{
 	//			//input 0 + input 1
 	//			GenerateVariableCommand* command =
-	//commands.Add<GenerateVariableCommand>(); 			command->origin =
-	//outputPins[1].ID; 			command->type = aLanguage.dataTypes.at("float");// =
-	//CodeVariableType::Float; 			command->mutability =
-	//CodeVariableMutability::Constant;
+	// commands.Add<GenerateVariableCommand>(); 			command->origin =
+	// outputPins[1].ID; 			command->type =
+	// aLanguage.dataTypes.at("float");// = CodeVariableType::Float;
+	// command->mutability = CodeVariableMutability::Constant;
 	//			command->data.assignmentInputs.push_back({ inputPins[0].ID,
-	//CodeOperation::Add }); 			command->data.assignmentInputs.push_back({
-	//inputPins[1].ID, CodeOperation::None });
+	// CodeOperation::Add }); command->data.assignmentInputs.push_back({
+	// inputPins[1].ID, CodeOperation::None });
 	//		}
 
 	//		{
 	//			//input 0 * input 1
 	//			GenerateVariableCommand* command =
-	//commands.Add<GenerateVariableCommand>(); 			command->origin =
-	//outputPins[2].ID; 			command->type = aLanguage.dataTypes.at("float");// =
-	//CodeVariableType::Float; 			command->mutability =
-	//CodeVariableMutability::Constant;
+	// commands.Add<GenerateVariableCommand>(); 			command->origin =
+	// outputPins[2].ID; 			command->type =
+	// aLanguage.dataTypes.at("float");// = CodeVariableType::Float;
+	// command->mutability = CodeVariableMutability::Constant;
 	//			command->data.assignmentInputs.push_back({ inputPins[0].ID,
-	//CodeOperation::Multiply }); 			command->data.assignmentInputs.push_back({
-	//inputPins[1].ID, CodeOperation::None });
+	// CodeOperation::Multiply });
+	// command->data.assignmentInputs.push_back({ inputPins[1].ID,
+	// CodeOperation::None });
 	//		}
 
 	//		{
 	//			//input 0 / input 1 + input 2 * input 3
 	//			GenerateVariableCommand* command =
-	//commands.Add<GenerateVariableCommand>(); 			command->origin =
-	//outputPins[3].ID; 			command->type = aLanguage.dataTypes.at("float");// =
-	//CodeVariableType::Float; 			command->mutability =
-	//CodeVariableMutability::Constant;
+	// commands.Add<GenerateVariableCommand>(); 			command->origin =
+	// outputPins[3].ID; 			command->type =
+	// aLanguage.dataTypes.at("float");// = CodeVariableType::Float;
+	// command->mutability = CodeVariableMutability::Constant;
 	//			command->data.assignmentInputs.push_back({ inputPins[0].ID,
-	//CodeOperation::Divide }); 			command->data.assignmentInputs.push_back({
-	//inputPins[1].ID, CodeOperation::Add });
-	//			command->data.assignmentInputs.push_back({ inputPins[2].ID,
-	//CodeOperation::Multiply }); 			command->data.assignmentInputs.push_back({
-	//inputPins[3].ID, CodeOperation::None });
+	// CodeOperation::Divide });
+	// command->data.assignmentInputs.push_back({ inputPins[1].ID,
+	// CodeOperation::Add }); 			command->data.assignmentInputs.push_back({
+	//inputPins[2].ID, CodeOperation::Multiply });
+	// command->data.assignmentInputs.push_back({ inputPins[3].ID,
+	// CodeOperation::None });
 	//		}
 
 	//		return commands;
@@ -2223,7 +2225,7 @@ KE::NodeTypeDatabase::NodeTypeDatabase() {
 
 	// public:
 	//	DefineNode("Empty Dependency", NodeCategory::CodeLogic, "Does nothing.
-	//Useful for testing");
+	// Useful for testing");
 
 	//	virtual void Init() override
 	//	{
@@ -2244,12 +2246,12 @@ KE::NodeTypeDatabase::NodeTypeDatabase() {
 
 	//		{
 	//			GenerateVariableCommand* command =
-	//commands.Add<GenerateVariableCommand>(); 			command->origin =
-	//outputPins[1].ID; 			command->type = aLanguage.dataTypes.at("float"); //=
-	//CodeVariableType::Float; 			command->mutability =
-	//CodeVariableMutability::Constant;
+	// commands.Add<GenerateVariableCommand>(); 			command->origin =
+	// outputPins[1].ID; 			command->type =
+	// aLanguage.dataTypes.at("float"); //= CodeVariableType::Float;
+	// command->mutability = CodeVariableMutability::Constant;
 	//			command->data.assignmentInputs.push_back({ inputPins[1].ID,
-	//CodeOperation::None });
+	// CodeOperation::None });
 	//		}
 
 	//		return commands;
@@ -2264,8 +2266,8 @@ KE::NodeTypeDatabase::NodeTypeDatabase() {
 	// public:
 	//	virtual const char* GetName() const override { return "Entry"; }
 	//	virtual NodeCategory GetCategory() const override { return
-	//NodeCategory::CodeEntryPoint; } 	virtual const char* GetDescription() const
-	//override { return "Entry point for the script"; }
+	// NodeCategory::CodeEntryPoint; } 	virtual const char* GetDescription()
+	// const override { return "Entry point for the script"; }
 
 	//	virtual const char* GetCode() const override { return ""; }
 
@@ -2275,7 +2277,7 @@ KE::NodeTypeDatabase::NodeTypeDatabase() {
 	//	}
 
 	//	virtual CommandList GetCommands(const LanguageDefinition& aLanguage)
-	//override
+	// override
 	//	{
 	//		CommandList commands;
 
@@ -2296,8 +2298,8 @@ KE::NodeTypeDatabase::NodeTypeDatabase() {
 	// public:
 	//	virtual const char* GetName() const override { return "Exit"; }
 	//	virtual NodeCategory GetCategory() const override { return
-	//NodeCategory::CodeLogic; } 	virtual const char* GetDescription() const
-	//override { return "Exit point for the script"; }
+	// NodeCategory::CodeLogic; } 	virtual const char* GetDescription() const
+	// override { return "Exit point for the script"; }
 
 	//	virtual const char* GetCode() const override { return ""; }
 
@@ -2307,12 +2309,12 @@ KE::NodeTypeDatabase::NodeTypeDatabase() {
 	//		AddInputPin(ValueType::CodeValue, PinType::Value, "Output");
 
 	//		codePinData.push_back({ CodePinType::Value,
-	//parentScript->GetLanguageDefinition()->dataTypes.at("float4") });
+	// parentScript->GetLanguageDefinition()->dataTypes.at("float4") });
 	//		inputPins[1].codeData = &codePinData.back();
 	//	}
 
 	//	virtual CommandList GetCommands(const LanguageDefinition& aLanguage)
-	//override
+	// override
 	//	{
 	//		CommandList commands;
 

@@ -12,7 +12,7 @@ namespace KE {
 
 	class Component {
 	public:
-		virtual ~Component() {};
+		virtual ~Component(){};
 
 		virtual void SetData(void* aDataObject = nullptr) {
 			aDataObject;
@@ -115,7 +115,7 @@ namespace KE {
 		};
 
 		Component(GameObject& aParentGameObject)
-			: myGameObject(aParentGameObject) {};
+			: myGameObject(aParentGameObject){};
 
 		GameObject& myGameObject;
 

@@ -107,7 +107,7 @@ void KE::LanguageDefiner::EvaluateFunctionDefinition(
 	//	const size_t nextPos = aLine.find(identifier, firstPos + 1);
 
 	//	stringParts.push_back(aLine.substr(firstPos + 1, nextPos - firstPos -
-	//1));
+	// 1));
 	//}
 }
 

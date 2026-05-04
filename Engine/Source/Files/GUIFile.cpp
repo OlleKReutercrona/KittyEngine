@@ -119,7 +119,7 @@ namespace KE {
 				// else
 				//{
 				//	std::cout << "\n" + badName + " is a bad name. I won't save
-				//this one!";
+				// this one!";
 				// }
 				scene["elements"].push_back(elementData);
 			}

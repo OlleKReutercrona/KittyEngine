@@ -30,7 +30,7 @@
 //	namespace WRL = Microsoft::WRL;
 //
 //	const std::vector<RenderResources> renderResources =
-//aModelData.myRenderResources; 	MeshList* meshList = aModelData.myMeshList;
+// aModelData.myRenderResources; 	MeshList* meshList = aModelData.myMeshList;
 //	auto& shaderLoader = myGraphics->GetShaderLoader();
 //	const auto& graphicsContext = myGraphics->GetContext();
 //
@@ -59,20 +59,20 @@
 //		constexpr UINT offset = 0u;
 //
 //		const Material* material =
-//renderResources[renderResourceIndex].myMaterial;
+// renderResources[renderResourceIndex].myMaterial;
 //
 //		myGraphics->BindMaterial(material, 0u);
 //
 //
 //		graphicsContext->IASetVertexBuffers(0u, 1u,
-//mesh.myVertexBuffer.GetAddressOf(), &stride, &offset);
+// mesh.myVertexBuffer.GetAddressOf(), &stride, &offset);
 //		graphicsContext->IASetIndexBuffer(mesh.myIndexBuffer.Get(),
-//DXGI_FORMAT_R32_UINT, 0u);
+// DXGI_FORMAT_R32_UINT, 0u);
 //
 //		ObjectBufferData data;
 //		data.objectToWorld = *aModelData.myTransform;
 //		data.objectToClip = *aModelData.myTransform * myGraphics->GetView() *
-//myGraphics->GetProjection();
+// myGraphics->GetProjection();
 //
 //		myRenderingBuffer.MapBuffer(&data, sizeof(data), graphicsContext.Get());
 //		myRenderingBuffer.BindForVS(1, graphicsContext.Get());

@@ -65,12 +65,12 @@ void KE_EDITOR::MaterialEditor::Render() {
 		//		rrToUse.myMaterial->myName
 		//	);
 		//	editor->myTextureLoader->RenderThumbnail(rrToUse.myMaterial,
-		//thumbnailPath); 	thumbnailTex =
-		//editor->myTextureLoader->GetTextureFromPath(thumbnailPath, false,
-		//true); 	if (thumbnailTex)
+		// thumbnailPath); 	thumbnailTex =
+		// editor->myTextureLoader->GetTextureFromPath(thumbnailPath, false,
+		// true); 	if (thumbnailTex)
 		//	{
 		//		ImGui::Image(thumbnailTex->myShaderResourceView.Get(),
-		//ImVec2(64, 64));
+		// ImVec2(64, 64));
 		//	}
 		//}
 	}

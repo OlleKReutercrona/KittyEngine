@@ -731,17 +731,17 @@ void KE::CodeScriptParser::GetOutputRenderCode(
 	//	std::string code = aData.code;
 	//
 	//	const auto& authorCodeArea = GetCodeAreaFromAuthor(aData.parsingData,
-	//node.first, code);
+	// node.first, code);
 	//
 	//	std::string outputVariable = code.substr(authorCodeArea.first,
-	//authorCodeArea.second - authorCodeArea.first);
+	// authorCodeArea.second - authorCodeArea.first);
 	//
 	//	size_t outputAlbedoPos = code.find("OUTPUT.albedo = ") +
-	//sizeof("OUTPUT.albedo ="); 	size_t outputAlbedoEnd = code.find(";",
-	//outputAlbedoPos); 	std::string variableToReplace =
-	//code.substr(outputAlbedoPos, outputAlbedoEnd - outputAlbedoPos); 	code =
-	//code.replace(outputAlbedoPos, outputAlbedoEnd - outputAlbedoPos,
-	//node.second); 	aOutputCodeList.push_back({ node.first, code });
+	// sizeof("OUTPUT.albedo ="); 	size_t outputAlbedoEnd = code.find(";",
+	// outputAlbedoPos); 	std::string variableToReplace =
+	// code.substr(outputAlbedoPos, outputAlbedoEnd - outputAlbedoPos); 	code
+	// = code.replace(outputAlbedoPos, outputAlbedoEnd - outputAlbedoPos,
+	// node.second); 	aOutputCodeList.push_back({ node.first, code });
 	// }
 }
 

@@ -111,10 +111,7 @@ namespace KE {
 	};
 
 	static const char* VFXCurveProfileNames[(int)VFXCurveProfiles::Count] = {
-		"None",
-		"Discrete",
-		"Linear",
-		"Smooth",
+		"None", "Discrete", "Linear", "Smooth",
 		//"Bezier (Broken!)",
 	};
 
@@ -196,7 +193,7 @@ namespace KE {
 					//{
 					//	float bezierStep = CubicBezierStep(timeFraction);
 					//	value = lowerValue + (upperValue - lowerValue) *
-					//bezierStep; 	break;
+					// bezierStep; 	break;
 					// }
 					case VFXCurveProfiles::Discrete: {
 						value = lowerValue;

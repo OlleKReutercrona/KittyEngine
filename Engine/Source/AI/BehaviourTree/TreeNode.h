@@ -92,7 +92,7 @@ namespace AI {
 
 	class Leaf : public TreeNode {
 	public:
-		Leaf() {};
+		Leaf(){};
 		virtual ~Leaf() {}
 		virtual Status Update() = 0;
 		virtual bool Awake() = 0;

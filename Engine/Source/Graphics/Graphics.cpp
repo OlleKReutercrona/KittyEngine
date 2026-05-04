@@ -1534,7 +1534,7 @@ namespace KE {
 	//	mySecondaryGBuffer.ClearTextures(myContext.Get());
 	//	myGBuffer.ClearTextures(myContext.Get());
 	//	myRenderTargets[4].Clear((float*)vfxClearColour, true); //this is the
-	//render target used for vfx blooming
+	// render target used for vfx blooming
 
 	//	const bool renderToBack = DetermineBackbufferRender();
 
@@ -1543,15 +1543,15 @@ namespace KE {
 	//	//
 
 	//	for (size_t RTVIndex = 0; RTVIndex < myRenderTargetQueue.size();
-	//RTVIndex++)
+	// RTVIndex++)
 	//	{
 	//		KE::RenderTarget& workingRenderTarget =
-	//myRenderTargets[myRenderTargetQueue[RTVIndex].first];
+	// myRenderTargets[myRenderTargetQueue[RTVIndex].first];
 	//		workingRenderTarget.Clear(mainClearColour);
 	//		workingRenderTarget.MakeActive(true);
 
 	//		Camera* camera =
-	//myCameraManager.GetCamera(myRenderTargetQueue[RTVIndex].second);
+	// myCameraManager.GetCamera(myRenderTargetQueue[RTVIndex].second);
 
 	//		myGBuffer.ClearTextures(myContext.Get());
 
@@ -1562,12 +1562,12 @@ namespace KE {
 	//		//
 	//		KE::DebugTimeLogger::BeginLogVar("GBuffer Pass");
 	//		//for (int i = static_cast<int>(eRenderLayers::Back); i <
-	//static_cast<int>(eRenderLayers::Count); i++) 		for (int i =
-	//static_cast<int>(eRenderLayers::Count) - 1; i >=
-	//static_cast<int>(eRenderLayers::Back); i--)
+	// static_cast<int>(eRenderLayers::Count); i++) 		for (int i =
+	// static_cast<int>(eRenderLayers::Count) - 1; i >=
+	// static_cast<int>(eRenderLayers::Back); i--)
 	//		{
 	//			DrawLayer(camera, static_cast<eRenderLayers>(i),
-	//workingRenderTarget.ShouldRenderDebug());
+	// workingRenderTarget.ShouldRenderDebug());
 	//		}
 	//		KE::DebugTimeLogger::EndLogVar("GBuffer Pass");
 
@@ -1588,7 +1588,7 @@ namespace KE {
 
 	//	//set backbuffer as active
 	//	myContext->OMSetRenderTargets(1u, myRenderTarget.GetAddressOf(),
-	//myDepthStencil.Get());
+	// myDepthStencil.Get());
 	//}
 
 	void Graphics::AssignCubemap(const std::string& aPath) {

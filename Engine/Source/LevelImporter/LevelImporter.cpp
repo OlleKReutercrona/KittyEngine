@@ -303,12 +303,12 @@ namespace KE {
 
 #pragma region OLD_COMPONENT_IMPORTER
 //	void LevelImporter::AddComponents(Scene& aScene, nlohmann::json&
-//someComponents)
+// someComponents)
 //	{
 //
 //
 //		GameObject* gameObject =
-//aScene.GetGameObjectManager().GetLatestGameObject();
+// aScene.GetGameObjectManager().GetLatestGameObject();
 //
 //		for (auto& component : someComponents.items())
 //		{
@@ -318,7 +318,7 @@ namespace KE {
 //			if (component.key() == "main_camera")
 //			{
 //				aScene.gameObjectManager.GetGameObject(0)->myTransform =
-//gameObject->myTransform;
+// gameObject->myTransform;
 //
 //				aScene.gameObjectManager.DestroyGameObject(gameObject->myID);
 //			}
@@ -327,11 +327,11 @@ namespace KE {
 //			else if (component.key() == "model")
 //			{
 //				std::string modelPath = std::string("Data/Assets/") +
-//std::string(component.value()["path"]);
+// std::string(component.value()["path"]);
 //
 //				KE::ModelComponentData modelComponentData;
 //				modelComponentData.modelData =
-//myGraphics->CreateModelData(modelPath);
+// myGraphics->CreateModelData(modelPath);
 //				modelComponentData.modelData->myTransform =
 //&aScene.gameObjectManager.GetLatestGameObject()->myWorldSpaceTransform.GetMatrix();
 //
@@ -339,7 +339,7 @@ namespace KE {
 //				if (someComponents.contains("renderLayer"))
 //				{
 //					layer =
-//static_cast<eRenderLayers>(someComponents["renderLayer"]["layer"]);
+// static_cast<eRenderLayers>(someComponents["renderLayer"]["layer"]);
 //				}
 //
 //				myGraphics->GetRenderLayer(layer)->AddModelDataIndex(myGraphics->GetModelData().size()
@@ -352,11 +352,11 @@ namespace KE {
 //			else if (component.key() == "skeletal_model")
 //			{
 //				std::string modelPath = std::string("Data/Assets/") +
-//std::string(component.value()["path"]);
+// std::string(component.value()["path"]);
 //
 //				KE::SkeletalModelComponentData skeletalModelComponentData;
 //				skeletalModelComponentData.skeletalModelData =
-//myGraphics->CreateSkeletalModelData(modelPath);
+// myGraphics->CreateSkeletalModelData(modelPath);
 //				skeletalModelComponentData.skeletalModelData->myTransform =
 //&gameObject->myWorldSpaceTransform.GetMatrix();
 //
@@ -366,18 +366,18 @@ namespace KE {
 //*skeletalModelComponentData.skeletalModelData->myTransform);
 //				//scale = DirectX::XMVectorScale(scale, 0.01f);
 //				//*skeletalModelComponentData.skeletalModelData->myTransform =
-//DirectX::XMMatrixAffineTransformation(scale, DirectX::XMVectorZero(),
-//rotation, translation);
+// DirectX::XMMatrixAffineTransformation(scale, DirectX::XMVectorZero(),
+// rotation, translation);
 //				// TODO This should be handled properly by FBX Importer ^^^^^^^^
 //
 //				for (auto& animation : component.value()["animationPaths"])
 //				{
 //					std::string animationPath = std::string("Data/Assets/") +
-//std::string(animation);
+// std::string(animation);
 //
 //					myGraphics->GetModelLoader().LoadAnimation(*skeletalModelComponentData.skeletalModelData,
-//animationPath); 					auto* animationClip =
-//myGraphics->GetModelLoader().GetAnimationClip(animationPath);
+// animationPath); 					auto* animationClip =
+// myGraphics->GetModelLoader().GetAnimationClip(animationPath);
 //
 //					if (animationClip != nullptr)
 //					{
@@ -390,7 +390,7 @@ namespace KE {
 //				if (someComponents.contains("renderLayer"))
 //				{
 //					layer =
-//static_cast<eRenderLayers>(someComponents["renderLayer"]["layer"]);
+// static_cast<eRenderLayers>(someComponents["renderLayer"]["layer"]);
 //				}
 //				myGraphics->GetRenderLayer(layer)->AddSkeletalModelDataIndex(myGraphics->GetSkeletalModelData().size()
 //- 1);
@@ -444,8 +444,8 @@ namespace KE {
 //				bool isStatic = gameObject->IsStatic();
 //
 //				KE::BoxColliderComponentData
-//boxColliderData(*aScene.myCollisionHandler.CreateBox(tm, offset, size,
-//gameObject->myLayer, isStatic));
+// boxColliderData(*aScene.myCollisionHandler.CreateBox(tm, offset, size,
+// gameObject->myLayer, isStatic));
 //
 //				boxColliderData.offset = offset;
 //
@@ -479,8 +479,8 @@ namespace KE {
 //				bool isStatic = gameObject->IsStatic();
 //
 //				KE::SphereColliderComponentData
-//sphereColliderData(*aScene.myCollisionHandler.CreateSphere(tm, offset, radius,
-//gameObject->myLayer, isStatic));
+// sphereColliderData(*aScene.myCollisionHandler.CreateSphere(tm, offset,
+// radius, gameObject->myLayer, isStatic));
 //
 //				sphereColliderData.offset = offset;
 //
@@ -516,8 +516,8 @@ namespace KE {
 //				bool isStatic = gameObject->IsStatic();
 //
 //				KE::CapsuleColliderData
-//capsuleColData(*aScene.myCollisionHandler.CreateCapsule(tm, offset, radius,
-//length / 2.0f, gameObject->myLayer, isStatic));
+// capsuleColData(*aScene.myCollisionHandler.CreateCapsule(tm, offset, radius,
+// length / 2.0f, gameObject->myLayer, isStatic));
 //
 //				capsuleColData.offset = offset;
 //
@@ -534,14 +534,14 @@ namespace KE {
 //			else if (component.key() == "mesh_collider")
 //			{
 //				std::string modelPath = std::string("Data/Assets/") +
-//std::string(component.value()["mesh"]);
+// std::string(component.value()["mesh"]);
 //
 //				KE::ModelData* data = myGraphics->CreateModelData(modelPath);
 //
 //				if (!data->myMeshList)
 //				{
 //					KE_ERROR("Mesh Collider failed to load, file %s",
-//aScene.sceneName.c_str()); 					continue;
+// aScene.sceneName.c_str()); 					continue;
 //				}
 //
 //				if (data->myMeshList->myMeshes.size() > 0)
@@ -567,7 +567,7 @@ namespace KE {
 //				data.fileName = component.value()["fileName"];
 //				data.shouldLoop = component.value()["shouldLoop"];
 //				data.shouldPerformSpatialPlayback =
-//component.value()["shouldPerformSpatialPlayback"];
+// component.value()["shouldPerformSpatialPlayback"];
 //
 //				aScene.AddComponentToLast<AudioComponent>(&data);
 //			}
@@ -583,7 +583,7 @@ namespace KE {
 //					go->myTransform = gameObject->myTransform;
 //
 //					DirectionalLightData* data =
-//static_cast<DirectionalLightData*>(myGraphics->GetDeferredLightManager().
+// static_cast<DirectionalLightData*>(myGraphics->GetDeferredLightManager().
 //						CreateLightData(eLightType::Directional));
 //
 //					data->myColour = {
@@ -593,7 +593,7 @@ namespace KE {
 //					};
 //					data->myDirection = gameObject->myTransform.GetForward();
 //					data->myDirectionalLightIntensity =
-//static_cast<float>(component.value()["intensity"]);
+// static_cast<float>(component.value()["intensity"]);
 //					data->myAmbientLightIntensity = 1.0f;
 //
 //					LightComponentData lightComponentData;
@@ -606,7 +606,7 @@ namespace KE {
 //				else
 //				{
 //					KE_ERROR("Scene already has a directional light, file %s",
-//aScene.sceneName.c_str());
+// aScene.sceneName.c_str());
 //				}
 //				aScene.gameObjectManager.DestroyGameObject(gameObject->myID);
 //			}
@@ -615,7 +615,7 @@ namespace KE {
 //			else if (component.key() == "point_light")
 //			{
 //				PointLightData* data =
-//static_cast<PointLightData*>(myGraphics->GetDeferredLightManager().
+// static_cast<PointLightData*>(myGraphics->GetDeferredLightManager().
 //					CreateLightData(eLightType::Point));
 //
 //				data->myColour = {
@@ -625,8 +625,9 @@ namespace KE {
 //				};
 //				data->myRange = static_cast<float>(component.value()["range"]);
 //				data->myIntensity =
-//static_cast<float>(component.value()["intensity"]); 				data->myPosition = { 0.0f,
-//0.0f, 0.0f }; 				data->isActive = true;
+// static_cast<float>(component.value()["intensity"]);
+// data->myPosition = { 0.0f, 0.0f, 0.0f }; 				data->isActive =
+// true;
 //
 //				LightComponentData lightComponentData;
 //				lightComponentData.myLightData = data;
@@ -640,7 +641,7 @@ namespace KE {
 //			else if (component.key() == "spot_light")
 //			{
 //				SpotLightData* data =
-//static_cast<SpotLightData*>(myGraphics->GetDeferredLightManager().CreateLightData(
+// static_cast<SpotLightData*>(myGraphics->GetDeferredLightManager().CreateLightData(
 //					eLightType::Spot));
 //
 //				data->myColour = {
@@ -650,11 +651,13 @@ namespace KE {
 //				};
 //				data->myRange = static_cast<float>(component.value()["range"]);
 //				data->myIntensity =
-//static_cast<float>(component.value()["intensity"]); 				data->myPosition = { 0.0f,
-//0.0f, 0.0f }; 				data->myDirection = { 0.0f, 0.0f, 0.0f }; 				data->myOuterAngle =
-//DegToRad(component.value()["outerAngle"]); 				data->myInnerAngle =
-//DegToRad(data->myOuterAngle -
-//static_cast<float>(component.value()["innerAngle"])); 				data->isActive = true;
+// static_cast<float>(component.value()["intensity"]);
+// data->myPosition = { 0.0f, 0.0f, 0.0f }; 				data->myDirection =
+// { 0.0f, 0.0f, 0.0f }; 				data->myOuterAngle =
+// DegToRad(component.value()["outerAngle"]); 				data->myInnerAngle =
+// DegToRad(data->myOuterAngle -
+// static_cast<float>(component.value()["innerAngle"]));
+// data->isActive = true;
 //
 //				LightComponentData lightComponentData;
 //				lightComponentData.myLightData = data;
@@ -697,9 +700,9 @@ namespace KE {
 //				ScriptComponentData data;
 //
 //				auto* scriptManager =
-//KE_GLOBAL::blackboard.Get<ScriptManager>("scriptManager"); 				const std::string
-//path = component.value()["scriptName"]; 				data.script =
-//scriptManager->GetOrLoadScript(path);
+// KE_GLOBAL::blackboard.Get<ScriptManager>("scriptManager"); const std::string
+// path = component.value()["scriptName"]; 				data.script =
+// scriptManager->GetOrLoadScript(path);
 //
 //
 //				aScene.AddComponentToLast<KE::ScriptComponent>(&data);
@@ -710,10 +713,10 @@ namespace KE {
 //				DecalComponentData data;
 //
 //				const std::string& decalAlbedo =
-//component.value()["material"]["albedo"]; 				const std::string& decalNormal =
-//component.value()["material"]["normal"]; 				const std::string& decalMaterial =
-//component.value()["material"]["material"]; 				const std::string& decalEffects =
-//component.value()["material"]["effects"];
+// component.value()["material"]["albedo"]; 				const std::string&
+// decalNormal = component.value()["material"]["normal"]; 				const
+// std::string& decalMaterial = component.value()["material"]["material"];
+// const std::string& decalEffects = component.value()["material"]["effects"];
 //
 //				data.myDecalIndex = myGraphics->GetDecalManager().CreateDecal(
 //					myGraphics->GetTextureLoader().GetCustomMaterial(
@@ -753,30 +756,31 @@ namespace KE {
 //
 //				auto& val = component.value();
 //				const std::string modelPath = std::string("Data/Assets/") +
-//std::string(val["mesh"]);
+// std::string(val["mesh"]);
 //
 //				auto& sAtr = data.shellModelData->attributes;
 //				sAtr.totalHeight = val.contains("totalHeight") ?
-//(float)val["totalHeight"] : sAtr.totalHeight; 				sAtr.shellCount =
-//val.contains("shellCount") ? (int)val["shellCount"] : sAtr.shellCount;
+//(float)val["totalHeight"] : sAtr.totalHeight; 				sAtr.shellCount
+//= val.contains("shellCount") ? (int)val["shellCount"] : sAtr.shellCount;
 //				sAtr.thickness = val.contains("thickness") ?
 //(float)val["thickness"] : sAtr.thickness; 				sAtr.density =
-//val.contains("density") ? (float)val["density"] : sAtr.density; 				sAtr.noiseMin
-//= val.contains("noiseMin") ? (float)val["noiseMin"] : sAtr.noiseMin;
-//				sAtr.noiseMax = val.contains("noiseMax") ?
-//(float)val["noiseMax"] : sAtr.noiseMax; 				sAtr.aoExp = val.contains("aoExp") ?
-//(float)val["aoExp"] : sAtr.aoExp;
+// val.contains("density") ? (float)val["density"] : sAtr.density;
+// sAtr.noiseMin = val.contains("noiseMin") ? (float)val["noiseMin"] :
+//sAtr.noiseMin; 				sAtr.noiseMax = val.contains("noiseMax") ?
+//(float)val["noiseMax"] : sAtr.noiseMax; 				sAtr.aoExp =
+//val.contains("aoExp") ? (float)val["aoExp"] : sAtr.aoExp;
 //
 //				sAtr.bottomColour[0] = val.contains("bottomColour") ?
-//(float)val["bottomColour"]["r"] : sAtr.bottomColour[0]; 				sAtr.bottomColour[1] =
-//val.contains("bottomColour") ? (float)val["bottomColour"]["g"] :
-//sAtr.bottomColour[1]; 				sAtr.bottomColour[2] = val.contains("bottomColour") ?
+//(float)val["bottomColour"]["r"] : sAtr.bottomColour[0];
+//sAtr.bottomColour[1] = val.contains("bottomColour") ?
+// (float)val["bottomColour"]["g"] : sAtr.bottomColour[1];
+// sAtr.bottomColour[2] = val.contains("bottomColour") ?
 //(float)val["bottomColour"]["b"] : sAtr.bottomColour[2];
 //
 //				sAtr.topColour[0] = val.contains("topColour") ?
-//(float)val["topColour"]["r"] : sAtr.topColour[0]; 				sAtr.topColour[1] =
-//val.contains("topColour") ? (float)val["topColour"]["g"] : sAtr.topColour[1];
-//				sAtr.topColour[2] = val.contains("topColour") ?
+//(float)val["topColour"]["r"] : sAtr.topColour[0];
+//sAtr.topColour[1] = val.contains("topColour") ? (float)val["topColour"]["g"] :
+// sAtr.topColour[1]; 				sAtr.topColour[2] = val.contains("topColour") ?
 //(float)val["topColour"]["b"] : sAtr.topColour[2];
 //
 //				auto& shellMD = data.shellModelData->modelData;
@@ -784,13 +788,14 @@ namespace KE {
 //				auto& rrb = shellMD.myRenderResources.emplace_back();
 //
 //				rrb.myVertexShader =
-//shaderLoader.GetVertexShader(SHADER_LOAD_PATH "ShellTexturing_VS.cso");
+// shaderLoader.GetVertexShader(SHADER_LOAD_PATH "ShellTexturing_VS.cso");
 //				rrb.myPixelShader = shaderLoader.GetPixelShader(SHADER_LOAD_PATH
-//"ShellTexturing_PS.cso"); 				rrb.myMaterial = textureLoader.GetDefaultMaterial();
+//"ShellTexturing_PS.cso"); 				rrb.myMaterial =
+//textureLoader.GetDefaultMaterial();
 //
 //				shellMD.myMeshList = &modelLoader.Load(modelPath);
 //				data.shellModelData->effectsRT =
-//myGraphics->GetRenderTarget(10);
+// myGraphics->GetRenderTarget(10);
 //
 //				aScene.GetGameObjectManager().AddComponentToObject<ShellTexturingComponent>(gameObject,
 //&data);
@@ -814,7 +819,8 @@ namespace KE {
 //				CharacterControllerUserData playerUserData = {};
 //				playerUserData.gameObject = gameObject;
 //				playerUserData.objType =
-//CharacterControllerUserData::Type::Player; 				playerUserData.team = playerIndex;
+// CharacterControllerUserData::Type::Player; 				playerUserData.team
+// = playerIndex;
 //
 //				// PhysxController //
 //				PhysxControllerData controllerData;
@@ -822,7 +828,7 @@ namespace KE {
 //
 //
 //				data.controller =
-//aScene.myCollisionHandler.CreateController(controllerData, playerUserData);
+// aScene.myCollisionHandler.CreateController(controllerData, playerUserData);
 //
 //				auto& val = component.value();
 //
@@ -838,13 +844,13 @@ namespace KE {
 //				if (val.contains("characterIndex"))
 //				{
 //					data.characterIndex =
-//static_cast<int>(val["characterIndex"]);
+// static_cast<int>(val["characterIndex"]);
 //				}
 //				int playerCharacterIndex = data.characterIndex;
 //
 //				aScene.AddComponentToLast<P8::Player>(&data);
 //				P8::Player& playerComponent =
-//aScene.GetGameObjectManager().GetLatestGameObject()->GetComponent<P8::Player>();
+// aScene.GetGameObjectManager().GetLatestGameObject()->GetComponent<P8::Player>();
 //
 //				// ---Temporary way of adding a boomerang to the player--- //
 //				{
@@ -853,8 +859,8 @@ namespace KE {
 //&objName, Transform(), false);
 //
 //					auto* obj =
-//aScene.GetGameObjectManager().GetGameObject(boomerangID); 					obj->myLayer =
-//KE::Collision::Layers::Projectile;
+// aScene.GetGameObjectManager().GetGameObject(boomerangID);
+// obj->myLayer = KE::Collision::Layers::Projectile;
 //
 //
 //					obj->myTransform.SetScale({ 0.25f,0.25f,0.25f });
@@ -864,13 +870,14 @@ namespace KE {
 //
 //					P8::BoomerangComponentData boomerangData;
 //					P8::BoomerangPhysicsController* boomPhys = new
-//P8::BoomerangPhysicsController();
+// P8::BoomerangPhysicsController();
 //
 //
 //					CharacterControllerUserData boomUserData = {};
 //					boomUserData.gameObject = obj;
 //					boomUserData.objType =
-//CharacterControllerUserData::Type::Boomerang; 					boomUserData.team = playerIndex;
+// CharacterControllerUserData::Type::Boomerang;
+// boomUserData.team = playerIndex;
 //
 //					const auto& boomCtrl = boomPhys->Create(
 //						aScene.myCollisionHandler.GetPhysics(),
@@ -888,9 +895,9 @@ namespace KE {
 //					//also add a model
 //					{
 //						std::string modelPath =
-//std::string("Data/EngineAssets/Sphere.fbx"); 						KE::ModelComponentData
-//modelComponentData; 						modelComponentData.modelData =
-//myGraphics->CreateModelData(modelPath);
+// std::string("Data/EngineAssets/Sphere.fbx");
+// KE::ModelComponentData modelComponentData;
+// modelComponentData.modelData = myGraphics->CreateModelData(modelPath);
 //						modelComponentData.modelData->myTransform =
 //&aScene.gameObjectManager.GetLatestGameObject()->myWorldSpaceTransform.GetMatrix();
 //						modelComponentData.modelData->myRenderResources.back().myMaterial
@@ -908,7 +915,7 @@ namespace KE {
 //					{
 //						KE::VFXComponentData vfxData;
 //						vfxData.myVFXNames.push_back(std::format("BallVFX0{}",
-//playerCharacterIndex));
+// playerCharacterIndex));
 //
 //						vfxData.myVFXManager = &myGraphics->GetVFXManager();
 //						aScene.AddComponentToLast<VFXComponent>(&vfxData);
@@ -1047,8 +1054,8 @@ namespace KE {
 				// *skeletalModelComponentData.skeletalModelData->myTransform);
 				// scale = DirectX::XMVectorScale(scale, 0.01f);
 				//*skeletalModelComponentData.skeletalModelData->myTransform =
-				//DirectX::XMMatrixAffineTransformation(scale,
-				//DirectX::XMVectorZero(), rotation, translation);
+				// DirectX::XMMatrixAffineTransformation(scale,
+				// DirectX::XMVectorZero(), rotation, translation);
 				// TODO This should be handled properly by FBX Importer ^^^^^^^^
 
 				std::vector<std::string> animations;

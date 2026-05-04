@@ -24,7 +24,7 @@ namespace KE {
 	class CapsulePrimitive {
 	public:
 		CapsulePrimitive();
-		~CapsulePrimitive() {};
+		~CapsulePrimitive(){};
 
 		inline static const CapsuleMesh& GetMesh() {
 			return myMesh;

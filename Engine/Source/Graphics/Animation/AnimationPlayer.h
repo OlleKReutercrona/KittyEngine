@@ -153,9 +153,9 @@ namespace KE {
 	//	void Animate();
 
 	//	void PlayAnimation(const std::string& aAnimationName, bool aShouldLoop =
-	//true, float aSpeed = 1.0f); 	void PlayAnimationBlend(const std::string&
-	//aAnimationName, bool aShouldLoop = true, float aSpeed = 1.0f, float
-	//aBlendTime = 0.2f);
+	// true, float aSpeed = 1.0f); 	void PlayAnimationBlend(const std::string&
+	// aAnimationName, bool aShouldLoop = true, float aSpeed = 1.0f, float
+	// aBlendTime = 0.2f);
 
 	//	void PauseAnimation();
 	//	void ResumeAnimation();

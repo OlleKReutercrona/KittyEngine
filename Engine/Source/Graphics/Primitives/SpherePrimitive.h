@@ -21,7 +21,7 @@ namespace KE {
 	class SpherePrimitive {
 	public:
 		SpherePrimitive();
-		~SpherePrimitive() {};
+		~SpherePrimitive(){};
 
 		inline static const std::vector<VertexPoint>& GetVertices(
 			KE::SphereLOD anAmount = KE::SphereLOD::lowPoly) {

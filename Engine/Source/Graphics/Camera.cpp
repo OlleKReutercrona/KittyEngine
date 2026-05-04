@@ -142,13 +142,13 @@ bool KE::Camera::WorldToScreenPoint(const Vector3f& aWorldPoint,
 //	DirectX::XMVECTOR wp = { aPoint.x, aPoint.y, 0.0f, 1.0f };
 //
 //	wp = DirectX::XMVector4Transform(wp, DirectX::XMMatrixInverse(nullptr,
-//myProjectionMatrix));
+// myProjectionMatrix));
 //
 //	// Dude I HATE DirectX math library. Who in their right mind thought it was
-//a good idea to use this in our engine? Everything is hidded behind a shit func
-//or some other bullshit that you cant see. 	wp.m128_f32[0] /= wp.m128_f32[3];
-//	wp.m128_f32[1] /= wp.m128_f32[3];
-//	wp.m128_f32[2] /= wp.m128_f32[3];
+// a good idea to use this in our engine? Everything is hidded behind a shit
+// func or some other bullshit that you cant see. 	wp.m128_f32[0] /=
+// wp.m128_f32[3]; 	wp.m128_f32[1] /= wp.m128_f32[3]; 	wp.m128_f32[2] /=
+//wp.m128_f32[3];
 //
 //	wp = DirectX::XMVector4Transform(wp, GetViewMatrix());
 //

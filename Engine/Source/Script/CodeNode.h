@@ -503,7 +503,7 @@ namespace KE {
 	class CodeScriptNode : public ScriptNode {
 	protected:
 	public:
-		CodeScriptNode() : ScriptNode() {};
+		CodeScriptNode() : ScriptNode(){};
 		virtual ~CodeScriptNode() override = default;
 
 		virtual const char* GetName() const override = 0;

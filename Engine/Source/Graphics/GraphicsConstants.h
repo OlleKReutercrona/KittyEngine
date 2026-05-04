@@ -3,7 +3,8 @@
 #include "Engine\Source\Math\KittyMath.h"
 
 namespace KE {
-#define KITTY_CLEAR_COLOUR {0.75f, 0.75f, 0.75f, 1.0f}
+#define KITTY_CLEAR_COLOUR \
+	{ 0.75f, 0.75f, 0.75f, 1.0f }
 	static constexpr UINT COMMON_BUFFER_PS_SLOT = 0u;
 	static constexpr UINT COMMON_BUFFER_VS_SLOT = 0u;
 	static constexpr UINT LIGHT_BUFFER_PS_SLOT = 2u;
@@ -13,9 +14,9 @@ namespace KE {
 		VertexPoint() = default;
 		VertexPoint(const float aX, const float aY, const float aZ,
 					const float aW)
-			: x(aX), y(aY), z(aZ), w(aW) {};
+			: x(aX), y(aY), z(aZ), w(aW){};
 		VertexPoint(const Vector4f aVector)
-			: x(aVector.x), y(aVector.y), z(aVector.z), w(aVector.w) {};
+			: x(aVector.x), y(aVector.y), z(aVector.z), w(aVector.w){};
 		float x;
 		float y;
 		float z;

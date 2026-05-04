@@ -509,11 +509,11 @@ namespace KE {
 			//				*newBg,
 			//				myGraphics,
 			//				{ elements[i].myBox.myWidth,
-			//elements[i].myBox.myHeight },
+			// elements[i].myBox.myHeight },
 			//				elements[i].myDisplayTexture->myMetadata.myFilePath);
 			//			newBg->myName = "P1Bg";
 			//			newBg->mySecondaryTexture =
-			//myGraphics->GetTextureLoader().GetTextureFromPath(elements[i].mySecondaryTexture->myMetadata.myFilePath);
+			// myGraphics->GetTextureLoader().GetTextureFromPath(elements[i].mySecondaryTexture->myMetadata.myFilePath);
 			//			scene.RemoveElement(i);
 			//		}
 			//		else if (elements[i].myName == "P2Bg")
@@ -527,11 +527,11 @@ namespace KE {
 			//				*newBg,
 			//				myGraphics,
 			//				{ elements[i].myBox.myWidth,
-			//elements[i].myBox.myHeight },
+			// elements[i].myBox.myHeight },
 			//				elements[i].myDisplayTexture->myMetadata.myFilePath);
 			//			newBg->myName = "P2Bg";
 			//			newBg->mySecondaryTexture =
-			//myGraphics->GetTextureLoader().GetTextureFromPath(elements[i].mySecondaryTexture->myMetadata.myFilePath);
+			// myGraphics->GetTextureLoader().GetTextureFromPath(elements[i].mySecondaryTexture->myMetadata.myFilePath);
 			//			scene.RemoveElement(i);
 			//		}
 			//		else if (elements[i].myName == "P3Bg")
@@ -545,11 +545,11 @@ namespace KE {
 			//				*newBg,
 			//				myGraphics,
 			//				{ elements[i].myBox.myWidth,
-			//elements[i].myBox.myHeight },
+			// elements[i].myBox.myHeight },
 			//				elements[i].myDisplayTexture->myMetadata.myFilePath);
 			//			newBg->myName = "P3Bg";
 			//			newBg->mySecondaryTexture =
-			//myGraphics->GetTextureLoader().GetTextureFromPath(elements[i].mySecondaryTexture->myMetadata.myFilePath);
+			// myGraphics->GetTextureLoader().GetTextureFromPath(elements[i].mySecondaryTexture->myMetadata.myFilePath);
 			//			scene.RemoveElement(i);
 			//		}
 			//		else if (elements[i].myName == "P4Bg")
@@ -563,11 +563,11 @@ namespace KE {
 			//				*newBg,
 			//				myGraphics,
 			//				{ elements[i].myBox.myWidth,
-			//elements[i].myBox.myHeight },
+			// elements[i].myBox.myHeight },
 			//				elements[i].myDisplayTexture->myMetadata.myFilePath);
 			//			newBg->myName = "P4Bg";
 			//			newBg->mySecondaryTexture =
-			//myGraphics->GetTextureLoader().GetTextureFromPath(elements[i].mySecondaryTexture->myMetadata.myFilePath);
+			// myGraphics->GetTextureLoader().GetTextureFromPath(elements[i].mySecondaryTexture->myMetadata.myFilePath);
 			//			scene.RemoveElement(i);
 			//		}
 			//	}
@@ -782,7 +782,7 @@ namespace KE {
 		// if (GetAsyncKeyState('C') == SHORT_MIN + 1)
 		//{
 		//	myCursorSpriteBatch.myInstances[0].myAttributes.myColor.a =
-		//myCursorSpriteBatch.myInstances[0].myAttributes.myColor.a < 1.0f
+		// myCursorSpriteBatch.myInstances[0].myAttributes.myColor.a < 1.0f
 		//? 1.0f : 0.0f;
 		// }
 

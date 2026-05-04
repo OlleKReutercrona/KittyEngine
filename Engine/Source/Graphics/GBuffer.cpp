@@ -69,11 +69,11 @@ namespace KE {
 		//	depthStencilDesc.MipLevels = 1;
 		//	depthStencilDesc.ArraySize = 1;
 		//	depthStencilDesc.Format = DXGI_FORMAT_R32_TYPELESS; //TODO: make
-		//this a parameter 	depthStencilDesc.SampleDesc.Count = 1;
+		// this a parameter 	depthStencilDesc.SampleDesc.Count = 1;
 		//	depthStencilDesc.SampleDesc.Quality = 0;
 		//	depthStencilDesc.Usage = D3D11_USAGE_DEFAULT; //TODO: make this a
-		//parameter 	depthStencilDesc.BindFlags = D3D11_BIND_DEPTH_STENCIL |
-		//D3D11_BIND_SHADER_RESOURCE; 	depthStencilDesc.CPUAccessFlags = 0;
+		// parameter 	depthStencilDesc.BindFlags = D3D11_BIND_DEPTH_STENCIL |
+		// D3D11_BIND_SHADER_RESOURCE; 	depthStencilDesc.CPUAccessFlags = 0;
 		//	depthStencilDesc.MiscFlags = 0;
 
 		//	hr = aDevice->CreateTexture2D(&depthStencilDesc, nullptr,
@@ -94,12 +94,12 @@ namespace KE {
 		//	//create desc for the shader resource view
 		//	D3D11_SHADER_RESOURCE_VIEW_DESC shaderResourceViewDesc = {};
 		//	shaderResourceViewDesc.Format = DXGI_FORMAT_R32_FLOAT; //TODO: make
-		//this a parameter 	shaderResourceViewDesc.ViewDimension =
-		//D3D11_SRV_DIMENSION_TEXTURE2D;
+		// this a parameter 	shaderResourceViewDesc.ViewDimension =
+		// D3D11_SRV_DIMENSION_TEXTURE2D;
 		//	shaderResourceViewDesc.Texture2D.MipLevels = 1;
 
 		//	hr =
-		//aDevice->CreateShaderResourceView(returnGBuffer.myDepthStencilTexture.Get(),
+		// aDevice->CreateShaderResourceView(returnGBuffer.myDepthStencilTexture.Get(),
 		//&shaderResourceViewDesc,
 		//	                                       returnGBuffer.myDepthStencilShaderResourceView.GetAddressOf());
 		//	assert(SUCCEEDED(hr));

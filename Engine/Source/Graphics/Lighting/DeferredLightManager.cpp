@@ -18,7 +18,7 @@ namespace KE {
 												const float aNear,
 												const float aFar) {
 		//												aLeft,  aRight, aTop,
-		//aBottom, aNear, aFar
+		// aBottom, aNear, aFar
 		myDirectionalLightCamera.SetOrthographic((float)aSize.x, (float)aSize.y,
 												 aNear, aFar);
 	}

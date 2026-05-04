@@ -1,7 +1,6 @@
 #pragma once
 #include <Engine/Source/Script/Node.h>
 
-
 namespace KE {
 	class Script;
 	class ScriptNode;

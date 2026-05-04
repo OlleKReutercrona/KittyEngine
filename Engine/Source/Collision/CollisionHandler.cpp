@@ -702,8 +702,8 @@ void KE::CollisionHandler::DebugDraw(KE::DebugRenderer& aDrawer) {
 	//
 	//	//const float radius = geom.capsule().radius;
 	//	const float radius =
-	//myPlayerController.myCapsuleController->getRadius(); 	float length =
-	//myPlayerController.myCapsuleController->getHeight();
+	// myPlayerController.myCapsuleController->getRadius(); 	float length =
+	// myPlayerController.myCapsuleController->getHeight();
 	//
 	//	length += radius * 2.0f;
 	//
@@ -978,11 +978,11 @@ physx::PxFilterFlags KE::CollisionHandler::CustomFilterShader(
 //			{
 //				// Pack struct with collision info here
 //				CollisionData colData1(*secondCol,
-//secondCol->myComponent->GetGameObject());
+// secondCol->myComponent->GetGameObject());
 //				firstCol->myCollisionData.push_back(colData1);
 //
 //				CollisionData colData2(*firstCol,
-//firstCol->myComponent->GetGameObject());
+// firstCol->myComponent->GetGameObject());
 //				secondCol->myCollisionData.push_back(colData2);
 //			}
 //		}
@@ -1021,7 +1021,7 @@ physx::PxFilterFlags KE::CollisionHandler::CustomFilterShader(
 //
 //		if
 //((static_cast<int>(myColliders[i]->myComponent->GetGameObject().myLayer) &
-//aLayer) == 0) continue;
+// aLayer) == 0) continue;
 //
 //		if (Intersect(myColliders[i]->myShape, aRay, anOutPoint))
 //		{
@@ -1040,7 +1040,7 @@ physx::PxFilterFlags KE::CollisionHandler::CustomFilterShader(
 //		if (!myColliders[i]->isActive) continue;
 //
 //		// Added this so we can hit objects within the phone! Might have to
-//change this later? Makes sense to target triggers though! 		if
+// change this later? Makes sense to target triggers though! 		if
 //(myColliders[i]->isTrigger != isTrigger) continue;
 //
 //		if (Intersect(myColliders[i]->myShape, aRay))
@@ -1059,9 +1059,10 @@ physx::PxFilterFlags KE::CollisionHandler::CustomFilterShader(
 //{
 //	Vector3f intersectPoint;
 //	Vector3f v1 = { aPlayerPosition.x + 10.f, aPlayerPosition.y,
-//aPlayerPosition.z }; 	Vector3f v2 = { aPlayerPosition.x, aPlayerPosition.y,
-//aPlayerPosition.z + 10.f }; 	Vector3f v3 = { aPlayerPosition.x - 10.f,
-//aPlayerPosition.y, aPlayerPosition.z }; 	Plane plane;
+// aPlayerPosition.z }; 	Vector3f v2 = { aPlayerPosition.x,
+// aPlayerPosition.y, aPlayerPosition.z + 10.f }; 	Vector3f v3 = {
+// aPlayerPosition.x - 10.f, aPlayerPosition.y, aPlayerPosition.z }; 	Plane
+// plane;
 //
 //	plane.InitWith3Points(v3, v2, v1);
 //
@@ -1085,7 +1086,7 @@ physx::PxFilterFlags KE::CollisionHandler::CustomFilterShader(
 //	{
 //		if
 //((static_cast<int>(myColliders[i]->myComponent->GetGameObject().myLayer) &
-//aLayerMask) == 0 || 			!myColliders[i]->isActive) continue;
+// aLayerMask) == 0 || 			!myColliders[i]->isActive) continue;
 //
 //		if (Intersect(&aShape, myColliders[i]->myShape))
 //		{
@@ -1105,7 +1106,7 @@ physx::PxFilterFlags KE::CollisionHandler::CustomFilterShader(
 //	{
 //		if
 //((static_cast<int>(myColliders[i]->myComponent->GetGameObject().myLayer) &
-//aLayerMask) == 0) continue;
+// aLayerMask) == 0) continue;
 //
 //		if (Intersect(&aBox, myColliders[i]->myShape))
 //		{
@@ -1124,7 +1125,7 @@ physx::PxFilterFlags KE::CollisionHandler::CustomFilterShader(
 //	{
 //		if
 //((static_cast<int>(myColliders[i]->myComponent->GetGameObject().myLayer) &
-//aLayerMask) == 0) continue;
+// aLayerMask) == 0) continue;
 //
 //		if (Intersect(&aSphere, myColliders[i]->myShape))
 //		{

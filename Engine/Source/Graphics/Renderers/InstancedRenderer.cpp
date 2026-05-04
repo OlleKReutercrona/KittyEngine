@@ -184,8 +184,8 @@ void KE::InstancedRenderer::SortRenderPackages(
 	//	for (size_t i = 0; i < aPackageList->size(); i++)
 	//	{
 	//		ImGui::Text("Package %d: %f (%s)", i,
-	//aPackageList->at(i).distanceToCamera,
-	//modelDatas[aPackageList->at(i).modelDataIndices[0]].myMeshList->myFilePath.c_str());
+	// aPackageList->at(i).distanceToCamera,
+	// modelDatas[aPackageList->at(i).modelDataIndices[0]].myMeshList->myFilePath.c_str());
 	//	}
 	// }
 	// ImGui::End();

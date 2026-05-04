@@ -8,8 +8,8 @@ namespace KE {
 		friend class NavGrid;
 
 	public:
-		GridCell() {};
-		~GridCell() {};
+		GridCell(){};
+		~GridCell(){};
 		inline std::vector<KE::NavNode*> GetNodes() {
 			return myData;
 		};
@@ -22,8 +22,8 @@ namespace KE {
 		friend class KE::Navmesh;
 
 	public:
-		NavGrid() {};
-		~NavGrid() {};
+		NavGrid(){};
+		~NavGrid(){};
 		NavGrid(Vector2i aGridSize, float aCellSize);
 
 		bool Init(float aCellSize, Vector3f aMin, Vector3f aMax,

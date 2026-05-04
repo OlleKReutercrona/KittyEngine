@@ -11,8 +11,8 @@ enum class eShapes {
 namespace KE {
 	class Shape {
 	public:
-		Shape(const Vector3f& aPosition) : myPosition(aPosition) {};
-		virtual ~Shape() {};
+		Shape(const Vector3f& aPosition) : myPosition(aPosition){};
+		virtual ~Shape(){};
 
 		eShapes myShapeData = eShapes::eNULL;
 		Vector3f myOffset = {0, 0, 0};
@@ -27,7 +27,7 @@ namespace KE {
 			: myRadius(aRadius), Shape(aPosition) {
 			myShapeData = eShapes::eSphere;
 		};
-		~Sphere() {};
+		~Sphere(){};
 
 		float myRadius;
 
@@ -51,7 +51,7 @@ namespace KE {
 
 			myShapeData = eShapes::eBox;
 		}
-		~Box() {};
+		~Box(){};
 
 		Vector3f myMin;
 		Vector3f myMax;

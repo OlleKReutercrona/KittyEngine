@@ -39,7 +39,7 @@ int WINAPI wWinMain(_In_ HINSTANCE, _In_opt_ HINSTANCE, _In_ LPWSTR, _In_ int) {
 	//	wchar_t wtext[200];
 	//	size_t outSize;
 	//	mbstowcs_s(&outSize, wtext, str.length(), str.c_str(), str.length() -
-	//1);
+	// 1);
 
 	//	MessageBox(nullptr, wtext, L"Exception!", MB_OK | MB_ICONEXCLAMATION);
 	//	return EXIT_FAILURE;

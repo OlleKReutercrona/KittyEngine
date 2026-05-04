@@ -8,7 +8,7 @@ namespace KE {
 	class DebugRenderer {
 	public:
 		DebugRenderer() = default;
-		~DebugRenderer() {};
+		~DebugRenderer(){};
 
 		void Init(Graphics& aGraphics);
 

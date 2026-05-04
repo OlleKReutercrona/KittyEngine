@@ -8,9 +8,7 @@
 #include "ComponentSystem/Components/Collider/SphereColliderComponent.h"
 
 static const char* cppKeywords[] = {
-	"const",
-	"auto",
-	"static",
+	"const", "auto", "static",
 
 	// etc etc
 };

@@ -22,7 +22,7 @@ namespace KE {
 		std::vector<NavNode*> nodes = {};
 	};
 	struct SharedLine {
-		SharedLine(int v0, int v1) : indices({v0, v1}) {};
+		SharedLine(int v0, int v1) : indices({v0, v1}){};
 
 		bool IsShared(int aV0, int aV1) {
 			if ((indices[0] == aV0 && indices[1] == aV1) ||
@@ -37,8 +37,8 @@ namespace KE {
 		bool isShared = false;
 	};
 	struct EdgeLine {
-		EdgeLine() {};
-		EdgeLine(Vector3f aV0, Vector3f aV1) : v0(aV0), v1(aV1) {};
+		EdgeLine(){};
+		EdgeLine(Vector3f aV0, Vector3f aV1) : v0(aV0), v1(aV1){};
 
 		Vector3f v0;
 		Vector3f v1;

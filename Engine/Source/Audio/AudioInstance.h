@@ -48,7 +48,7 @@ namespace KE {
 		// virtual void OnDisable() override;
 
 		//// Audiowrapper manages the resources on it's own, so nothing to do
-		///here.
+		/// here.
 		// virtual void OnDestroy() override;
 
 		bool IsPlaying() const {

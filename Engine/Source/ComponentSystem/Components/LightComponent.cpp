@@ -33,8 +33,8 @@ namespace KE {
 		//	case eLightType::Point:
 		//	{
 		//		PointLightData* data =
-		//(PointLightData*)myLightComponentData.myLightData; 		float range =
-		//data->myRange;
+		//(PointLightData*)myLightComponentData.myLightData; 		float range
+		//= data->myRange;
 		//		myGameObject.GetManager().GetScene()->myDebugRenderer.RenderSphere(
 		//			myGameObject.myTransform.GetPosition(), range);
 		//		break;

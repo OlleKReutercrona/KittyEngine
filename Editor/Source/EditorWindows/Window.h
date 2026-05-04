@@ -16,8 +16,8 @@ namespace KE_EDITOR {
 		int myWindowFlags = 0;
 
 	public:
-		EditorWindowBase(EditorWindowInput aStartupData = {}) {};
-		virtual ~EditorWindowBase() {};
+		EditorWindowBase(EditorWindowInput aStartupData = {}){};
+		virtual ~EditorWindowBase(){};
 		//
 		void SetID(unsigned int anIndex) {
 			myID = anIndex;

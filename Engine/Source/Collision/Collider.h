@@ -27,7 +27,7 @@ namespace KE {
 			myBaseSize = {1, 1, 1};
 			isActive = true;
 		};
-		~Collider() {};
+		~Collider(){};
 
 		Component* myComponent = nullptr;
 		PhysicsObject* myPhysicsObject = nullptr;
