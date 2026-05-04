@@ -2,19 +2,16 @@
 #include "Component.h"
 #include "Reflection/Reflection.h"
 
-namespace KE
-{
+namespace KE {
 	class GameObject;
 
-	struct TestComponentData
-	{
+	struct TestComponentData {
 		bool testBool;
 		int testInt;
 		float testFloat;
 	};
 
-	class TestComponent : public Component
-	{
+	class TestComponent : public Component {
 	public:
 		TestComponent(GameObject& aGameObject);
 		~TestComponent();
@@ -31,20 +28,16 @@ namespace KE
 
 		void Test() {};
 
-
 	private:
 		friend class KE_SER::Serializer;
-		template<class SerializationIO>
-		void Serialize(SerializationIO& aSerializer)
-		{
+		template <class SerializationIO>
+		void Serialize(SerializationIO& aSerializer) {
 			SET_REFLECTION(TestComponent);
-			aSerializer & PARAM(myTestBool)
-						& PARAM(myTestInt)
-						& PARAM(myTestFloat)
-						& PARAM(myTestVector3)
-						& PARAM(myTestVector2)
-			;
+			aSerializer& PARAM(myTestBool) & PARAM(myTestInt) &
+				PARAM(myTestFloat) & PARAM(myTestVector3) &
+				PARAM(myTestVector2);
 		}
+
 	private:
 		bool myTestBool = false;
 		int myTestInt = -4;
@@ -53,4 +46,4 @@ namespace KE
 		Vector3f myTestVector3 = {123.0f, 234.0f, 999.0f};
 		Vector2i myTestVector2 = {1337, 1984};
 	};
-}
+}  // namespace KE

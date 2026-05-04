@@ -1,16 +1,14 @@
 #pragma once
-#include <unordered_map>
-#include <string>
 #include <Windows.h>
+#include <string>
+#include <unordered_map>
 
 #include "Engine/Source/Utility/Event.h"
 
-namespace KE
-{
+namespace KE {
 	using Key = unsigned int;
 
-	enum
-	{
+	enum {
 		KEY_MOV_FW = 'W',
 		KEY_MOV_BW = 'S',
 		KEY_MOV_LF = 'A',
@@ -25,8 +23,7 @@ namespace KE
 		KEY_MOU_RB = 0x02,
 	};
 
-	inline std::string GetKeyDesc(const unsigned int aVirtualKey)
-	{
+	inline std::string GetKeyDesc(const unsigned int aVirtualKey) {
 		static const std::unordered_map<unsigned int, std::string> KEY_MAP = {
 			{1, "Left Mouse Button"},
 			{2, "Right Mouse Button"},
@@ -122,22 +119,18 @@ namespace KE
 			{220, "\\"},
 			{221, "]"},
 			{222, "'"},
-			{255, "Delete"} // Virtual key code for Delete key
+			{255, "Delete"}	 // Virtual key code for Delete key
 		};
 
 		const auto it = KEY_MAP.find(aVirtualKey);
-		if (it != KEY_MAP.end())
-		{
+		if (it != KEY_MAP.end()) {
 			return it->second;
-		}
-		else
-		{
+		} else {
 			return "Unknown Key";
 		}
 	}
 
-	enum class eInputType
-	{
+	enum class eInputType {
 		None,
 		Up,
 		Down,
@@ -187,28 +180,20 @@ namespace KE
 		XboxLeftTriggerToggledRight,
 	};
 
-	enum class eInteractionType
-	{
-		None,
-		Pressed,
-		Released,
-		Held,
-		Hovered
-	};
+	enum class eInteractionType { None, Pressed, Released, Held, Hovered };
 
-	struct Interaction
-	{
+	struct Interaction {
 		Interaction() = default;
-		
-		Interaction(const eInteractionType aInteractionType, const Key aKey, const std::string& aTriggerName)
-		{
+
+		Interaction(const eInteractionType aInteractionType, const Key aKey,
+					const std::string& aTriggerName) {
 			myInteractionType = aInteractionType;
 			myKey = aKey;
 			myTriggerKeyName = aTriggerName;
 		}
 
-		Interaction(const eInteractionType aInteractionType, const int aXboxButton, const std::string& aTriggerName)
-		{
+		Interaction(const eInteractionType aInteractionType,
+					const int aXboxButton, const std::string& aTriggerName) {
 			myInteractionType = aInteractionType;
 			myXboxButton = aXboxButton;
 			myTriggerKeyName = aTriggerName;
@@ -220,23 +205,25 @@ namespace KE
 		Key myKey;
 		Key myXboxButton;
 		int myControllerID = -1;
-		Vector2f myStick = { 0.0f, 0.0f };
+		Vector2f myStick = {0.0f, 0.0f};
 		float myTrigger = 0.0f;
 	};
 
-	struct InputEvent : ES::Event
-	{
+	struct InputEvent : ES::Event {
 		InputEvent() = default;
 
-		InputEvent(const eInputType aInputType, const std::vector<Key>& aMouseAndKeyboardKeys, const eInteractionType aInterationType = eInteractionType::None)
-		{
+		InputEvent(
+			const eInputType aInputType,
+			const std::vector<Key>& aMouseAndKeyboardKeys,
+			const eInteractionType aInterationType = eInteractionType::None) {
 			myInputType = aInputType;
 			myInteractionType = aInterationType;
 			myKeyBindings = aMouseAndKeyboardKeys;
 		}
 
-		InputEvent(const eInputType aInputType, const Key aXboxButton, const eInteractionType aInterationType = eInteractionType::None)
-		{
+		InputEvent(
+			const eInputType aInputType, const Key aXboxButton,
+			const eInteractionType aInterationType = eInteractionType::None) {
 			myInputType = aInputType;
 			myInteractionType = aInterationType;
 			myXboxButton = aXboxButton;
@@ -248,22 +235,20 @@ namespace KE
 		eInteractionType myInteractionType = eInteractionType::None;
 		std::vector<Key> myKeyBindings = {};
 		POINT myMousePosition = {0, 0};
-		//std::string myTriggerKeyName = "Not set";
+		// std::string myTriggerKeyName = "Not set";
 		Key myXboxButton;
-		//int myControllerID = -1;
-		//Vector2f myStick = { 0.0f, 0.0f };
-		//float myTrigger = 0.0f;
+		// int myControllerID = -1;
+		// Vector2f myStick = { 0.0f, 0.0f };
+		// float myTrigger = 0.0f;
 	};
 
-	struct MouseMoveEvent : ES::Event
-	{
+	struct MouseMoveEvent : ES::Event {
 		MouseMoveEvent() = default;
 
-		MouseMoveEvent(const POINT& aMousePosition)
-		{
+		MouseMoveEvent(const POINT& aMousePosition) {
 			myMousePosition = aMousePosition;
 		}
 
 		POINT myMousePosition = {0, 0};
 	};
-}
+}  // namespace KE

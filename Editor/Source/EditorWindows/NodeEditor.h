@@ -1,36 +1,34 @@
 #pragma once
 #ifndef KITTYENGINE_NO_EDITOR
-#include "Script/NodeDatabase.h"
-#include "Script/Script.h"
-#include "ImNodes/ImNodes.h"
 #include "../Nodes/NodeEditorAction.h"
 #include "ImGuiColorTextEdit/TextEditor.h"
+#include "ImNodes/ImNodes.h"
 #include "Script/CodeScriptParser.h"
+#include "Script/NodeDatabase.h"
+#include "Script/Script.h"
 
 #define INVALID_NODE_ID -1
 
 struct ID3D11ShaderResourceView;
 
-namespace KE
-{
+namespace KE {
 	class ScriptNode;
 	struct Pin;
-}
+}  // namespace KE
 
-namespace KE_EDITOR
-{
+namespace KE_EDITOR {
 	constexpr char DRAG_DROP_VARIABLE_KEY[] = "DragDropVariableKey";
 
 	class Editor;
 
-	class NodeEditor : public EditorWindowBase
-	{
+	class NodeEditor : public EditorWindowBase {
 		KE_EDITOR_FRIEND
 	private:
 		KE::Script* myScript;
-		struct NodeCreationData
-		{
-			KE::ValueType limitType = KE::ValueType::Count; //count means no limit, any type can be created
+		struct NodeCreationData {
+			KE::ValueType limitType =
+				KE::ValueType::Count;  // count means no limit, any type can be
+									   // created
 			KE::ScriptMemberID linkFrom = {};
 			bool linkFromIsOutput = false;
 
@@ -43,15 +41,16 @@ namespace KE_EDITOR
 
 		std::vector<ImDrawList*> nodeDrawLists;
 
-		struct CodeEditorData
-		{
-			KE::ParsingOutput* parsed = nullptr; //i dont wannaaaaaa new this :(
+		struct CodeEditorData {
+			KE::ParsingOutput* parsed =
+				nullptr;  // i dont wannaaaaaa new this :(
 			TextEditor codeEditor;
 
 			std::array<ID3D11ShaderResourceView*, 16> shaderTextures;
-			std::unordered_map<KE::ScriptMemberID, int, KE::ScriptMemberID> nodePreviewTextureMap;
+			std::unordered_map<KE::ScriptMemberID, int, KE::ScriptMemberID>
+				nodePreviewTextureMap;
 			bool regenerateShader = false;
-			
+
 		} myCodeEditorData;
 
 		int myZoomLevel = 0;
@@ -62,28 +61,35 @@ namespace KE_EDITOR
 		EditorActionStack myActionStack;
 
 	public:
-		NodeEditor(EditorWindowInput aStartupData = {}) : EditorWindowBase(aStartupData) {}
+		NodeEditor(EditorWindowInput aStartupData = {})
+			: EditorWindowBase(aStartupData) {}
 
 		void Init() override;
 		void Update() override;
 		void Render() override;
 
-		void OnEdit(); //called when anything is changed in the node editor
+		void OnEdit();	// called when anything is changed in the node editor
 
 		void Serialize(void* aWorkingData) override;
 		void Deserialize(void* aWorkingData) override;
 
-		const char* GetWindowName() const override { return "Node Editor"; };
+		const char* GetWindowName() const override {
+			return "Node Editor";
+		};
 
 		void SetScript(KE::Script* aScript);
-		KE::Script* GetScript() const { return myScript; }
+		KE::Script* GetScript() const {
+			return myScript;
+		}
 
-		void GetSelection(std::vector<int>& selectedConnections, std::vector<int>& selectedNodes);
+		void GetSelection(std::vector<int>& selectedConnections,
+						  std::vector<int>& selectedNodes);
 
-		int PushNodeCategoryStack(const KE::NodeTypeDatabase::NodeCategoryStack& aCategoryStack);
+		int PushNodeCategoryStack(
+			const KE::NodeTypeDatabase::NodeCategoryStack& aCategoryStack);
 		void PopNodeCategoryStack(int aStackDepth);
 
-		//Style Helpers
+		// Style Helpers
 		static ImColor EvaluateHoverColour(const ImColor& aColour);
 		static ImColor GetNodeColour(KE::ScriptNode* aNode);
 		static ImColor GetValueColour(KE::ValueType type);
@@ -91,11 +97,14 @@ namespace KE_EDITOR
 		static const char* GetValueTypeString(KE::ValueType aValueType);
 
 		ImVec2 NodeEditorToScreenSpace(const ImVec2& aNodeEditorPosition) const;
-		ImVec2 ScreenSpaceToNodeEditor(const ImVec2& aScreenSpacePosition) const;
+		ImVec2 ScreenSpaceToNodeEditor(
+			const ImVec2& aScreenSpacePosition) const;
 		void MoveComment(KE::ScriptComment& comment, ImVec2 screenSpacePos);
 
 		ImVec4 EvaluateRegion(std::vector<KE::ScriptMemberID>& aNodes);
-		void GetConnectedNodes(KE::ScriptMemberID aNodeID, std::vector<KE::ScriptMemberID>& aOutConnections);
+		void GetConnectedNodes(
+			KE::ScriptMemberID aNodeID,
+			std::vector<KE::ScriptMemberID>& aOutConnections);
 		ImVec4 EvaluateConnectedRegion(KE::ScriptMemberID aNodeID);
 
 		ImVec2 GetNodePosition(KE::ScriptNode* aNode) const;
@@ -103,25 +112,37 @@ namespace KE_EDITOR
 
 		KE::ScriptMemberID AddNode(KE::ScriptNode* aNode);
 		void RemoveNode(KE::ScriptMemberID anID);
-		void AddConnection(KE::ScriptMemberID aFromPin, KE::ScriptMemberID aToPin);
-		void RemoveConnection(KE::ScriptMemberID aFromPin, KE::ScriptMemberID aToPin);
+		void AddConnection(KE::ScriptMemberID aFromPin,
+						   KE::ScriptMemberID aToPin);
+		void RemoveConnection(KE::ScriptMemberID aFromPin,
+							  KE::ScriptMemberID aToPin);
 
-		void AddLinkBranch(KE::ScriptMemberID aFromPin, KE::ScriptMemberID aToPin);
+		void AddLinkBranch(KE::ScriptMemberID aFromPin,
+						   KE::ScriptMemberID aToPin);
 		void MergeLinkBranch(KE::ScriptNode* node);
 
 		void DisplayComments();
 
 		void DeselectNode(KE::ScriptMemberID anID);
 
-		void DisplayNodeEditor(std::unordered_map<KE::ScriptMemberID, KE::ScriptNode*, KE::ScriptMemberID>& nodes,
-		                       std::unordered_map<KE::ScriptMemberID, std::vector<KE::PinConnection>, KE::ScriptMemberID>& connections,
-		                       std::vector<std::pair<KE::ScriptMemberID, KE::ScriptMemberID>>& tempConnections
-		);
-		void DisplayScriptVariable(std::unordered_map<std::string, KE::PinValue>::value_type& variable);
+		void DisplayNodeEditor(
+			std::unordered_map<KE::ScriptMemberID, KE::ScriptNode*,
+							   KE::ScriptMemberID>& nodes,
+			std::unordered_map<KE::ScriptMemberID,
+							   std::vector<KE::PinConnection>,
+							   KE::ScriptMemberID>& connections,
+			std::vector<std::pair<KE::ScriptMemberID, KE::ScriptMemberID>>&
+				tempConnections);
+		void DisplayScriptVariable(
+			std::unordered_map<std::string, KE::PinValue>::value_type&
+				variable);
 
 		void DisplayScriptAttributes();
-		void HighlightCodeFromNode(TextEditor& textEditor, std::vector<int> selectedNodes, KE::ParsingOutput parsed);
-		void HighlightNodeFromCode(TextEditor& textEditor, KE::ParsingOutput parsed);
+		void HighlightCodeFromNode(TextEditor& textEditor,
+								   std::vector<int> selectedNodes,
+								   KE::ParsingOutput parsed);
+		void HighlightNodeFromCode(TextEditor& textEditor,
+								   KE::ParsingOutput parsed);
 		ImNodesPinShape GetPinShape(KE::Pin* aPin) const;
 
 		KE::Pin* GetPin(KE::ScriptMemberID anID) const;
@@ -134,8 +155,13 @@ namespace KE_EDITOR
 		bool DisplayPinValueType(KE::PinValue* aValue, const char* label);
 		bool DisplayPinValue(KE::Pin* aPin, bool aIsOutput);
 
-		void GetConnections(KE::ScriptMemberID aNodeID, std::vector<std::pair<KE::ScriptMemberID, KE::ScriptMemberID>>& aOutConnections);
-		void AddConnections(const std::vector<std::pair<KE::ScriptMemberID, KE::ScriptMemberID>>& aConnections);
+		void GetConnections(
+			KE::ScriptMemberID aNodeID,
+			std::vector<std::pair<KE::ScriptMemberID, KE::ScriptMemberID>>&
+				aOutConnections);
+		void AddConnections(const std::vector<
+							std::pair<KE::ScriptMemberID, KE::ScriptMemberID>>&
+								aConnections);
 
 		bool PinHasConnection(KE::Pin* aPin) const;
 
@@ -148,7 +174,8 @@ namespace KE_EDITOR
 
 		void RenderShaderPreview();
 
-		Vector4i GetTextRegionFromIndices(const std::string& aString, size_t aStartIndex, size_t aEndIndex);
+		Vector4i GetTextRegionFromIndices(const std::string& aString,
+										  size_t aStartIndex, size_t aEndIndex);
 	};
-}
+}  // namespace KE_EDITOR
 #endif

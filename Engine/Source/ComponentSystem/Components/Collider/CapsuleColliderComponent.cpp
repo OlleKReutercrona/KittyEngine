@@ -1,31 +1,25 @@
 #include "stdafx.h"
+
 #include "CapsuleColliderComponent.h"
-#include "Engine\Source\Graphics\DebugRenderer.h"
-#include "Engine\Source\ComponentSystem\GameObject.h"
 #include "Engine\Source\Collision\Collider.h"
+#include "Engine\Source\ComponentSystem\GameObject.h"
+#include "Engine\Source\Graphics\DebugRenderer.h"
 
+KE::CapsuleColliderComponent::CapsuleColliderComponent(GameObject& aGameobject)
+	: Component(aGameobject) {}
 
-KE::CapsuleColliderComponent::CapsuleColliderComponent(GameObject& aGameobject) : Component(aGameobject)
-{
-}
+void KE::CapsuleColliderComponent::Update() {
+	if (myCollisions.size() == 0 && myCollider->myCollisionData.size() == 0)
+		return;
 
-void KE::CapsuleColliderComponent::Update()
-{
-	if (myCollisions.size() == 0 && myCollider->myCollisionData.size() == 0) return;
-
-	for (auto it = myCollisions.begin(); it != myCollisions.end();)
-	{
-
+	for (auto it = myCollisions.begin(); it != myCollisions.end();) {
 		int isColliding = false;
-		for (int j = 0; j < myCollider->myCollisionData.size(); j++)
-		{
-			if (it->first == &myCollider->myCollisionData[j].hitCollider)
-			{
+		for (int j = 0; j < myCollider->myCollisionData.size(); j++) {
+			if (it->first == &myCollider->myCollisionData[j].hitCollider) {
 				myIsHit = true;
 				isColliding = true;
 				// on stay
-				if (myCollider->myCollisionData[j].isTrigger)
-				{
+				if (myCollider->myCollisionData[j].isTrigger) {
 					myGameObject.OnTriggerStay(myCollider->myCollisionData[j]);
 					break;
 				}
@@ -35,17 +29,13 @@ void KE::CapsuleColliderComponent::Update()
 			}
 		}
 
-		if (isColliding == false)
-		{
+		if (isColliding == false) {
 			myIsHit = false;
 
 			// on exit
-			if (it->second->isTrigger)
-			{
+			if (it->second->isTrigger) {
 				myGameObject.OnTriggerExit(*it->second);
-			}
-			else
-			{
+			} else {
 				myGameObject.OnCollisionExit(*it->second);
 			}
 
@@ -55,16 +45,15 @@ void KE::CapsuleColliderComponent::Update()
 		++it;
 	}
 
-	for (int i = 0; i < myCollider->myCollisionData.size(); i++)
-	{
-		if (myCollisions.count(&myCollider->myCollisionData[i].hitCollider) == 0)
-		{
+	for (int i = 0; i < myCollider->myCollisionData.size(); i++) {
+		if (myCollisions.count(&myCollider->myCollisionData[i].hitCollider) ==
+			0) {
 			myIsHit = true;
 
 			// On Enter
-			myCollisions.insert({ &myCollider->myCollisionData[i].hitCollider , &myCollider->myCollisionData[i] });
-			if (myCollider->myCollisionData[i].isTrigger)
-			{
+			myCollisions.insert({&myCollider->myCollisionData[i].hitCollider,
+								 &myCollider->myCollisionData[i]});
+			if (myCollider->myCollisionData[i].isTrigger) {
 				myGameObject.OnTriggerEnter(myCollider->myCollisionData[i]);
 				continue;
 			}
@@ -75,8 +64,7 @@ void KE::CapsuleColliderComponent::Update()
 	myCollider->myCollisionData.clear();
 }
 
-void KE::CapsuleColliderComponent::SetActive(const bool aValue)
-{
+void KE::CapsuleColliderComponent::SetActive(const bool aValue) {
 	isActive = aValue;
 
 	isActive ? OnEnable() : OnDisable();
@@ -84,27 +72,23 @@ void KE::CapsuleColliderComponent::SetActive(const bool aValue)
 	myCollider->SetActive(aValue);
 }
 
-void KE::CapsuleColliderComponent::OnEnable()
-{
+void KE::CapsuleColliderComponent::OnEnable() {
 	myCollider->SetActive(true);
 }
 
-void KE::CapsuleColliderComponent::OnDisable()
-{
+void KE::CapsuleColliderComponent::OnDisable() {
 	myCollider->SetActive(false);
 }
 
-
-void KE::CapsuleColliderComponent::DrawDebug(KE::DebugRenderer& aDbg)
-{
+void KE::CapsuleColliderComponent::DrawDebug(KE::DebugRenderer& aDbg) {
 	Transform temp = myGameObject.myWorldSpaceTransform;
 	temp.TranslateLocal(myOffset);
 
-	aDbg.RenderCapsule(temp, myRadius / 2.0f, myLength / 2.0f, myIsHit ? myHitColour : myDefaultColour);
+	aDbg.RenderCapsule(temp, myRadius / 2.0f, myLength / 2.0f,
+					   myIsHit ? myHitColour : myDefaultColour);
 }
 
-void KE::CapsuleColliderComponent::SetData(void* aDataObject)
-{
+void KE::CapsuleColliderComponent::SetData(void* aDataObject) {
 	CapsuleColliderData* data = (CapsuleColliderData*)aDataObject;
 
 	myRadius = data->radius;
@@ -113,9 +97,12 @@ void KE::CapsuleColliderComponent::SetData(void* aDataObject)
 
 	myCollider = &data->collider;
 
-	myCollider->myOffset.x = data->offset.x * myGameObject.myTransform.GetScale().x;
-	myCollider->myOffset.y = data->offset.y * myGameObject.myTransform.GetScale().y;
-	myCollider->myOffset.z = data->offset.z * myGameObject.myTransform.GetScale().z;
+	myCollider->myOffset.x =
+		data->offset.x * myGameObject.myTransform.GetScale().x;
+	myCollider->myOffset.y =
+		data->offset.y * myGameObject.myTransform.GetScale().y;
+	myCollider->myOffset.z =
+		data->offset.z * myGameObject.myTransform.GetScale().z;
 
 	myCollider->myComponent = this;
 	myCollider->isTrigger = myIsTrigger;

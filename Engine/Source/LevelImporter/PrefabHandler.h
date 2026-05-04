@@ -1,13 +1,11 @@
 #pragma once
 #include <External/Include/nlohmann/json.hpp>
 
-namespace KE
-{
+namespace KE {
 	class GameObject;
 	class SceneManager;
 
-	class PrefabHandler
-	{
+	class PrefabHandler {
 	public:
 		PrefabHandler() = default;
 		~PrefabHandler() = default;
@@ -16,13 +14,13 @@ namespace KE
 
 		void AddPrefab(const nlohmann::json& aJsonBlock);
 		KE::GameObject* Instantiate(const std::string& aPrefab);
+
 	private:
-		struct PostponedObjects
-		{
+		struct PostponedObjects {
 			nlohmann::json prefabs;
 		};
 		std::unordered_map<std::string, PostponedObjects> myPostponedObjects;
 
 		SceneManager* mySceneManager;
 	};
-}
+}  // namespace KE

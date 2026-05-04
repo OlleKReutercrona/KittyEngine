@@ -1,20 +1,17 @@
 #pragma once
+#include <Windows.h>
 #include <bitset>
 #include <optional>
 #include <queue>
-#include <Windows.h>
 
 #define MAX_KEYS 256
 
-namespace KE
-{
+namespace KE {
 	using Key = unsigned int;
 
-	class InputHandler
-	{
+	class InputHandler {
 	public:
-		struct RawDelta
-		{
+		struct RawDelta {
 			int myX, myY;
 		};
 
@@ -66,4 +63,4 @@ namespace KE
 		std::bitset<MAX_KEYS> myCurrentKeyState;
 		std::bitset<MAX_KEYS> myLiveKeyState;
 	};
-}
+}  // namespace KE

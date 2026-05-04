@@ -7,49 +7,36 @@
 #include "Renderers/InstancedRenderer.h"
 #include "Renderers/SkeletalRenderer.h"
 
-
-
-namespace KE
-{
+namespace KE {
 	class Camera;
 	struct InstancedRenderPackage;
 	class InstancedRenderer;
 
 	typedef int RenderLayerFlags;
-	enum RenderLayerFlags_
-	{
-		RenderLayerFlags_Active			= 1 << 0,
+	enum RenderLayerFlags_ {
+		RenderLayerFlags_Active = 1 << 0,
 		RenderLayerFlags_ReceiveShadows = 1 << 1,
-		RenderLayerFlags_CastShadows	= 1 << 2,
-		RenderLayerFlags_Lit			= 1 << 3,
-		RenderLayerFlags_DrawModels		= 1 << 4,
-		RenderLayerFlags_DrawSkeletal	= 1 << 6,
-		RenderLayerFlags_DrawDecals		= 1 << 5,
-		RenderLayerFlags_DrawSprites	= 1 << 7,
-		RenderLayerFlags_DrawVFX		= 1 << 8,
-		RenderLayerFlags_SSAO			= 1 << 9,
-
+		RenderLayerFlags_CastShadows = 1 << 2,
+		RenderLayerFlags_Lit = 1 << 3,
+		RenderLayerFlags_DrawModels = 1 << 4,
+		RenderLayerFlags_DrawSkeletal = 1 << 6,
+		RenderLayerFlags_DrawDecals = 1 << 5,
+		RenderLayerFlags_DrawSprites = 1 << 7,
+		RenderLayerFlags_DrawVFX = 1 << 8,
+		RenderLayerFlags_SSAO = 1 << 9,
 
 		RenderLayerFlags_Count = 10
 	};
 
 	inline const char* RenderLayerFlagStrings[] = {
-			"Active",
-			"ReceiveShadows",
-			"CastShadows",
-			"Lit",
-			"DrawModels",
-			"DrawDecals",
-			"DrawSkeletal",
-			"DrawSprites",
-			"DrawVFX",
-			"SSAO",
-		};
+		"Active",	  "ReceiveShadows", "CastShadows", "Lit",	  "DrawModels",
+		"DrawDecals", "DrawSkeletal",	"DrawSprites", "DrawVFX", "SSAO",
+	};
 
-	class RenderLayer
-	{
+	class RenderLayer {
 		KE_EDITOR_FRIEND
 		friend class Graphics;
+
 	private:
 		Graphics* myGraphics = nullptr;
 		RenderTarget myProcessedRender{};
@@ -65,52 +52,62 @@ namespace KE
 		std::vector<size_t> myRegularModelIndices{};
 		InstancedRenderPackageList myInstancedRenderPackages{};
 
-		struct RenderLayerSettings
-		{
+		struct RenderLayerSettings {
 			eDepthStencilStates depthStencilState = eDepthStencilStates::Count;
 			eRasterizerStates rasterizerState = eRasterizerStates::Count;
 			eBlendStates blendState = eBlendStates::Count;
-			Camera* relativeCamera  = nullptr;
+			Camera* relativeCamera = nullptr;
 		} mySettings;
 
 	public:
-		RenderLayerFlags flags = RenderLayerFlags_Active | RenderLayerFlags_CastShadows | RenderLayerFlags_ReceiveShadows;
+		RenderLayerFlags flags = RenderLayerFlags_Active |
+								 RenderLayerFlags_CastShadows |
+								 RenderLayerFlags_ReceiveShadows;
 
 		void Init(Graphics* aGraphics);
 
-		void AssignRenderers(
-			BasicRenderer* aBasicRenderer,
-			SkeletalRenderer* aSkeletalRenderer,
-			InstancedRenderer* aInstancedRenderer,
-			DecalRenderer* aDecalRenderer
-		)
-		{
+		void AssignRenderers(BasicRenderer* aBasicRenderer,
+							 SkeletalRenderer* aSkeletalRenderer,
+							 InstancedRenderer* aInstancedRenderer,
+							 DecalRenderer* aDecalRenderer) {
 			myInstancedRenderer = aInstancedRenderer;
 			mySkeletalRenderer = aSkeletalRenderer;
 			myBasicRenderer = aBasicRenderer;
 			myDecalRenderer = aDecalRenderer;
 		};
 
-		void SetDepthStencilState(eDepthStencilStates aState) { mySettings.depthStencilState = aState; }
-		void SetRasterizerState(eRasterizerStates aState) { mySettings.rasterizerState = aState; }
-		void SetBlendState(eBlendStates aState) { mySettings.blendState = aState; }
-		void SetRelativeCamera(Camera* aCamera) { mySettings.relativeCamera = aCamera; }
+		void SetDepthStencilState(eDepthStencilStates aState) {
+			mySettings.depthStencilState = aState;
+		}
+		void SetRasterizerState(eRasterizerStates aState) {
+			mySettings.rasterizerState = aState;
+		}
+		void SetBlendState(eBlendStates aState) {
+			mySettings.blendState = aState;
+		}
+		void SetRelativeCamera(Camera* aCamera) {
+			mySettings.relativeCamera = aCamera;
+		}
 
-		const RenderLayerSettings& GetSettings() const { return mySettings; }
+		const RenderLayerSettings& GetSettings() const {
+			return mySettings;
+		}
 
 		void ApplySettings();
 
 		void SetActive();
 
-		//void Render(Camera* aCamera, Camera* aCameraRelative);
+		// void Render(Camera* aCamera, Camera* aCameraRelative);
 
-		void Render(Camera* aCamera, VertexShader* aVSOverride = nullptr, PixelShader* aPSOverride = nullptr);
+		void Render(Camera* aCamera, VertexShader* aVSOverride = nullptr,
+					PixelShader* aPSOverride = nullptr);
 
-		void RenderDecals(Camera* aCamera, GBuffer* aMainGBuffer, GBuffer* aCopyGBuffer, DecalManager* aDecalManager);
+		void RenderDecals(Camera* aCamera, GBuffer* aMainGBuffer,
+						  GBuffer* aCopyGBuffer, DecalManager* aDecalManager);
 
-		//void Render(const DirectX::XMMATRIX& aView, 
+		// void Render(const DirectX::XMMATRIX& aView,
 		//			const DirectX::XMMATRIX& aProjection,
-		//            VertexShader* aVSOverride = nullptr, 
+		//             VertexShader* aVSOverride = nullptr,
 		//			PixelShader* aPSOverride = nullptr
 		//);
 
@@ -120,12 +117,14 @@ namespace KE
 
 		void GenerateInstancingData(const ModelDataList& aModelDataList);
 
-		//GBuffer* GetGBuffer() { return &myGBuffer; }
-		RenderTarget* GetProcessedRender() { return &myProcessedRender; }
+		// GBuffer* GetGBuffer() { return &myGBuffer; }
+		RenderTarget* GetProcessedRender() {
+			return &myProcessedRender;
+		}
 
 		void NewFrame();
 
 		void Reset();
 		void Resize(Vector2i aSize);
 	};
-}
+}  // namespace KE

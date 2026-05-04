@@ -1,16 +1,14 @@
 #pragma once
+#include "Engine/Source/AI/SteeringController/SteeringOutput.h"
 #include "Engine/Source/Math/Transform.h"
 #include "Engine/Source/Math/Vector2.h"
-#include "Engine/Source/AI/SteeringController/SteeringOutput.h"
 #include "SharedKinematic.h"
 
-namespace KE_EDITOR
-{
+namespace KE_EDITOR {
 	class AIMovement;
 }
 
-class Kinematic
-{
+class Kinematic {
 	friend class SteeringController;
 	friend class Separation;
 	friend class Seek;
@@ -20,13 +18,9 @@ class Kinematic
 	friend class KE_EDITOR::AIMovement;
 
 public:
-	Kinematic(Transform& aTransform) : transform(aTransform)
-	{
+	Kinematic(Transform& aTransform) : transform(aTransform) {}
 
-	}
-
-	inline void Update(SteeringOutput& aSteering, float aTimeDelta)
-	{
+	inline void Update(SteeringOutput& aSteering, float aTimeDelta) {
 		Vector3f& position = transform.GetPositionRef();
 
 		// Apply Velocity and Rotation (X,Z only atm)
@@ -42,17 +36,17 @@ public:
 		rotation += aSteering.angular * aTimeDelta;
 
 		// Limit to current MaxSpeed
-		if (velocity.Length() > maxSpeed) // (NOTE) This was currentMaxSpeed before 
+		if (velocity.Length() >
+			maxSpeed)  // (NOTE) This was currentMaxSpeed before
 		{
-			velocity.y = 0.0f; // To be safe
+			velocity.y = 0.0f;	// To be safe
 
 			velocity.Normalize();
 			velocity *= maxSpeed;
 		}
 
 		// Decay used to slow down not needed?
-		if (useDecay)
-		{
+		if (useDecay) {
 			float decay = 1.0f - (10.0f * aTimeDelta);
 			velocity *= decay;
 		}
@@ -63,13 +57,13 @@ public:
 	Vector3f velocity = {};
 
 	float maxSpeed = 6.5f;
-	//float currentMaxSpeed	= 25;
+	// float currentMaxSpeed	= 25;
 	float maxAcceleration = 55;
 	float maxRotation = 7.5f;
 	float maxAngularForce = 44;
 
-	float rotation			= 0; 
-	float orientation		= 0;
+	float rotation = 0;
+	float orientation = 0;
+
 private:
-	
 };

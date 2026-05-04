@@ -2,18 +2,15 @@
 #include "Component.h"
 #include "Engine/Source/Script/ScriptExecution.h"
 
-namespace KE
-{
+namespace KE {
 	class Script;
 	class ScriptManager;
 
-	struct ScriptComponentData
-	{
+	struct ScriptComponentData {
 		Script* script = nullptr;
 	};
 
-	class ScriptComponent : public Component
-	{
+	class ScriptComponent : public Component {
 	private:
 		ScriptRuntime myScriptRuntime;
 		Script* myScript = nullptr;
@@ -29,4 +26,4 @@ namespace KE
 		void Update() override;
 	};
 
-}
+}  // namespace KE

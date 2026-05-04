@@ -1,8 +1,31 @@
-BasedOnStyle: LLVM
-IndentWidth: 4
-ColumnLimit: 100
+BasedOnStyle: Google
+
+Language: Cpp
+BreakBeforeBraces: Attach
 AllowShortFunctionsOnASingleLine: Empty
+
+UseTab: Always
+IndentWidth: 4
+TabWidth: 4
+
+NamespaceIndentation: All
+
+PointerAlignment: Left
+DerivePointerAlignment: false
+
+AccessModifierOffset: -4
+ContinuationIndentWidth: 4
+
+FixNamespaceComments: true
+
 SortIncludes: true
 
-# Helps with HLSL-style constructs
-Language: Cpp
+IncludeCategories:
+  - Regex: '^"stdafx\.h"$'
+    Priority: 0
+
+  - Regex: '^<.*>'
+    Priority: 1
+
+  - Regex: '^".*"'
+    Priority: 2

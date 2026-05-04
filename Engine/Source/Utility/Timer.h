@@ -1,11 +1,10 @@
 #pragma once
 #include <mutex>
+
 #include "Engine/Source/Windows/KittyEngineWin.h"
 
-namespace KE
-{
-	class Timer
-	{
+namespace KE {
+	class Timer {
 	public:
 		Timer();
 
@@ -25,4 +24,4 @@ namespace KE
 		float fps = 0.0f;
 		std::mutex mutex;
 	};
-}
+}  // namespace KE

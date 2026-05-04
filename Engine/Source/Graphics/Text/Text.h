@@ -1,44 +1,35 @@
 #pragma once
 #include "TextStyling.h"
 
-namespace KE
-{
+namespace KE {
 	struct Texture;
 	struct Sprite;
 
-
-	struct MSDFPixel
-	{
+	struct MSDFPixel {
 		unsigned char r, g, b, a;
 	};
-	
-	struct CharacterData
-	{
+
+	struct CharacterData {
 		char myCharacter;
 
-		struct
-		{
+		struct {
 			float left, right, top, bottom;
 		} planeBounds;
 
-		struct
-		{
+		struct {
 			float left, right, top, bottom;
 		} atlasBounds;
 
 		float xAdvance;
 
 		float gScale;
-
 	};
 
-	struct FontData
-	{
+	struct FontData {
 		std::map<std::pair<char, char>, float> kernPairs;
 		std::unordered_map<char, CharacterData> characters;
 
-		struct
-		{
+		struct {
 			float ascendY;
 			float descendY;
 			float emSize;
@@ -47,78 +38,60 @@ namespace KE
 			float underlineY;
 
 		} metrics;
-
 	};
 
-	class SpriteFont
-	{
+	class SpriteFont {
 		friend class FontLoader;
+
 	private:
 		KE::Texture* fontAtlas;
 		FontData fontData;
 
 		float GetKern(const std::string& aString, int aCharacterIndex);
-		void AlignText(
-			const std::vector<std::vector<Sprite*>>& aSpriteRowSet,
-			TextAlign aHorizontalAlignType,
-			TextAlign aVerticalAlignType
-		);
-		
+		void AlignText(const std::vector<std::vector<Sprite*>>& aSpriteRowSet,
+					   TextAlign aHorizontalAlignType,
+					   TextAlign aVerticalAlignType);
+
 	public:
 		SpriteFont() = default;
 
 		void CreateCharacterMap(const std::string& aCharacters);
-		
-		void Init(
-			KE::Texture* aFontAtlas,
-			const std::string& aCharacterDefinitions
-		)
-		{
+
+		void Init(KE::Texture* aFontAtlas,
+				  const std::string& aCharacterDefinitions) {
 			fontAtlas = aFontAtlas;
 			CreateCharacterMap(aCharacterDefinitions);
 		}
 
+		void PrepareSprites(Sprite** aSprites, const std::string& aString,
+							const TextStyling& aStyling = TextStyling(),
+							const Transform& aOrigin = Transform());
 
-		void PrepareSprites(
-			Sprite** aSprites,
-			const std::string& aString,
-			const TextStyling& aStyling = TextStyling(),
-			const Transform& aOrigin = Transform()
-		);
+		static std::string CreateSpriteString(const int& aNumber,
+											  const std::string& aPrefix = "",
+											  const std::string& aSuffix = "");
 
-
-		static std::string CreateSpriteString(
-			const int& aNumber,
-			const std::string& aPrefix = "",
-			const std::string& aSuffix = ""
-		);
-
-		KE::Texture* GetFontAtlas() const { return fontAtlas; }
-		const FontData& GetFontData() { return fontData; }
+		KE::Texture* GetFontAtlas() const {
+			return fontAtlas;
+		}
+		const FontData& GetFontData() {
+			return fontData;
+		}
 	};
 
-	class FontLoader
-	{
+	class FontLoader {
 	private:
-		static void SaveGeneratedFont(
-			const char* aFontPath,
-			const MSDFPixel* aImageData,
-			const int aWidth,
-			const int aHeight,
-			FontData& aFontData
-		);
-	public:
-		static SpriteFont LoadFont(
-			const char* aFontPath
-		);
+		static void SaveGeneratedFont(const char* aFontPath,
+									  const MSDFPixel* aImageData,
+									  const int aWidth, const int aHeight,
+									  FontData& aFontData);
 
-		static void GenerateMSDFFont(
-			const char* aFontPath,
-			float aFontSize,
-			float aMaxCornerAngle,
-			float aPixelRange,
-			float aMiterLimit
-		);
+	public:
+		static SpriteFont LoadFont(const char* aFontPath);
+
+		static void GenerateMSDFFont(const char* aFontPath, float aFontSize,
+									 float aMaxCornerAngle, float aPixelRange,
+									 float aMiterLimit);
 	};
 
-}
+}  // namespace KE

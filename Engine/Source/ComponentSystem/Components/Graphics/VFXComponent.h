@@ -2,12 +2,10 @@
 
 #include "Engine/Source/ComponentSystem/Components/Component.h"
 
-namespace KE
-{
+namespace KE {
 	class VFXManager;
 	struct VFXRenderInput;
-	struct VFXComponentData
-	{
+	struct VFXComponentData {
 		std::vector<std::string> myVFXNames;
 		VFXManager* myVFXManager;
 		bool myAutoPlay = false;
@@ -15,8 +13,7 @@ namespace KE
 
 	class GameObject;
 
-	class VFXComponent : public Component
-	{
+	class VFXComponent : public Component {
 	public:
 		VFXComponent(GameObject& aGameObject);
 		~VFXComponent() override;
@@ -27,22 +24,29 @@ namespace KE
 
 		void OnDestroy() override;
 
-		void OnEnable() override {  }
-		void OnDisable() override {  }
+		void OnEnable() override {}
+		void OnDisable() override {}
 
 		void TriggerAllVFX(bool aLooping = false, bool aStationary = false);
 		void StopAllVFX();
-		//Don't create looping stationary VFXs unless you know what you're doing, they can not be stopped.
-		void TriggerVFX(int anIndex, bool aLooping = false, bool aStationary = false);
-		void TriggerVFXAt(int anIndex, const Vector3f& aPosition, bool aLooping = false);
+		// Don't create looping stationary VFXs unless you know what you're
+		// doing, they can not be stopped.
+		void TriggerVFX(int anIndex, bool aLooping = false,
+						bool aStationary = false);
+		void TriggerVFXAt(int anIndex, const Vector3f& aPosition,
+						  bool aLooping = false);
 		void TriggerVFXCustom(int anIndex, const VFXRenderInput& anInput);
 		void StopVFX(int anIndex);
 		void StopVFXCustom(int anIndex, const VFXRenderInput& anInput);
 
 		void SetData(void* aDataObject = nullptr) override;
 
-		inline int GetVFXSequenceIndex(int anIndex) const { return myVFXSequenceIndices[anIndex]; }
-		inline int GetVFXSequenceCount() const { return (int)myVFXSequenceIndices.size(); }
+		inline int GetVFXSequenceIndex(int anIndex) const {
+			return myVFXSequenceIndices[anIndex];
+		}
+		inline int GetVFXSequenceCount() const {
+			return (int)myVFXSequenceIndices.size();
+		}
 
 		void SetSequences(const std::vector<std::string>& someVFXSequenceNames);
 
@@ -54,4 +58,4 @@ namespace KE
 		bool shouldAutoPlay = false;
 		VFXManager* myVFXManager;
 	};
-}
+}  // namespace KE

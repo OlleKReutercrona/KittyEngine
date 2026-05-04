@@ -1,15 +1,13 @@
 #pragma once
-#include "Engine/Source/ComponentSystem/Components/Component.h"
 #include <map>
 
+#include "Engine/Source/ComponentSystem/Components/Component.h"
 
-namespace KE
-{
+namespace KE {
 	class Collider;
 	struct CollisionData;
 
-	struct CapsuleColliderData
-	{
+	struct CapsuleColliderData {
 		CapsuleColliderData(KE::Collider& aCollider) : collider(aCollider) {}
 
 		Vector3f offset;
@@ -19,8 +17,7 @@ namespace KE
 		KE::Collider& collider;
 	};
 
-	class CapsuleColliderComponent : public Component
-	{
+	class CapsuleColliderComponent : public Component {
 	public:
 		CapsuleColliderComponent(GameObject& aGameobject);
 		~CapsuleColliderComponent() = default;
@@ -36,16 +33,21 @@ namespace KE
 
 		void SetData(void* aDataObject = nullptr) override;
 
-		inline void DrawDebugLines(const bool aValue) { myDrawDebug = aValue; };
+		inline void DrawDebugLines(const bool aValue) {
+			myDrawDebug = aValue;
+		};
 
-		inline KE::Collider* GetCollider() const { return myCollider; }
+		inline KE::Collider* GetCollider() const {
+			return myCollider;
+		}
+
 	private:
 		KE::Collider* myCollider = nullptr;
 
-		std::map<Collider*, CollisionData*>  myCollisions;
+		std::map<Collider*, CollisionData*> myCollisions;
 
-		Vector4f myDefaultColour = { 1.0f, 0.0f, 0.0f, 1.0f };
-		Vector4f myHitColour = { 0.0f, 1.0f, 0.0f, 1.0f };
+		Vector4f myDefaultColour = {1.0f, 0.0f, 0.0f, 1.0f};
+		Vector4f myHitColour = {0.0f, 1.0f, 0.0f, 1.0f};
 
 		Vector3f myOffset;
 		float myRadius = 0.0f;
@@ -55,5 +57,4 @@ namespace KE
 		bool myDrawDebug = true;
 		bool myIsTrigger = false;
 	};
-}
-
+}  // namespace KE

@@ -1,12 +1,12 @@
 #include "stdafx.h"
-//#include "Minimap.h"
+// #include "Minimap.h"
 //
-//#include "GUIElement.h"
-//#include "GUIScene.h"
-//#include "External/Include/imgui/imgui.h"
-//#include "Project/Source/GameEvents/GameEvents.h"
+// #include "GUIElement.h"
+// #include "GUIScene.h"
+// #include "External/Include/imgui/imgui.h"
+// #include "Project/Source/GameEvents/GameEvents.h"
 //
-//namespace KE
+// namespace KE
 //{
 //	Minimap::~Minimap()
 //	{
@@ -57,9 +57,10 @@
 //		//ImGui::DragFloat("Y Scale", &yScale, 1.0f, 0.0f, 1000.0f);
 //		//ImGui::End();
 //
-//		mapZeroPos = { myMap->myBox.myWidth * (1.0f - xFactor), -myMap->myBox.myHeight * (1.0f - yFactor) };
-//		scale = { myMap->myBox.myWidth / xScale, myMap->myBox.myHeight / yScale };
-//		mapOffset = mapZeroPos + myMap->myBox.myScreenPosition;
+//		mapZeroPos = { myMap->myBox.myWidth * (1.0f - xFactor),
+//-myMap->myBox.myHeight * (1.0f - yFactor) }; 		scale = {
+//myMap->myBox.myWidth / xScale, myMap->myBox.myHeight / yScale };
+// mapOffset = mapZeroPos + myMap->myBox.myScreenPosition;
 //
 //		const Vector3f scaledPlayerPosition =
 //		{
@@ -72,13 +73,15 @@
 //	}
 //	void Minimap::OnReceiveEvent(ES::Event& aEvent)
 //	{
-//		if (P7::PlayerMovementEvent* event = dynamic_cast<P7::PlayerMovementEvent*>(&aEvent))
+//		if (P7::PlayerMovementEvent* event =
+// dynamic_cast<P7::PlayerMovementEvent*>(&aEvent))
 //		{
 //			myPlayerPosition = event->myPosition;
 //			myPlayerDirection = event->myDirection;
 //		}
 //
-//		if (P7::EnemiesMovementEvent* event = dynamic_cast<P7::EnemiesMovementEvent*>(&aEvent))
+//		if (P7::EnemiesMovementEvent* event =
+// dynamic_cast<P7::EnemiesMovementEvent*>(&aEvent))
 //		{
 //			myEnemyPositions = event->myPositions;
 //
@@ -103,12 +106,14 @@
 //				if (i < myEnemy->mySpriteBatch.myInstances.size())
 //				{
 //					myEnemy->mySpriteBatch.myInstances[i].myAttributes.myTransform.SetPosition(scaledEnemyPosition);
-//					myEnemy->mySpriteBatch.myInstances[i].myAttributes.myTransform.SetScale({ myEnemy->myBox.myWidth, myEnemy->myBox.myHeight, 1.0f });
+//					myEnemy->mySpriteBatch.myInstances[i].myAttributes.myTransform.SetScale({
+// myEnemy->myBox.myWidth, myEnemy->myBox.myHeight, 1.0f });
 //				}
 //			}
 //		}
 //
-//		if (P7::SpawnPointEvent* event = dynamic_cast<P7::SpawnPointEvent*>(&aEvent))
+//		if (P7::SpawnPointEvent* event =
+// dynamic_cast<P7::SpawnPointEvent*>(&aEvent))
 //		{
 //			mySpawnpointPositions = event->myPositions;
 //
@@ -124,7 +129,8 @@
 //					0.0f,
 //				};
 //				mySpawnpoint->mySpriteBatch.myInstances[i].myAttributes.myTransform.SetPosition(scaledSpawnpointPosition);
-//				mySpawnpoint->mySpriteBatch.myInstances[i].myAttributes.myTransform.SetScale({ mySpawnpoint->myBox.myWidth, mySpawnpoint->myBox.myHeight, 1.0f });
+//				mySpawnpoint->mySpriteBatch.myInstances[i].myAttributes.myTransform.SetScale({
+// mySpawnpoint->myBox.myWidth, mySpawnpoint->myBox.myHeight, 1.0f });
 //			}
 //
 //		}
@@ -148,4 +154,4 @@
 //		myEnemyPositions.clear();
 //		myEnemy->mySpriteBatch.myInstances.clear();
 //	}
-//}
+// }

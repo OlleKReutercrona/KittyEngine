@@ -1,33 +1,29 @@
 #pragma once
 #include <d3d11.h>
 
-#include "Renderer.h"
 #include "Engine/Source/Graphics/CBuffer.h"
 #include "Engine/Source/Graphics/Decals/DecalManager.h"
+#include "Renderer.h"
 
-namespace KE
-{
+namespace KE {
 	class PixelShader;
 	class VertexShader;
 	class Graphics;
 	class CBuffer;
 	struct RenderResources;
 	//
-	struct DecalRenderBufferData
-	{
+	struct DecalRenderBufferData {
 		DirectX::XMMATRIX viewMatrix;
 		DirectX::XMMATRIX projectionMatrix;
 	};
 
-	struct DecalObjectBufferData
-	{
+	struct DecalObjectBufferData {
 		DirectX::XMMATRIX objectToWorld;
 		DirectX::XMMATRIX worldToObject;
 		Vector4f textureIntensities;
 	};
 
-	struct DecalRenderInput
-	{
+	struct DecalRenderInput {
 		std::vector<size_t>* decalIndices;
 		DirectX::XMMATRIX viewMatrix;
 		DirectX::XMMATRIX projectionMatrix;
@@ -36,8 +32,7 @@ namespace KE
 		PixelShader* overridePixelShader = nullptr;
 	};
 
-	class DecalRenderer : public Renderer
-	{
+	class DecalRenderer : public Renderer {
 	private:
 		CBuffer myRenderingBuffer{};
 		CBuffer myDecalBuffer{};
@@ -54,4 +49,4 @@ namespace KE
 		void AddDecalIndex(size_t aDecalIndex);
 	};
 
-}
+}  // namespace KE

@@ -1,51 +1,42 @@
-#include  "stdafx.h"
+#include "stdafx.h"
 #ifndef KITTYENGINE_NO_EDITOR
 
-#include "Script/Node.h"
-#include "NodeEditorAction.h"
 #include "../EditorWindows/NodeEditor.h"
+#include "NodeEditorAction.h"
+#include "Script/Node.h"
 #include "Script/Script.h"
 
-
-
-namespace KE_EDITOR
-{
-	void EditorActionStack::Init(NodeEditor* anOwner, KE::Script* aScript)
-	{
+namespace KE_EDITOR {
+	void EditorActionStack::Init(NodeEditor* anOwner, KE::Script* aScript) {
 		owner = anOwner;
 		script = aScript;
 	}
 
-	//--//--//--//--//--//--// 
+	//--//--//--//--//--//--//
 
-	void AddNodeAction::Do()
-	{
+	void AddNodeAction::Do() {
 		addedNode->Init();
 		addedNode->SetID(myScript->IncrementNodeID());
 		myScript->BehaviourlessInsertNode(addedNode);
 		myEditor->AddConnections(connections);
 	}
 
-	void AddNodeAction::Undo()
-	{
+	void AddNodeAction::Undo() {
 		nodePosition = myEditor->GetNodePosition(addedNode);
 		connections.clear();
 		myEditor->GetConnections(addedNode->ID, connections);
 		myScript->RemoveNode(addedNode->ID);
 	}
 
-	void AddNodeAction::Redo()
-	{
+	void AddNodeAction::Redo() {
 		myScript->BehaviourlessInsertNode(addedNode);
 		myEditor->SetNodePosition(addedNode, nodePosition);
 		myEditor->AddConnections(connections);
-
 	}
 
-	//--//--//--//--//--//--// 
+	//--//--//--//--//--//--//
 
-	void RemoveNodeAction::Do()
-	{
+	void RemoveNodeAction::Do() {
 		nodePosition = myEditor->GetNodePosition(removedNode);
 		connections.clear();
 		myEditor->GetConnections(removedNode->ID, connections);
@@ -53,55 +44,45 @@ namespace KE_EDITOR
 		myScript->RemoveNode(removedNode->ID);
 	}
 
-	void RemoveNodeAction::Undo()
-	{
+	void RemoveNodeAction::Undo() {
 		myScript->BehaviourlessInsertNode(removedNode);
 		myEditor->SetNodePosition(removedNode, nodePosition);
 		myEditor->AddConnections(connections);
 	}
 
-	void RemoveNodeAction::Redo()
-	{
+	void RemoveNodeAction::Redo() {
 		Do();
 	}
 
 	//--//--//--//--//--//--//
 
-	void AddLinkAction::Do()
-	{
+	void AddLinkAction::Do() {
 		myScript->AddConnection(from, to);
 	}
 
-	void AddLinkAction::Undo()
-	{
+	void AddLinkAction::Undo() {
 		myScript->RemoveConnection(from, to);
 	}
 
-	void AddLinkAction::Redo()
-	{
+	void AddLinkAction::Redo() {
 		myScript->AddConnection(from, to);
 	}
 
 	//--//--//--//--//--//--//
 
-	void RemoveLinkAction::Do()
-	{
+	void RemoveLinkAction::Do() {
 		myScript->RemoveConnection(from, to);
 	}
 
-	void RemoveLinkAction::Undo()
-	{
+	void RemoveLinkAction::Undo() {
 		myScript->AddConnection(from, to);
-
 	}
 
-	void RemoveLinkAction::Redo()
-	{
+	void RemoveLinkAction::Redo() {
 		myScript->RemoveConnection(from, to);
 	}
 
 	//--//--//--//--//--//--//
 
-
-}
+}  // namespace KE_EDITOR
 #endif

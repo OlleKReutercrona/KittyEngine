@@ -5,23 +5,21 @@
 
 #define KE_DEFERRED_RENDER_TARGET_COUNT 5
 
-namespace KE
-{
+namespace KE {
 	using Microsoft::WRL::ComPtr;
 
-	class DeferredRenderTarget
-	{
+	class DeferredRenderTarget {
 	private:
-
 		int myWidth = 0;
 		int myHeight = 0;
-		
 
-		//actual texture part
+		// actual texture part
 		ComPtr<ID3D11Texture2D> myTextures[KE_DEFERRED_RENDER_TARGET_COUNT];
-		ComPtr<ID3D11RenderTargetView> myRenderTargetViews[KE_DEFERRED_RENDER_TARGET_COUNT];
-		ComPtr<ID3D11ShaderResourceView> myShaderResourceViews[KE_DEFERRED_RENDER_TARGET_COUNT];
-		//depth stencil part
+		ComPtr<ID3D11RenderTargetView>
+			myRenderTargetViews[KE_DEFERRED_RENDER_TARGET_COUNT];
+		ComPtr<ID3D11ShaderResourceView>
+			myShaderResourceViews[KE_DEFERRED_RENDER_TARGET_COUNT];
+		// depth stencil part
 		ComPtr<ID3D11Texture2D> myDepthStencilTexture;
 		ComPtr<ID3D11DepthStencilView> myDepthStencilView;
 		ComPtr<ID3D11ShaderResourceView> myDepthStencilShaderResourceView;
@@ -34,12 +32,14 @@ namespace KE
 		void Create();
 
 	public:
-		DeferredRenderTarget(ID3D11Device* aDevice, ID3D11DeviceContext* aContext, int aWidth, int aHeight);
+		DeferredRenderTarget(ID3D11Device* aDevice,
+							 ID3D11DeviceContext* aContext, int aWidth,
+							 int aHeight);
 
 		~DeferredRenderTarget();
 		//
 
-		//usage functions
+		// usage functions
 		void MakeActive(bool aUseDepth);
 
 		void Free();
@@ -47,9 +47,15 @@ namespace KE
 
 		void Resize(int aWidth, int aHeight);
 
-		inline ID3D11ShaderResourceView* const * GetShaderResourceViews() const { return myShaderResourceViews[0].GetAddressOf(); }
-		inline ID3D11DepthStencilView* GetDepthStencilView() const { return myDepthStencilView.Get(); }
-		inline ID3D11ShaderResourceView* GetDepthStencilShaderResourceView() const { return myDepthStencilShaderResourceView.Get(); }
-
+		inline ID3D11ShaderResourceView* const* GetShaderResourceViews() const {
+			return myShaderResourceViews[0].GetAddressOf();
+		}
+		inline ID3D11DepthStencilView* GetDepthStencilView() const {
+			return myDepthStencilView.Get();
+		}
+		inline ID3D11ShaderResourceView* GetDepthStencilShaderResourceView()
+			const {
+			return myDepthStencilShaderResourceView.Get();
+		}
 	};
-}
+}  // namespace KE

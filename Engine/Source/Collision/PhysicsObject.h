@@ -1,21 +1,16 @@
 #pragma once
 #include "Engine/Source/Collision/Collider.h"
-#include "Engine/Source/ComponentSystem/GameObject.h" // THIS SHOULD PROPABLY BE REMOVED /DR
+#include "Engine/Source/ComponentSystem/GameObject.h"  // THIS SHOULD PROPABLY BE REMOVED /DR
 
-namespace physx
-{
+namespace physx {
 	class PxRigidActor;
 }
 
-namespace KE
-{
-	struct PhysicsObject
-	{
-		PhysicsObject()
-		{
+namespace KE {
+	struct PhysicsObject {
+		PhysicsObject() {
 			myKECollider.myPhysicsObject = this;
 		}
-
 
 		bool disableColliderMovementPrecedence = true;
 		int ID = -1;
@@ -23,12 +18,11 @@ namespace KE
 		physx::PxRigidActor* myActor = nullptr;
 	};
 
-	class GameObjectCollisionInterface
-	{
+	class GameObjectCollisionInterface {
 	public:
-		inline static void OnCollision(GameObject* aGameObject, const PhysXCollisionData& aData)
-		{
+		inline static void OnCollision(GameObject* aGameObject,
+									   const PhysXCollisionData& aData) {
 			aGameObject->OnPhysXCollision(aData);
 		}
 	};
-}
+}  // namespace KE

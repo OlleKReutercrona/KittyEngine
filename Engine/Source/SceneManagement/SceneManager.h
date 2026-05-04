@@ -1,25 +1,22 @@
 #pragma once
-#include "Scene.h"
-#include "Engine/Source/Utility/Event.h"
-#include "Engine/Source/Utility/EventSystem.h"
-#include "Engine/Source/LevelImporter/LevelImporter.h"
-#include "Engine/Source/Graphics/DebugRenderer.h"
-#include "Engine/Source/LevelImporter/PrefabHandler.h"
 #include <memory>
 
+#include "Engine/Source/Graphics/DebugRenderer.h"
+#include "Engine/Source/LevelImporter/LevelImporter.h"
+#include "Engine/Source/LevelImporter/PrefabHandler.h"
+#include "Engine/Source/Utility/Event.h"
+#include "Engine/Source/Utility/EventSystem.h"
+#include "Scene.h"
 
-namespace KE
-{
-	enum class eSceneState : char
-	{
+namespace KE {
+	enum class eSceneState : char {
 		ePlayMode,
 		ePauseMode,
 		eEditorMode,
 		eExitPlayMode
 	};
 
-	struct SceneBuildData
-	{
+	struct SceneBuildData {
 		std::string name;
 		int buildIndex = -1;
 		std::string cubemap = "";
@@ -27,25 +24,23 @@ namespace KE
 		int musicSFX = -1;
 	};
 
-	struct SceneEvent : ES::Event
-	{
+	struct SceneEvent : ES::Event {
 		SceneEvent() = default;
-		SceneEvent(const eSceneState aSceneState) : mySceneState(aSceneState) { }
+		SceneEvent(const eSceneState aSceneState) : mySceneState(aSceneState) {}
 		~SceneEvent() override = default;
 
 		eSceneState mySceneState = eSceneState::eEditorMode;
 	};
 
-	//struct QueueChangeSceneEvent : ES::Event
+	// struct QueueChangeSceneEvent : ES::Event
 	//{
 	//	int aBuildIndex = -1;
-	//};
+	// };
 
 	class Window;
 	class PrefabHandler;
 
-	class SceneManager : ES::IObserver
-	{
+	class SceneManager : ES::IObserver {
 	public:
 		SceneManager();
 		~SceneManager();
@@ -61,19 +56,30 @@ namespace KE
 		const Scene* GetCurrentScene() const;
 		int GetSceneIDByName(const std::string& aSceneName) const;
 
-		eSceneState GetSceneState() { return mySceneState; }
-		void SetGameState(eSceneState aState) { mySceneState = aState; }
+		eSceneState GetSceneState() {
+			return mySceneState;
+		}
+		void SetGameState(eSceneState aState) {
+			mySceneState = aState;
+		}
 
-		inline Scene* GetStartupScene() { return myStartupScene; }
+		inline Scene* GetStartupScene() {
+			return myStartupScene;
+		}
 		void ExportStartupScene(const Scene* aScene);
 
-		inline Scene* GetCurrentScene() { return myCurrentScene; }
+		inline Scene* GetCurrentScene() {
+			return myCurrentScene;
+		}
 
-
-#ifndef  KITTYENGINE_NO_EDITOR
-		inline void SetActive(const bool aValue) { IsActive = aValue; }
-		inline const bool GetActive() const { return IsActive; }
-#endif // ! KITTYENGINE_NO_EDITOR
+#ifndef KITTYENGINE_NO_EDITOR
+		inline void SetActive(const bool aValue) {
+			IsActive = aValue;
+		}
+		inline const bool GetActive() const {
+			return IsActive;
+		}
+#endif	// ! KITTYENGINE_NO_EDITOR
 
 		void OnReceiveEvent(ES::Event& aEvent) override;
 		void OnInit() override;
@@ -81,12 +87,11 @@ namespace KE
 
 	private:
 		void LoadBuildSettings();
-		const int CheckSceneForBuildMatch(const std::string& aScene, const int anIndex);
+		const int CheckSceneForBuildMatch(const std::string& aScene,
+										  const int anIndex);
 
 	public:
-
 		PrefabHandler myPrefabHandler;
-
 
 	private:
 		std::map<int, SceneBuildData> myBuildSettingsData;
@@ -105,8 +110,8 @@ namespace KE
 
 		eSceneState mySceneState = eSceneState::eEditorMode;
 
-#ifndef  KITTYENGINE_NO_EDITOR
+#ifndef KITTYENGINE_NO_EDITOR
 		bool IsActive = true;
-#endif // ! KITTYENGINE_NO_EDITOR
+#endif	// ! KITTYENGINE_NO_EDITOR
 	};
-}
+}  // namespace KE

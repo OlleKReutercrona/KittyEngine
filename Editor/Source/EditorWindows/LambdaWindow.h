@@ -3,20 +3,16 @@
 
 #ifndef KITTYENGINE_NO_EDITOR
 
-
-namespace KE_EDITOR
-{
+namespace KE_EDITOR {
 
 	typedef std::function<void()> LambdaWindowFunc;
 
-	struct LambdaWindowInput
-	{
+	struct LambdaWindowInput {
 		std::string name;
 		LambdaWindowFunc func;
 	};
 
-	class LambdaWindow : public EditorWindowBase
-	{
+	class LambdaWindow : public EditorWindowBase {
 		KE_EDITOR_FRIEND
 	private:
 		LambdaWindowInput myFunctionData;
@@ -24,7 +20,9 @@ namespace KE_EDITOR
 	public:
 		LambdaWindow(EditorWindowInput aStartupData);
 
-		const char* GetWindowName() const override { return myFunctionData.name.c_str(); }
+		const char* GetWindowName() const override {
+			return myFunctionData.name.c_str();
+		}
 		void Init() override;
 		void Update() override;
 		void Render() override;
@@ -32,6 +30,6 @@ namespace KE_EDITOR
 		void Serialize(void* aWorkingData) override;
 		void Deserialize(void* aWorkingData) override;
 	};
-}
+}  // namespace KE_EDITOR
 
 #endif

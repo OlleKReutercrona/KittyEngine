@@ -1,34 +1,33 @@
 #pragma once
 
-namespace KE
-{
+namespace KE {
 	struct NavNode;
 	class Navmesh;
 
-
-	class GridCell
-	{
+	class GridCell {
 		friend class NavGrid;
 
 	public:
-		GridCell() {};
-		~GridCell() {};
-		inline std::vector<KE::NavNode*> GetNodes() { return myData; };
+		GridCell(){};
+		~GridCell(){};
+		inline std::vector<KE::NavNode*> GetNodes() {
+			return myData;
+		};
 
 	private:
 		std::vector<KE::NavNode*> myData;
 	};
 
-	class NavGrid
-	{
+	class NavGrid {
 		friend class KE::Navmesh;
 
 	public:
-		NavGrid() {};
-		~NavGrid() {};
+		NavGrid(){};
+		~NavGrid(){};
 		NavGrid(Vector2i aGridSize, float aCellSize);
 
-		bool Init(float aCellSize, Vector3f aMin, Vector3f aMax, std::vector<KE::NavNode>& someNodes);
+		bool Init(float aCellSize, Vector3f aMin, Vector3f aMax,
+				  std::vector<KE::NavNode>& someNodes);
 		int GetIndexByPos(Vector3f aPos);
 		Vector2i GetCoordinate(Vector3f aPos);
 		std::vector<KE::NavNode*> GetNodesByPos(Vector3f aPos);
@@ -41,4 +40,4 @@ namespace KE
 
 		std::vector<GridCell> myNavGrid;
 	};
-}
+}  // namespace KE

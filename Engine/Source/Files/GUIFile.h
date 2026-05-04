@@ -1,12 +1,10 @@
 #pragma once
-//#include "GUIScene.h"
+// #include "GUIScene.h"
 
-namespace KE
-{
+namespace KE {
 	class GUIScene;
 
-	struct GUIElementData
-	{
+	struct GUIElementData {
 		// Element
 		std::string myName;
 		std::string myTexturePath;
@@ -14,7 +12,7 @@ namespace KE
 		std::string myText;
 		std::string myEventName;
 		Vector4f myTextColour;
-		//int myType;
+		// int myType;
 		int myAlignType;
 		int myProgressionDirection;
 		bool isButton;
@@ -25,15 +23,12 @@ namespace KE
 		Vector2f mySizeResolutionFactor;
 	};
 
-	struct GUISceneData
-	{
+	struct GUISceneData {
 		std::string myName;
 		std::vector<GUIElementData> myElements;
 	};
 
-
-	class GUIFile
-	{
+	class GUIFile {
 	public:
 		GUIFile() = default;
 		GUIFile(std::unordered_map<std::string, GUIScene>& aSceneMap);
@@ -44,4 +39,4 @@ namespace KE
 
 	private:
 	};
-}
+}  // namespace KE

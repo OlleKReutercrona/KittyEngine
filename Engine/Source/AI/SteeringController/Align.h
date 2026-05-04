@@ -3,8 +3,7 @@
 
 #define PI 3.14159265359f
 
-inline float MapToRange(float aRotation)
-{
+inline float MapToRange(float aRotation) {
 	while (aRotation <= PI) {
 		aRotation += 2 * PI;
 	}
@@ -16,18 +15,15 @@ inline float MapToRange(float aRotation)
 	return aRotation;
 }
 
-class Align
-{
+class Align {
 	friend class SteeringController;
 
 public:
-	Align(Kinematic& aCharacter) : character(aCharacter)
-	{
+	Align(Kinematic& aCharacter) : character(aCharacter) {
 		// [TODO] Set targetOrientation based on Gameobject's starting Transform
 	}
 	~Align() {}
-	inline SteeringOutput GetSteering(float aTimeDelta)
-	{
+	inline SteeringOutput GetSteering(float aTimeDelta) {
 		SteeringOutput result;
 
 		// # Get the naive direction to the target.
@@ -44,9 +40,13 @@ public:
 		}
 
 		// # If we are outside the slowRadius, then use maximum rotation.
-		float targetRotation = rotationSize > slowRadius ? character.maxRotation : character.maxRotation * (rotationSize / slowRadius);
+		float targetRotation =
+			rotationSize > slowRadius
+				? character.maxRotation
+				: character.maxRotation * (rotationSize / slowRadius);
 
-		// # The final target rotation combines speed (already in the variable) and direction.
+		// # The final target rotation combines speed (already in the variable)
+		// and direction.
 		targetRotation *= rotation / rotationSize;
 
 		// # Acceleration tries to get to the target rotation.
@@ -56,29 +56,26 @@ public:
 		// # Check if the acceleration is too great.
 		float angularAcceleration = abs(result.angular);
 
-		if (angularAcceleration > character.maxAngularForce)
-		{
+		if (angularAcceleration > character.maxAngularForce) {
 			result.angular /= angularAcceleration;
 			result.angular *= character.maxAngularForce;
 		}
 
-		result.linear = { 0,0,0 };
+		result.linear = {0, 0, 0};
 
 		return result;
 	}
-
-
 
 protected:
 	Kinematic& character;
 	float targetOrientation = 0;
 
 	// Moved to Kinematic
-	//float maxAngularAcceleration = 25.0f; 
-	//float maxRotation = 5.0f;
+	// float maxAngularAcceleration = 25.0f;
+	// float maxRotation = 5.0f;
 
 	float slowRadius = 0.8f;
-	float targetRadius = 0.01745f; // equals 1 degree
+	float targetRadius = 0.01745f;	// equals 1 degree
 	float timeToTarget = 0.1f;
 };
 #undef PI

@@ -2,17 +2,16 @@
 #include "ComponentSystem/Component.h"
 #include "Math/Transform.h"
 
-namespace KE
-{
+namespace KE {
 	class GameObject;
 
-	class TransformComponent : public KE::Component
-	{
+	class TransformComponent : public KE::Component {
 	public:
 		TransformComponent(KE::GameObject& aGameObject);
 		~TransformComponent();
 
 		Transform myTransform;
+
 	private:
 	};
-}
+}  // namespace KE

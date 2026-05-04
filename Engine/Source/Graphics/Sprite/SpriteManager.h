@@ -1,58 +1,51 @@
 #pragma once
-#include <vector>
 #include <unordered_map>
+#include <vector>
+
 #include "Sprite.h"
 
 #define MAX_SPRITE_INSTANCES 1024
 
 struct ID3D11Buffer;
 
-namespace KE
-{
+namespace KE {
 	class Graphics;
 	class Camera;
 
-	struct SpriteVertex
-	{
+	struct SpriteVertex {
 		float x, y, z, w;
 		float u, v;
 		float padding[2];
 	};
 
-	struct SpriteRenderBuffer
-	{
-		DirectX::XMMATRIX completeTransform; //64
+	struct SpriteRenderBuffer {
+		DirectX::XMMATRIX completeTransform;  // 64
 
-		struct
-		{
-			struct
-			{
+		struct {
+			struct {
 				float u = 0.0f;
 				float v = 0.0f;
 			} min;
 
-			struct
-			{
+			struct {
 				float u = 1.0f;
 				float v = 1.0f;
 			} max;
-		} uvRegion; // 16
+		} uvRegion;	 // 16
 
-		int displayMode; // 4
+		int displayMode;  // 4
 		int myEffectType = (int)eEffectType::None;
 		BOOL flipX = false;
 		BOOL flipY = false;
 	};
 
-
-	class SpriteManager
-	{
+	class SpriteManager {
 	private:
 		std::vector<SpriteBatch*> mySpriteBatches;
 		std::vector<SpriteBatch*> myScreenSpriteBatches;
 		Graphics* myGraphics = nullptr;
 
-		//the quad that all sprites are rendered to
+		// the quad that all sprites are rendered to
 		ID3D11Buffer* myInstanceBuffer = nullptr;
 		ID3D11Buffer* mySpriteRenderBuffer = nullptr;
 
@@ -77,4 +70,4 @@ namespace KE
 
 		void QueueSpriteBatch(SpriteBatch* aSpriteBatch);
 	};
-}
+}  // namespace KE

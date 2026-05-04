@@ -1,20 +1,17 @@
 #pragma once
 
-#include "Engine/Source/Graphics/ModelData.h"
 #include "Engine/Source/ComponentSystem/Components/Component.h"
 #include "Engine/Source/Graphics/Animation/AnimationPlayer.h"
+#include "Engine/Source/Graphics/ModelData.h"
 
-namespace KE
-{
-	struct SkeletalModelComponentData
-	{
+namespace KE {
+	struct SkeletalModelComponentData {
 		SkeletalModelData* skeletalModelData;
 	};
 
 	class GameObject;
 
-	class SkeletalModelComponent : public Component
-	{
+	class SkeletalModelComponent : public Component {
 	public:
 		SkeletalModelComponent(GameObject& aGameObject);
 		virtual ~SkeletalModelComponent() override;
@@ -25,12 +22,18 @@ namespace KE
 
 		SkeletalModelData* GetModelData() const;
 
-		AnimationPlayer& GetAnimationPlayer() { return myAnimationPlayer; }
+		AnimationPlayer& GetAnimationPlayer() {
+			return myAnimationPlayer;
+		}
 
 		virtual void SetData(void* aDataObject = nullptr) override;
 
-		void OnEnable() override { myModelData->myActiveStatus = true; }
-		void OnDisable() override { myModelData->myActiveStatus = false; }
+		void OnEnable() override {
+			myModelData->myActiveStatus = true;
+		}
+		void OnDisable() override {
+			myModelData->myActiveStatus = false;
+		}
 
 		void RenderSkeleton();
 
@@ -40,4 +43,4 @@ namespace KE
 		// TODO AnimationPlayer could be an AnimationComponent?
 		AnimationPlayer myAnimationPlayer;
 	};
-}
+}  // namespace KE

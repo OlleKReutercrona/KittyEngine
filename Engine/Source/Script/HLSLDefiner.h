@@ -1,13 +1,10 @@
 ﻿#pragma once
 #include "LanguageData.h"
 
-namespace KE
-{
-	class HLSLDefiner
-	{
+namespace KE {
+	class HLSLDefiner {
 	public:
-		enum class Annotations
-		{
+		enum class Annotations {
 			Entrypoint,
 			Function,
 			Buffer,
@@ -17,8 +14,7 @@ namespace KE
 			Operator,
 		};
 
-		struct LangDefinition : public LanguageDefinitionNew
-		{
+		struct LangDefinition : public LanguageDefinitionNew {
 			std::unordered_map<std::string, StructDefinition> structs;
 			std::unordered_map<std::string, BufferDefinition> buffers;
 			std::unordered_map<std::string, FunctionDefinition> functions;
@@ -28,12 +24,11 @@ namespace KE
 		};
 
 	private:
-	
 	public:
-		static void Interpret(LangDefinition& aDefinition, const AnnotatedCode<Annotations>& aCode);
-		static void RegisterAnnotations(std::unordered_map<std::string, Annotations>& anAnnotationMap);
-
-
+		static void Interpret(LangDefinition& aDefinition,
+							  const AnnotatedCode<Annotations>& aCode);
+		static void RegisterAnnotations(
+			std::unordered_map<std::string, Annotations>& anAnnotationMap);
 	};
 
-}
+}  // namespace KE

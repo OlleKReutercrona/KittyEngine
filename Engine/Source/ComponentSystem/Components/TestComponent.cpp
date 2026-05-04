@@ -1,20 +1,18 @@
 #include "stdafx.h"
-#include "TestComponent.h"
-#include "../GameObject.h"
 
 #include <iostream>
 
-KE::TestComponent::TestComponent(GameObject& aGameObject) : Component(aGameObject)
-{
-}
+#include "../GameObject.h"
+#include "TestComponent.h"
 
-KE::TestComponent::~TestComponent()
-{
+KE::TestComponent::TestComponent(GameObject& aGameObject)
+	: Component(aGameObject) {}
+
+KE::TestComponent::~TestComponent() {
 	std::cout << "Test Component is removed" << std::endl;
 }
 
-void KE::TestComponent::Awake()
-{
+void KE::TestComponent::Awake() {
 	std::cout << "Do once" << std::endl;
 	std::cout << "TestBool = " << myTestBool << std::endl;
 	std::cout << "TestInt = " << myTestInt << std::endl;
@@ -22,38 +20,30 @@ void KE::TestComponent::Awake()
 	myGameObject.RemoveComponent<TestComponent>();
 }
 
-void KE::TestComponent::LateUpdate()
-{
-}
+void KE::TestComponent::LateUpdate() {}
 
-void KE::TestComponent::Update()
-{
-}
+void KE::TestComponent::Update() {}
 
-void KE::TestComponent::OnDestroy()
-{
+void KE::TestComponent::OnDestroy() {
 	std::cout << "Running OnDestroy" << std::endl;
 }
 
-void KE::TestComponent::OnEnable()
-{
-}
+void KE::TestComponent::OnEnable() {}
 
-void KE::TestComponent::OnDisable()
-{
-}
+void KE::TestComponent::OnDisable() {}
 
-//void KE::TestComponent::OnTrigger()
+// void KE::TestComponent::OnTrigger()
 //{
-//}
+// }
 //
-//void KE::TestComponent::OnCollision()
+// void KE::TestComponent::OnCollision()
 //{
-//}
+// }
 
-void KE::TestComponent::SetData(void* aDataObject)
-{
-	if (!aDataObject) { return; }
+void KE::TestComponent::SetData(void* aDataObject) {
+	if (!aDataObject) {
+		return;
+	}
 
 	TestComponentData* data = (TestComponentData*)aDataObject;
 

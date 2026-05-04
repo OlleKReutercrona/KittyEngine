@@ -1,21 +1,19 @@
 #pragma once
 #include "Engine/Source/UI/GUIBox.h"
-//#include "Engine/Source/Graphics/Graphics.h"
+// #include "Engine/Source/Graphics/Graphics.h"
 #include "Engine/Source/Graphics/Sprite/Sprite.h"
 
-namespace KE
-{
+namespace KE {
 	class Graphics;
 	struct Sprite;
 
-	struct GUITooltip
-	{
+	struct GUITooltip {
 		bool isInitialized = false;
 		GUIBox myBox;
 		bool isActive = false;
 		SpriteBatch mySpriteBatch;
 		Sprite* mySprite = nullptr;
-		//Temp
+		// Temp
 		Vector2f myLinePoints[4];
 		Vector4f myColour;
 
@@ -23,4 +21,4 @@ namespace KE
 		void Show();
 		void Hide();
 	};
-}
+}  // namespace KE

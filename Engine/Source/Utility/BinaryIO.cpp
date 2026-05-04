@@ -1,14 +1,12 @@
 #include "stdafx.h"
+
 #include "BinaryIO.h"
 
-namespace KE
-{
+namespace KE {
 
-	BinaryReader::BinaryReader(const char* aFileToRead)
-	{
+	BinaryReader::BinaryReader(const char* aFileToRead) {
 		std::ifstream file(aFileToRead, std::ios::binary | std::ios::ate);
-		if (file.is_open())
-		{
+		if (file.is_open()) {
 			size_t fileSize = static_cast<size_t>(file.tellg());
 			buffer = new char[fileSize];
 			bufferSize = fileSize;
@@ -18,37 +16,28 @@ namespace KE
 		}
 	}
 
-	BinaryReader::~BinaryReader()
-	{
+	BinaryReader::~BinaryReader() {
 		delete[] buffer;
 	}
 
-	void BinaryReader::Read(const size_t& aByteCount, void* aDestination)
-	{
+	void BinaryReader::Read(const size_t& aByteCount, void* aDestination) {
 		memcpy(aDestination, buffer + pointerPosition, aByteCount);
 		pointerPosition += aByteCount;
 	}
 
-	void BinaryReader::Offset(const size_t& aByteCount)
-	{
+	void BinaryReader::Offset(const size_t& aByteCount) {
 		pointerPosition += aByteCount;
 	}
 
 	//
 
-	BinaryWriter::BinaryWriter(const char* aFileToWrite) : file(aFileToWrite, std::ios::binary | std::ios::ate)
-	{
+	BinaryWriter::BinaryWriter(const char* aFileToWrite)
+		: file(aFileToWrite, std::ios::binary | std::ios::ate) {}
 
-	}
+	BinaryWriter::~BinaryWriter() {}
 
-	BinaryWriter::~BinaryWriter()
-	{		
-	}
-
-
-	void BinaryWriter::Write(const size_t& aByteCount, void* aSource)
-	{
+	void BinaryWriter::Write(const size_t& aByteCount, void* aSource) {
 		file.write((char*)aSource, aByteCount);
 	}
 
-}
+}  // namespace KE

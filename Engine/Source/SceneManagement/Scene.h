@@ -1,75 +1,69 @@
 #pragma once
-#include "Engine/Source/ComponentSystem/GameObjectManager.h"
-#include "Engine/Source/ComponentSystem/Components/Component.h"
-#include "Engine/Source/Collision/CollisionHandler.h"
 #include "Engine/Source/AI/Pathfinding/Navmesh.h"
 #include "Engine/Source/AI/Pathfinding/Pathfinder.h"
+#include "Engine/Source/Collision/CollisionHandler.h"
 #include "Engine/Source/Collision/RaycastHandler.h"
+#include "Engine/Source/ComponentSystem/Components/Component.h"
+#include "Engine/Source/ComponentSystem/GameObjectManager.h"
 
 #ifndef KE_NOEDITOR
-namespace KE_EDITOR
-{
+namespace KE_EDITOR {
 	class Editor;
 	class ImGuiHandler;
-}
+}  // namespace KE_EDITOR
 #endif
 
-namespace KE
-{
+namespace KE {
 	class Window;
 	class SpriteFont;
 	class PrefabHandler;
 
-	enum class SceneDrawFlags
-	{
+	enum class SceneDrawFlags {
 		eDrawGameObject = 1 << 0,
 		eDrawPhysX = 1 << 1,
 		eDrawNavmesh = 1 << 2,
 		eDrawPathfinding = 1 << 3,
 	};
 
-	static inline const char* EnumToString(SceneDrawFlags aFlag)
-	{
-		switch (aFlag)
-		{
-			case SceneDrawFlags::eDrawGameObject: 
-			{
+	static inline const char* EnumToString(SceneDrawFlags aFlag) {
+		switch (aFlag) {
+			case SceneDrawFlags::eDrawGameObject: {
 				return "Game Objects";
 			}
-			case SceneDrawFlags::eDrawPhysX:
-			{
+			case SceneDrawFlags::eDrawPhysX: {
 				return "PhysX";
 			}
-			case SceneDrawFlags::eDrawNavmesh:
-			{
+			case SceneDrawFlags::eDrawNavmesh: {
 				return "Navmesh";
 			}
-			case SceneDrawFlags::eDrawPathfinding:
-			{
+			case SceneDrawFlags::eDrawPathfinding: {
 				return "Pathfinding";
 			}
-			default:
-			{
+			default: {
 				return "Unknown";
 			}
 		}
 	}
 
-	class Scene
-	{
+	class Scene {
 		KE_EDITOR_FRIEND
 		friend class SceneManager;
 		friend class LevelImporter;
 
 	public:
-		Scene(const int aSceneID, const std::string aSceneName, const int aBuildIndex = -1);
+		Scene(const int aSceneID, const std::string aSceneName,
+			  const int aBuildIndex = -1);
 		~Scene();
 
-		//this kinda sucks:
-		void SetLevelChangeIndex(int aIndex) { levelChangeIndex = aIndex; }
+		// this kinda sucks:
+		void SetLevelChangeIndex(int aIndex) {
+			levelChangeIndex = aIndex;
+		}
 
 		// This changes level from the build order
-		void SetLevelFromBuildIndex(int aIndex) { levelChangeBuildIndex = aIndex; }
+		void SetLevelFromBuildIndex(int aIndex) {
+			levelChangeBuildIndex = aIndex;
+		}
 
 		const int sceneID;
 		const int buildIndex;
@@ -78,11 +72,16 @@ namespace KE
 		CollisionHandler myCollisionHandler;
 		inline static PrefabHandler* myPrefabHandler;
 
-		inline GameObjectManager& GetGameObjectManager() { return gameObjectManager; }
-		inline Navmesh& GetNavmesh() { return myNavmesh; }
+		inline GameObjectManager& GetGameObjectManager() {
+			return gameObjectManager;
+		}
+		inline Navmesh& GetNavmesh() {
+			return myNavmesh;
+		}
 
 		void ToggleDrawDebugFlag(const SceneDrawFlags aFlag);
 		bool GetDrawFlag(const SceneDrawFlags aFlag);
+
 	private:
 		void Init(Window* aWindow, PrefabHandler* aPFHandler);
 
@@ -94,8 +93,11 @@ namespace KE
 
 		void DebugDraw(KE::DebugRenderer& aDrawer);
 
-		// If no Transform provided, default Transform constructor will be assigned.
-		KE::GameObject* AddGameObject(const int anID, const std::string& aName, const Transform& aTransform = Transform(), const bool isStatic = false);
+		// If no Transform provided, default Transform constructor will be
+		// assigned.
+		KE::GameObject* AddGameObject(const int anID, const std::string& aName,
+									  const Transform& aTransform = Transform(),
+									  const bool isStatic = false);
 
 		template <class T>
 		void AddComponentToLast(void* aDataObject);
@@ -123,12 +125,11 @@ namespace KE
 		int myDrawDebugFlags = 0;
 	};
 
-
 	template <class T>
-	inline void Scene::AddComponentToLast(void* aDataObject)
-	{
-		static_assert(std::is_base_of<Component, T>::value, "Type must inherit from Component");
+	inline void Scene::AddComponentToLast(void* aDataObject) {
+		static_assert(std::is_base_of<Component, T>::value,
+					  "Type must inherit from Component");
 
 		gameObjectManager.AddComponentToLast<T>(aDataObject);
 	}
-}
+}  // namespace KE

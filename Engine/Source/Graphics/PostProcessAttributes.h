@@ -1,8 +1,6 @@
 #pragma once
-namespace KE
-{
-	struct PostProcessAttributes
-	{
+namespace KE {
+	struct PostProcessAttributes {
 		// Chromatic Abberation
 		Vector2f CARedOffset;
 		Vector2f CAGreenOffset;
@@ -38,4 +36,4 @@ namespace KE
 		// Tonemap
 		float toneMapIntensity;
 	};
-}
+}  // namespace KE

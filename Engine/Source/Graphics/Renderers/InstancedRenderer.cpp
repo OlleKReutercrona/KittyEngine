@@ -1,18 +1,23 @@
 #include "stdafx.h"
-#include "Engine/Source/Graphics/ModelData.h"
-#include "Engine/Source/Graphics/CBuffer.h"
-#include "Engine/Source/Graphics/Renderers/InstancedRenderer.h"
 
 #include <d3d11.h>
+
+#include "Engine/Source/Graphics/CBuffer.h"
 #include "Engine/Source/Graphics/Graphics.h"
+#include "Engine/Source/Graphics/ModelData.h"
+#include "Engine/Source/Graphics/Renderers/InstancedRenderer.h"
 #include "imgui/imgui.h"
 
-void KE::InstancedRenderer::RenderPackage(const InstancedRenderPackage& aPackage, const InstanceRenderInput& aInput)
-{
-	if (aPackage.modelDataIndices.empty()) { return; }
-	if (aPackage.renderResources.empty())  { return; }
-	
-	//prepare some resources we'll want
+void KE::InstancedRenderer::RenderPackage(
+	const InstancedRenderPackage& aPackage, const InstanceRenderInput& aInput) {
+	if (aPackage.modelDataIndices.empty()) {
+		return;
+	}
+	if (aPackage.renderResources.empty()) {
+		return;
+	}
+
+	// prepare some resources we'll want
 	const ModelDataList& modelDataList = myGraphics->GetModelData();
 	const RenderResourceList& renderResources = aPackage.renderResources;
 	size_t instanceCount = aPackage.modelDataIndices.size();
@@ -22,15 +27,17 @@ void KE::InstancedRenderer::RenderPackage(const InstancedRenderPackage& aPackage
 	std::vector<InstancedRenderData> instanceData;
 	instanceData.reserve(instanceCount);
 
-	for (size_t i = 0; i < instanceCount; i++)
-	{
-		if (!modelDataList[aPackage.modelDataIndices[i]].myActiveStatus) { continue; }
+	for (size_t i = 0; i < instanceCount; i++) {
+		if (!modelDataList[aPackage.modelDataIndices[i]].myActiveStatus) {
+			continue;
+		}
 
-
-		auto transform = *modelDataList[aPackage.modelDataIndices[i]].myTransform;
+		auto transform =
+			*modelDataList[aPackage.modelDataIndices[i]].myTransform;
 		Transform t = transform;
 
-		Transform camT = myGraphics->GetCameraManager().GetHighlightedCamera()->transform;
+		Transform camT =
+			myGraphics->GetCameraManager().GetHighlightedCamera()->transform;
 		Vector3f modelPosition = t.GetPositionRef();
 		Vector3f cameraPosition = camT.GetPositionRef();
 
@@ -41,27 +48,39 @@ void KE::InstancedRenderer::RenderPackage(const InstancedRenderPackage& aPackage
 	}
 
 	instanceCount = instanceData.size();
-	if (instanceCount == 0) { return; }
+	if (instanceCount == 0) {
+		return;
+	}
 
-	//ComPtr<ID3D11Buffer> instanceBuffer;
-	myInstanceBuffer.MapBuffer(instanceData.data(), static_cast<int>(sizeof(InstancedRenderData) * instanceCount), graphicsContext.Get());
+	// ComPtr<ID3D11Buffer> instanceBuffer;
+	myInstanceBuffer.MapBuffer(
+		instanceData.data(),
+		static_cast<int>(sizeof(InstancedRenderData) * instanceCount),
+		graphicsContext.Get());
 
-	//CreateInstanceBuffer(aInput, instanceCount, instanceData, instanceBuffer);
+	// CreateInstanceBuffer(aInput, instanceCount, instanceData,
+	// instanceBuffer);
 	//
 
-	const KE::MeshList* meshList = modelDataList[aPackage.modelDataIndices[0]].myMeshList;
-	for (size_t instance = 0; instance < meshList->myMeshes.size(); instance++)
-	{
-		const size_t renderResourceIndex = instance >= renderResources.size() ? 0 : instance;
-		const Material* material = renderResources[instance >= renderResources.size() ? 0 : instance].myMaterial;
+	const KE::MeshList* meshList =
+		modelDataList[aPackage.modelDataIndices[0]].myMeshList;
+	for (size_t instance = 0; instance < meshList->myMeshes.size();
+		 instance++) {
+		const size_t renderResourceIndex =
+			instance >= renderResources.size() ? 0 : instance;
+		const Material* material =
+			renderResources[instance >= renderResources.size() ? 0 : instance]
+				.myMaterial;
 
-		const auto* vertexShader = aInput.overrideVertexShader ?
-			aInput.overrideVertexShader : //use overriden shader if it exists
-			renderResources[renderResourceIndex].myVertexShader;
+		const auto* vertexShader =
+			aInput.overrideVertexShader ? aInput.overrideVertexShader
+										:  // use overriden shader if it exists
+				renderResources[renderResourceIndex].myVertexShader;
 
-		const auto* pixelShader = aInput.overridePixelShader ?
-			aInput.overridePixelShader : //use overriden shader if it exists
-			renderResources[renderResourceIndex].myPixelShader;
+		const auto* pixelShader =
+			aInput.overridePixelShader ? aInput.overridePixelShader
+									   :  // use overriden shader if it exists
+				renderResources[renderResourceIndex].myPixelShader;
 
 		const KE::Mesh* mesh = &meshList->myMeshes[instance];
 
@@ -80,26 +99,25 @@ void KE::InstancedRenderer::RenderPackage(const InstancedRenderPackage& aPackage
 		bufferPointers[0] = mesh->myVertexBuffer.Get();
 		bufferPointers[1] = myInstanceBuffer.GetBuffer().Get();
 
-
 		myGraphics->BindMaterial(material, 0u);
-		graphicsContext->IASetVertexBuffers(0, 2, bufferPointers, strides, offsets);
-		graphicsContext->IASetIndexBuffer(mesh->myIndexBuffer.Get(), DXGI_FORMAT_R32_UINT, 0);
-		graphicsContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+		graphicsContext->IASetVertexBuffers(0, 2, bufferPointers, strides,
+											offsets);
+		graphicsContext->IASetIndexBuffer(mesh->myIndexBuffer.Get(),
+										  DXGI_FORMAT_R32_UINT, 0);
+		graphicsContext->IASetPrimitiveTopology(
+			D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
 		graphicsContext->VSSetShader(vertexShader->GetShader(), nullptr, 0u);
 		graphicsContext->IASetInputLayout(vertexShader->GetInputLayout());
 		graphicsContext->PSSetShader(pixelShader->GetShader(), nullptr, 0u);
 
-
-
-		graphicsContext->DrawIndexedInstanced((UINT)mesh->myIndices.size(), (UINT)instanceCount, 0, 0, 0);
+		graphicsContext->DrawIndexedInstanced((UINT)mesh->myIndices.size(),
+											  (UINT)instanceCount, 0, 0, 0);
 		myGraphics->AddDrawCall();
 	}
-
 }
 
-void KE::InstancedRenderer::Init(Graphics* aGraphics)
-{
+void KE::InstancedRenderer::Init(Graphics* aGraphics) {
 	Renderer::Init(aGraphics);
 
 	{
@@ -120,31 +138,33 @@ void KE::InstancedRenderer::Init(Graphics* aGraphics)
 		bufferDesc.Usage = D3D11_USAGE_DYNAMIC;
 		bufferDesc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
 		bufferDesc.MiscFlags = 0u;
-		bufferDesc.ByteWidth = sizeof(InstancedRenderData) * (UINT)INSTANCING_BUFFER_SIZE;
+		bufferDesc.ByteWidth =
+			sizeof(InstancedRenderData) * (UINT)INSTANCING_BUFFER_SIZE;
 		bufferDesc.StructureByteStride = sizeof(InstancedRenderData);
 
 		myInstanceBuffer.Init(aGraphics->GetDevice(), &bufferDesc);
 	}
 }
 
-void KE::InstancedRenderer::SortRenderPackages(InstancedRenderPackageList* aPackageList)
-{
-	const Vector3f& cameraPosition = myGraphics->GetCameraManager().GetHighlightedCamera()->transform.GetPositionRef();
+void KE::InstancedRenderer::SortRenderPackages(
+	InstancedRenderPackageList* aPackageList) {
+	const Vector3f& cameraPosition = myGraphics->GetCameraManager()
+										 .GetHighlightedCamera()
+										 ->transform.GetPositionRef();
 	const auto& modelDatas = myGraphics->GetModelData();
 
-	for (size_t i = 0; i < aPackageList->size(); i++)
-	{
+	for (size_t i = 0; i < aPackageList->size(); i++) {
 		InstancedRenderPackage& package = aPackageList->at(i);
 
 		float nearestDistance = FLT_MAX;
-		for (size_t j = 0; j < package.modelDataIndices.size(); j++)
-		{
-			const ModelData& modelData = modelDatas[package.modelDataIndices[j]];
-			const Vector3f& modelPosition = ((Transform*)modelData.myTransform)->GetPositionRef();
+		for (size_t j = 0; j < package.modelDataIndices.size(); j++) {
+			const ModelData& modelData =
+				modelDatas[package.modelDataIndices[j]];
+			const Vector3f& modelPosition =
+				((Transform*)modelData.myTransform)->GetPositionRef();
 
 			float distance = (cameraPosition - modelPosition).LengthSqr();
-			if (distance < nearestDistance)
-			{
+			if (distance < nearestDistance) {
 				nearestDistance = distance;
 			}
 		}
@@ -152,85 +172,82 @@ void KE::InstancedRenderer::SortRenderPackages(InstancedRenderPackageList* aPack
 		package.distanceToCamera = nearestDistance;
 	}
 
-	//sort the packages based on distance
-	std::sort(aPackageList->begin(), aPackageList->end(), [](const InstancedRenderPackage& a, const InstancedRenderPackage& b)
-	{
-		return a.distanceToCamera < b.distanceToCamera;
-	});
+	// sort the packages based on distance
+	std::sort(
+		aPackageList->begin(), aPackageList->end(),
+		[](const InstancedRenderPackage& a, const InstancedRenderPackage& b) {
+			return a.distanceToCamera < b.distanceToCamera;
+		});
 
-	//if (ImGui::Begin("Sorted Result"))
+	// if (ImGui::Begin("Sorted Result"))
 	//{
 	//	for (size_t i = 0; i < aPackageList->size(); i++)
 	//	{
-	//		ImGui::Text("Package %d: %f (%s)", i, aPackageList->at(i).distanceToCamera, modelDatas[aPackageList->at(i).modelDataIndices[0]].myMeshList->myFilePath.c_str());
+	//		ImGui::Text("Package %d: %f (%s)", i,
+	// aPackageList->at(i).distanceToCamera,
+	// modelDatas[aPackageList->at(i).modelDataIndices[0]].myMeshList->myFilePath.c_str());
 	//	}
-	//}
-	//ImGui::End();
-
+	// }
+	// ImGui::End();
 }
 
-void KE::InstancedRenderer::GenerateInstancingData(const std::vector<size_t>& aModelDataIndices, const ModelDataList& aModelDatas, InstancedRenderPackageList* aOutRenderPackages)
-{
-	std::unordered_map<KE::MeshList*, InstancedRenderPackageList> instanceBuilderMap;
+void KE::InstancedRenderer::GenerateInstancingData(
+	const std::vector<size_t>& aModelDataIndices,
+	const ModelDataList& aModelDatas,
+	InstancedRenderPackageList* aOutRenderPackages) {
+	std::unordered_map<KE::MeshList*, InstancedRenderPackageList>
+		instanceBuilderMap;
 
-	for (const size_t& i : aModelDataIndices)
-	{
-		//if (aModelDatas[i].myActiveStatus != true) { continue; }
-		if (aModelDatas[i].myIsInstanced != true) { continue; }
-
+	for (const size_t& i : aModelDataIndices) {
+		// if (aModelDatas[i].myActiveStatus != true) { continue; }
+		if (aModelDatas[i].myIsInstanced != true) {
+			continue;
+		}
 
 		KE::MeshList* meshList = aModelDatas[i].myMeshList;
-		const RenderResourceList& renderResources = aModelDatas[i].myRenderResources;
+		const RenderResourceList& renderResources =
+			aModelDatas[i].myRenderResources;
 
-		if (instanceBuilderMap.find(meshList) == instanceBuilderMap.end())
-		{
+		if (instanceBuilderMap.find(meshList) == instanceBuilderMap.end()) {
 			instanceBuilderMap[meshList] = InstancedRenderPackageList();
 		}
 
-
 		bool foundPackage = false;
-		for (InstancedRenderPackage& package : instanceBuilderMap[meshList])
-		{
-			if (package.TryAddModelData(i, renderResources))
-			{
+		for (InstancedRenderPackage& package : instanceBuilderMap[meshList]) {
+			if (package.TryAddModelData(i, renderResources)) {
 				foundPackage = true;
 				break;
 			}
 		}
-		if (!foundPackage)
-		{
-			InstancedRenderPackage& newPackage = instanceBuilderMap[meshList].emplace_back();
+		if (!foundPackage) {
+			InstancedRenderPackage& newPackage =
+				instanceBuilderMap[meshList].emplace_back();
 			newPackage.renderResources = renderResources;
 			newPackage.modelDataIndices.push_back(i);
 		}
 	}
-		
 
-	for (auto& pair : instanceBuilderMap)
-	{
-		for (InstancedRenderPackage& package : pair.second)
-		{
+	for (auto& pair : instanceBuilderMap) {
+		for (InstancedRenderPackage& package : pair.second) {
 			aOutRenderPackages->push_back(package);
 		}
 	}
-	
 }
 
-void KE::InstancedRenderer::Render(const InstanceRenderInput& aInput)
-{
+void KE::InstancedRenderer::Render(const InstanceRenderInput& aInput) {
 	InstanceRenderBufferData bufferData;
 	bufferData.worldToClip = aInput.viewMatrix * aInput.projectionMatrix;
 
-	myRenderingBuffer.MapBuffer(&bufferData, sizeof(bufferData), myGraphics->GetContext().Get());
+	myRenderingBuffer.MapBuffer(&bufferData, sizeof(bufferData),
+								myGraphics->GetContext().Get());
 	myRenderingBuffer.BindForVS(1u, myGraphics->GetContext().Get());
 
-	//if (ImGui::IsKeyDown(ImGuiKey_K))
+	// if (ImGui::IsKeyDown(ImGuiKey_K))
 	//{
 	//	SortRenderPackages(aInput.renderPackages);
-	//}
+	// }
 
-	for (InstancedRenderPackage& package : *aInput.renderPackages)
-	{
+	for (InstancedRenderPackage& package : *aInput.renderPackages) {
 		RenderPackage(package, aInput);
 	}
 }

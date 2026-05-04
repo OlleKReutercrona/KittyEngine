@@ -1,15 +1,12 @@
 ﻿#pragma once
 #include "Component.h"
 
-namespace KE
-{
-	struct AttachComponentData
-	{
+namespace KE {
+	struct AttachComponentData {
 		Transform* attachedTransform = nullptr;
 	};
 
-	class AttachComponent : public Component
-	{
+	class AttachComponent : public Component {
 	private:
 		Transform* myAttachedTransform = nullptr;
 
@@ -24,4 +21,4 @@ namespace KE
 		void Update() override;
 	};
 
-}
+}  // namespace KE

@@ -1,19 +1,19 @@
 #pragma once
-#include "Kinematic.h"
 #include "Align.h"
+#include "Kinematic.h"
 
-class Face : public Align
-{
+class Face : public Align {
 	friend class SteeringController;
 
 public:
-	Face(Kinematic& aCharacter) : Align(aCharacter){}
+	Face(Kinematic& aCharacter) : Align(aCharacter) {}
 	~Face() {}
 
-	inline void SetTarget(const Vector3f aTarget) { faceTarget = aTarget; }
+	inline void SetTarget(const Vector3f aTarget) {
+		faceTarget = aTarget;
+	}
 
-	inline SteeringOutput GetSteering(float aTimeDelta)
-	{
+	inline SteeringOutput GetSteering(float aTimeDelta) {
 		SteeringOutput result;
 
 		Vector3f direction = (faceTarget - character.transform.GetPosition());
@@ -23,7 +23,7 @@ public:
 		if (direction.Length() == 0) {
 			return result;
 		}
-		
+
 		Align::targetOrientation = atan2f(direction.x, direction.z);
 
 		return Align::GetSteering(aTimeDelta);

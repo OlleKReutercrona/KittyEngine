@@ -1,18 +1,17 @@
 #pragma once
-#include "Engine/Source/ComponentSystem/Components/Component.h"
 #include <Engine/Source/Math/Vector3.h>
 #include <map>
+
+#include "Engine/Source/ComponentSystem/Components/Component.h"
 #include "Engine/Source/Graphics/DebugLine.h"
 #include "Engine/Source/Reflection/Reflection.h"
 
-namespace KE
-{
+namespace KE {
 	class Graphics;
 	class Collider;
 	struct CollisionData;
 
-	struct BoxColliderComponentData
-	{
+	struct BoxColliderComponentData {
 		BoxColliderComponentData(Collider& aCollider) : collider(aCollider) {}
 
 		Vector3f size;
@@ -22,8 +21,7 @@ namespace KE
 		bool isTrigger = false;
 	};
 
-	class BoxColliderComponent : public Component
-	{
+	class BoxColliderComponent : public Component {
 	public:
 		BoxColliderComponent(GameObject& aGameObject);
 		~BoxColliderComponent();
@@ -44,8 +42,12 @@ namespace KE
 		void DrawDebug(KE::DebugRenderer& aDbg) override;
 		void SetData(void* aDataObject = nullptr) override;
 
-		inline void DrawDebugLines(const bool aValue) { myDrawDebug = aValue; };
-		inline KE::Collider* GetCollider() const { return myCollider; }
+		inline void DrawDebugLines(const bool aValue) {
+			myDrawDebug = aValue;
+		};
+		inline KE::Collider* GetCollider() const {
+			return myCollider;
+		}
 
 		/*BEGIN_REFLECTION(BoxColliderComponent)
 		{
@@ -57,21 +59,17 @@ namespace KE
 		END_REFLECTION;*/
 
 		friend class KE_SER::Serializer;
-		template<class SerializationIO>
-		void Serialize(SerializationIO& aSerializer)
-		{
+		template <class SerializationIO>
+		void Serialize(SerializationIO& aSerializer) {
 			SET_REFLECTION(BoxColliderComponent)
-			aSerializer & PARAM(myDefaultColour)
-						& PARAM(myHitColour)
-						& PARAM(mySize)
-						& PARAM(myOffset)
-			;	
+			aSerializer& PARAM(myDefaultColour) & PARAM(myHitColour) &
+				PARAM(mySize) & PARAM(myOffset);
 		}
 
 	private:
 		KE::Collider* myCollider = nullptr;
-		Vector4f myDefaultColour = { 1.0f, 0.0f, 0.0f, 1.0f };
-		Vector4f myHitColour = { 0.0f, 1.0f, 0.0f, 1.0f };
+		Vector4f myDefaultColour = {1.0f, 0.0f, 0.0f, 1.0f};
+		Vector4f myHitColour = {0.0f, 1.0f, 0.0f, 1.0f};
 		bool myIsHit = false;
 		bool myDrawDebug = true;
 
@@ -82,19 +80,18 @@ namespace KE
 
 		Transform myCachedTransform;
 
-		std::map<Collider*, CollisionData*>  myCollisions;
+		std::map<Collider*, CollisionData*> myCollisions;
 
 		// FOR DEBUG RENDERING
 		Graphics* myGraphicsPTR = nullptr;
 		LineVertex linePoints[8];
 	};
-}
+}  // namespace KE
 
+// BEGIN_REFLECTION(BoxColliderComponent);
+// REFLECT_MEMBER(myCollider);
+// REFLECT_MEMBER(myDefaultColour);
+// REFLECT_MEMBER(myHitColour);
+// REFLECT_MEMBER(mySize);
 
-//BEGIN_REFLECTION(BoxColliderComponent);
-//REFLECT_MEMBER(myCollider);
-//REFLECT_MEMBER(myDefaultColour);
-//REFLECT_MEMBER(myHitColour);
-//REFLECT_MEMBER(mySize);
-
-//END_REFLECTION;
+// END_REFLECTION;

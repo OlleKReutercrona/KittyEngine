@@ -6,28 +6,24 @@
 #ifndef KITTYENGINE_NO_EDITOR
 #define PURR(var) #var, &var
 
-namespace KE
-{
+namespace KE {
 	class SphereColliderComponent;
 }
 
-namespace KE_EDITOR
-{
-	class ComponentInspector
-	{
+namespace KE_EDITOR {
+	class ComponentInspector {
 	private:
-
-
 	public:
 		ComponentInspector();
 		~ComponentInspector();
 
-		std::string StructureData(const char* aDirtyData, KE::SphereColliderComponent* aColliderComponent);
-		void Inspect(const char* aDirtyData, KE::SphereColliderComponent* aColliderComponent);
+		std::string StructureData(
+			const char* aDirtyData,
+			KE::SphereColliderComponent* aColliderComponent);
+		void Inspect(const char* aDirtyData,
+					 KE::SphereColliderComponent* aColliderComponent);
 	};
 
-
-
-}
+}  // namespace KE_EDITOR
 
 #endif

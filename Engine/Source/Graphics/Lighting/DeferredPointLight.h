@@ -3,25 +3,29 @@
 #include "Engine\Source\Math\KittyMath.h"
 #include "Engine\Source\Math\Transform.h"
 
-namespace KE
-{
-	struct PointLightData
-	{
-		Vector4f position;  // x,y,z w = Strength
+namespace KE {
+	struct PointLightData {
+		Vector4f position;	// x,y,z w = Strength
 		Vector3f colour;	// Colour of the light
 		float radius;		// Radius of the light
 	};
 
-	class DeferredPointLight
-	{
+	class DeferredPointLight {
 	public:
 		DeferredPointLight();
-		~DeferredPointLight() {};
+		~DeferredPointLight(){};
 
-		inline const ModelData& GetModelData() const { return myModelData; }
-		inline const int GetID() const { return myID; }
+		inline const ModelData& GetModelData() const {
+			return myModelData;
+		}
+		inline const int GetID() const {
+			return myID;
+		}
 
-		Transform& GetTransform() { return myTransform; }
+		Transform& GetTransform() {
+			return myTransform;
+		}
+
 	private:
 		Transform myTransform;
 
@@ -31,4 +35,4 @@ namespace KE
 		int myID;
 	};
 
-}
+}  // namespace KE

@@ -1,17 +1,11 @@
 #pragma once
-namespace KE_EDITOR
-{
-	enum class WindowStatus
-	{
-		Open,
-		Hidden,
-		Closed
-	};
+#include <any>
+namespace KE_EDITOR {
+	enum class WindowStatus { Open, Hidden, Closed };
 
 	typedef const std::any& EditorWindowInput;
 
-	class EditorWindowBase
-	{
+	class EditorWindowBase {
 		KE_EDITOR_FRIEND
 	protected:
 		unsigned int myID = 0;
@@ -22,15 +16,25 @@ namespace KE_EDITOR
 		int myWindowFlags = 0;
 
 	public:
-		EditorWindowBase(EditorWindowInput aStartupData = {}) {};
-		virtual ~EditorWindowBase() {};
+		EditorWindowBase(EditorWindowInput aStartupData = {}){};
+		virtual ~EditorWindowBase(){};
 		//
-		void SetID(unsigned int anIndex) { myID = anIndex; }
-		unsigned int GetID() const { return myID; }
-		WindowStatus GetStatus() const { return myStatus; }
+		void SetID(unsigned int anIndex) {
+			myID = anIndex;
+		}
+		unsigned int GetID() const {
+			return myID;
+		}
+		WindowStatus GetStatus() const {
+			return myStatus;
+		}
 
-		const int GetWindowFlags() const { return myWindowFlags; }
-		void SetWindowFlags(const int aFlags) { myWindowFlags = aFlags; }
+		const int GetWindowFlags() const {
+			return myWindowFlags;
+		}
+		void SetWindowFlags(const int aFlags) {
+			myWindowFlags = aFlags;
+		}
 
 		bool Begin();
 		void End();
@@ -39,21 +43,32 @@ namespace KE_EDITOR
 		virtual void StyleEnd() {}
 
 		//
-		virtual const char* GetWindowName() const { return ""; }
+		virtual const char* GetWindowName() const {
+			return "";
+		}
 		virtual void Init() = 0;
 		virtual void Update() = 0;
 		virtual void Render() = 0;
 		//
 
-		virtual void Serialize(void* aWorkingData)	 { __noop; }
-		virtual void Deserialize(void* aWorkingData) { __noop; }
+		virtual void Serialize(void* aWorkingData) {
+			__noop;
+		}
+		virtual void Deserialize(void* aWorkingData) {
+			__noop;
+		}
 
-		const char* GetName() const { return myName; }
-		void SetName(const char* aName) { myName = aName; }
+		const char* GetName() const {
+			return myName;
+		}
+		void SetName(const char* aName) {
+			myName = aName;
+		}
 
-		//Set the dock node ID for this window
-		void Dock(unsigned int aDockNodeID) {myDockNodeID = aDockNodeID; }
+		// Set the dock node ID for this window
+		void Dock(unsigned int aDockNodeID) {
+			myDockNodeID = aDockNodeID;
+		}
 		unsigned int GetDockNodeID();
-
 	};
-}
+}  // namespace KE_EDITOR

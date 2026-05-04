@@ -1,10 +1,8 @@
 #pragma once
 #include "Utility/Event.h"
 
-namespace KE
-{
-	struct GUIResolutionEvent : ES::Event
-	{
+namespace KE {
+	struct GUIResolutionEvent : ES::Event {
 		GUIResolutionEvent() = default;
 		~GUIResolutionEvent() override = default;
 
@@ -12,4 +10,4 @@ namespace KE
 		int myHeight = 0;
 		bool myFullscreen = false;
 	};
-}
+}  // namespace KE

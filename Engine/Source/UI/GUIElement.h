@@ -3,13 +3,11 @@
 #include "Engine/Source/UI/GUITooltip.h"
 #include "Engine/Source/Utility/EventSystem.h"
 
-namespace KE
-{
+namespace KE {
 	class GUIScene;
 
 #pragma region AlignType
-	enum class eAlignType
-	{
+	enum class eAlignType {
 		BottomLeft,
 		BottomCenter,
 		BottomRight,
@@ -23,41 +21,51 @@ namespace KE
 		Count
 	};
 
-	inline const char* EnumToString(const eAlignType aType)
-	{
-		switch (aType)
-		{
-		case eAlignType::BottomLeft: return "BottomLeft";
-		case eAlignType::BottomCenter: return "BottomCenter";
-		case eAlignType::BottomRight: return "BottomRight";
-		case eAlignType::Center: return "Center";
-		case eAlignType::CenterLeft: return "CenterLeft";
-		case eAlignType::CenterRight: return "CenterRight";
-		case eAlignType::TopLeft: return "TopLeft";
-		case eAlignType::TopCenter: return "TopCenter";
-		case eAlignType::TopRight: return "TopRight";
-		case eAlignType::Fullscreen: return "Fullscreen";
-		default: return "Unknown";
+	inline const char* EnumToString(const eAlignType aType) {
+		switch (aType) {
+			case eAlignType::BottomLeft:
+				return "BottomLeft";
+			case eAlignType::BottomCenter:
+				return "BottomCenter";
+			case eAlignType::BottomRight:
+				return "BottomRight";
+			case eAlignType::Center:
+				return "Center";
+			case eAlignType::CenterLeft:
+				return "CenterLeft";
+			case eAlignType::CenterRight:
+				return "CenterRight";
+			case eAlignType::TopLeft:
+				return "TopLeft";
+			case eAlignType::TopCenter:
+				return "TopCenter";
+			case eAlignType::TopRight:
+				return "TopRight";
+			case eAlignType::Fullscreen:
+				return "Fullscreen";
+			default:
+				return "Unknown";
 		}
 	}
 #pragma endregion
 
 #pragma region ElementState
-	enum class eGUIElementState
-	{
+	enum class eGUIElementState {
 		Idle,
 		Hovered,
 		Pressed,
 	};
 
-	inline const char* EnumToString(const eGUIElementState aState)
-	{
-		switch (aState)
-		{
-		case eGUIElementState::Idle: return "Idle";
-		case eGUIElementState::Hovered: return "Hovered";
-		case eGUIElementState::Pressed: return "Pressed";
-		default: return "Unknown";
+	inline const char* EnumToString(const eGUIElementState aState) {
+		switch (aState) {
+			case eGUIElementState::Idle:
+				return "Idle";
+			case eGUIElementState::Hovered:
+				return "Hovered";
+			case eGUIElementState::Pressed:
+				return "Pressed";
+			default:
+				return "Unknown";
 		}
 	}
 
@@ -65,7 +73,7 @@ namespace KE
 
 #pragma region GUIElementType
 
-	//enum class eGUIElementType
+	// enum class eGUIElementType
 	//{
 	//	// General
 	//	Decoration,
@@ -117,9 +125,9 @@ namespace KE
 	//	WaveDown,
 	//	Back,
 	//	Count
-	//};
+	// };
 
-	//inline const char* EnumToString(const eGUIElementType aType)
+	// inline const char* EnumToString(const eGUIElementType aType)
 	//{
 	//	switch (aType)
 	//	{
@@ -171,27 +179,24 @@ namespace KE
 	//	case eGUIElementType::NextWave: return "NextWave";
 	//	default: return "Unknown";
 	//	}
-	//}
+	// }
 
 #pragma endregion
 
-	struct GUIElementEvent final : ES::Event
-	{
+	struct GUIElementEvent final : ES::Event {
 		GUIElementEvent() = default;
 		~GUIElementEvent() override = default;
 
-		//eGUIElementType myGUIElementType = eGUIElementType::Decoration;
+		// eGUIElementType myGUIElementType = eGUIElementType::Decoration;
 		std::string myEventName = "";
 	};
 
-	struct GUIAudioVolumeEvent : public ES::Event
-	{
+	struct GUIAudioVolumeEvent : public ES::Event {
 		GUIAudioVolumeEvent(const float aVolume) : myVolume(aVolume) {}
 		float myVolume;
 	};
 
-	struct GUIElement : ES::IObserver
-	{
+	struct GUIElement : ES::IObserver {
 		GUIElement();
 		~GUIElement() override;
 
@@ -199,7 +204,7 @@ namespace KE
 
 		GUIBox myBox;
 		GUITooltip myTooltip;
-		//eGUIElementType myType;
+		// eGUIElementType myType;
 		GUIElementEvent myEvent;
 		eGUIElementState myState = eGUIElementState::Idle;
 		eAlignType myAlignType = eAlignType::BottomCenter;
@@ -207,7 +212,7 @@ namespace KE
 		Texture* myDisplayTexture = nullptr;
 		Texture* mySecondaryTexture = nullptr;
 		GUIScene* myParentScene = nullptr;
-		//Sprite* mySprite = nullptr;
+		// Sprite* mySprite = nullptr;
 		bool isButton = false;
 		std::string myName = "GUIElement";
 		std::string myTexturePath = "";
@@ -215,10 +220,11 @@ namespace KE
 
 		bool hasText = false;
 		std::string myText = "Text";
-		Vector4f myTextColour = { 1.0f, 1.0f, 1.0f, 1.0f };
+		Vector4f myTextColour = {1.0f, 1.0f, 1.0f, 1.0f};
 
 		// TODO Cooldown test
-		eProgressionDirection myProgressionDirection = eProgressionDirection::None;
+		eProgressionDirection myProgressionDirection =
+			eProgressionDirection::None;
 		bool isTimerActive = false;
 		float myCooldownTimer = 0.0f;
 		float myTotalCooldown = 2.0f;
@@ -228,7 +234,7 @@ namespace KE
 		bool shouldReceiveEvents = false;
 
 		// Temp
-		//Vector2f myLinePoints[4];
+		// Vector2f myLinePoints[4];
 		Vector4f myColour;
 
 		GUITooltip& AddTooltip();
@@ -239,13 +245,16 @@ namespace KE
 		void Click();
 		void Highlight();
 		void Reset();
-		void UpdateSpriteScaleAndPosition(const Vector2f& aResolution, bool aUpdateResolution);
+		void UpdateSpriteScaleAndPosition(const Vector2f& aResolution,
+										  bool aUpdateResolution);
 
-		float GetFillFactor() const { return myFillFactor; }
+		float GetFillFactor() const {
+			return myFillFactor;
+		}
 
 		// IObserver
 		void OnReceiveEvent(ES::Event& aEvent) override;
 		void OnInit() override;
 		void OnDestroy() override;
 	};
-}
+}  // namespace KE

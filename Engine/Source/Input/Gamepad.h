@@ -1,29 +1,26 @@
 #pragma once
-#include "xinput.h"
 #include <bitset>
 #include <string>
 
-namespace KE
-{
-	static const WORD XINPUT_BUTTONS[] = {
-	  XINPUT_GAMEPAD_A,
-	  XINPUT_GAMEPAD_B,
-	  XINPUT_GAMEPAD_X,
-	  XINPUT_GAMEPAD_Y,
-	  XINPUT_GAMEPAD_DPAD_UP,
-	  XINPUT_GAMEPAD_DPAD_DOWN,
-	  XINPUT_GAMEPAD_DPAD_LEFT,
-	  XINPUT_GAMEPAD_DPAD_RIGHT,
-	  XINPUT_GAMEPAD_LEFT_SHOULDER,
-	  XINPUT_GAMEPAD_RIGHT_SHOULDER,
-	  XINPUT_GAMEPAD_LEFT_THUMB,
-	  XINPUT_GAMEPAD_RIGHT_THUMB,
-	  XINPUT_GAMEPAD_START,
-	  XINPUT_GAMEPAD_BACK
-	};
+#include "xinput.h"
 
-	enum class eButtons
-	{
+namespace KE {
+	static const WORD XINPUT_BUTTONS[] = {XINPUT_GAMEPAD_A,
+										  XINPUT_GAMEPAD_B,
+										  XINPUT_GAMEPAD_X,
+										  XINPUT_GAMEPAD_Y,
+										  XINPUT_GAMEPAD_DPAD_UP,
+										  XINPUT_GAMEPAD_DPAD_DOWN,
+										  XINPUT_GAMEPAD_DPAD_LEFT,
+										  XINPUT_GAMEPAD_DPAD_RIGHT,
+										  XINPUT_GAMEPAD_LEFT_SHOULDER,
+										  XINPUT_GAMEPAD_RIGHT_SHOULDER,
+										  XINPUT_GAMEPAD_LEFT_THUMB,
+										  XINPUT_GAMEPAD_RIGHT_THUMB,
+										  XINPUT_GAMEPAD_START,
+										  XINPUT_GAMEPAD_BACK};
+
+	enum class eButtons {
 		A = 0,
 		B = 1,
 		X = 2,
@@ -44,53 +41,50 @@ namespace KE
 		RStick = 17
 	};
 
-	inline std::string GetButtonName(eButtons aButton)
-	{
-		switch (aButton)
-		{
-		case eButtons::A:
-			return "A";
-		case eButtons::B:
-			return "B";
-		case eButtons::X:
-			return "X";
-		case eButtons::Y:
-			return "Y";
-		case eButtons::DPadUp:
-			return "DPadUp";
-		case eButtons::DPadDown:
-			return "DPadDown";
-		case eButtons::DPadLeft:
-			return "DPadLeft";
-		case eButtons::DPadRight:
-			return "DPadRight";
-		case eButtons::LShoulder:
-			return "LShoulder";
-		case eButtons::RShoulder:
-			return "RShoulder";
-		case eButtons::LThumbstick:
-			return "LThumbstick";
-		case eButtons::RThumbstick:
-			return "RThumbstick";
-		case eButtons::Start:
-			return "Start";
-		case eButtons::Back:
-			return "Back";
-		case eButtons::LTrigger:
-			return "LTrigger";
-		case eButtons::RTrigger:
-			return "RTrigger";
-		case eButtons::LStick:
-			return "LStick";
-		case eButtons::RStick:
-			return "RStick";
-		default:
-			return "Unknown";
+	inline std::string GetButtonName(eButtons aButton) {
+		switch (aButton) {
+			case eButtons::A:
+				return "A";
+			case eButtons::B:
+				return "B";
+			case eButtons::X:
+				return "X";
+			case eButtons::Y:
+				return "Y";
+			case eButtons::DPadUp:
+				return "DPadUp";
+			case eButtons::DPadDown:
+				return "DPadDown";
+			case eButtons::DPadLeft:
+				return "DPadLeft";
+			case eButtons::DPadRight:
+				return "DPadRight";
+			case eButtons::LShoulder:
+				return "LShoulder";
+			case eButtons::RShoulder:
+				return "RShoulder";
+			case eButtons::LThumbstick:
+				return "LThumbstick";
+			case eButtons::RThumbstick:
+				return "RThumbstick";
+			case eButtons::Start:
+				return "Start";
+			case eButtons::Back:
+				return "Back";
+			case eButtons::LTrigger:
+				return "LTrigger";
+			case eButtons::RTrigger:
+				return "RTrigger";
+			case eButtons::LStick:
+				return "LStick";
+			case eButtons::RStick:
+				return "RStick";
+			default:
+				return "Unknown";
 		}
 	}
 
-	struct XButtonIDs
-	{
+	struct XButtonIDs {
 		XButtonIDs();
 
 		unsigned int A, B, X, Y;
@@ -103,22 +97,11 @@ namespace KE
 		unsigned int LStick, RStick;
 	};
 
-	enum class ConnectionStatus
-	{
-		None,
-		Connected,
-		Disconnected
-	};
+	enum class ConnectionStatus { None, Connected, Disconnected };
 
-	enum class RumbleType
-	{
-		None,
-		Timed,
-		Stop
-	};
+	enum class RumbleType { None, Timed, Stop };
 
-	class Gamepad
-	{
+	class Gamepad {
 	public:
 		Gamepad();
 		Gamepad(int aIndex);
@@ -134,15 +117,27 @@ namespace KE
 		float UpdateLeftStickY();
 		float UpdateRightStickX();
 		float UpdateRightStickY();
-		float GetLeftStickX() { return static_cast<float>(myThumbLX) / 32768.0f; }
-		float GetLeftStickY() { return static_cast<float>(myThumbLY) / 32768.0f; };
-		float GetRightStickX() { return static_cast<float>(myThumbRX) / 32768.0f; };
-		float GetRightStickY() { return static_cast<float>(myThumbRY) / 32768.0f; };
+		float GetLeftStickX() {
+			return static_cast<float>(myThumbLX) / 32768.0f;
+		}
+		float GetLeftStickY() {
+			return static_cast<float>(myThumbLY) / 32768.0f;
+		};
+		float GetRightStickX() {
+			return static_cast<float>(myThumbRX) / 32768.0f;
+		};
+		float GetRightStickY() {
+			return static_cast<float>(myThumbRY) / 32768.0f;
+		};
 
 		float UpdateLeftTrigger();
 		float UpdateRightTrigger();
-		inline float GetLeftTrigger() { return myTriggerL / 255.0f; }
-		inline float GetRightTrigger() { return myTriggerR / 255.0f; }
+		inline float GetLeftTrigger() {
+			return myTriggerL / 255.0f;
+		}
+		inline float GetRightTrigger() {
+			return myTriggerR / 255.0f;
+		}
 
 		bool GetButtonState(int aButton);
 		bool IsButtonPressed(int aButton);
@@ -151,17 +146,28 @@ namespace KE
 		bool IsButtonReleased(int aButton);
 
 		bool IsLeftStickToggled();
-		inline bool IsLeftStickToggledUp() { return myLeftStickToggledUp; }
-		inline bool IsLeftStickToggledDown() { return myLeftStickToggledDown; }
-		inline bool IsLeftStickToggledLeft() { return myLeftStickToggledLeft; }
-		inline bool IsLeftStickToggledRight() { return myLeftStickToggledRight; }
+		inline bool IsLeftStickToggledUp() {
+			return myLeftStickToggledUp;
+		}
+		inline bool IsLeftStickToggledDown() {
+			return myLeftStickToggledDown;
+		}
+		inline bool IsLeftStickToggledLeft() {
+			return myLeftStickToggledLeft;
+		}
+		inline bool IsLeftStickToggledRight() {
+			return myLeftStickToggledRight;
+		}
 
-		void SetRumble(float aLeftMotor, float aRightMotor, float aDuration, RumbleType aRumbleType = RumbleType::None);
+		void SetRumble(float aLeftMotor, float aRightMotor, float aDuration,
+					   RumbleType aRumbleType = RumbleType::None);
 
 		XINPUT_STATE GetState();
 		int GetIndex();
 		bool IsConnected();
-		bool GetIsConnected() { return myConnectionStatus == ConnectionStatus::Connected; }
+		bool GetIsConnected() {
+			return myConnectionStatus == ConnectionStatus::Connected;
+		}
 
 	private:
 		// Vibrate the gamepad (0.0f cancel, 1,0f max)
@@ -205,4 +211,4 @@ namespace KE
 	};
 
 	extern XButtonIDs XButtons;
-}
+}  // namespace KE

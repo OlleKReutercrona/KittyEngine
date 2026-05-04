@@ -1,24 +1,21 @@
 #pragma once
 #include <deque>
 
-#include "Engine/Source/UI/Minimap.h"
-#include "Engine/Source/UI/GUIScene.h"
-#include "Engine/Source/Math/Vector.h"
-#include "Engine/Source/Utility/EventSystem.h"
 #include "Engine/Source/Graphics/Text/Text.h"
+#include "Engine/Source/Math/Vector.h"
+#include "Engine/Source/UI/GUIScene.h"
+#include "Engine/Source/UI/Minimap.h"
+#include "Engine/Source/Utility/EventSystem.h"
 
-namespace KE_EDITOR
-{
+namespace KE_EDITOR {
 	class GUIEditor;
 }
 
-namespace P8
-{
+namespace P8 {
 	struct PresentScoreDataEvent;
 }
 
-namespace KE
-{
+namespace KE {
 	class SceneManager;
 	enum class eGUISceneType;
 	struct GUIElement;
@@ -26,17 +23,9 @@ namespace KE
 	class Window;
 	class Graphics;
 
-	enum class eFadeState
-	{
-		None,
-		FadeIn,
-		Show,
-		FadeOut,
-		Done
-	};
+	enum class eFadeState { None, FadeIn, Show, FadeOut, Done };
 
-	struct FadeElement
-	{
+	struct FadeElement {
 		GUIElement* myElement = nullptr;
 		eFadeState myFadeState = eFadeState::None;
 		float myTimer = 0.0f;
@@ -45,8 +34,7 @@ namespace KE
 		float myShowTime = 0.0f;
 	};
 
-	struct Score
-	{
+	struct Score {
 		GUIElement* myScoreMin = nullptr;
 		GUIElement* myScoreMax = nullptr;
 		GUIElement* myPortrait = nullptr;
@@ -59,15 +47,14 @@ namespace KE
 		int myModelID = -1;
 	};
 
-	struct LevelSelectData
-	{
+	struct LevelSelectData {
 		std::string myLevelName;
 		int myLevelIndex = -1;
 	};
 
-	class GUIHandler : public ES::IObserver
-	{
+	class GUIHandler : public ES::IObserver {
 		friend class KE_EDITOR::GUIEditor;
+
 	public:
 		GUIHandler();
 		~GUIHandler() override;
@@ -75,14 +62,14 @@ namespace KE
 		void LoadGUIFromFile();
 		void SetupScore(const Vector2i& resolution);
 		// UTILITY
-		void AssignSpriteToGUIElement(GUIElement& aElement,
-			Graphics* aGraphics,
-			const Vector2f& aElementSize, const std::string& aSpritePath);
-		void AssignSpriteToTooltip(GUITooltip& aTooltip,
-			const Window* aWindow,
-			const Vector2f& aTooltipSize,
-			const std::string& aSpritePath);
-		void CreateGUIScene(const std::string& aSceneName, const size_t aNumberOfElementsToReserve);
+		void AssignSpriteToGUIElement(GUIElement& aElement, Graphics* aGraphics,
+									  const Vector2f& aElementSize,
+									  const std::string& aSpritePath);
+		void AssignSpriteToTooltip(GUITooltip& aTooltip, const Window* aWindow,
+								   const Vector2f& aTooltipSize,
+								   const std::string& aSpritePath);
+		void CreateGUIScene(const std::string& aSceneName,
+							const size_t aNumberOfElementsToReserve);
 		void CreateGUIScene(const std::string& aSceneName);
 		void RemoveGUIScene(const std::string& aSceneName);
 		void PushGUIScene(const std::string& aSceneName);
@@ -90,11 +77,14 @@ namespace KE
 		void PopGUIScene();
 		GUIScene* GetGUIScene(const std::string& aSceneName);
 		bool IsMouseOverGUI(const Vector2f& aMousePosition);
-		GUIElement* GetGUIElementFromMousePosition(const Vector2f& aMousePosition);
-		GUIElement* GetAnyGUIElementFromMousePosition(const Vector2f& aMousePosition);
+		GUIElement* GetGUIElementFromMousePosition(
+			const Vector2f& aMousePosition);
+		GUIElement* GetAnyGUIElementFromMousePosition(
+			const Vector2f& aMousePosition);
 		void UpdateGUI();
 		void RenderGUI(Graphics* aGraphics);
 		void DrawGUIGrid(Graphics* aGraphics, const Vector2i& aResolution);
+
 	private:
 		void ToggleDrawGUIGrid();
 		void SetVolumeSliderPosition();
@@ -104,15 +94,19 @@ namespace KE
 		void SetVolumeText();
 		void SetResolutionText();
 		void SetScore(P8::PresentScoreDataEvent* aEvent);
-		void SetScoreForPlayer(Score* aPScore, const int aScore, const int aModelID);
+		void SetScoreForPlayer(Score* aPScore, const int aScore,
+							   const int aModelID);
 		void HideScoreForNonActivePlayer(const int aPlayerIndex);
 		void SetPortraitForPlayer(Score* aPSScore, const int aModelID);
 		void ResetScores();
 		void SetGUIText(GUIElement* aElement, const std::string& aText);
-		void MoveElementBetweenScenes(const std::string& aSourceSceneName, const std::string& aDestinationSceneName, const size_t aElementIndex);
+		void MoveElementBetweenScenes(const std::string& aSourceSceneName,
+									  const std::string& aDestinationSceneName,
+									  const size_t aElementIndex);
 		std::string GetCurrentSceneName() const;
 
-		void RegisterAssignedEvent(const std::string& aEventName, GUIElement* aElement);
+		void RegisterAssignedEvent(const std::string& aEventName,
+								   GUIElement* aElement);
 		void UnregisterAssignedEvent(GUIElement* aElement);
 
 		void HandleEventTimers();
@@ -135,11 +129,14 @@ namespace KE
 	private:
 		void SetTextColour(GUIElement* aElement, const Vector4f& aColour);
 		void SetDrawElement(const std::string& aEventName, bool aShouldDraw);
-		void SetDrawTextElement(const std::string& aEventName, const std::string& aText, bool aShouldDraw);
+		void SetDrawTextElement(const std::string& aEventName,
+								const std::string& aText, bool aShouldDraw);
 		void SetTextAlpha(GUIElement* aElement, const float aAlpha);
-		void SetColourOfElement(const std::string& aEventName, const Vector4f& aColour);
+		void SetColourOfElement(const std::string& aEventName,
+								const Vector4f& aColour);
 		void SetColourOfElement(GUIElement* aElement, const Vector4f& aColour);
-		void SetTextureOfElement(const std::string& aEventName, const std::string& aTexturePath);
+		void SetTextureOfElement(const std::string& aEventName,
+								 const std::string& aTexturePath);
 		void SelectFirstMenuElement();
 		void SelectLastMenuElement();
 		void SelectNextMenuElement();
@@ -163,7 +160,8 @@ namespace KE
 
 		int myCurrentResolutionIndex;
 		int myMaxResolutions;
-		inline static const Vector2i RESOLUTIONS[3] = { {1280, 720}, {1920, 1080}, {2560, 1440} };
+		inline static const Vector2i RESOLUTIONS[3] = {
+			{1280, 720}, {1920, 1080}, {2560, 1440}};
 		bool isFullscreen;
 		GUIElement* myFullscreenContainer = nullptr;
 		GUIElement* myResolutionContainer = nullptr;
@@ -179,10 +177,10 @@ namespace KE
 		SpriteBatch myCursorSpriteBatch;
 		Sprite* myCursorSprite = nullptr;
 
-		Vector4f myCharacterColours[4] = { {1.0f, 1.0f, 1.0f, 1.0f},
-										   {1.0f, 1.0f, 1.0f, 1.0f},
-										   {1.0f, 1.0f, 1.0f, 1.0f},
-										   {1.0f, 1.0f, 1.0f, 1.0f} };
+		Vector4f myCharacterColours[4] = {{1.0f, 1.0f, 1.0f, 1.0f},
+										  {1.0f, 1.0f, 1.0f, 1.0f},
+										  {1.0f, 1.0f, 1.0f, 1.0f},
+										  {1.0f, 1.0f, 1.0f, 1.0f}};
 
 		std::string myCharacterPointPaths[5];
 		std::string myCharacterDefaultPointPath;
@@ -190,7 +188,8 @@ namespace KE
 
 		std::string myPortraitPaths[5];
 
-		std::unordered_map<std::string, std::vector<GUIElement*>> myEventMap = {};
+		std::unordered_map<std::string, std::vector<GUIElement*>> myEventMap =
+			{};
 
 		KE::FadeElement myReadyFadeElement;
 		KE::FadeElement myGoFadeElement;
@@ -215,7 +214,7 @@ namespace KE
 		Score myP4Score;
 
 		int myMaxScore;
-		int myScore[4] = { -1,-1,-1,-1 };
+		int myScore[4] = {-1, -1, -1, -1};
 
 		int myScoreAnimIndex = 0;
 
@@ -228,11 +227,13 @@ namespace KE
 		GUIElement* myLevelSelectLeft = nullptr;
 		GUIElement* myLevelSelectRight = nullptr;
 		GUIElement* myLevelSelectText = nullptr;
-		int myLevelIndex = -1; // The one to send to SceneManager
+		int myLevelIndex = -1;	// The one to send to SceneManager
 		int myCurrentLevelSelectIndex = -1;
-		std::string myLevelImageBasePath = "Data/Assets/UI/03 Level select/UI_levelSelect_";
-		std::string myCurrentLevelImagePath = "Data/Assets/UI/03 Level select/UI_levelSelect_levelImage_01.dds";
+		std::string myLevelImageBasePath =
+			"Data/Assets/UI/03 Level select/UI_levelSelect_";
+		std::string myCurrentLevelImagePath =
+			"Data/Assets/UI/03 Level select/UI_levelSelect_levelImage_01.dds";
 
 		bool isBlockingInput = true;
 	};
-}
+}  // namespace KE

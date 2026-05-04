@@ -1,7 +1,6 @@
 #pragma once
 
-namespace KE
-{
+namespace KE {
 	class GameObject;
 	class Component;
 	class Collider;
@@ -12,8 +11,7 @@ namespace KE
 	constexpr int FLOW_OUT_MAX = 8;
 	constexpr int PIN_STRING_MAX = 64;
 
-	enum class NodeCategory
-	{
+	enum class NodeCategory {
 		Math,
 		Logic,
 		Flow,
@@ -31,16 +29,14 @@ namespace KE
 
 		Count
 	};
-	enum class PinType
-	{
-		Flow, 
+	enum class PinType {
+		Flow,
 		Value,
 		OutputValue,
 
 		Count
 	};
-	enum class ValueType
-	{
+	enum class ValueType {
 		FlowValue,
 		Container,
 
@@ -62,8 +58,7 @@ namespace KE
 		Any,
 		Count
 	};
-	enum class EntryPointType
-	{
+	enum class EntryPointType {
 		Awake,
 		Update,
 		Function,
@@ -72,23 +67,19 @@ namespace KE
 		Count
 	};
 
-	enum class ValueAttributes
-	{
+	enum class ValueAttributes {
 		Numeric = 1 << 0,
 	};
-		
-	struct ContainerValue
-	{
+
+	struct ContainerValue {
 		void* data = nullptr;
 		int size = 0;
 		ValueType type = ValueType::Count;
 	};
 
-	struct PinValue
-	{
+	struct PinValue {
 		ValueType type = ValueType::Count;
-		union PinValueData
-		{
+		union PinValueData {
 			bool Bool;
 			int Int;
 			float Float;
@@ -103,61 +94,75 @@ namespace KE
 			void* Pointer;
 			char CodeValue[PIN_STRING_MAX];
 
-			PinValueData() { memset(this, 0, sizeof(*this)); }
-			PinValueData(const auto& aValue = 0)
-			{
+			PinValueData() {
+				memset(this, 0, sizeof(*this));
+			}
+			PinValueData(const auto& aValue = 0) {
 				memset(this, 0, sizeof(*this));
 				memcpy(this, &aValue, sizeof(aValue));
 			}
 
 		} value;
 
-		bool operator==(const PinValue& aOther) const { return type == aOther.type && memcmp(&value, &aOther.value, sizeof(value)) == 0; }
+		bool operator==(const PinValue& aOther) const {
+			return type == aOther.type &&
+				   memcmp(&value, &aOther.value, sizeof(value)) == 0;
+		}
 
 		PinValue(ValueType aType = ValueType::Count) : type(aType) {}
-		PinValue(ValueType aType = ValueType::Count, const auto& aValue = 0) : type(aType), value(aValue) {}
+		PinValue(ValueType aType = ValueType::Count, const auto& aValue = 0)
+			: type(aType), value(aValue) {}
 	};
 
-	struct ScriptMemberID
-	{
-		union
-		{
-			struct
-			{
+	struct ScriptMemberID {
+		union {
+			struct {
 				short nodeID;
 				short pinID;
 			} idParts;
 			int combinedID = 0;
 		};
 
-		operator int() const { return combinedID; }
+		operator int() const {
+			return combinedID;
+		}
 		ScriptMemberID(int aID = 0) : combinedID(aID) {}
-		std::size_t operator()(const ScriptMemberID& id) const { return std::hash<int>()(id.combinedID); }
-		ScriptMemberID GetNodeID() const { ScriptMemberID out; out.idParts.nodeID = idParts.nodeID; return out;}
-		ScriptMemberID GetPinID() const { ScriptMemberID out; out.idParts.pinID = idParts.pinID; return out;}
+		std::size_t operator()(const ScriptMemberID& id) const {
+			return std::hash<int>()(id.combinedID);
+		}
+		ScriptMemberID GetNodeID() const {
+			ScriptMemberID out;
+			out.idParts.nodeID = idParts.nodeID;
+			return out;
+		}
+		ScriptMemberID GetPinID() const {
+			ScriptMemberID out;
+			out.idParts.pinID = idParts.pinID;
+			return out;
+		}
 	};
 
-	struct Pin
-	{
+	struct Pin {
 		ScriptMemberID ID;
 		PinValue value;
 		PinType type;
 		char name[PIN_STRING_MAX] = "Pin";
 		bool isOutput = false;
 
-		void* codeData = nullptr; // TODO: getting away from this jank requires a lot of restructuring :( one day
+		void* codeData = nullptr;  // TODO: getting away from this jank requires
+								   // a lot of restructuring :( one day
 
-		void SetName(const char* aName) { memcpy(name, aName, PIN_STRING_MAX); }
+		void SetName(const char* aName) {
+			memcpy(name, aName, PIN_STRING_MAX);
+		}
 	};
 
-	struct PinConnection
-	{
+	struct PinConnection {
 		ScriptMemberID to;
 	};
 
-	//Base Node Class
-	class ScriptNode
-	{
+	// Base Node Class
+	class ScriptNode {
 	protected:
 		std::vector<Pin> inputPins;
 		std::vector<Pin> outputPins;
@@ -167,56 +172,88 @@ namespace KE
 	public:
 		ScriptMemberID ID;
 
-		ScriptNode() {};
+		ScriptNode(){};
 		virtual ~ScriptNode() {}
 
 		void SetID(ScriptMemberID anID);
-		void AssignScript(Script* aScript) { parentScript = aScript; }
+		void AssignScript(Script* aScript) {
+			parentScript = aScript;
+		}
 
 		virtual const char* GetName() const = 0;
 		virtual NodeCategory GetCategory() const = 0;
 		virtual const char* GetDescription() const = 0;
 		virtual void Init() = 0;
 
-		//custom rendering interface
-		virtual void CustomRender() { __noop; }
-		virtual bool DrawHeader() { return true; }
-		virtual void BeginDrawNode() { __noop; }
-		virtual void EndDrawNode() { __noop; }
+		// custom rendering interface
+		virtual void CustomRender() {
+			__noop;
+		}
+		virtual bool DrawHeader() {
+			return true;
+		}
+		virtual void BeginDrawNode() {
+			__noop;
+		}
+		virtual void EndDrawNode() {
+			__noop;
+		}
 		//
 
-		virtual void ExtraSerialize(void* aOutJson, Script* aLoadingScript)	{ __noop; }
-		virtual void ExtraDeserialize(void* aInJson, Script* aLoadingScript) { __noop; }
+		virtual void ExtraSerialize(void* aOutJson, Script* aLoadingScript) {
+			__noop;
+		}
+		virtual void ExtraDeserialize(void* aInJson, Script* aLoadingScript) {
+			__noop;
+		}
 
-		virtual void Execute(NodeExecutor* anExecutor) { __noop; }
-		virtual PinValue GetOutputPinValue(int aPinIndex, NodeExecutor* anExecutor) { return {outputPins[aPinIndex].value}; }
+		virtual void Execute(NodeExecutor* anExecutor) {
+			__noop;
+		}
+		virtual PinValue GetOutputPinValue(int aPinIndex,
+										   NodeExecutor* anExecutor) {
+			return {outputPins[aPinIndex].value};
+		}
 
-		virtual void OnConnectPin(Pin* aFromPin, Pin* aToPin) { __noop; };
-		virtual bool TryAssignUnsupportedPinValue(int aPinIndex, PinValue aValue) { return false; }
+		virtual void OnConnectPin(Pin* aFromPin, Pin* aToPin) {
+			__noop;
+		};
+		virtual bool TryAssignUnsupportedPinValue(int aPinIndex,
+												  PinValue aValue) {
+			return false;
+		}
 
-		virtual void* GetCustomData() { return nullptr; }
-		virtual void SetCustomData(void* data) { __noop; }
+		virtual void* GetCustomData() {
+			return nullptr;
+		}
+		virtual void SetCustomData(void* data) {
+			__noop;
+		}
 
-		virtual std::vector<Pin>& GetInputPins() { return inputPins; }
-		virtual std::vector<Pin>& GetOutputPins() { return outputPins; }
+		virtual std::vector<Pin>& GetInputPins() {
+			return inputPins;
+		}
+		virtual std::vector<Pin>& GetOutputPins() {
+			return outputPins;
+		}
 
-		void AddInputPin(ValueType aValueType, PinType aType, const char* aName)
-		{
+		void AddInputPin(ValueType aValueType, PinType aType,
+						 const char* aName) {
 			ScriptMemberID pinID = ID;
 			pinID.idParts.pinID = (short)(inputPins.size() + outputPins.size());
-			Pin pin = { pinID, PinValue{aValueType}, aType, "" };
+			Pin pin = {pinID, PinValue{aValueType}, aType, ""};
 			strcpy_s(pin.name, aName);
 			pin.isOutput = false;
 			inputPins.push_back(pin);
 		}
-		void AddOutputPin(ValueType aValueType, PinType aType, const char* aName)
-		{
+		void AddOutputPin(ValueType aValueType, PinType aType,
+						  const char* aName) {
 			ScriptMemberID pinID = ID;
 			pinID.idParts.pinID = (short)(inputPins.size() + outputPins.size());
-			Pin pin = { pinID, PinValue{aValueType}, aType, "" };
+			Pin pin = {pinID, PinValue{aValueType}, aType, ""};
 			strcpy_s(pin.name, aName);
 			pin.isOutput = true;
 			outputPins.push_back(pin);
 		}
 	};
-}
+}  // namespace KE

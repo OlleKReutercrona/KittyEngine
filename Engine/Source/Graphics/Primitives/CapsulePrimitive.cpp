@@ -1,8 +1,8 @@
 #include "stdafx.h"
+
 #include "CapsulePrimitive.h"
 
-KE::CapsulePrimitive::CapsulePrimitive()
-{
+KE::CapsulePrimitive::CapsulePrimitive() {
 	if (hasInit) return;
 
 	hasInit = true;
@@ -17,17 +17,15 @@ KE::CapsulePrimitive::CapsulePrimitive()
 
 		const int firstInd = aPolyCount / 2;
 
-		for (int i = firstInd; i <= aPolyCount; i++)
-		{
+		for (int i = firstInd; i <= aPolyCount; i++) {
 			float currentAngle = angle * i;
 			float x = radius * cos(KE::DegToRad(currentAngle));
 			float y = radius + radius * sin(KE::DegToRad(currentAngle));
 			float z = 0.0f;
 
-			myMesh.myVertices.push_back({ x,y,z,1.0f });
+			myMesh.myVertices.push_back({x, y, z, 1.0f});
 			myMesh.myIndices.push_back(i - firstInd);
-			if (i != firstInd)
-			{
+			if (i != firstInd) {
 				myMesh.myIndices.push_back(i - firstInd);
 			}
 		}
@@ -38,24 +36,21 @@ KE::CapsulePrimitive::CapsulePrimitive()
 		myMesh.myIndices.pop_back();
 	}
 
-
 	// lower z
 	{
 		const int firstInd = (int)myMesh.myVertices.size();
 
-		for (int i = aPolyCount / 2; i <= aPolyCount; i++)
-		{
+		for (int i = aPolyCount / 2; i <= aPolyCount; i++) {
 			float currentAngle = angle * i;
 			float x = 0.0f;
 			float y = radius + radius * sin(KE::DegToRad(currentAngle));
 			float z = radius * cos(KE::DegToRad(currentAngle));
 
-			myMesh.myVertices.push_back({ x,y,z,1.0f });
+			myMesh.myVertices.push_back({x, y, z, 1.0f});
 
 			int vIndex = firstInd + i - aPolyCount / 2;
 			myMesh.myIndices.push_back(vIndex);
-			if (i != aPolyCount / 2)
-			{
+			if (i != aPolyCount / 2) {
 				myMesh.myIndices.push_back(vIndex);
 			}
 		}
@@ -63,28 +58,23 @@ KE::CapsulePrimitive::CapsulePrimitive()
 		myMesh.lengthIndices[3].x = (int)myMesh.myVertices.size() - 1;
 
 		myMesh.myIndices.pop_back();
-
 	}
-
-
 
 	// lower y
 	{
 		const int firstInd = (int)myMesh.myVertices.size();
 
-		for (int i = 0; i < aPolyCount; i++)
-		{
+		for (int i = 0; i < aPolyCount; i++) {
 			float currentAngle = angle * i;
 			float x = radius * cos(KE::DegToRad(currentAngle));
 			float y = radius + 0.0f;
 			float z = radius * sin(KE::DegToRad(currentAngle));
 
-			myMesh.myVertices.push_back({ x,y,z,1.0f });
+			myMesh.myVertices.push_back({x, y, z, 1.0f});
 
 			const int vIndex = firstInd + i;
 			myMesh.myIndices.push_back(vIndex);
-			if (i != 0)
-			{
+			if (i != 0) {
 				myMesh.myIndices.push_back(vIndex);
 			}
 		}
@@ -97,19 +87,17 @@ KE::CapsulePrimitive::CapsulePrimitive()
 	{
 		const int firstInd = (int)myMesh.myVertices.size();
 
-		for (int i = 0; i < aPolyCount; i++)
-		{
+		for (int i = 0; i < aPolyCount; i++) {
 			float currentAngle = angle * i;
 			float x = radius * cos(KE::DegToRad(currentAngle));
 			float y = radius + 0.0f;
 			float z = radius * sin(KE::DegToRad(currentAngle));
 
-			myMesh.myVertices.push_back({ x,y,z,1.0f });
+			myMesh.myVertices.push_back({x, y, z, 1.0f});
 
 			const int vIndex = firstInd + i;
 			myMesh.myIndices.push_back(vIndex);
-			if (i != 0)
-			{
+			if (i != 0) {
 				myMesh.myIndices.push_back(vIndex);
 			}
 		}
@@ -122,18 +110,16 @@ KE::CapsulePrimitive::CapsulePrimitive()
 
 		const int firstInd = (int)myMesh.myVertices.size();
 
-		for (int i = 0; i <= aPolyCount / 2; i++)
-		{
+		for (int i = 0; i <= aPolyCount / 2; i++) {
 			float currentAngle = angle * i;
 			float x = radius * cos(KE::DegToRad(currentAngle));
 			float y = radius + radius * sin(KE::DegToRad(currentAngle));
 			float z = 0.0f;
 
-			myMesh.myVertices.push_back({ x,y,z,1.0f });
+			myMesh.myVertices.push_back({x, y, z, 1.0f});
 			const int vIndex = firstInd + i;
 			myMesh.myIndices.push_back(vIndex);
-			if (i != 0)
-			{
+			if (i != 0) {
 				myMesh.myIndices.push_back(vIndex);
 			}
 		}
@@ -144,24 +130,21 @@ KE::CapsulePrimitive::CapsulePrimitive()
 		myMesh.myIndices.pop_back();
 	}
 
-
 	// Upper z
 	{
 		const int firstInd = (int)myMesh.myVertices.size();
 
-		for (int i = 0; i <= aPolyCount / 2; i++)
-		{
+		for (int i = 0; i <= aPolyCount / 2; i++) {
 			float currentAngle = angle * i;
 			float x = 0.0f;
 			float y = radius + radius * sin(KE::DegToRad(currentAngle));
 			float z = radius * cos(KE::DegToRad(currentAngle));
 
-			myMesh.myVertices.push_back({ x,y,z,1.0f });
+			myMesh.myVertices.push_back({x, y, z, 1.0f});
 
 			int vIndex = firstInd + i;
 			myMesh.myIndices.push_back(vIndex);
-			if (i != 0)
-			{
+			if (i != 0) {
 				myMesh.myIndices.push_back(vIndex);
 			}
 		}

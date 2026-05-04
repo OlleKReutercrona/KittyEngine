@@ -1,19 +1,14 @@
 #pragma once
 #include "Kinematic.h"
 
-class Seek 
-{
+class Seek {
 	friend class SteeringController;
 
 public:
-	Seek(Kinematic& aCharacter) : character(aCharacter)
-	{
+	Seek(Kinematic& aCharacter) : character(aCharacter) {}
+	~Seek() {}
 
-	}
-	~Seek(){}
-
-	inline SteeringOutput GetSteering()
-	{
+	inline SteeringOutput GetSteering() {
 		SteeringOutput result;
 
 		result.linear.x = seekTarget.x - character.transform.GetPosition().x;

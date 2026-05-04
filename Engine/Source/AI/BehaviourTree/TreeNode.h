@@ -1,32 +1,23 @@
 #pragma once
 #include <vector>
 
-namespace AI
-{
-	enum class Status
-	{
-		Running,
-		Success,
-		Failure,
-		Invalid
-	};
+namespace AI {
+	enum class Status { Running, Success, Failure, Invalid };
 
-	class TreeNode
-	{
+	class TreeNode {
 	public:
-
 		virtual ~TreeNode() {}
 		virtual Status Update() = 0;
 		virtual bool Awake() = 0;
-		virtual void Init() { __noop; };
-		//virtual void Reset() { __noop; };
-		virtual void Reset() 
-		{ 
-			//myStatus = Status::Invalid; 
+		virtual void Init() {
+			__noop;
+		};
+		// virtual void Reset() { __noop; };
+		virtual void Reset() {
+			// myStatus = Status::Invalid;
 		};
 
-		Status Tick()
-		{
+		Status Tick() {
 			if (myStatus != Status::Running) {
 				Init();
 			}
@@ -44,44 +35,34 @@ namespace AI
 		Status myStatus = Status::Invalid;
 	};
 
-	class Composite : public TreeNode
-	{
+	class Composite : public TreeNode {
 	public:
-		Composite() : it(children.begin()), TreeNode()
-		{
-			if (children.size() > 0)
-			{
+		Composite() : it(children.begin()), TreeNode() {
+			if (children.size() > 0) {
 				it = children.begin();
 			}
-
 		}
 		virtual ~Composite() {}
 
-		TreeNode* AddChild(TreeNode* aNode)
-		{
+		TreeNode* AddChild(TreeNode* aNode) {
 			children.push_back(aNode);
 
 			return aNode;
 		}
-		virtual void Init() override
-		{
+		virtual void Init() override {
 			it = children.begin();
 		}
-		virtual bool Awake() override
-		{
-			for (auto& child : children)
-			{
-				if (!child->Awake()){
+		virtual bool Awake() override {
+			for (auto& child : children) {
+				if (!child->Awake()) {
 					KE_LOG("Composite: Awake failed");
 					return false;
 				}
 			}
 			return true;
 		}
-		void Reset() override
-		{
-			for (auto& child : children)
-			{
+		void Reset() override {
+			for (auto& child : children) {
 				child->Reset();
 			}
 		}
@@ -92,19 +73,14 @@ namespace AI
 		std::vector<TreeNode*>::iterator it;
 	};
 
-	class Decorator : public TreeNode
-	{
+	class Decorator : public TreeNode {
 	public:
 		virtual ~Decorator() {}
 
 		virtual bool Awake() = 0;
-		virtual void Init()
-		{
+		virtual void Init() {}
 
-		}
-
-		TreeNode* SetChild(TreeNode* aNode)
-		{
+		TreeNode* SetChild(TreeNode* aNode) {
 			child = aNode;
 
 			return child;
@@ -114,28 +90,27 @@ namespace AI
 		TreeNode* child = nullptr;
 	};
 
-	class Leaf : public TreeNode
-	{
+	class Leaf : public TreeNode {
 	public:
-		Leaf() {};
+		Leaf(){};
 		virtual ~Leaf() {}
 		virtual Status Update() = 0;
 		virtual bool Awake() = 0;
-		virtual void Reset() { __noop; };
+		virtual void Reset() {
+			__noop;
+		};
+
 	protected:
 	};
 
-	class Selector : public Composite
-	{
+	class Selector : public Composite {
 	public:
 		Selector() : Composite() {}
 
-		Status Update() override
-		{
+		Status Update() override {
 			assert(children.size() && "Composite has no children");
 
-			while (it != children.end())
-			{
+			while (it != children.end()) {
 				Status status = (*it)->Tick();
 
 				if (status != Status::Failure) {
@@ -149,20 +124,16 @@ namespace AI
 		}
 	};
 
-	class Sequence : public Composite
-	{
+	class Sequence : public Composite {
 	public:
-		Sequence() : Composite()
-		{
+		Sequence() : Composite() {
 			Init();
 		}
 
-		Status Update() override
-		{
+		Status Update() override {
 			assert(children.size() && "Sequence has no children");
 
-			while (it != children.end())
-			{
+			while (it != children.end()) {
 				Status status = (*it)->Tick();
 
 				if (status != Status::Success) {
@@ -176,4 +147,4 @@ namespace AI
 		}
 	};
 
-} // namespace AI
+}  // namespace AI

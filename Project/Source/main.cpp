@@ -4,11 +4,9 @@
 
 #include "Game.h"
 
-class Copier
-{
+class Copier {
 public:
-	Copier()
-	{
+	Copier() {
 		KE::AssetLoader(nullptr).CopyAssets();
 	}
 };
@@ -17,30 +15,31 @@ public:
 inline Copier copier;
 #endif
 
-int WINAPI wWinMain(_In_ HINSTANCE, _In_opt_ HINSTANCE, _In_ LPWSTR, _In_ int)
-{
+int WINAPI wWinMain(_In_ HINSTANCE, _In_opt_ HINSTANCE, _In_ LPWSTR, _In_ int) {
 #ifndef KITTYENGINE_SHIP2
 	AllocConsole();
 	FILE* fp;
 	freopen_s(&fp, "CONOUT$", "w", stdout);
 	// KE Logger prefers the stderr stream for error logging.
 	freopen_s(&fp, "CONOUT$", "w", stderr);
-#endif // KITTYENGINE_SHIP
+#endif	// KITTYENGINE_SHIP
 
-	// The right method call in the wrong place can make all the difference in the world. -- Vilhelm
+	// The right method call in the wrong place can make all the difference in
+	// the world. -- Vilhelm
 	KE_GLOBAL::audioPlayer.Init();
 
-	//try {
-		KE::Game{}.Go();
+	// try {
+	KE::Game{}.Go();
 	//}
-	//catch(std::exception& e)
-	//{ 
+	// catch(std::exception& e)
+	//{
 	//	std::string str;
 	//	str = e.what();
 
 	//	wchar_t wtext[200];
 	//	size_t outSize;
-	//	mbstowcs_s(&outSize, wtext, str.length(), str.c_str(), str.length() - 1);
+	//	mbstowcs_s(&outSize, wtext, str.length(), str.c_str(), str.length() -
+	// 1);
 
 	//	MessageBox(nullptr, wtext, L"Exception!", MB_OK | MB_ICONEXCLAMATION);
 	//	return EXIT_FAILURE;

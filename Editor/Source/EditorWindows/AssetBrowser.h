@@ -1,41 +1,36 @@
 #pragma once
 
-#include "../EditorGraphics.h"
-#include "../EditorFile.h"
-#include <filesystem>
 #include <External/Include/FileWatch/FileWatch.hpp>
+#include <filesystem>
 
-namespace KE_EDITOR
-{
-	struct FileTreeNodePath
-	{
+#include "../EditorFile.h"
+#include "../EditorGraphics.h"
+
+namespace KE_EDITOR {
+	struct FileTreeNodePath {
 		std::vector<unsigned int> myTurnStack = {};
 	};
 
-	struct FileTreeNode
-	{
-
+	struct FileTreeNode {
 		std::vector<FileTreeNode> myChildren;
 		std::vector<EditorFile> myFiles;
 		std::vector<EditorFile> myFolders;
 	};
 
-	struct FileTree
-	{
+	struct FileTree {
 		FileTreeNode myRoot;
 		FileTreeNode* myActiveNode = nullptr;
 		std::vector<unsigned int> myOpenedStack;
-		
-		FileTree() { myRoot = FileTreeNode(); }
 
-		FileTreeNode* GetOpenedNode()
-		{
+		FileTree() {
+			myRoot = FileTreeNode();
+		}
+
+		FileTreeNode* GetOpenedNode() {
 			FileTreeNode* currentNode = &myRoot;
 
-			for (unsigned int i = 0; i < myOpenedStack.size(); ++i)
-			{
-				if (currentNode->myChildren.size() <= myOpenedStack[i])
-				{
+			for (unsigned int i = 0; i < myOpenedStack.size(); ++i) {
+				if (currentNode->myChildren.size() <= myOpenedStack[i]) {
 					return currentNode;
 				}
 				currentNode = &currentNode->myChildren[myOpenedStack[i]];
@@ -43,27 +38,23 @@ namespace KE_EDITOR
 
 			return currentNode;
 		}
-		inline void Ascend()
-		{
+		inline void Ascend() {
 			myOpenedStack.pop_back();
 			myActiveNode = GetOpenedNode();
 		}
-		inline void Descend(int anIndex)
-		{
-			if (myActiveNode->myChildren.size() > anIndex)
-			{
+		inline void Descend(int anIndex) {
+			if (myActiveNode->myChildren.size() > anIndex) {
 				myOpenedStack.push_back(anIndex);
 				myActiveNode = &myActiveNode->myChildren[anIndex];
 			}
 		}
 	};
 
-	class EditorAssetBrowser : public EditorWindowBase
-	{
+	class EditorAssetBrowser : public EditorWindowBase {
 	private:
 		const std::string myBasePath = "Data";
 		std::filesystem::path myCurrentPath;
-		const float myIconSize[2] = { 64.0f, 64.0f };
+		const float myIconSize[2] = {64.0f, 64.0f};
 
 		filewatch::FileWatch<std::wstring> myEngineFileWatcher;
 		filewatch::FileWatch<std::wstring> myBinFileWatcher;
@@ -84,13 +75,16 @@ namespace KE_EDITOR
 	public:
 		EditorAssetBrowser(EditorWindowInput aStartupData = {});
 		~EditorAssetBrowser();
-		
+
 		void Init();
 
-		void ProcessFileChangeEngine(const std::wstring& path, const filewatch::Event change_type);
-		void ProcessFileChangeBin(const std::wstring& path, const filewatch::Event change_type);
+		void ProcessFileChangeEngine(const std::wstring& path,
+									 const filewatch::Event change_type);
+		void ProcessFileChangeBin(const std::wstring& path,
+								  const filewatch::Event change_type);
 
-		void RecursiveFolderTreeGen(const std::filesystem::path& aPath, FileTreeNode* aNode);
+		void RecursiveFolderTreeGen(const std::filesystem::path& aPath,
+									FileTreeNode* aNode);
 		void GenerateEditorFiles();
 
 		void Regenerate();
@@ -100,9 +94,12 @@ namespace KE_EDITOR
 		void Update() override;
 		void RenderFileGrid(const ImVec2& aContentRegionSize);
 		void DrawNodeChildFolders(FileTreeNode& aNode);
-		const char* GetWindowName() const override { return "Asset Browser"; }
+		const char* GetWindowName() const override {
+			return "Asset Browser";
+		}
 		void Render() override;
 
-		bool PassesFilter(const std::string& aFileName, const std::string& aFilter, bool aCaseSensitive);
+		bool PassesFilter(const std::string& aFileName,
+						  const std::string& aFilter, bool aCaseSensitive);
 	};
-}
+}  // namespace KE_EDITOR

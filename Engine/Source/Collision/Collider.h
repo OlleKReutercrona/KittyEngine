@@ -1,39 +1,33 @@
 #pragma once
-//#include "Shapes/Shape.h"
+// #include "Shapes/Shape.h"
 #include <Engine/Source/Math/Vector3.h>
-
+#include <vector>
 
 #include "CollisionData.h"
-#include <vector>
 
 class EnemyComponent;
 
-namespace KE
-{
-	
+namespace KE {
 
 	class Component;
 	struct PhysicsObject;
 
-	struct PhysxShapeUserData
-	{
+	struct PhysxShapeUserData {
 		int myID;
 		GameObject* gameObject = nullptr;
 	};
 
-	class Collider
-	{
+	class Collider {
 		friend class CombatSystem;
 
 	public:
-		Collider() 
-		{
-			myOffset = { 0,0,0 };
-			myPosition = { 0,0,0 };
-			myBaseSize = { 1,1,1 };
+		Collider() {
+			myOffset = {0, 0, 0};
+			myPosition = {0, 0, 0};
+			myBaseSize = {1, 1, 1};
 			isActive = true;
 		};
-		~Collider() {};
+		~Collider(){};
 
 		Component* myComponent = nullptr;
 		PhysicsObject* myPhysicsObject = nullptr;
@@ -47,14 +41,14 @@ namespace KE
 		void AddForce(const Vector3f& theForce);
 		void SetPhysxUserData(void* aData = nullptr);
 
-
-
 		/*
-		* Set to true if no physics should be applied.
-		* Set to false to enable physics.
-		*/
+		 * Set to true if no physics should be applied.
+		 * Set to false to enable physics.
+		 */
 		void SetKinematic(const bool aValue);
-		bool GetKinematic() const { return isKinematic; }
+		bool GetKinematic() const {
+			return isKinematic;
+		}
 		void DisableGravity(const bool aValue);
 		void DisableSimulation(const bool aValue);
 		void SyncPhysXPosition();
@@ -62,9 +56,9 @@ namespace KE
 		void SetLayer(int aLayer);
 
 		PhysxShapeUserData myUserData;
+
 	private:
 		KE_EDITOR_FRIEND
-
 
 		///// collision handler /////
 		friend class CollisionHandler;
@@ -73,22 +67,20 @@ namespace KE
 		friend class BoxColliderComponent;
 		friend class SphereColliderComponent;
 		friend class CapsuleColliderComponent;
-		
-		friend class EnemyComponent;
 
-		
+		friend class EnemyComponent;
 
 		std::vector<CollisionData> myCollisionData;
 
-		// <<-+| DATA SET EXTERNALY |+->> 
+		// <<-+| DATA SET EXTERNALY |+->>
 
 		/*
-		* Set This Variable With UpdateOffset Instead!
-		*/
+		 * Set This Variable With UpdateOffset Instead!
+		 */
 		Vector3f myOffset;
 		/*
-		* Set This Variable With UpdatePosition Instead!
-		*/
+		 * Set This Variable With UpdatePosition Instead!
+		 */
 		Vector3f myPosition;
 
 		Vector3f myBaseSize;
@@ -99,4 +91,4 @@ namespace KE
 		bool isTrigger = false;
 		bool isKinematic = false;
 	};
-}
+}  // namespace KE

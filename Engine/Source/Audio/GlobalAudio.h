@@ -1,8 +1,7 @@
 #pragma once
 #include "Engine/Source/Audio/AudioInstance.h"
 
-namespace sound
-{
+namespace sound {
 	enum class SFX {
 
 		BallParry,
@@ -26,11 +25,11 @@ namespace sound
 		PlayerFalling,
 		PlayerMeele,
 
-		PlayerTauntCandy,	
-		PlayerTauntDew,		
-		PlayerTauntCinder,	
-		PlayerTauntMal,		
-		PlayerTauntGod,		
+		PlayerTauntCandy,
+		PlayerTauntDew,
+		PlayerTauntCinder,
+		PlayerTauntMal,
+		PlayerTauntGod,
 
 		PlayerDeathCandy,
 		PlayerDeathDew,
@@ -80,12 +79,10 @@ namespace sound
 
 		Count
 	};
-}
+}  // namespace sound
 
-namespace KE
-{
-	class GlobalAudio
-	{
+namespace KE {
+	class GlobalAudio {
 	public:
 		static void Init();
 		static void Update();
@@ -103,14 +100,22 @@ namespace KE
 		static const char* EnumParser(sound::Music aType);
 		static const char* EnumParser(sound::Ambient aType);
 
+		inline static std::unordered_map<sound::Music, AudioInstance>
+			musicInstances;
+		inline static std::unordered_map<sound::SFX, AudioInstance>
+			sfxInstances;
+		inline static std::unordered_map<sound::Ambient, AudioInstance>
+			ambientInstances;
 
-		inline static std::unordered_map<sound::Music, AudioInstance> musicInstances;
-		inline static std::unordered_map<sound::SFX, AudioInstance> sfxInstances;
-		inline static std::unordered_map<sound::Ambient, AudioInstance> ambientInstances;
-
-		inline static std::array<AudioInstanceData, static_cast<int>(sound::SFX::Count)> sfxData = {};
-		inline static std::array<AudioInstanceData, static_cast<int>(sound::Music::Count)> musicData = {};
-		inline static std::array<AudioInstanceData, static_cast<int>(sound::Ambient::Count)> ambientData = {};
+		inline static std::array<AudioInstanceData,
+								 static_cast<int>(sound::SFX::Count)>
+			sfxData = {};
+		inline static std::array<AudioInstanceData,
+								 static_cast<int>(sound::Music::Count)>
+			musicData = {};
+		inline static std::array<AudioInstanceData,
+								 static_cast<int>(sound::Ambient::Count)>
+			ambientData = {};
 
 		inline static sound::Music currentMusic = sound::Music::Count;
 		inline static sound::Music previousMusic = sound::Music::Count;
@@ -129,4 +134,4 @@ namespace KE
 		inline static float myMusicMaxVolume = 1.0f;
 		inline static float myAmbientMaxVolume = 1.0f;
 	};
-}
+}  // namespace KE

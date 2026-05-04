@@ -1,13 +1,11 @@
 #pragma once
 #include <wrl/client.h>
 
-#include "Engine\Source\Math\Matrix4x4.h"
-#include "Engine\Source\Math\Vector4.h"
+#include "Engine\Source\Graphics\Primitives\CapsulePrimitive.h"
 #include "Engine\Source\Graphics\Primitives\CubePrimitive.h"
 #include "Engine\Source\Graphics\Primitives\SpherePrimitive.h"
-#include "Engine\Source\Graphics\Primitives\CapsulePrimitive.h"
-
-
+#include "Engine\Source\Math\Matrix4x4.h"
+#include "Engine\Source\Math\Vector4.h"
 
 using Microsoft::WRL::ComPtr;
 struct ID3D11Device;
@@ -18,27 +16,37 @@ struct ID3D11PixelShader;
 struct ID3D11InputLayout;
 struct D3D11_INPUT_ELEMENT_DESC;
 
-
-namespace KE
-{
+namespace KE {
 	class PixelShader;
 	class VertexShader;
 
-#define DL_DEFAULT_COLOUR { 1.0f, 0.0f, 0.0f, 1.0f }
+#define DL_DEFAULT_COLOUR \
+	{ 1.0f, 0.0f, 0.0f, 1.0f }
 
-	struct LineVertex
-	{
+	struct LineVertex {
 		LineVertex() = default;
-		LineVertex(Vector4f aPos) { position = aPos; }
-		LineVertex(Vector4f aPos, Vector4f aColour) { position = aPos;  colour = aColour;  }
-		LineVertex(Vector3f aPos) { position = { aPos.x,aPos.y,aPos.z, 1.0f }; } // Added by Daniel
-		LineVertex(Vector3f aPos, Vector4f aColour) { position = { aPos.x,aPos.y,aPos.z, 1.0f };  colour = aColour;  } // Added by Daniel
-		LineVertex(const float aX, const float aY, const float aZ, const float aW) { position = {aX, aY, aZ, aW};}
-		Vector4f position = { 1.0f,1.0f,1.0f,1.0f };
+		LineVertex(Vector4f aPos) {
+			position = aPos;
+		}
+		LineVertex(Vector4f aPos, Vector4f aColour) {
+			position = aPos;
+			colour = aColour;
+		}
+		LineVertex(Vector3f aPos) {
+			position = {aPos.x, aPos.y, aPos.z, 1.0f};
+		}  // Added by Daniel
+		LineVertex(Vector3f aPos, Vector4f aColour) {
+			position = {aPos.x, aPos.y, aPos.z, 1.0f};
+			colour = aColour;
+		}  // Added by Daniel
+		LineVertex(const float aX, const float aY, const float aZ,
+				   const float aW) {
+			position = {aX, aY, aZ, aW};
+		}
+		Vector4f position = {1.0f, 1.0f, 1.0f, 1.0f};
 		Vector4f colour = DL_DEFAULT_COLOUR;
 
-		LineVertex operator*(const Vector3f aSizeModifier)
-		{
+		LineVertex operator*(const Vector3f aSizeModifier) {
 			LineVertex copy = *this;
 
 			copy.position.x *= aSizeModifier.x;
@@ -48,8 +56,7 @@ namespace KE
 			return copy;
 		}
 
-		LineVertex operator*=(const Vector3f aSizeModifier)
-		{
+		LineVertex operator*=(const Vector3f aSizeModifier) {
 			LineVertex copy = *this;
 
 			copy.position.x *= aSizeModifier.x;
@@ -59,8 +66,7 @@ namespace KE
 			return copy;
 		}
 
-		LineVertex operator*= (const float aSizeModifier)
-		{
+		LineVertex operator*=(const float aSizeModifier) {
 			LineVertex copy = *this;
 
 			copy.position.x *= aSizeModifier;
@@ -70,8 +76,7 @@ namespace KE
 			return copy;
 		}
 
-		LineVertex operator+= (const float aSizeModifier)
-		{
+		LineVertex operator+=(const float aSizeModifier) {
 			LineVertex copy = *this;
 
 			copy.position.x += aSizeModifier;
@@ -81,8 +86,7 @@ namespace KE
 			return copy;
 		}
 
-		LineVertex operator+(const Vector3f aPosition)
-		{
+		LineVertex operator+(const Vector3f aPosition) {
 			LineVertex copy = *this;
 
 			copy.position.x += aPosition.x;
@@ -92,8 +96,7 @@ namespace KE
 			return copy;
 		}
 
-		LineVertex operator*(const float aRadius)
-		{
+		LineVertex operator*(const float aRadius) {
 			LineVertex copy = *this;
 
 			copy.position.x *= aRadius;
@@ -104,45 +107,58 @@ namespace KE
 		}
 	};
 
-	struct LineRenderData
-	{
+	struct LineRenderData {
 		std::vector<int> myIndices;
 		std::vector<LineVertex> myVertices;
-		PixelShader* myPS  = nullptr;
+		PixelShader* myPS = nullptr;
 		VertexShader* myVS = nullptr;
 		std::vector<D3D11_INPUT_ELEMENT_DESC> myLayout;
 	};
 
-
-
-	class DebugLine
-	{
+	class DebugLine {
 		friend class DebugRenderer;
 
 	public:
 		DebugLine();
 		~DebugLine();
 
-		bool Initialize(LineRenderData aRenderData, ID3D11Device* aDevice, bool isStatic = false);
-		void Render(ID3D11DeviceContext* context, VertexShader* aVSOverride = nullptr, PixelShader* aPSOverride = nullptr);
+		bool Initialize(LineRenderData aRenderData, ID3D11Device* aDevice,
+						bool isStatic = false);
+		void Render(ID3D11DeviceContext* context,
+					VertexShader* aVSOverride = nullptr,
+					PixelShader* aPSOverride = nullptr);
 
 		void SetVertexes();
 		void SetIndices();
 		LineVertex* GetVertex(const int anID);
-		inline std::vector<LineVertex>* GetVertexes() { return &myVertices; };
+		inline std::vector<LineVertex>* GetVertexes() {
+			return &myVertices;
+		};
 
 		void AddLine(const LineVertex aStartPoint, const LineVertex anEndPoint);
 
-		void DrawCube(const Vector3f& aPosition, const Vector3f& aDimensions, const Vector4f& aColour = DL_DEFAULT_COLOUR);
-		void DrawCube(const Transform& aTransform, const Vector3f& aDimensions,  const Vector4f& aColour = DL_DEFAULT_COLOUR);
-		void DrawSphere(const Vector3f& aPosition, const float aRadius, const Vector4f& aColour = DL_DEFAULT_COLOUR);
-		void DrawSphere(const Transform& aTransform, float aRadius, const Vector4f& aColour = DL_DEFAULT_COLOUR);
-		void DrawCone(const Vector3f& aPosition, const Vector3f& aDirection, const float aLength, const float anOuterRadius, const float anInnerRadius, const Vector4f& aColour = DL_DEFAULT_COLOUR);
+		void DrawCube(const Vector3f& aPosition, const Vector3f& aDimensions,
+					  const Vector4f& aColour = DL_DEFAULT_COLOUR);
+		void DrawCube(const Transform& aTransform, const Vector3f& aDimensions,
+					  const Vector4f& aColour = DL_DEFAULT_COLOUR);
+		void DrawSphere(const Vector3f& aPosition, const float aRadius,
+						const Vector4f& aColour = DL_DEFAULT_COLOUR);
+		void DrawSphere(const Transform& aTransform, float aRadius,
+						const Vector4f& aColour = DL_DEFAULT_COLOUR);
+		void DrawCone(const Vector3f& aPosition, const Vector3f& aDirection,
+					  const float aLength, const float anOuterRadius,
+					  const float anInnerRadius,
+					  const Vector4f& aColour = DL_DEFAULT_COLOUR);
 
-		void DrawCapsule(const Vector3f& aPosition, const float aRadius, const float aLength, const Vector4f& aColour = DL_DEFAULT_COLOUR);
-		void DrawCapsule(const Transform& aTransform, const float aRadius, const float aLength, const Vector4f& aColour = DL_DEFAULT_COLOUR);
+		void DrawCapsule(const Vector3f& aPosition, const float aRadius,
+						 const float aLength,
+						 const Vector4f& aColour = DL_DEFAULT_COLOUR);
+		void DrawCapsule(const Transform& aTransform, const float aRadius,
+						 const float aLength,
+						 const Vector4f& aColour = DL_DEFAULT_COLOUR);
 
 		void EndFrame();
+
 	private:
 		void CreateBuffers();
 
@@ -178,5 +194,4 @@ namespace KE
 		inline static std::vector<int> mySphereIndices;
 	};
 
-
-}
+}  // namespace KE

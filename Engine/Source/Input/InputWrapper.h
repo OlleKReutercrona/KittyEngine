@@ -1,14 +1,12 @@
 #pragma once
-#include "InputHandler.h"
 #include "Engine/Source/Math/Vector2.h"
 #include "Gamepad.h"
+#include "InputHandler.h"
 
-namespace KE
-{
+namespace KE {
 	struct InputEvent;
 
-	class InputWrapper
-	{
+	class InputWrapper {
 	public:
 		InputWrapper();
 		void Update();
@@ -40,15 +38,19 @@ namespace KE
 		Gamepad* GetGamepad(int aIndex);
 
 	private:
-		bool PressedKeyThisFrame(const std::vector<Key>& aMouseAndKeyboardKeys, Key& aOutKey) const;
-		bool ReleasedKeyThisFrame(const std::vector<Key>& aMouseAndKeyboardKeys, Key& aOutKey) const;
-		bool HeldKeyThisFrame(const std::vector<Key>& aMouseAndKeyboardKeys, Key& aOutKey) const;
+		bool PressedKeyThisFrame(const std::vector<Key>& aMouseAndKeyboardKeys,
+								 Key& aOutKey) const;
+		bool ReleasedKeyThisFrame(const std::vector<Key>& aMouseAndKeyboardKeys,
+								  Key& aOutKey) const;
+		bool HeldKeyThisFrame(const std::vector<Key>& aMouseAndKeyboardKeys,
+							  Key& aOutKey) const;
 		std::vector<InputEvent*> myInputEvents;
 		bool isInputEnabled = true;
 
 		// Input devices
 		InputHandler myInputHandler;
-		Gamepad myGamepads[4] = { Gamepad(0), Gamepad(1), Gamepad(2), Gamepad(3) };
+		Gamepad myGamepads[4] = {Gamepad(0), Gamepad(1), Gamepad(2),
+								 Gamepad(3)};
 
 		// Mouse & Keyboard
 		std::vector<Key> myKeysUp;
@@ -74,4 +76,4 @@ namespace KE
 		std::vector<Key> myKeysF5;
 		std::vector<Key> myKeysF6;
 	};
-}
+}  // namespace KE

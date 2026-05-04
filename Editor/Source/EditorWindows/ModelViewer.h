@@ -1,13 +1,12 @@
 #pragma once
 #include <Engine/Source/Graphics/Graphics.h>
+
 #include "Editor/Source/EditorWindows/Window.h"
 
-namespace KE_EDITOR
-{
+namespace KE_EDITOR {
 	class Editor;
 
-	enum class RenderType
-	{
+	enum class RenderType {
 		DeferredModel,
 		VFXModel,
 		VFXSequence,
@@ -17,26 +16,27 @@ namespace KE_EDITOR
 		Count
 	};
 
-	inline const char* EnumToString(RenderType aType)
-	{
-		switch (aType)
-		{
-		case RenderType::DeferredModel: return "Deferred Model";
-		case RenderType::VFXModel: return "VFX Model";
-		case RenderType::VFXSequence: return "VFX Sequence";
-		case RenderType::DeferredSkeletalModel: return "Deferred Skeletal Model";
-		case RenderType::FullscreenQuad: return "Fullscreen Quad";
-		default: return "Unknown";
+	inline const char* EnumToString(RenderType aType) {
+		switch (aType) {
+			case RenderType::DeferredModel:
+				return "Deferred Model";
+			case RenderType::VFXModel:
+				return "VFX Model";
+			case RenderType::VFXSequence:
+				return "VFX Sequence";
+			case RenderType::DeferredSkeletalModel:
+				return "Deferred Skeletal Model";
+			case RenderType::FullscreenQuad:
+				return "Fullscreen Quad";
+			default:
+				return "Unknown";
 		}
 	}
 
-
-	class ModelViewer : public EditorWindowBase
-	{
+	class ModelViewer : public EditorWindowBase {
 		KE_EDITOR_FRIEND
 	private:
-		union
-		{
+		union {
 			KE::ModelData myModelData = {};
 			KE::SkeletalModelData mySkeletalModelData;
 		};
@@ -59,18 +59,26 @@ namespace KE_EDITOR
 		RenderType myRenderType = RenderType::DeferredModel;
 
 		bool HoveringOverRender() const;
-	public:
-		ModelViewer(EditorWindowInput aStartupData = {}) : EditorWindowBase(aStartupData) {}
-		~ModelViewer() override {};
 
-		const char* GetWindowName() const override { return "Model Viewer"; }
+	public:
+		ModelViewer(EditorWindowInput aStartupData = {})
+			: EditorWindowBase(aStartupData) {}
+		~ModelViewer() override{};
+
+		const char* GetWindowName() const override {
+			return "Model Viewer";
+		}
 		void Init() override;
 		void Update() override;
 		void Render() override;
 
-		const KE::ModelData& GetModelData() const { return myModelData; }
+		const KE::ModelData& GetModelData() const {
+			return myModelData;
+		}
 
-		void RenderCustom(RenderType aType, KE::VertexShader* aVS, KE::PixelShader* aPS, KE::Material* aMaterial, const Vector2f& aViewportSize);
+		void RenderCustom(RenderType aType, KE::VertexShader* aVS,
+						  KE::PixelShader* aPS, KE::Material* aMaterial,
+						  const Vector2f& aViewportSize);
 	};
 
-}
+}  // namespace KE_EDITOR
