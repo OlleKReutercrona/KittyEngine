@@ -1,24 +1,56 @@
 name: Format Check
 
 on:
-    pull_request:
-
-permissions:
-    contents: read
-    pull-requests: read
+  pull_request:
 
 jobs:
-    format:
-        runs-on: ubuntu-latest
+  format:
+    runs-on: ubuntu-latest
 
-        steps:
-            - uses: actions/checkout@v4
-              with: 
-                token: ${{ secrets.GITHUB_TOKEN }}
-                persist-credentials: true
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # Required to diff PR base
 
-            - name: Format C++ code
-              uses: OlleKReutercrona/clang-format@main
-              with:
-                  exclude: 'External/.'
-                        
+      - name: Install clang-format
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang-format-16
+          clang-format --version
+
+      - name: Get changed C++ files
+        id: format
+        shell: bash
+        working-directory: ${{ inputs.working-directory }}
+        run: |
+          echo "🚀 Checking formatting"
+          
+          # Get files in PR
+          BASE=${{ github.event.pull_request.base.sha }}
+          HEAD=${{ github.event.pull_request.head.sha }}
+          
+          FILES=$(git diff --name-only $BASE $HEAD | grep -E '\.(cpp|hpp|c|h)$' || true)
+
+          # Filter excluded files
+          if [ -n "${{ inputs.exclude }}" ]; then
+            FILES=$(echo "$FILES" | grep -Ev "${{ inputs.exclude }}" || true)
+          fi
+          
+          if [ -z "$FILES" ]; then
+            echo "ℹ️  No C/C++ files found to format"
+            exit 0
+          fi
+
+          echo "📄 Files to check:"
+          echo "$FILES"
+
+          # Format files
+          if ! echo "$FILES" | xargs -r clang-format-${{ inputs.version }} --dry-run --Werror; then
+              echo ""
+              echo "❌ Formatting issues detected"
+              exit 1
+          fi
+
+          echo "✅ All files properly formatted"
+          exit 0
