@@ -20,6 +20,7 @@ jobs:
       - name: Checkout PR
         uses: actions/checkout@v4
         with:
+          ref: ${{ github.event.issue.pull_request.head.sha }}
           fetch-depth: 0
 
       - name: Create PR status comment (start)
@@ -74,19 +75,8 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action (clang-format)"
 
-          # Determine the branch to push to
-          if [ -n "${{ github.head_ref }}" ]; then
-            # Pull request - use the head branch
-            BRANCH="${{ github.head_ref }}"
-            echo "🔀 Detected pull request, using branch: $BRANCH"
-          elif [ -n "${{ github.ref_name }}" ]; then
-            # Direct push - use the ref name
-            BRANCH="${{ github.ref_name }}"
-            echo "📌 Using branch: $BRANCH"
-          else
-            echo "❌ Could not determine branch name"
-            exit 1
-          fi
+          BRANCH="${{ github.event.issue.pull_request.head.ref }}"
+          echo "🔀 Using PR branch: $BRANCH"
 
           # Ensure we're on the correct branch (handle detached HEAD)
           CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
