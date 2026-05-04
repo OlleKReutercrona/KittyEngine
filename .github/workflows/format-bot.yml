@@ -35,7 +35,7 @@ jobs:
       - name: Checkout PR
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.issue.pull_request.head.sha }}
+          ref: ${{ steps.pr.outputs.head_sha }}
           fetch-depth: 0
 
       - name: Create PR status comment (start)
@@ -75,7 +75,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action (clang-format)"
 
-          BRANCH="${{ github.event.issue.pull_request.head.ref }}"
+          BRANCH="${{ steps.pr.outputs.head_ref }}"
           echo "🔀 Using PR branch: $BRANCH"
 
           # Ensure we're on the correct branch (handle detached HEAD)
